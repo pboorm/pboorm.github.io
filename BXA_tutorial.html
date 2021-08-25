@@ -13094,25 +13094,21 @@ div#notebook {
 <br/>Using a conda environment (e.g. with <a href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a>) should ensure no conflicts occur when installing the Python packages required for BXA.</p>
 <h2 id="For-PyXspec-users...">For PyXspec users...<a class="anchor-link" href="#For-PyXspec-users...">&#182;</a></h2><ul>
 <li>Using PyXspec with BXA may require a source distribution of HEASOFT. See install instructions here:<br/><a href="https://heasarc.gsfc.nasa.gov/docs/software/heasoft/">https://heasarc.gsfc.nasa.gov/docs/software/heasoft/</a><br/></li>
-<li>Once the install process has finished, check PyXspec works by typing:<blockquote><p><code>conda activate bxa</code> (if using a specific conda environment called bxa, otherwise skip this step)<br/>
+<li>Once the install process has finished, check PyXspec works by typing:<blockquote><p><code>conda activate bxa</code> (if using a specific conda environment, otherwise skip this step)<br/>
 <code>python -c 'from xspec import *'</code></p>
 </blockquote>
 </li>
 </ul>
 <h2 id="For-Sherpa-users...">For Sherpa users...<a class="anchor-link" href="#For-Sherpa-users...">&#182;</a></h2><ul>
 <li>Install instructions for CIAO and Sherpa (optionally in a conda environment):<br/><a href="https://cxc.cfa.harvard.edu/ciao/download/">https://cxc.cfa.harvard.edu/ciao/download/</a><br/></li>
-<li>Once the install process has finished, check Sherpa works by typing:<blockquote><p><code>conda activate ciao</code> (if using a specific conda environment called ciao, otherwise skip this step)<br/>
+<li>Once the install process has finished, check Sherpa works by typing:<blockquote><p><code>conda activate ciao</code><br/>
 <code>sherpa</code></p>
 </blockquote>
 </li>
 </ul>
 <h2 id="BXA-installation">BXA installation<a class="anchor-link" href="#BXA-installation">&#182;</a></h2><ul>
 <li>BXA package documentation with installation instructions:<br/><a href="https://johannesbuchner.github.io/BXA/#installation">https://johannesbuchner.github.io/BXA/#installation</a>
-<br/>To install BXA in conda:<blockquote><p><code>$ conda create --name bxa python=3.8</code><br/>
-<code>$ conda activate bxa</code>
-Then follow the instructions given in the BXA link above<br/></p>
-</blockquote>
-</li>
+<br/>To install BXA in conda:</li>
 <li>Check BXA was installed correctly:<br/><ul>
 <li>PyXspec:<br/><blockquote><p><code>$ python -c 'import ultranest'</code><br/>
 <code>$ python -c 'from xspec import *'</code><br/>
