@@ -135,7 +135,7 @@
           <ul><h2><i class="icofont-fix-tools"></i> Setup</h2>
 
           <h3>&#9888;&#65039; <font color="red">WARNING</font> &#9888;&#65039; BXA requires a working form of PyXspec and/or Sherpa.</h3>
-          <p>Make sure either of these are installed before doing the exercises!</p>
+          <p>Make sure either of these are installed before continuing!</p>
           </br>
 
           <h2>For PyXspec users</h2><ul>
@@ -243,14 +243,11 @@
           </ul>
 
           <ul>
-          <p>First, <strong>download the following spectral files</strong> from <a href="https://www.dropbox.com/sh/txoilcmnv7p01e6/AABkAvEkCN88mxsqDh_A791Wa?dl=0">here</a>:</p>
-          <blockquote>
-          <ul>
-          <li><p>Source spectrum (binned with <code><a href="https://heasarc.gsfc.nasa.gov/lheasoft/help/ftgrouppha.html">ftgrouppha</a> grouptype=bmin groupscale=1</code>): <code>sim_chan_bmin.pi</code></p></li>
-          <li><p>Response: <code>chan.rmf</code></p></li>
-          <li><p>Effective area: <code>chan.arf</code></p></li>
-          <li><p>Background spectrum: <code>sim_chan_bkg.pi</code></p></li>
-          </ul>
+          <p>First, <strong>download the following spectral files</strong> from <a href="https://www.dropbox.com/sh/vjvoqd97lok1g9s/AAC51Dkqde0a_KRNDsh0K8tMa?dl=0">here</a>:</p>
+          <blockquote><p><code>sim_chan.pi</code><br/>
+          <code>chan.rmf</code><br/>
+          <code>chan.arf</code><br/>
+          <code>sim_chan_bkg.pi</code></p>
           </blockquote>
           <p>PyXspec &amp; Sherpa commands for setting up a spectral fit:</p>
           <ul>
@@ -364,9 +361,7 @@
           Sherpa: <code>xstbabs * xspowerlaw + xsgauss</code></li>
           </ol>
           </li>
-          <li>Compare the Bayesian Evidence values for each fit:</li>
-          <ul><li>Copy the <a href="https://github.com/JohannesBuchner/BXA/blob/master/examples/xspec/model_compare.py">model_compare.py</a> script to your working directory</li></ul>
-          <ul><li>Run the script with: <code>$ python model_compare.py outputfiles_basename1/ outputfiles_basename2/ outputfiles_basename3/</code></li></ul>
+          <li>Compare the Bayesian Evidence values for each fit (see the <a href="https://github.com/JohannesBuchner/BXA/blob/master/examples/xspec/model_compare.py">model_compare.py</a> script in BXA for pointers)</li>
           <li>Which model best explains the data?</li>
           </ul>
           </blockquote>
@@ -385,21 +380,16 @@
           <ul><p><em>Sometimes it is advantageous to fit multiple spectra for the same source simultaneously with e.g., a cross-calibration constant to account for instrumental differences in the different spectra.</em></p></ul>
           <ul>
           <ul>
-          <li>Download the following NuSTAR/FPMA spectral files from <a href="https://www.dropbox.com/sh/p0wv22yeg7jh1ep/AAA9swZbGF0seQOo2_zFgnjNa?dl=0">here</a>:
-          <blockquote>
-          <ul>
-          <li><p>Source spectrum (binned with <code><a href="https://heasarc.gsfc.nasa.gov/lheasoft/help/ftgrouppha.html">ftgrouppha</a> grouptype=bmin groupscale=1</code>): <code>sim_nuA_bmin.pi</code></p></li>
-          <li><p>Response: <code>nuA.rmf</code></p></li>
-          <li><p>Effective area: <code>nuA.arf</code></p></li>
-          <li><p>Background spectrum: <code>sim_nuA_bkg.pi</code></p></li>
-          </ul>
+          <li>Download the following NuSTAR/FPMA spectral files from <a href="link">here</a>:<blockquote><p><code>sim_nuA.pi</code><br/>
+          <code>nuA.rmf</code><br/>
+          <code>nuA.arf</code><br/>
+          <code>sim_nuA_bkg.pi</code></p>
           </blockquote>
           </li>
           <li>NuSTAR has a unique bandpass that extends to E &gt; 10 keV, so is very useful for extending the spectral range one can fit a given model over.</li>
           <li>Include a cross-calibration constant in your model between the Chandra and NuSTAR datasets.</li>
           <li>Fit the new model with BXA and derive a confidence range on the cross-calibration constant.</li>
           <li>How have the confidence ranges on all the parameters changed after including NuSTAR?</li>
-          <li>How have the Bayes factors between different model fits changed? Why?</li>
           </ul>
           </ul>
 
