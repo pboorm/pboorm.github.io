@@ -74,7 +74,7 @@
         <!-- <img src="assets/img/code-alt-inv.png" alt="" class="img-fluid rounded-circle"> -->
         <p></p>
         </br>
-        <h1 class="text-light"><a href="index.html">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; BXA Tutorial</a></h1>
+        <h1 class="text-light"><a href="#welcome">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; BXA Tutorial</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="mailto:peter.boorman@asu.cas.cz" class="email"><i class="bx bx-envelope"></i></a>
           <!-- <a href="https://twitter.com/boorm" class="twitter"><i class="bx bxl-twitter"></i></a> -->
@@ -109,19 +109,14 @@
         <div class="section-title">
           <ul>
             <h2><i class="bx bx-upside-down"></i>&nbsp; <span class="typed" data-typed-items="Hello!, Dobrý den!, Kon'nichiwa!, Hallo!, Ciao!, Hola!, Mholweni!, Sawubona!, Marhaba!, Nǐ hǎo!, God dag!, Bonjour!, Shalom!, Namaste!, Zdravstvuyte!, Zdravo!, Ahoj!, Hallå!, Annyeonghaseyo!, Tena jistilign!, Moni!, Salama alaikum!, Ndêwó, Muraho!, Mbote!, Ki kati!, Malagasy!, Miarahaba!, Salibonani!, Dumêlang!, Ashamaa!, Dumela!, Mhoro!, Jambo!, Sawubona!, Selam!, Avuxeni!, Dumela!, Salaam aleekum, Molo!, Bawo!, Barev dzez!, Salam!, Assalamualaikum!, Nômoshkar!, Mingalarba!, Chum reap suor!, Néih hóu!, Kuzu-zangpo!, Gamarjoba!, Halo!, Salamatsyzby!, Sabaidee!, Namaskaram!, Sain baina uu!, Salaam!, Sat sri akal ji!, Āyubōvan!, Lí-hó!, Vaṇakkam!, Isänmesez!, Namaskārām!, Sà-wàt-dee!, Tashi delek!, Āssālam ‘alaykum!, Ässalamu läykum!, Assalomu aleykum!, Xin chào!, Tungjatjeta!, Kaixo!, Vitaju!, Demat!, Dobar dan!, Bok!, Tere!, Hyvää päivää!, Goeie!, Dia duit!, Halò!, Guten tag!, Yasass!, Szervusz!, Góðan dag!, Buon giorno!, Sveika!, Labas!, Moïen!, Dzień dobry!, Salut!, Živjo!, Dobriy den!, Helo!, A gutn tog!, As-salām ‘alaykum!, Merheba!, Merhaba!, Ni sa bula!, Aloha!, Tēnā koe!, Yokwe!, Alii!, Tālofa!, Ia ora na!, Gude!, Mālō e lelei!"></span></h2>
-            <h3>Welcome to the Bayesian X-ray Analysis (BXA) tutorial page for the Chandra Data Science meeting.</h3>
+            <h3>Welcome to the <a href="https://github.com/JohannesBuchner/BXA">Bayesian X-ray Analysis (BXA)</a> tutorial page for the Chandra Data Science meeting.</h3>
             </br>
           </ul>
-          <ul><p>BXA connects Xspec/Sherpa to nested sampling algorithms for Bayesian parameter estimation and model comparison with the Bayesian evidence.</p></ul>
+          <ul><p>BXA connects Xspec/Sherpa to <a href="https://johannesbuchner.github.io/UltraNest/method.html">nested sampling algorithms</a> for Bayesian parameter estimation and model comparison with the Bayesian evidence.</p></ul>
           <div class="col-lg-16">
             <img src="assets/img/bayestheorem.pdf" class="img-fluid" alt="">
           </div>
           </br>
-          <!-- <div class="col-lg-16">
-            <img src="assets/img/xrayfitting.pdf" class="img-fluid" alt="">
-          </div>
-          </br>
-          <ul><p>X-ray fitting uses forward folding to constrain model parameters.</p></ul> -->
           <ul><p>For any questions/comments/suggestions concerning the tutorial, contact Peter Boorman and/or Johannes Buchner on Slack or by e-mail.</p></ul>
         </div>
       </div>
@@ -135,13 +130,13 @@
         <div class="section-title">
           <ul><h2><i class="icofont-fix-tools"></i> Setup</h2>
 
-          <h3>&#9888;&#65039; <font color="red">WARNING</font> &#9888;&#65039; BXA requires a working form of PyXspec and/or Sherpa.</h3>
+          <h3>&#9888;&#65039; <font color="red">WARNING</font> &#9888;&#65039; BXA requires a working form of <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/index.html">PyXspec</a> and/or <a href="https://cxc.cfa.harvard.edu/sherpa/">Sherpa</a>.</h3>
           <p>Make sure either of these are installed before doing the exercises!</p>
           </br>
 
           <h2>For PyXspec users</h2><ul>
           <li>Using a conda environment (e.g. with <a href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a>) should ensure no conflicts occur when installing the Python packages required for BXA.</li>
-          <li>Using PyXspec with BXA may require a source distribution of HEASOFT. See install instructions here:<br/><a href="https://heasarc.gsfc.nasa.gov/docs/software/heasoft/">https://heasarc.gsfc.nasa.gov/docs/software/heasoft/</a><br/></li>
+          <li>Using PyXspec with BXA may require a source distribution of HEASoft. See install instructions here:<br/><a href="https://heasarc.gsfc.nasa.gov/docs/software/heasoft/">https://heasarc.gsfc.nasa.gov/docs/software/heasoft/</a><br/></li>
           <li>Once the install process has finished, check PyXspec works by typing:
             <blockquote><p><code>$ conda activate bxa</code> (if using a specific conda environment, otherwise skip this step)<br/>
             <code>$ python -c 'from xspec import *'</code></p>
@@ -369,6 +364,7 @@
           <li>Compare the Bayesian Evidence values for each fit:</li>
           <ul><li>Copy the <a href="https://github.com/JohannesBuchner/BXA/blob/master/examples/xspec/model_compare.py">model_compare.py</a> script to your working directory</li></ul>
           <ul><li>Run the script with: <code>$ python model_compare.py outputfiles_basename1/ outputfiles_basename2/ outputfiles_basename3/</code></li></ul>
+          <li>What is the <a href="https://en.wikipedia.org/wiki/Akaike_information_criterion">Akaike Information Criterion (AIC)</a> for each model?</li>
           <li>Which model best explains the data?</li>
           </ul>
           </blockquote>
@@ -462,7 +458,7 @@
   <footer id="footer">
     <div class="container">
       <div class="copyright">
-        &copy; <span>Peter Boorman</span>
+        &copy; <span><a href="index.html">Peter Boorman</a></span>
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
