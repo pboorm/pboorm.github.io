@@ -262,8 +262,8 @@
           Sherpa: <code>import bxa.sherpa as bxa</code></p>
           </blockquote>
           </li>
-          <li>Set the statistic (here we use modified C-statistics):<blockquote><p>PyXspec: <code>set_statistic("cstat")</code><br/>
-          Sherpa: <code>Fit.statistic = "wstat"</code></p>
+          <li>Set the statistic (here we use modified C-statistics):<blockquote><p>PyXspec: <code>Fit.statMethod = "cstat"</code><br/>
+          Sherpa: <code>set_stat("wstat")</code></p>
           </blockquote>
           </li>
           <li>Plot the data in channels or energy:<blockquote><p>PyXspec: <code>Plot.xAxis = "channel"/"keV"</code><br/>
@@ -274,8 +274,8 @@
           <code>Plot.device = "/xw"</code> (or any other plot device)</p>
           </blockquote>
           </li>
-          <li>Load spectra:<blockquote><p>PyXspec: <code>Spectrum("chan_src.pi")</code><br/>
-          Sherpa: <code>load_pha(1, "chan_src.pi")</code></p>
+          <li>Load spectra:<blockquote><p>PyXspec: <code>s = Spectrum("sim_chan_bmin.pi")</code><br/>
+          Sherpa: <code>load_pha(1, "sim_chan_bmin.pi")</code></p>
           </blockquote>
           </li>
           <li>Ignore channels:<blockquote><p>Pyxspec: <code>s.ignore("0.-0.5 8.-**")</code><br/>
@@ -406,7 +406,7 @@
           <ul><h3>Exercise 1.6 - (optional, Sherpa only) automated background fitting with BXA</h3></ul>
           <ul>
           <ul>
-          <li>Load the data, source model and priors as in exercise 1</li>
+          <li>Load the data, source model and priors as in exercise 1 (make sure to also change the statistic from wstat to cstat!)</li>
           <li><p>Load the automatic PCA background model (see <a href="https://ui.adsabs.harvard.edu/abs/2018A%26A...618A..66S/abstract">Simmonds et al., 2018</a>):</p>
           <blockquote><p><code>from bxa.sherpa.background.pca import auto_background</code><br/>
           <code>set_model(1, model)</code><br/>
