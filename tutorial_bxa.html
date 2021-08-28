@@ -258,36 +258,55 @@
           Sherpa: <code>$ sherpa sherpa_script.py</code></p>
           </blockquote>
           </li>
-          <li>Setup required packages:<blockquote><p>PyXspec: <code>from xspec import *</code> &amp; <code>import bxa.xspec as bxa</code><br/>
-          Sherpa: <code>import bxa.sherpa as bxa</code></p>
+          <li>Setup required packages:<blockquote><p>PyXspec:</br>
+          <code>from xspec import *</code></br>
+          <code>import bxa.xspec as bxa</code><br/>
+          Sherpa:</br>
+          <code>import bxa.sherpa as bxa</code></p>
           </blockquote>
           </li>
-          <li>Set the statistic (here we use modified C-statistics):<blockquote><p>PyXspec: <code>Fit.statMethod = "cstat"</code><br/>
-          Sherpa: <code>set_stat("wstat")</code></p>
+          <li>Set the statistic (here we use modified C-statistics):<blockquote>
+          <p>PyXspec: <code>Fit.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html#statMethod">statMethod</a> = "cstat"</code><br/>
+          Sherpa: <code><a href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_stat.html">set_stat</a>("wstat")</code></p>
           </blockquote>
           </li>
-          <li>Plot the data in channels or energy:<blockquote><p>PyXspec: <code>Plot.xAxis = "channel"/"keV"</code><br/>
-          Sherpa: <code>set_analysis("chan")# or "ener"</code></p>
+          <li>Plot the data in channels or energy:<blockquote><p>PyXspec: <code><a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.xAxis</a> = "channel"/"keV"</code><br/>
+          Sherpa: <code><a href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_analysis.html">set_analysis</a>("chan")# or "ener"</code></p>
           </blockquote>
           </li>
-          <li>Set the plot device (PyXspec only):<blockquote><p><code>Plot.device = "/null"</code> to not have one (stops plotting window pop-ups)<br/>
-          <code>Plot.device = "/xw"</code> (or any other plot device)</p>
+          <li>Set the plot device (PyXspec only):<blockquote><p><code><a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.device</a> = "/null"</code> to not have one (stops plotting window pop-ups)<br/>
+          <code><a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.device</a> = "/xw"</code> (or any other plot device)</p>
           </blockquote>
           </li>
-          <li>Load spectra:<blockquote><p>PyXspec: <code>s = Spectrum("sim_chan_bmin.pi")</code><br/>
-          Sherpa: <code>load_pha(1, "sim_chan_bmin.pi")</code></p>
+          <li>Load spectra:<blockquote>
+          <p>PyXspec: <code>s = <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/spectrum.html">Spectrum</a>("sim_chan_bmin.pi")</code> (or <code>s = AllData("1:1 sim_chan_bmin1.pi")</code>)<br/>
+          Sherpa: <code><a href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "sim_chan_bmin.pi")</code></p>
           </blockquote>
           </li>
-          <li>Ignore channels:<blockquote><p>Pyxspec: <code>s.ignore("0.-0.5 8.-**")</code><br/>
-          Sherpa: <code>ignore_id(1, "0.:0.5,8.:")</code></p>
+          <li>Ignore channels:<blockquote>
+          <p>Pyxspec: <code>s.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html">ignore</a>("0.-0.5 8.-**")</code> (or <code>AllData.ignore("1:0.-0.5 8.-**")</code>)<br/>
+          Sherpa: <code><a href="https://cxc.cfa.harvard.edu/sherpa/ahelp/ignore_id.html">ignore_id</a>(1, "0.:0.5,8.:")</code></p>
           </blockquote>
           </li>
-          <li>Create a model:<blockquote><p>PyXspec: <code>mymod = Model("powerlaw")</code><br/>
-          Sherpa: <code>mymod = xspowerlaw.mypow</code> &amp; <code>set_source(mymod)</code></p>
+          <li>Create a model:<blockquote>
+          <p>PyXspec:</br>
+          <code>mymod = <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">Model</a>("<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>")</code><br/>
+          Sherpa:</br>
+          <code>mymod = xspowerlaw.mypow</code> (<code>xs</code> is used to indicate Xspec models)</br>
+          <code><a href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(mymod)</code></p>
           </blockquote>
           </li>
-          <li>Set parameters (note the min, max parameter bounds are used in the BXA priors):<blockquote><p>PyXspec: <code>mymod.powerlaw.phoindex.values = (value, delta, min, bottom, top, max)</code><br/>
-          Sherpa: <code>set_par(mypow.phoindex, val=value, min=min, max=max)</code></p>
+          <li>Set parameters (note the min, max parameter bounds are used in the BXA priors):<blockquote>
+          <p>PyXspec:</br>
+          <code>mymod.powerlaw.PhoIndex.values = (value, delta, min, bottom, top, max)</code> (or <code>AllModels(1)(1).values = ...</code>)<br/>
+          <code>mymod.powerlaw.norm.values = (value, delta, min, bottom, top, max)</code> (or <code>AllModels(1)(2).values = ...</code>)<br/>
+          Sherpa:</br>
+          <code>set_par(mypow.phoindex, val=value, min=min, max=max)</code></br>
+          <code>set_par(mypow.norm, val=value, min=min, max=max)</code></br>
+          </p>
+          </blockquote>
+          </li>
+          </p>
           </blockquote>
           </li>
           </ul>
@@ -299,26 +318,45 @@
           <ul>
           <ul>
           <li>Load the data, notice the correct energies and create a powerlaw model (see the commands listed above for help)</li>
-          <li>Set parameter priors in bxa (note the normalisation varies over many orders of magnitude, and the PhoIndex can be assumed to have some value within 1.9 +/- 0.15):<blockquote><p><code>bxa.create_uniform_prior_for(param)</code><br/>
-          <code>bxa.create_jeffreys_prior_for(param)</code><br/>
-          <code>bxa.create_loguniform_prior_for(param)</code> (equivalent to jeffreys prior above)<br/>
-          <code>bxa.create_gaussian_prior_for(param, $\mu$, $\sigma$)</code><br/></p>
+          <li>Set parameter priors in bxa (note the normalisation varies over many orders of magnitude, and the PhoIndex can be assumed to have some value within 1.9 +/- 0.15):<blockquote>
+          <p>PyXspec:</br>
+          <code>bxa.<a href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(model, param)</code><br/>
+          <code>bxa.<a href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(model, param)</code></br>
+          <!-- (or <code>bxa.<a href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_jeffreys_prior_for">create_jeffreys_prior_for</a>(model, param)</code>)<br/> -->
+          <code>bxa.<a href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_gaussian_prior_for">create_gaussian_prior_for</a>(model, param, mean, std)</code><br/></p>
+          <p>Sherpa:</br>
+          <code>bxa.<a href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(param)</code><br/>
+          <code>bxa.<a href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(param)</code></br>
+          <!-- (or <code>bxa.<a href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_jeffreys_prior_for">create_jeffreys_prior_for</a>(param)</code>)<br/> -->
+          <code>bxa.<a href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_gaussian_prior_for">create_gaussian_prior_for</a>(param, mean, std)</code><br/></p>
           </blockquote>
           </li>
-          <li>Create a solver:<blockquote><p><code>solver = bxa.BXASolver(transformations=[priors], outputfiles_basename="powerlaw")</code></p>
+          <li>A note on log parameters (Sherpa only):<blockquote>
+          <p>Using a loguniform prior may not give the posterior values of that parameter in log units in Sherpa.</br>
+          Instead, the <code><a href="https://sherpa.readthedocs.io/en/latest/model_classes/api/sherpa.models.parameter.Parameter.html#sherpa.models.parameter.Parameter">Parameter</a></code> module can convert a parameter to log units, and then one can use a uniform prior for that parameter. E.g.:</br>
+          <code>from sherpa.models.parameter import Parameter</code></br>
+          <code>logpar = Parameter(modelname, parname, min, max, hard_min, hard_max)</code></br>
+          <code>mymod.norm = 10**logpar</code></br>
+          Note: this will only work for BXA. If you want to define a log parameter and use this with a standard Sherpa fit, the log parameter must appear in the model expression.
+          </li>
+          <li>Create a solver:<blockquote>
+          <p>PyXspec: <code>solver = bxa.<a href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>(transformations=[priors], outputfiles_basename="powerlaw_pyxspec")</code></br>
+          Sherpa: <code>solver = bxa.<a href="https://johannesbuchner.github.io/BXA/sherpa-analysis.html#bxa.sherpa.solver.BXASolver">BXASolver</a>(prior=bxa.<a href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_prior_function">create_prior_function</a>([priors]), parameters=[parameters], outputfiles_basename="powerlaw_sherpa")</code></br>
+          Make sure <code>outputfiles_basename</code> is unique if running PyXspec and Sherpa in the same directory!
+          </p>
           </blockquote>
           </li>
           <li>Perform prior predictive checks:<ol>
-          <li>Generate random samples of prior parameter values:<blockquote><p>PyXspec: <code>values = solver.prior_function(numpy.random.uniform(size=solver.paramnames))</code><br/>
-          Sherpa: <code>values = solver.prior_transform(numpy.random.uniform(size=solver.paramnames))</code></p>
+          <li>Generate random samples of prior parameter values:<blockquote><p>PyXspec: <code>values = solver.prior_function(numpy.random.uniform(size=len(solver.paramnames)))</code><br/>
+          Sherpa: <code>values = solver.prior_transform(numpy.random.uniform(size=len(solver.paramnames)))</code></p>
           </blockquote>
           </li>
-          <li>Set the parameters to these values:<blockquote><p>PyXspec: <code>solver.set_parameters(transformations=solver.transformations,values=values)</code><br/>
+          <li>Set the parameters to these values:<blockquote><p>PyXspec: <code>solver.<a href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#set_parameters">set_parameters</a>(transformations=solver.transformations,values=values)</code><br/>
           Sherpa: <code>for i, p in enumerate(solver.parameters): p.val = values[i]</code></p>
           </blockquote>
           </li>
-          <li>Plot the resulting spectra with their models:<blockquote><p>PyXspec: <code>Plot("ld")</code>
-          Sherpa: <code>plot_fit(xlog=True, ylog=True)</code></p>
+          <li>Plot the resulting spectra with their models:<blockquote><p>PyXspec: <code><a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot</a>("ldata")</code></br>
+          Sherpa: <code><a href="https://cxc.cfa.harvard.edu/sherpa/ahelp/plot_fit.html">plot_fit</a>(xlog=True, ylog=True)</code></p>
           </blockquote>
           </li>
           </ol>
@@ -331,32 +369,37 @@
           <ul><h3>Exercise 1.2 - fit a model to a spectrum</h3></ul>
           <ul>
           <ul>
-          <li>First fit the model using Levenberg-Marquadt included in Xspec &amp; Sherpa:<blockquote><p>PyXspec: <code>Fit.perform()</code><br/>
-          Sherpa: <code>fit()</code></p>
+          <li>First fit the model using Levenberg-Marquadt included in Xspec &amp; Sherpa:<blockquote><p>PyXspec: <code><a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html">Fit</a>.perform()</code><br/>
+          Sherpa: <code><a href="https://cxc.cfa.harvard.edu/sherpa/ahelp/fit.html">fit</a>()</code></p>
           </blockquote>
           </li>
           <li>Is the fit good? How can you tell? What does changing the parameters by a small amount do?</li>
-          <li>Next perform the fit with BXA:<blockquote><p><code>results = solver.run(resume=True)</code><br/>
-          <code>results</code> contains the posterior samples (<code>results["samples"]</code>) for each parameter and the Bayesian evidence for the fit (the quantities should also be printed to the screen after the fit is completed).</p>
+          <li>Next perform the fit with BXA:<blockquote><p><code>results = solver.<a href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</code><br/>
+          <code>results</code> contains the posterior samples (<code>results["samples"]</code>) for each parameter and the Bayesian evidence (<code>results["logZ"]</code>, <code>results["logZerr"]</code>)</br>
+          (the quantities should also be printed to the screen after the fit is completed).</p>
           </blockquote>
           </li>
-          <li>Examine the best-fit values and uncertainties from the posterior samples. How do the best-fits and confidence ranges compare between BXA and Levenberg-Marquadt?</li>
+          <li>Examine the best-fit values and uncertainties from the posterior samples. This can be done with <code><a href="https://pandas.pydata.org">pandas</a></code> (may require installing with e.g., conda):</br>
+          <code>import pandas as pd</code></br>
+          <code>df = pd.<a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">DataFrame</a>(data=results["samples"], columns=solver.paramnames)</code></br>
+          </li>
+          <li>How do the best-fits and confidence ranges compare between BXA and Levenberg-Marquadt?</li>
           </ul>
           </ul>
           </br>
 
           <ul><h3>Exercise 1.3 - fit and compare multiple models</h3></ul>
-          <ul><p><em>Here we use the Bayesian evidence to perform model comparison</em>
-          Note to use TBabs, one should set the abundances to those from <a href="https://ui.adsabs.harvard.edu/abs/2000ApJ...542..914W/abstract">Wilms, Allen &amp; McCray (2000)</a>:</p></ul>
-          <ul>
-          <blockquote><p>PyXspec: <code>Xset.abund = "wilm"</code><br/>
-          Sherpa: <code>set_xsabund("wilm")</code></p>
+          <ul><p><em>Here we use the Bayesian evidence to perform model comparison</em></p></br>
+          <p>Note to use TBabs, one should set the abundances to those from <a href="https://ui.adsabs.harvard.edu/abs/2000ApJ...542..914W/abstract">Wilms, Allen &amp; McCray (2000)</a>:
+          </p>
+          <blockquote><p>PyXspec: <code><a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/xspecsettings.html">Xset.abund</a> = "wilm"</code><br/>
+          Sherpa: <code><a href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_xsabund.html">set_xsabund</a>("wilm")</code></p></br>
           <ul>
           <li>Fit the following additional 2 models to the data with BXA (don't forget to give unique <code>outputfiles_basename</code> values!):<ol>
-          <li>Absorbed powerlaw
+          <li>Absorbed powerlaw</br>
           PyXspec: <code>TBabs * powerlaw</code><br/>
           Sherpa: <code>xstbabs * xspowerlaw</code></li>
-          <li>Absorbed powerlaw + Gaussian emission line (the emission line is known to have line centroid energy 6.3 +/- 0.15 keV)
+          <li>Absorbed powerlaw + Gaussian emission line (the emission line is known to have line centroid energy 6.3 +/- 0.15 keV)</br>
           PyXspec: <code>TBabs * powerlaw + gauss</code><br/>
           Sherpa: <code>xstbabs * xspowerlaw + xsgauss</code></li>
           </ol>
