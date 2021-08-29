@@ -423,7 +423,7 @@
           PyXspec: <code>EW = (mymod.gauss.norm / mymod.powerlaw.norm) * mymod.gauss.lineE ** mymod.powerlaw.phoindex</code></li>
           Sherpa: <code>EW = (line.norm / mypow.norm) * line.linee ** mypow.phoindex</code></li>
           <li>Use the <code>results["samples"]</code> to derive the posterior distribution on equivalent width for the emission line component. If using pandas:
-          <code>import <a target="_blank" href="https://corner.readthedocs.io/en/latest/pages/quickstart.html">corner</a></code>
+          <code>import <a target="_blank" href="https://corner.readthedocs.io/en/latest/pages/quickstart.html">corner</a></code></br>
           <code>figure = corner.corner(df, labels = df.columns, quantiles = [0.16, 0.5, 0.84], show_titles = True)</code>
           </li>
           <li>Is the equivalent width degenerate with any other parameters?</li>
