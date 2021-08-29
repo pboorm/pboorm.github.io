@@ -414,7 +414,21 @@
           </ul>
           </br>
 
-          <ul><h3>Exercise 1.4 - visualisation</h3></ul>
+          <ul><h3>Exercise 1.4 - error propagation</h3></ul>
+          <ul><p><em>By generating quantities directly from the posterior samples, we propagate the uncertainties and conserve any structure (e.g., degeneracies, multiple modes).</em></p></br>
+          <ul>
+          <ul>
+          <li>The equivalent width (EW) of an emission line is defined as the flux in the line divided by the flux of the continuum at the line energy (see the <a target = "_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node95.html">Xspec documentation</a> for more information).</li>
+          <li>For the model we have used, this can be approximated as:</br>
+          PyXspec: <code>EW = (mymod.gauss.norm / mymod.powerlaw.norm) * mymod.gauss.lineE ** mymod.powerlaw.phoindex</code></li>
+          Sherpa: <code>EW = (line.norm / mypow.norm) * line.linee ** mypow.phoindex</code></li>
+          <li>Use the <code>results["samples"]</code> to derive the posterior distribution on equivalent width for the emission line component.</li>
+          <li>Is the equivalent width degenerate with any other parameters?</li>
+          </ul>
+          </ul>
+          </br>
+          
+          <ul><h3>Exercise 1.5 - visualisation</h3></ul>
           <ul>
           <ul>
           <li>Examine the corner and trace plots that BXA produces (located in <code>outputfiles_basename/plots/</code>)</li>
@@ -423,11 +437,12 @@
           </ul>
           </ul>
           </br>
-          <ul><h3>Exercise 1.5 - fitting multiple datasets simultaneously with BXA</h3></ul>
+          
+          <ul><h3>Exercise 1.6 - (optional) fitting multiple datasets simultaneously with BXA</h3></ul>
           <ul><p><em>Sometimes it is advantageous to fit multiple spectra for the same source simultaneously with e.g., a cross-calibration constant to account for instrumental differences in the different spectra.</em></p></ul>
           <ul>
           <ul>
-          <li>Download the following NuSTAR/FPMA spectral files from <a target="_blank" href="https://www.dropbox.com/sh/p0wv22yeg7jh1ep/AAA9swZbGF0seQOo2_zFgnjNa?dl=0">here</a>:
+          <li>Download the following NuSTAR/FPMA spectral files from <a href="https://www.dropbox.com/sh/p0wv22yeg7jh1ep/AAA9swZbGF0seQOo2_zFgnjNa?dl=1">here</a>:
           <blockquote>
           <ul>
           <li><p>Source spectrum (binned with <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/lheasoft/help/ftgrouppha.html">ftgrouppha</a> grouptype=bmin groupscale=1</code>): <code>sim_nuA_bmin.pi</code></p></li>
@@ -446,7 +461,9 @@
           </ul>
           </br>
 
-          <ul><h3>Exercise 1.6 - (optional, Sherpa only) automated background fitting with BXA</h3></ul>
+          <ul><h3>Exercise 1.7 - (optional, Sherpa only) automated background fitting with BXA</h3></ul>
+          <ul><p><em>So far, the exercises have used modified C-statistics (aka W-statistics) in which the background is modelled as a stepwise function with the same number of parameters as bins. This process typically requires some form of minimal binning (see discussion <a target="_blank" href="https://giacomov.github.io/Bias-in-profile-poisson-likelihood/">here</a>)</em></p></ul>
+          <ul><p><em>Using C-statistics can be more flexible, since no binning is required and instead a background model is used. The <code>auto_background</code> function in BXA provides a powerful way to implement such background models in Sherpa, and simultaneously fit with a source model using BXA.</em></p></ul>
           <ul>
           <ul>
           <li>Load the data, source model and priors as in exercise 1 (make sure to also change the statistic from wstat to cstat!)</li>
