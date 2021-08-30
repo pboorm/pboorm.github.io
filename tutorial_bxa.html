@@ -109,7 +109,7 @@
         <div class="section-title">
           <ul>
             <h2><i class="bx bx-upside-down"></i>&nbsp; <span class="typed" data-typed-items="Hello!, Dobrý den!, Kon'nichiwa!, Hallo!, Ciao!, Hola!, Mholweni!, Sawubona!, Marhaba!, Nǐ hǎo!, God dag!, Bonjour!, Shalom!, Namaste!, Zdravstvuyte!, Zdravo!, Ahoj!, Hallå!, Annyeonghaseyo!, Tena jistilign!, Moni!, Salama alaikum!, Ndêwó, Muraho!, Mbote!, Ki kati!, Malagasy!, Miarahaba!, Salibonani!, Dumêlang!, Ashamaa!, Dumela!, Mhoro!, Jambo!, Sawubona!, Selam!, Avuxeni!, Dumela!, Salaam aleekum, Molo!, Bawo!, Barev dzez!, Salam!, Assalamualaikum!, Nômoshkar!, Mingalarba!, Chum reap suor!, Néih hóu!, Kuzu-zangpo!, Gamarjoba!, Halo!, Salamatsyzby!, Sabaidee!, Namaskaram!, Sain baina uu!, Salaam!, Sat sri akal ji!, Āyubōvan!, Lí-hó!, Vaṇakkam!, Isänmesez!, Namaskārām!, Sà-wàt-dee!, Tashi delek!, Āssālam ‘alaykum!, Ässalamu läykum!, Assalomu aleykum!, Xin chào!, Tungjatjeta!, Kaixo!, Vitaju!, Demat!, Dobar dan!, Bok!, Tere!, Hyvää päivää!, Goeie!, Dia duit!, Halò!, Guten tag!, Yasass!, Szervusz!, Góðan dag!, Buon giorno!, Sveika!, Labas!, Moïen!, Dzień dobry!, Salut!, Živjo!, Dobriy den!, Helo!, A gutn tog!, As-salām ‘alaykum!, Merheba!, Merhaba!, Ni sa bula!, Aloha!, Tēnā koe!, Yokwe!, Alii!, Tālofa!, Ia ora na!, Gude!, Mālō e lelei!"></span></h2>
-            <h3>Welcome to the <a target="_blank" href="https://github.com/JohannesBuchner/BXA">Bayesian X-ray Analysis (BXA)</a> tutorial page for the Chandra Data Science meeting.</h3>
+            <h3>Welcome to the <a target="_blank" href="https://github.com/JohannesBuchner/BXA">Bayesian X-ray Analysis (BXA)</a> tutorial page for the <a target="_blank" href="https://cxc.harvard.edu/cdo/cds2021/">Chandra Data Science</a> meeting.</h3>
             </br>
           </ul>
           <ul><p>BXA connects Xspec/Sherpa to <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/method.html">nested sampling algorithms</a> for Bayesian parameter estimation and model comparison with the Bayesian evidence.</p></ul>
@@ -346,8 +346,8 @@
           <li>A note on log parameters (Sherpa only):<blockquote>
           <p>Using a loguniform prior may not give the posterior values of that parameter in log units in Sherpa.</br>
           Instead, the <code><a target="_blank" href="https://sherpa.readthedocs.io/en/latest/model_classes/api/sherpa.models.parameter.Parameter.html#sherpa.models.parameter.Parameter">Parameter</a></code> module can convert a parameter to log units, and then one can use a uniform prior for that parameter. E.g.:</br>
-          <code>from sherpa.models.parameter import Parameter</code></br>
-          <code>logpar = Parameter(modelname, parname, value, min, max, hard_min, hard_max)</code></br>
+          <code>from sherpa.models.parameter import <a target="_blank" href="https://sherpa.readthedocs.io/en/latest/model_classes/api/sherpa.models.parameter.Parameter.html#sherpa.models.parameter.Parameter">Parameter</a></code></br>
+          <code>logpar = <a target="_blank" href="https://sherpa.readthedocs.io/en/latest/model_classes/api/sherpa.models.parameter.Parameter.html#sherpa.models.parameter.Parameter">Parameter</a>(modelname, parname, value, min, max, hard_min, hard_max)</code></br>
           <code>mymod.norm = 10**logpar</code></br>
           Note: this will only work for BXA. If you want to define a log parameter and use this with a standard Sherpa fit, the log parameter must appear in the model expression.
           </li>
@@ -440,7 +440,7 @@
           <ul>
           <li>The equivalent width (<code>EW</code>) of an emission line is defined as the flux in the line divided by the flux of the continuum at the line energy (see the <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node95.html">Xspec documentation</a> for more information).</li>
           <li>For the model we have used, the equivalent width of the emission line relative to the intrinsic (i.e. unabsorbed) powerlaw continuum is:</br>
-          PyXspec: <code>EW = (mymod.gaussian.norm / mymod.powerlaw.norm) * mymod.gaussian.LineE ** mymod.powerlaw.phoindex</code></li>
+          PyXspec: <code>EW = (mymod.gaussian.norm / mymod.powerlaw.norm) * mymod.gaussian.LineE ** mymod.powerlaw.PhoIndex</code></li>
           Sherpa: <code>EW = (line.norm / mypow.norm) * line.linee ** mypow.phoindex</code></li>
           <li>Use the <code>results["samples"]</code> to derive the posterior distribution on equivalent width for the emission line component. If using pandas:</br>
           <code>import <a target="_blank" href="https://corner.readthedocs.io/en/latest/pages/quickstart.html">corner</a></code></br>
@@ -457,7 +457,7 @@
           <li>Examine the corner and trace plots that BXA produces (located in <code>outputfiles_basename/plots/</code>).</li>
           <li>What do these plots show?</li>
           <li>Are there any parameter degeneracies? Why or why not?</li>
-          <li>Create a <a target="_blank" href="https://johannesbuchner.github.io/BXA/xspec-analysis.html#model-discovery">Quantile-Quantile</a> plot for your fits:</br>
+          <li>Create a <a target="_blank" href="https://johannesbuchner.github.io/BXA/xspec-analysis.html#model-discovery">Quantile-Quantile</a> (also <a target="_blank" href="https://en.wikipedia.org/wiki/Q–Q_plot">here</a> for a more general explanation) plot for your fits:</br>
           PyXspec: (produces plot)</br>
           <code>import <a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html">matplotlib.pyplot</a> as plt</code></br>
           <code>print('creating quantile-quantile plot ...')</code></br>
