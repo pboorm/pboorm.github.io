@@ -199,6 +199,9 @@
           <li><p>Information on C-statistics (&amp; modified C-statistics) used in Xspec &amp; Sherpa by Giacomo Vianello:<br/><a target="_blank" href="https://giacomov.github.io/Bias-in-profile-poisson-likelihood/">https://giacomov.github.io/Bias-in-profile-poisson-likelihood/</a><br/></p>
           </li>
           </br>
+          <li><p>Sherpa script for fitting obscured AGN with BXA:<br/><a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/master/examples/sherpa/xagnfitter.py">https://github.com/JohannesBuchner/BXA/blob/master/examples/sherpa/xagnfitter.py</a><br/></p>
+          </li>
+          </br>
           <li><p>X-ray Spectral Fitting lectures by Johannes Buchner:<br/><a target="_blank" href="https://youtu.be/_r4ecpje7nE">https://youtu.be/_r4ecpje7nE</a><br/><a href="https://youtu.be/EIzhDG-0Ji8">https://youtu.be/EIzhDG-0Ji8</a><br/></p>
           </li>
           </br>
@@ -218,6 +221,15 @@
           </li>
           </br>
           <li><p>PCA background - Simmonds et al., (2018, A&A)<br><a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...618A..66S/abstract">https://ui.adsabs.harvard.edu/abs/2018A%26A...618A..66S/abstract</a><br/></p>
+          </li>
+          </br>
+          <li><p>Simulation-based calibration of false-positive & false-negative rates - Baronchelli et al., (2018, MNRAS)<br><a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2018MNRAS.480.2377B/abstract">https://ui.adsabs.harvard.edu/abs/2018MNRAS.480.2377B/abstract</a><br/></p>
+          </li>
+          </br>
+          <li><p>Bayesian Hierarchical Modelling - Baronchelli et al., (2020, MNRAS)<br><a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2020MNRAS.498.5284B/abstract">https://ui.adsabs.harvard.edu/abs/2020MNRAS.498.5284B/abstract</a><br/></p>
+          </li>
+          </br>
+          <li><p>Do you know of any others? Please get in touch!</p>
           </li>
           </br>
           </ul>
@@ -407,7 +419,13 @@
           <li>Compare the Bayesian Evidence values for each fit:</li>
           <ul><li>Copy the <a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/master/examples/xspec/model_compare.py">model_compare.py</a> script to your working directory</li></ul>
           <ul><li>Run the script with: <code>$ python model_compare.py outputfiles_basename1/ outputfiles_basename2/ outputfiles_basename3/</code></li></ul>
-          <li>What is the <a target="_blank" href="https://en.wikipedia.org/wiki/Akaike_information_criterion">Akaike Information Criterion (AIC)</a> for each model?</li>
+          <li>Compute the <a target="_blank" href="https://en.wikipedia.org/wiki/Akaike_information_criterion">Akaike Information Criterion (AIC)</a> for each model:</br>
+          <code>import json</code></br>
+          <code>basenames = [outputfiles_basename1, outputfiles_basename2, outputfiles_basename3]</code></br>
+          <code>loglikes = dict([(f, json.load(open(f + "/info/results.json"))['maximum_likelihood']["logl"]) for f in basenames])</code></br>
+          <code>dofs = dict([(f, len(json.load(open(f + "/info/results.json"))['paramnames'])) for f in basenames])</code></br>
+          <code>aic = dict([(basenames, (2. * dofs[basenames] - 2. * loglike)) for basenames, loglike in loglikes.items()])</code></br>
+          </li>
           <li>Which model best explains the data?</li>
           </ul>
           </blockquote>
@@ -422,7 +440,7 @@
           <li>For the model we have used, the equivalent width of the emission line relative to the intrinsic (i.e. unabsorbed) powerlaw continuum is:</br>
           PyXspec: <code>EW = (mymod.gauss.norm / mymod.powerlaw.norm) * mymod.gauss.lineE ** mymod.powerlaw.phoindex</code></li>
           Sherpa: <code>EW = (line.norm / mypow.norm) * line.linee ** mypow.phoindex</code></li>
-          <li>Use the <code>results["samples"]</code> to derive the posterior distribution on equivalent width for the emission line component. If using pandas:
+          <li>Use the <code>results["samples"]</code> to derive the posterior distribution on equivalent width for the emission line component. If using pandas:</br>
           <code>import <a target="_blank" href="https://corner.readthedocs.io/en/latest/pages/quickstart.html">corner</a></code></br>
           <code>figure = corner.corner(df, labels = df.columns, quantiles = [0.16, 0.5, 0.84], show_titles = True)</code>
           </li>
@@ -465,7 +483,7 @@
           </br>
 
           <ul><h3>Exercise 1.7 - (optional, Sherpa only) automated background fitting with BXA</h3></ul>
-          <ul><p><em>So far, the exercises have used modified C-statistics (aka W-statistics) in which the background is modelled as a stepwise function with the same number of parameters as bins. This process typically requires some form of minimal binning (see discussion <a target="_blank" href="https://giacomov.github.io/Bias-in-profile-poisson-likelihood/">here</a>)</em></p></ul>
+          <ul><p><em>So far, the exercises have used modified C-statistics (aka W-statistics) in which the background is modelled as a stepwise function with the same number of parameters as bins. This process typically requires some form of minimal binning (see discussion <a target="_blank" href="https://giacomov.github.io/Bias-in-profile-poisson-likelihood/">here</a>).</em></p></ul>
           <ul><p><em>Using C-statistics can be more flexible, since no binning is required and instead a background model is used. The <code>auto_background</code> function in BXA provides a powerful way to implement such background models in Sherpa, and simultaneously fit with a source model using BXA.</em></p></ul>
           <ul>
           <ul>
