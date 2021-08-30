@@ -580,7 +580,7 @@
           </blockquote>
           </li>
           <li><p>Remember to include the zeroth order component from the PCA background model in the priors and parameters list so that BXA knows to vary it as a free parameter:</p>
-          <blockquote><p><code>parameters += bkg_model.pars[0]</code><br/>
+          <blockquote><p><code>parameters += [bkg_model.pars[0]]</code><br/>
           <code>priors += [bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(bkg_model.pars[0])]</code></p>
           </blockquote>
           </li>
