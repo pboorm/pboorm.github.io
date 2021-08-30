@@ -383,8 +383,12 @@
           Sherpa: <code>values = solver.prior_transform(numpy.random.uniform(size=len(solver.paramnames)))</code></p>
           </blockquote>
           </li>
-          <li>Set the parameters to these values:<blockquote><p>PyXspec: <code>solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#set_parameters">set_parameters</a>(transformations=solver.transformations,values=values)</code><br/>
-          Sherpa: <code>for i, p in enumerate(solver.parameters): p.val = values[i]</code></p>
+          <li>Set the parameters to these values:
+          <blockquote><p>PyXspec:</br>
+          <code>from bxa.xspec.solver import <a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#set_parameters">set_parameters</a></code></br>
+          <code>solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#set_parameters">set_parameters</a>(transformations=solver.transformations,values=values)</code><br/>
+          Sherpa:</br>
+          <code>for i, p in enumerate(solver.parameters): p.val = values[i]</code></p>
           </blockquote>
           </li>
           <li>Plot the resulting spectra with their models:<blockquote><p>PyXspec: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot</a>("ldata")</code></br>
