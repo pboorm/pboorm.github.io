@@ -100,7 +100,7 @@
           <li><a href="#ex15"><i class="bx bx-chevron-right"></i>1.5 - visualisation</a></li>
           <li><a href="#ex16"><i class="bx bx-chevron-right"></i>1.6 - multiple spectra</a></li>
           <li><a href="#ex17"><i class="bx bx-chevron-right"></i>1.7 - background fitting</a></li>
-          <li><a href="#session2"><i class="bx bx-terminal"></i> <span>Session 2 - more advanced</span></a></li>
+          <li><a href="#session2"><i class="bx bx-bar-chart-alt-2"></i> <span>Session 2 - more advanced</span></a></li>
           <li><a href="#ex21"><i class="bx bx-chevron-right"></i> <span>2.1 - BHM</span></a></li>
           <li><a href="#ex22"><i class="bx bx-chevron-right"></i> <span>2.2 - simulations & calibration</span></a></li>
           <li><a href="#ex23"><i class="bx bx-chevron-right"></i> <span>2.3 - model verification</span></a></li>
@@ -340,8 +340,9 @@
           </ul>
           </br>
 </section>
-          <section id="ex11" class="services">
-          <ul><h3>Exercise 1.1 - prior predictive checks</h3></ul>
+
+<section id="ex11" class="services">
+          <ul><h3><i class="bx bx-chevron-right"></i> Exercise 1.1 - prior predictive checks</h3></ul>
           <ul><p><em>Prior predictive checks are useful to see if the priors chosen can lead to realistic model realisations.</em></p></ul>
           <ul>
           <ul>
@@ -394,8 +395,9 @@
           </ul>
           </br>
 </section>
+
 <section id="ex12" class="services">
-          <ul><h3>Exercise 1.2 - fit a model to a spectrum</h3></ul>
+          <ul><h3><i class="bx bx-chevron-right"></i> Exercise 1.2 - fit a model to a spectrum</h3></ul>
           <ul>
           <ul>
           <li>First fit the model using Levenberg-Marquadt included in Xspec &amp; Sherpa:<blockquote><p>PyXspec: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html">Fit</a>.perform()</code><br/>
@@ -419,8 +421,9 @@
           </ul>
           </br>
 </section>
+
 <section id="ex13" class="services">
-          <ul><h3>Exercise 1.3 - fit and compare multiple models</h3></ul>
+          <ul><h3><i class="bx bx-chevron-right"></i> Exercise 1.3 - fit and compare multiple models</h3></ul>
           <ul><p><em>Here we use the Bayesian evidence to perform model comparison.</em></p></br>
           <p>Note to use <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node264.html">TBabs</a>, one should set the abundances to those from <a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2000ApJ...542..914W/abstract">Wilms, Allen &amp; McCray (2000)</a>:
           </p>
@@ -454,7 +457,7 @@
 </section>
 
 <section id="ex14" class="services">
-          <ul><h3>Exercise 1.4 - error propagation</h3></ul>
+          <ul><h3><i class="bx bx-chevron-right"></i> Exercise 1.4 - error propagation</h3></ul>
           <ul><p><em>By generating quantities directly from the posterior samples, we propagate the uncertainties and conserve any structure (e.g., degeneracies, multiple modes).</em></p></ul></br>
           <ul>
           <ul>
@@ -473,7 +476,7 @@
 </section>
 
 <section id="ex15" class="services">
-          <ul><h3>Exercise 1.5 - visualisation</h3></ul>
+          <ul><h3><i class="bx bx-chevron-right"></i> Exercise 1.5 - visualisation</h3></ul>
           <ul>
           <ul>
           <li>Examine the corner and trace plots that BXA produces (located in <code>outputfiles_basename/plots/</code>).</li>
@@ -502,7 +505,7 @@
 </section>
 
 <section id="ex16" class="services">
-          <ul><h3>Exercise 1.6 - (optional) fitting multiple datasets simultaneously with BXA</h3></ul>
+          <ul><h3><i class="bx bx-chevron-right"></i> Exercise 1.6 - (optional) fitting multiple datasets simultaneously with BXA</h3></ul>
           <ul><p><em>Sometimes it is advantageous to fit multiple spectra for the same source simultaneously with e.g., a cross-calibration constant to account for instrumental differences in the different spectra.</em></p></ul>
           <ul>
           <ul>
@@ -559,7 +562,7 @@
 </section>
 
 <section id="ex17" class="services">
-          <ul><h3>Exercise 1.7 - (optional, Sherpa only) automated background fitting with BXA</h3></ul>
+          <ul><h3><i class="bx bx-chevron-right"></i> Exercise 1.7 - (optional, Sherpa only) automated background fitting with BXA</h3></ul>
           <ul><p><em>So far, the exercises have used modified C-statistics (aka W-statistics) in which the background is modelled as a stepwise function with the same number of parameters as bins. This process typically requires some form of minimal binning (see discussion <a target="_blank" href="https://giacomov.github.io/Bias-in-profile-poisson-likelihood/">here</a>).</em></p></ul>
           <ul><p><em>Using C-statistics can be more flexible, since no binning is required and instead a background model is used. The <code><a target="_blank" href="https://johannesbuchner.github.io/BXA/pca-background-models.html">auto_background</a></code> function in BXA provides a powerful way to implement such background models in Sherpa, and simultaneously fit with a source model using BXA.</em></p></ul>
           <ul>
@@ -589,7 +592,7 @@
 <section id="session2" class="services">
       <div class="container">
         <div class="section-title">
-          <ul><h2><i class="bx bx-terminal"></i> Session 2 - more advanced concepts (coming soon!)</h2></ul>
+          <ul><h2><i class="bx bx-bar-chart-alt-2"></i> Session 2 - more advanced concepts (coming soon!)</h2></ul>
           <ul><p>Key objectives:</p>
           <ul>
           <li>Combine individual posteriors to constrain a population</li>
@@ -601,17 +604,17 @@
 </section>
 
 <section id="ex21" class="services">
-          <ul><h3>Exercise 2.1 - Bayesian Hierarchical Modelling</h3></ul>
+          <ul><h3><i class="bx bx-chevron-right"></i> Exercise 2.1 - Bayesian Hierarchical Modelling</h3></ul>
           </br>
 </section>
 
 <section id="ex22" class="services">
-          <ul><h3>Exercise 2.2 - calibrating model comparison thresholds</h3></ul>
+          <ul><h3><i class="bx bx-chevron-right"></i> Exercise 2.2 - calibrating model comparison thresholds</h3></ul>
           </br>
 </section>
 
 <section id="ex23" class="services">
-          <ul><h3>Exercise 2.3 - posterior predictive checks</h3></ul>
+          <ul><h3><i class="bx bx-chevron-right"></i> Exercise 2.3 - posterior predictive checks</h3></ul>
         </div>
 </section>
 
