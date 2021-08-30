@@ -323,7 +323,7 @@
           <code>mymod = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">Model</a>("<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>")</code><br/>
           Sherpa:</br>
           <code>mymod = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a>.mypow</code> (<code>xs</code> is used to indicate Xspec models)</br>
-          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(mymod)</code></p>
+          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(1, mymod)</code></p> (<code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_default_id.html">get_default_id()</a></code> can be used to show the default id that is used if an id is not specified)
           </blockquote>
           </li>
           <li>Set parameters (note the min, max parameter bounds are used in the BXA priors):<blockquote>
@@ -350,7 +350,8 @@
           <ul>
           <ul>
           <li>Load the data, notice the correct energies and create a powerlaw model (see the commands listed above for help)</li>
-          <li>Set parameter priors in bxa (note the normalisation varies over many orders of magnitude, and the PhoIndex can be assumed to have some value within 1.9 +/- 0.15):<blockquote>
+          <li>Setting the parameter priors in BXA can be done with the following commands:
+          <blockquote>
           <p>PyXspec:</br>
           <code>bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(model, param)</code><br/>
           <code>bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(model, param)</code></br>
@@ -363,6 +364,16 @@
           <code>bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_gaussian_prior_for">create_gaussian_prior_for</a>(param, mean, std)</code><br/></p>
           </blockquote>
           </li>
+          <li>Set the parameter priors for the <code>powerlaw</code> model (note <code>norm</code> varies over many orders of magnitude, and <code>PhoIndex</code> can be assumed to have some value within 1.9 +/- 0.15):
+          <blockquote>
+          <p>PyXspec:</br>
+          <code>prior1 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_gaussian_prior_for">create_gaussian_prior_for</a>(mymod, mymod.powerlaw.PhoIndex, 1.9, 0.15)</code></br>
+          <code>prior2 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(mymod, mymod.powerlaw.norm)</code><br/>
+          <p>Sherpa:</br>
+          <code>prior1 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_gaussian_prior_for">create_gaussian_prior_for</a>(mypow.phoindex, 1.9, 0.15)</code></br>
+          <code>prior2 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(mypow.norm)</code><br/>
+          </blockquote>
+          </li>
           <li>A note on log parameters (Sherpa only):<blockquote>
           <p>Using a loguniform prior may not give the posterior values of that parameter in log units in Sherpa.</br>
           Instead, the <code><a target="_blank" href="https://sherpa.readthedocs.io/en/latest/model_classes/api/sherpa.models.parameter.Parameter.html#sherpa.models.parameter.Parameter">Parameter</a></code> module can convert a parameter to log units, and then one can use a uniform prior for that parameter. E.g.:</br>
@@ -371,12 +382,10 @@
           <code>mymod.norm = 10**logpar</code></br>
           Note: this will only work for BXA. If you want to define a log parameter and use this with a standard Sherpa fit, the log parameter must appear in the model expression.
           </li>
-          <li>Create a solver:<blockquote>
-          <p>PyXspec: <code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>(transformations=[priors], outputfiles_basename="powerlaw_pyxspec")</code></br>
-          Sherpa: <code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sherpa-analysis.html#bxa.sherpa.solver.BXASolver">BXASolver</a>(prior=bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_prior_function">create_prior_function</a>([priors]), parameters=[parameters], outputfiles_basename="powerlaw_sherpa")</code></br>
+          <li>Create a solver:
+          PyXspec: <blockquote><code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>(transformations=[prior1, prior2], outputfiles_basename="powerlaw_pyxspec")</code></blockquote>
+          Sherpa: <blockquote><code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sherpa-analysis.html#bxa.sherpa.solver.BXASolver">BXASolver</a>(prior=bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_prior_function">create_prior_function</a>([prior1, prior2]), parameters=[param1, param2], outputfiles_basename="powerlaw_sherpa")</code></blockquote></br>
           Make sure <code>outputfiles_basename</code> is unique if running PyXspec and Sherpa in the same directory!
-          </p>
-          </blockquote>
           </li>
           <li>Perform prior predictive checks:<ol>
           <li>Generate random samples of prior parameter values:<blockquote><p>PyXspec: <code>values = solver.prior_function(numpy.random.uniform(size=len(solver.paramnames)))</code><br/>
@@ -558,7 +567,7 @@
           Sherpa:</br>
           <code>priors.append(bxa.create_loguniform_prior_for(xcal2))</code></br>
           <code>parameters.append(xcal2)</code></br>
-          <code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sherpa-analysis.html#bxa.sherpa.solver.BXASolver">BXASolver</a>(prior=bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_prior_function">create_prior_function</a>([priors]), parameters=[parameters], outputfiles_basename="xcal_pl_sherpa")</code></br>
+          <code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sherpa-analysis.html#bxa.sherpa.solver.BXASolver">BXASolver</a>(prior=bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_prior_function">create_prior_function</a>([prior1, prior2, ...]), parameters=[param1, param2, ...], outputfiles_basename="xcal_pl_sherpa")</code></br>
           <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.sherpa.html#bxa.sherpa.solver.BXASolver.run">run</a>(resume=True)</code><br/>
           </li>
           <li>How have the confidence ranges on all the parameters changed after including NuSTAR?</li>
