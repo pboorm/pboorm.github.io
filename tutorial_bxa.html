@@ -291,12 +291,12 @@
           </blockquote>
           </li>
           <li>Load spectra:<blockquote>
-          <p>PyXspec: <code>s = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/spectrum.html">Spectrum</a>("sim_chan_bmin.pi")</code> (or <code>s = AllData("1:1 sim_chan_bmin1.pi")</code>)<br/>
+          <p>PyXspec: <code>s = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/spectrum.html">Spectrum</a>("sim_chan_bmin.pi")</code> (or <code>s = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>("1:1 sim_chan_bmin1.pi")</code>)<br/>
           Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "sim_chan_bmin.pi")</code></p>
           </blockquote>
           </li>
           <li>Ignore channels:<blockquote>
-          <p>Pyxspec: <code>s.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html">ignore</a>("0.-0.5 8.-**")</code> (or <code>AllData.ignore("1:0.-0.5 8.-**")</code>)<br/>
+          <p>Pyxspec: <code>s.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html">ignore</a>("0.-0.5 8.-**")</code> (or <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>.ignore("1:0.-0.5 8.-**")</code>)<br/>
           Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/ignore_id.html">ignore_id</a>(1, "0.:0.5,8.:")</code></p>
           </blockquote>
           </li>
@@ -304,17 +304,17 @@
           <p>PyXspec:</br>
           <code>mymod = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">Model</a>("<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>")</code><br/>
           Sherpa:</br>
-          <code>mymod = xspowerlaw.mypow</code> (<code>xs</code> is used to indicate Xspec models)</br>
+          <code>mymod = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a>.mypow</code> (<code>xs</code> is used to indicate Xspec models)</br>
           <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(mymod)</code></p>
           </blockquote>
           </li>
           <li>Set parameters (note the min, max parameter bounds are used in the BXA priors):<blockquote>
           <p>PyXspec:</br>
-          <code>mymod.powerlaw.PhoIndex.values = (value, delta, min, bottom, top, max)</code> (or <code>AllModels(1)(1).values = ...</code>)<br/>
-          <code>mymod.powerlaw.norm.values = (value, delta, min, bottom, top, max)</code> (or <code>AllModels(1)(2).values = ...</code>)<br/>
+          <code>mymod.powerlaw.PhoIndex.values = (value, delta, min, bottom, top, max)</code> (or <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">AllModels</a>(1)(1).values = ...</code>)<br/>
+          <code>mymod.powerlaw.norm.values = (value, delta, min, bottom, top, max)</code> (or <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">AllModels</a>(1)(2).values = ...</code>)<br/>
           Sherpa:</br>
-          <code>set_par(mypow.phoindex, val=value, min=min, max=max)</code></br>
-          <code>set_par(mypow.norm, val=value, min=min, max=max)</code></br>
+          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(mypow.phoindex, val=value, min=min, max=max)</code></br>
+          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(mypow.norm, val=value, min=min, max=max)</code></br>
           </p>
           </blockquote>
           </li>
@@ -386,7 +386,9 @@
           </blockquote>
           </li>
           <li>Is the fit good? How can you tell? What does changing the parameters by a small amount do?</li>
-          <li>Next perform the fit with BXA:<blockquote><p><code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</code><br/>
+          <li>Next perform the fit with BXA:<blockquote>
+          <p><code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</code><br/>
+          <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.sherpa.html#bxa.sherpa.solver.BXASolver.run">run</a>(resume=True)</code> (note different hyperlinks)<br/>
           <code>results</code> contains the posterior samples (<code>results["samples"]</code>) for each parameter and the Bayesian evidence (<code>results["logZ"]</code>, <code>results["logZerr"]</code>)</br>
           (the quantities should also be printed to the screen after the fit is completed).</p>
           </blockquote>
@@ -401,30 +403,30 @@
           </br>
 
           <ul><h3>Exercise 1.3 - fit and compare multiple models</h3></ul>
-          <ul><p><em>Here we use the Bayesian evidence to perform model comparison</em></p></br>
-          <p>Note to use TBabs, one should set the abundances to those from <a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2000ApJ...542..914W/abstract">Wilms, Allen &amp; McCray (2000)</a>:
+          <ul><p><em>Here we use the Bayesian evidence to perform model comparison.</em></p></br>
+          <p>Note to use <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node264.html">TBabs</a>, one should set the abundances to those from <a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2000ApJ...542..914W/abstract">Wilms, Allen &amp; McCray (2000)</a>:
           </p>
           <blockquote><p>PyXspec: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/xspecsettings.html">Xset.abund</a> = "wilm"</code><br/>
           Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_xsabund.html">set_xsabund</a>("wilm")</code></p></br>
           <ul>
           <li>Fit the following additional 2 models to the data with BXA (don't forget to give unique <code>outputfiles_basename</code> values!):<ol>
           <li>Absorbed powerlaw</br>
-          PyXspec: <code>TBabs * powerlaw</code><br/>
-          Sherpa: <code>xstbabs * xspowerlaw</code></li>
-          <li>Absorbed powerlaw + Gaussian emission line (the emission line is known to have line centroid energy 6.3 +/- 0.15 keV)</br>
-          PyXspec: <code>TBabs * powerlaw + gauss</code><br/>
-          Sherpa: <code>xstbabs * xspowerlaw + xsgauss</code></li>
+          PyXspec: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node264.html">TBabs</a> * <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a></code><br/>
+          Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa4.3/ahelp/xstbabs.html">xstbabs</a> * <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a></code></li>
+          <li>Absorbed powerlaw + Gaussian emission line (the emission line is known to have line centroid energy 6.3 +/- 0.15 keV, and you can assume the line is narrow with fixed width Sigma = 1 eV)</br>
+          PyXspec: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node264.html">TBabs</a> * <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a> + <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node175.html">gaussian</a></code><br/>
+          Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa4.3/ahelp/xstbabs.html">xstbabs</a> * <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a> + <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsgaussian.html">xsgaussian</a></code></li>
           </ol>
           </li>
-          <li>Compare the Bayesian Evidence values for each fit:</li>
+          <li>Compare the Bayesian evidence values for each fit:</li>
           <ul><li>Copy the <a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/master/examples/xspec/model_compare.py">model_compare.py</a> script to your working directory</li></ul>
-          <ul><li>Run the script with: <code>$ python model_compare.py outputfiles_basename1/ outputfiles_basename2/ outputfiles_basename3/</code></li></ul>
+          <ul><li>Run the script with: <code>$ python3 model_compare.py outputfiles_basename1/ outputfiles_basename2/ outputfiles_basename3/</code></li></ul>
           <li>Compute the <a target="_blank" href="https://en.wikipedia.org/wiki/Akaike_information_criterion">Akaike Information Criterion (AIC)</a> for each model:</br>
-          <code>import json</code></br>
+          <code>import <a target="_blank" href="https://docs.python.org/3/library/json.html">json</a></code></br>
           <code>basenames = [outputfiles_basename1, outputfiles_basename2, outputfiles_basename3]</code></br>
-          <code>loglikes = dict([(f, json.load(open(f + "/info/results.json"))['maximum_likelihood']["logl"]) for f in basenames])</code></br>
-          <code>dofs = dict([(f, len(json.load(open(f + "/info/results.json"))['paramnames'])) for f in basenames])</code></br>
-          <code>aic = dict([(basenames, (2. * dofs[basenames] - 2. * loglike)) for basenames, loglike in loglikes.items()])</code></br>
+          <code>loglikes = <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>([(f, json.<a target="_blank" href="https://docs.python.org/3/library/json.html#json.load">load</a>(open(f + "/info/results.json"))['maximum_likelihood']["logl"]) for f in basenames])</code></br>
+          <code>dofs = <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>([(f, len(json.<a target="_blank" href="https://docs.python.org/3/library/json.html#json.load">load</a>(open(f + "/info/results.json"))['paramnames'])) for f in basenames])</code></br>
+          <code>aic = <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>([(basename, (2. * dofs[basename] - 2. * loglike)) for basename, loglike in loglikes.items()])</code></br>
           </li>
           <li>Which model best explains the data?</li>
           </ul>
@@ -438,7 +440,7 @@
           <ul>
           <li>The equivalent width (<code>EW</code>) of an emission line is defined as the flux in the line divided by the flux of the continuum at the line energy (see the <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node95.html">Xspec documentation</a> for more information).</li>
           <li>For the model we have used, the equivalent width of the emission line relative to the intrinsic (i.e. unabsorbed) powerlaw continuum is:</br>
-          PyXspec: <code>EW = (mymod.gauss.norm / mymod.powerlaw.norm) * mymod.gauss.lineE ** mymod.powerlaw.phoindex</code></li>
+          PyXspec: <code>EW = (mymod.gaussian.norm / mymod.powerlaw.norm) * mymod.gaussian.LineE ** mymod.powerlaw.phoindex</code></li>
           Sherpa: <code>EW = (line.norm / mypow.norm) * line.linee ** mypow.phoindex</code></li>
           <li>Use the <code>results["samples"]</code> to derive the posterior distribution on equivalent width for the emission line component. If using pandas:</br>
           <code>import <a target="_blank" href="https://corner.readthedocs.io/en/latest/pages/quickstart.html">corner</a></code></br>
@@ -452,9 +454,24 @@
           <ul><h3>Exercise 1.5 - visualisation</h3></ul>
           <ul>
           <ul>
-          <li>Examine the corner and trace plots that BXA produces (located in <code>outputfiles_basename/plots/</code>)</li>
-          <li>What do these show?</li>
+          <li>Examine the corner and trace plots that BXA produces (located in <code>outputfiles_basename/plots/</code>).</li>
+          <li>What do these plots show?</li>
           <li>Are there any parameter degeneracies? Why or why not?</li>
+          <li>Create a <a target="_blank" href="https://johannesbuchner.github.io/BXA/xspec-analysis.html#model-discovery">Quantile-Quantile</a> plot for your fits:</br>
+          PyXspec: (produces plot)</br>
+          <code>import <a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html">matplotlib.pyplot</a> as plt</code></br>
+          <code>print('creating quantile-quantile plot ...')</code></br>
+          <code>plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html">figure</a>(figsize=(7,7))</code></br>
+          <code>with bxa.XSilence():</code></br>
+          <code>&nbsp; &nbsp; solver.set_best_fit()</code></br>
+          <code>&nbsp; &nbsp; bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/qq.html">qq.qq</a>(prefix=outputfiles_basename, markers=5, annotate=True)</code></br>
+          <code>print('saving plot...')</code></br>
+          <code>plt.<a target="_blank" href="https://matplotlib.org/2.2.5/api/_as_gen/matplotlib.pyplot.savefig.html">savefig</a>(outputfiles_basename + 'qq_model_deviations.pdf', bbox_inches='tight')</code></br>
+          <code>plt.<a target="_blank" href="https://matplotlib.org/2.1.0/api/_as_gen/matplotlib.pyplot.close.html">close</a>()</code></br>
+          Sherpa: (produces file for plotting)</br>
+          <code>bxa.qq.<a target="_blank" href="http://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/qq.html#qq_export">qq_export</a>(1, bkg=False, outfile=outputfiles_basename + "_qq", elow=0.2, ehigh=10)</code></br>
+          </li>
+          <li>What does the <code>powerlaw</code> model Q-Q plot show? Is this model lacking any components?</li>
           </ul>
           </ul>
           </br>
@@ -474,8 +491,40 @@
           </blockquote>
           </li>
           <li>NuSTAR has a unique bandpass that extends to E &gt; 10 keV, so is very useful for extending the spectral range one can fit a given model over.</li>
-          <li>Include a cross-calibration constant in your model between the Chandra and NuSTAR datasets.</li>
-          <li>Fit the new model with BXA and derive a confidence range on the cross-calibration constant.</li>
+          <li>Include a cross-calibration constant in your model between the Chandra and NuSTAR datasets:</br>
+          <p>PyXspec:</br>
+          <code>s = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>("1:1 sim_nuA_bmin1.pi 2:2 sim_chan_bmin1.pi")</code><br/>
+          <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>.ignore("1:0.-3. 78.-** 2:0.-0.5 8.-**")</code><br/>
+          <code>mymod = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">Model</a>("<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node235.html">constant</a> * <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>")</code><br/>
+          <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">AllModels</a>(1)(1).values = (1., -0.01)</code><br/>
+          <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">AllModels</a>(2)(1).values = (1., 0.01, 0.01, 0.01, 10., 10.)</code><br/>
+          Sherpa:</br>
+          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "sim_nuA_bmin1.pi")</code></br>
+          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/ignore_id.html">ignore_id</a>(1, "0.:3.,78.:")</code></br>
+          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(2, "sim_chan_bmin1.pi")</code></br>
+          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/ignore_id.html">ignore_id</a>(2, "0.:0.5,8.:")</code></br>
+          <code>mymod = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a>.mypow</code></br>
+          <code>mymod1 = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsconstant.html">xsconstant</a>("xcal1") * mymod</code></br>
+          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(xcal1, val=1, frozen=True)</code></br>
+          <code>mymod2 = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsconstant.html">xsconstant</a>("xcal2") * mymod</code></br>
+          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(xcal2, val=1, min = 1.e-2, max = 1.e2)</code></br>
+          <!-- <code>Parameter_kwargs = {"modelname": 'crosscal', "name": "logC2", "val": np.log10(xcal2), "min": -2., "max": 2.}</code></br>
+          <code>logXcal2 = Parameter(**Parameter_kwargs)</code></br>
+          <code>set_par(crossCalID.factor, val = 10 ** logXcal2)</code></br> -->
+          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(1, mymod1)</code></br>
+          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(2, mymod2)</code></br>
+          </li>
+          <li>Fit the new model with BXA and derive a confidence range on the cross-calibration constant:</br>
+          PyXspec:</br>
+          <code>transformations.append(bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(mymod, mymod.constant.factor))</code><br/>
+          <code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>(transformations=transformations, outputfiles_basename="xcal_pl_pyxspec")</code><br/>
+          <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</code><br/>
+          Sherpa:</br>
+          <code>priors.append(bxa.create_loguniform_prior_for(xcal2))</code></br>
+          <code>parameters.append(xcal2)</code></br>
+          <code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sherpa-analysis.html#bxa.sherpa.solver.BXASolver">BXASolver</a>(prior=bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_prior_function">create_prior_function</a>([priors]), parameters=[parameters], outputfiles_basename="xcal_pl_sherpa")</code></br>
+          <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.sherpa.html#bxa.sherpa.solver.BXASolver.run">run</a>(resume=True)</code><br/>
+          </li>
           <li>How have the confidence ranges on all the parameters changed after including NuSTAR?</li>
           <li>How have the Bayes factors between different model fits changed? Why?</li>
           </ul>
@@ -484,25 +533,25 @@
 
           <ul><h3>Exercise 1.7 - (optional, Sherpa only) automated background fitting with BXA</h3></ul>
           <ul><p><em>So far, the exercises have used modified C-statistics (aka W-statistics) in which the background is modelled as a stepwise function with the same number of parameters as bins. This process typically requires some form of minimal binning (see discussion <a target="_blank" href="https://giacomov.github.io/Bias-in-profile-poisson-likelihood/">here</a>).</em></p></ul>
-          <ul><p><em>Using C-statistics can be more flexible, since no binning is required and instead a background model is used. The <code>auto_background</code> function in BXA provides a powerful way to implement such background models in Sherpa, and simultaneously fit with a source model using BXA.</em></p></ul>
+          <ul><p><em>Using C-statistics can be more flexible, since no binning is required and instead a background model is used. The <code><a target="_blank" href="https://johannesbuchner.github.io/BXA/pca-background-models.html">auto_background</a></code> function in BXA provides a powerful way to implement such background models in Sherpa, and simultaneously fit with a source model using BXA.</em></p></ul>
           <ul>
           <ul>
           <li>Load the data, source model and priors as in exercise 1 (make sure to also change the statistic from wstat to cstat!)</li>
           <li><p>Load the automatic PCA background model (see <a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...618A..66S/abstract">Simmonds et al., 2018</a>):</p>
-          <blockquote><p><code>from bxa.sherpa.background.pca import auto_background</code><br/>
-          <code>set_model(1, model)</code><br/>
-          <code>convmodel = get_model(1)</code><br/>
-          <code>bkg_model = auto_background(1)</code><br/>
-          <code>set_full_model(1, convmodel + bkg_model*get_bkg_scale(1))</code></p>
+          <blockquote><p><code>from bxa.sherpa.background.pca import <a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/background/pca.html#auto_background">auto_background</a></code><br/>
+          <code><a target="_blank" href="https://cxc.harvard.edu/sherpa/ahelp/set_model.html">set_model</a>(1, model)</code><br/>
+          <code>convmodel = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_model.html">get_model</a>(1)</code><br/>
+          <code>bkg_model = <a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/background/pca.html#auto_background">auto_background</a>(1)</code><br/>
+          <code><a target="_blank" herf="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_full_model.html">set_full_model</a>(1, convmodel + bkg_model*<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_bkg_scale.html">get_bkg_scale</a>(1))</code></p>
           </blockquote>
           </li>
           <li><p>Remember to include the zeroth order component from the PCA background model in the priors and parameters list so that BXA knows to vary it as a free parameter:</p>
           <blockquote><p><code>parameters += bkg_model.pars[0]</code><br/>
-          <code>priors += [bxa.create_uniform_prior_for(bkg_model.pars[0])]</code></p>
+          <code>priors += [bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(bkg_model.pars[0])]</code></p>
           </blockquote>
           </li>
           <li>Fit the source + background model with BXA</li>
-          <li>Is the background fit well?</li>
+          <li>Check the background fit (e.g., with <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/plot_bkg_fit.html">get_bkg_fit</a></code>, <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/plot_bkg_fit_ratio.html">get_bkg_fit_ratio</a></code>, <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/plot_bkg_fit_resid.html">get_bkg_fit_resid</a></code>).</li>
           <li>Have the uncertainty ranges changed at all for the parameters? Why or why not?</li>
           </ul>
           </ul>
@@ -528,8 +577,6 @@
           <ul><h3>Exercise 2.2 - calibrating model comparison thresholds</h3></ul>
           </br>
           <ul><h3>Exercise 2.3 - posterior predictive checks</h3></ul>
-          </br>
-          <ul><h3>Exercise 2.4 - quantile-quantile plots</h3></ul>
         </div>
 </section>
 
