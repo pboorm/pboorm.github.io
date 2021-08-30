@@ -394,7 +394,7 @@
           </blockquote>
           </li>
           <li>Examine the best-fit values and uncertainties from the posterior samples. This can be done with <code><a target="_blank" href="https://pandas.pydata.org">pandas</a></code> (may require installing with e.g., conda):</br>
-          <code>import pandas as pd</code></br>
+          <code>import <a target="_blank" href="https://pandas.pydata.org">pandas</a> as pd</code></br>
           <code>df = pd.<a target="_blank" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">DataFrame</a>(data=results["samples"], columns=solver.paramnames)</code></br>
           </li>
           <li>How do the best-fits and confidence ranges compare between BXA and Levenberg-Marquadt?</li>
@@ -472,6 +472,8 @@
           <code>bxa.qq.<a target="_blank" href="http://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/qq.html#qq_export">qq_export</a>(1, bkg=False, outfile=outputfiles_basename + "_qq", elow=0.2, ehigh=10)</code></br>
           </li>
           <li>What does the <code>powerlaw</code> model Q-Q plot show? Is this model lacking any components?</li>
+          <li>(PyXspec only) Produce a plot of posterior model spectra (<a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/13824b292018e8ffaac9024886bc713334fd7051/examples/xspec/example_simplest.py#L36">convolved</a> and <a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/13824b292018e8ffaac9024886bc713334fd7051/examples/xspec/example_simplest.py#L65">unconvolved</a>) using the code in the <a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/master/examples/xspec/example_simplest.py">example_simplest.py</a> script included in BXA.</li>
+          <li>Which energies is the model best-constrained?</li>
           </ul>
           </ul>
           </br>
