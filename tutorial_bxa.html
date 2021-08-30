@@ -548,7 +548,7 @@
           </li>
           <li>Fit the new model with BXA and derive a confidence range on the cross-calibration constant:</br>
           PyXspec:</br>
-          <code>transformations.append(bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(mymod, mymod.constant.factor))</code><br/>
+          <code>transformations.append(bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(AllModels(2), AllModels(2).constant.factor))</code><br/>
           <code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>(transformations=transformations, outputfiles_basename="xcal_pl_pyxspec")</code><br/>
           <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</code><br/>
           Sherpa:</br>
