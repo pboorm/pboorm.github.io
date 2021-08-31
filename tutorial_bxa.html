@@ -777,7 +777,7 @@
           <ul><p><em>Here we will test the ability of the model to reproduce the nuances in the source spectrum with simulations.</em></p></ul>
           <ul>
           <ul>
-          <li>Load the BXA fit (with e.g., <code>results = solver.run(resume=True)</code>) for the <code>powerlaw</code> model from <a href="#ex12">Exercise 1.2</a>.</li>
+          <li>Load the BXA fit (with e.g., <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</code>) for the <code>powerlaw</code> model from <a href="#ex12">Exercise 1.2</a>.</li>
           <li>Note the best-fit C-statistic & dof values:</br>
           PyXspec:</br>
           <code>stat = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html">Fit</a>.statistic</code></br>
@@ -809,7 +809,7 @@
           <ul>
           <ul>
           <li>For very complex fits (e.g., many datasets simultaneously, many parameters, high signal-to-noise spectra, ...), the run time can be decreased with:</br>
-          <code>results = solver.run(frac_remain=0.5, max_num_improvement_loops=0)</code>
+          <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(frac_remain=0.5, max_num_improvement_loops=0)</code>
           </li>
           </ul>
           </ul>
