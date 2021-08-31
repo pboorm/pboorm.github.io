@@ -767,7 +767,7 @@
       <div class="container">
         <div class="section-title">
           <ul><h3><i class="bx bx-chevron-right"></i> Exercise 2.2 - calibrating model comparison thresholds</h3></ul>
-          <ul><p><em>Here we will estimate the signal-to-noise ratio required in observed data to use certain model selection thresholds.</em></p></ul>
+          <ul><p><em>Here we will estimate the signal-to-noise ratio required in the observed data for the Bayes factors to make a model selection.</em></p></ul>
           </br>
           <ul>
           <ul>
@@ -775,9 +775,10 @@
           <li>Repeat the previous step, but for a powerlaw normalisation 5x fainter than the best-fit you found.</li>
           <li>For each of the 100 spectra you have simulated, fit the <code>powerlaw</code>, <code>absorbed powerlaw</code> and <code>absorbed powerlaw + gaussian</code> models with BXA.</li>
           <li>Perform the same Bayes factor and <a target="_blank" href="https://en.wikipedia.org/wiki/Akaike_information_criterion">AIC</a> model selection techniques as in <a href="#ex13">Exercise 1.3</a> to select a favoured model for each of the 100 spectra.</li>
-          <li>How many times is the correct model that was simulated (<code>absorbed powerlaw + gaussian</code>) selected?</li>
+          <li>How many times is the correct model that was simulated (<code>absorbed powerlaw + gaussian</code>) selected in the brighter and fainter samples?</li>
+          <li>How many times do the Bayes factors not make a decision (i.e. logZ1/Z2 <1)?</li>
           <li>How does the false-positive detection rate vary with signal-to-noise in the source spectrum?</li>
-          <li>Use your simulations to estimate an appropriate logZ and <a target="_blank" href="https://en.wikipedia.org/wiki/Akaike_information_criterion">AIC</a> threshold that will select the correct models.</li>
+          <li>Use your simulations to estimate an appropriate <a target="_blank" href="https://en.wikipedia.org/wiki/Akaike_information_criterion">AIC</a> threshold that will select the correct models.</li>
           </ul>
           </ul>
         </div>
