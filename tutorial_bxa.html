@@ -703,14 +703,14 @@
           <li>Download the UltraNest output folders from the pre-completed runs available here and unzip.</li>
           <li>From the same directory, run:</br>
           <blockquote>
-          <code><a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker/blob/main/load_ultranest_outputs.py">load_ultranest_outputs.py</a> \</br>
+          <code>$ <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker/blob/main/load_ultranest_outputs.py">load_ultranest_outputs.py</a> \</br>
           fitsim0/ fitsim1/ fitsim2/ fitsim3/ fitsim4/ fitsim5/ fitsim6/ fitsim7/ fitsim8/ fitsim9/ fitsim10/ fitsim11/ fitsim12/ fitsim13/ fitsim14/ fitsim15/ fitsim16/ fitsim17/ fitsim18/ fitsim19/ fitsim20/ fitsim21/ fitsim22/ fitsim23/ fitsim24/ fitsim25/ fitsim26/ fitsim27/ fitsim28/ fitsim29/ \</br>
           --samples 100 \</br>
           --parameter PhoIndex \</br>
           --out posterior_samples.txt</code></li>
           </blockquote>
           <li>The <code>posterior_samples.txt</code> file contains 100 sampled rows of each posterior.</li>
-          <li>Visualise the data by estimating the 16th, 50th & 84th quantiles of each posterior sample and plotting as an errorbar. E.g.:</br>
+          <li>Visualise the data by estimating the 16th, 50th & 84th quantiles of each posterior sample and plotting as an errorbar. E.g., in Python:</br>
           <blockquote>
           <code>import <a target="_blank" href="https://numpy.org">numpy</a> as np</code></br>
           <code>import <a target="_blank" href="https://pandas.pydata.org">pandas</a> as pd</code></br>
@@ -729,7 +729,7 @@
           </li>
           <li>Run <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">PosteriorStacker</a>:
           <blockquote>
-          <code><a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">posteriorstacker.py</a> \</br>
+          <code>$ <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">posteriorstacker.py</a> \</br>
           posterior_samples.txt \</br>
           -3. \</br>
           3. \</br>
