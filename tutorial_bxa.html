@@ -700,8 +700,8 @@
           <ul>
           <ul>
           <li>Install <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">PosteriorStacker</a>: $ <code>pip install posteriorstacker</code></li>
-          <li>Download the UltraNest output folders from the pre-completed runs available here and unzip.</li>
-          <li>From the same directory, run:</br>
+          <li>Download the UltraNest output folders from the pre-completed runs available <a href="https://www.dropbox.com/s/qef6o3fsdsuhtpx/ultranest_posteriors.zip?dl=1">here</a> and unzip.</li>
+          <li>From inside the <code>ultranest_posteriors</code> directory, run:</br>
           <blockquote>
           <code>$ <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker/blob/main/load_ultranest_outputs.py">load_ultranest_outputs.py</a> \</br>
           fitsim0/ fitsim1/ fitsim2/ fitsim3/ fitsim4/ fitsim5/ fitsim6/ fitsim7/ fitsim8/ fitsim9/ fitsim10/ fitsim11/ fitsim12/ fitsim13/ fitsim14/ fitsim15/ fitsim16/ fitsim17/ fitsim18/ fitsim19/ fitsim20/ fitsim21/ fitsim22/ fitsim23/ fitsim24/ fitsim25/ fitsim26/ fitsim27/ fitsim28/ fitsim29/ \</br>
@@ -725,6 +725,9 @@
           <code>plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.errorbar.html">errorbar</a>(x=df["q50"], xerr=[df["q50"]-df["q16"], df["q84"]-df["q50"]], y=range(len(df)), marker="o", ls=" ", color="orange")</code></br>
           <code>plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlim.html">xlim</a>(df["q16"].min() - 0.5, df["q84"].max() + 0.5)</code></br>
           <code>plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html">show</a>()</code></br>
+          <div class="col-lg-8">
+            <img src="assets/img/vis_samples.png" class="img-fluid" alt="">
+          </div>
           </blockquote>
           </li>
           <li>Run <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">PosteriorStacker</a>:
