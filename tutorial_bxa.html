@@ -710,7 +710,24 @@
           --out posterior_samples.txt</code></li>
           </blockquote>
           <li>The <code>posterior_samples.txt</code> file contains 100 sampled rows of each posterior.</li>
-          <li>Visualise the data by estimating the 16th, 50th & 84th quantiles of each posterior sample and plotting as an errorbar.</li>
+          <li>Visualise the data by estimating the 16th, 50th & 84th quantiles of each posterior sample and plotting as an errorbar. r>
+          <blockquote>
+          <code>import <a target="_blank" href="https://numpy.org">numpy</a> as np</code></br>
+          <code>import <a target="_blank" href="https://pandas.pydata.org">pandas</a> as pd</code></br>
+          <code>quantiles = [16, 50, 84]</code></br>
+          <code>x = np.<a target="_blank" href="https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html">loadtxt</a>("posterior_samples.txt")</code></br>
+          <code>q = np.<a target="_blank" href="https://numpy.org/doc/stable/reference/generated/numpy.percentile.html">percentile</a>(x, quantiles, axis = 1)</code></br>
+          <code>df = pd.<a target="_blank" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">DataFrame</a>(data = {"q%d" %(qvalue): q[i] for i, qvalue in enumerate(quantiles)})</code></br>
+          </blockquote>
+          <blockquote>
+          <code>import <a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html">matplotlib.pyplot</a> as plt</code></br>
+          <code>plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html">figure</a>()</code></br>
+          <code>plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html">xlabel</a>("PhoIndex")</code></br>
+          <code>plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.errorbar.html">errorbar</a>(x=df["q50"], xerr=[df["q50"]-df["q16"], df["q84"]-df["q50"]], y=range(len(df)), marker="o", ls=" ", color="orange")</code></br>
+          <code>plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlim.html">xlim</a>(df["q16"].min() - 0.5, df["q84"] + 0.5</code></br>
+          <code>plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html">show</a>()</code></br>
+          </blockquote>
+          </li>
           <li>Run <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">PosteriorStacker</a>:
           <blockquote>
           <code><a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">posteriorstacker.py</a> \</br>
