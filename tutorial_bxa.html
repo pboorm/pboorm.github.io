@@ -407,7 +407,7 @@
           <code>for i, p in enumerate(solver.parameters): p.val = values[i]</code></p>
           </blockquote>
           </li>
-          <li>Plot the resulting spectra with their models:<blockquote><p>PyXspec: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot</a>("ldata")</code></br>
+          <li>Plot the resulting prior model samples (with the data to help guide the eye):<blockquote><p>PyXspec: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot</a>("ldata")</code></br>
           Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/plot_fit.html">plot_fit</a>(xlog=True, ylog=True)</code></p>
           </blockquote>
           </li>
@@ -416,7 +416,7 @@
           <div class="col-lg-16">
             <img src="assets/img/prior_checks.png" class="img-fluid" alt="">
           </div>
-          <li>Are the prior choices reasonable?</li>
+          <li>Are the model ranges covered by the priors physically-acceptable?</li>
           </ul>
           </ul>
           </br>
