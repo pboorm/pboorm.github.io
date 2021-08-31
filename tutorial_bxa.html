@@ -370,7 +370,8 @@
           <!-- (or <code>bxa.<a href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_jeffreys_prior_for">create_jeffreys_prior_for</a>(param)</code>)<br/> -->
           <code>bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_gaussian_prior_for">create_gaussian_prior_for</a>(param, mean, std)</code><br/></p>
           </blockquote>
-          </li>
+          Note: log uniform priors <strong>cannot be zero or negative</strong>. Make sure the parameter ranges you supply are positive.
+          </li></br>
           <li>Set the parameter priors for the <code>powerlaw</code> model (note <code>norm</code> varies over many orders of magnitude, and <code>PhoIndex</code> can be assumed to have some value within 1.9 +/- 0.15):
           <blockquote>
           <p>PyXspec:</br>
@@ -387,8 +388,7 @@
           <code>from sherpa.models.parameter import <a target="_blank" href="https://sherpa.readthedocs.io/en/latest/model_classes/api/sherpa.models.parameter.Parameter.html#sherpa.models.parameter.Parameter">Parameter</a></code></br>
           <code>logpar = <a target="_blank" href="https://sherpa.readthedocs.io/en/latest/model_classes/api/sherpa.models.parameter.Parameter.html#sherpa.models.parameter.Parameter">Parameter</a>(modelname, parname, value, min, max, hard_min, hard_max)</code></br>
           <code>mymod.norm = 10**logpar</code></br>
-          Note: this will only work for BXA. If you want to define a log parameter and use this with a standard Sherpa fit, the log parameter must appear in the model expression.
-          </li>
+          Note: the parameter will only be valid for working in BXA. If you want to define a log parameter and use this with a standard Sherpa fit, the log parameter must appear in the model expression.
           <li>Create a solver:
           PyXspec: <blockquote><code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>(transformations=[prior1, prior2], outputfiles_basename="powerlaw_pyxspec")</code></blockquote>
           Sherpa: <blockquote><code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sherpa-analysis.html#bxa.sherpa.solver.BXASolver">BXASolver</a>(prior=bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_prior_function">create_prior_function</a>([prior1, prior2]), parameters=[param1, param2], outputfiles_basename="powerlaw_sherpa")</code></blockquote></br>
