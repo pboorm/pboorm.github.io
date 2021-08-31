@@ -705,11 +705,12 @@
           <blockquote>
           <code>$ <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker/blob/main/load_ultranest_outputs.py">load_ultranest_outputs.py</a> \</br>
           fitsim0/ fitsim1/ fitsim2/ fitsim3/ fitsim4/ fitsim5/ fitsim6/ fitsim7/ fitsim8/ fitsim9/ fitsim10/ fitsim11/ fitsim12/ fitsim13/ fitsim14/ fitsim15/ fitsim16/ fitsim17/ fitsim18/ fitsim19/ fitsim20/ fitsim21/ fitsim22/ fitsim23/ fitsim24/ fitsim25/ fitsim26/ fitsim27/ fitsim28/ fitsim29/ \</br>
-          --samples 100 \</br>
+          --samples 1000 \</br>
           --parameter PhoIndex \</br>
           --out posterior_samples.txt</code></li>
           </blockquote>
-          <li>The <code>posterior_samples.txt</code> file contains 100 sampled rows of each posterior.</li>
+          <li>The <code>posterior_samples.txt</code> file contains 1000 sampled rows of each posterior.</li>
+          <li>Note if the posterior samples were obtained with a non-uniform prior, the posterior samples should first be resampled according to the inverse of the prior that was used.</li>
           <li>Visualise the data by estimating the 16th, 50th & 84th quantiles of each posterior sample and plotting as an errorbar. E.g., in Python:</br>
           <blockquote>
           <code>import <a target="_blank" href="https://numpy.org">numpy</a> as np</code></br>
