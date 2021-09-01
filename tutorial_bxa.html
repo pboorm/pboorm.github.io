@@ -824,6 +824,10 @@
           <li>For very complex fits (e.g., many datasets simultaneously, many parameters, high signal-to-noise spectra, ...), the run time can be decreased with:</br>
           <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(frac_remain=0.5, max_num_improvement_loops=0)</code>
           </li>
+          <li>If you're sure you want to, you can use BXA with chi-squared statistics:</br>
+          PyXspec <code>bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>.allowed_stats.append("chi2")</code></br>
+          Sherpa: <code>bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>.allowed_stats.append("Chi2")</code></br>
+          </li>
           </ul>
           </ul>
         </div>
