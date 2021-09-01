@@ -131,7 +131,7 @@
           </ul>
           <ul><p>BXA connects <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/index.html">PyXspec</a>/<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/">Sherpa</a> to <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/method.html">nested sampling algorithms</a> for Bayesian parameter estimation and model comparison with the Bayesian evidence.</p></ul>
           <div class="col-lg-16">
-            <a target="_blank" href="https://en.wikipedia.org/wiki/Bayes%27_theorem"><img src="assets/img/tutorial/bayestheorem.png" class="img-fluid" alt=""></a>
+            <a target="_blank" href="https://en.wikipedia.org/wiki/Bayes%27_theorem"><img src="bxa//bayestheorem.png" class="img-fluid" alt=""></a>
           </div>
           </br>
           <ul><p>For any questions/comments/suggestions concerning the tutorial, contact Peter Boorman and/or Johannes Buchner on Slack or by e-mail.</p></ul>
@@ -274,7 +274,7 @@
           </ul>
 
           <ul>
-          <p>First, <strong>download the following spectral files</strong> from <a href="https://www.dropbox.com/s/a8gq9cbn6qa650s/s1_chandra.zip?dl=1">here</a>:</p>
+          <p>First, <strong>download the following spectral files</strong> from <a href="bxa/s1_chandra.zip" download>here</a>:</p>
           <blockquote>
           <ul>
           <li><p>Source spectrum (binned with <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/lheasoft/help/ftgrouppha.html">ftgrouppha</a> grouptype=bmin groupscale=1</code>): <code>sim_chan_bmin.pi</code></p></li>
@@ -414,7 +414,7 @@
           </ol>
           </li>
           <div class="col-lg-16">
-            <img src="assets/img/tutorial/prior_checks.png" class="img-fluid" alt="">
+            <img src="bxa//prior_checks.png" class="img-fluid" alt="">
           </div>
           <li>Are the model ranges covered by the priors physically-acceptable?</li>
           </ul>
@@ -540,7 +540,7 @@
           </li>
           </br>
           <div class="col-lg-16">
-            <img src="assets/img/tutorial/qq_plots.png" class="img-fluid" alt="">
+            <img src="bxa//qq_plots.png" class="img-fluid" alt="">
           </div>
           <li>What does the <code>powerlaw</code> model Q-Q plot show? Is this model lacking any components?</li>
           <li>(PyXspec only) Produce a plot of posterior model spectra (<a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/13824b292018e8ffaac9024886bc713334fd7051/examples/xspec/example_simplest.py#L36">convolved</a> and <a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/13824b292018e8ffaac9024886bc713334fd7051/examples/xspec/example_simplest.py#L65">unconvolved</a>) using the code in the <a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/master/examples/xspec/example_simplest.py">example_simplest.py</a> script included in BXA.</li>
@@ -562,7 +562,7 @@
           <li>Download the NuSTAR/FPMA spectral files:
           <blockquote>
           <ul>
-          <li>Source spectrum (<code>sim_nuA_bmin.pi</code>) & background spectrum (<code>sim_nuA_bkg.pi</code>) <a href="https://www.dropbox.com/s/xe685xwzfzcrit6/ex16_nustar.zip?dl=1">here</a>.</li>
+          <li>Source spectrum (<code>sim_nuA_bmin.pi</code>) & background spectrum (<code>sim_nuA_bkg.pi</code>) <a href="bxa/ex16_nustar.zip" download>here</a>.</li>
           <li>Response (<code>nustar.rmf</code>) and effective area (<code>point_30arcsecRad_1arcminOA.arf</code>) files from the <a href="https://www.nustar.caltech.edu/system/media_files/binaries/32/original/nustar_point_sources_for_proposers.tgz?1404172745">Point source simulation files</a> (distributed by the NuSTAR team, more info <a target="_blank" href="https://www.nustar.caltech.edu/page/response_files">here</a>).</li>
           </ul>
           </li>
@@ -705,13 +705,13 @@
           <ul>
           <ul>
           <li>Install <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">PosteriorStacker</a>: <code>$ pip install posteriorstacker</code></li>
-          <li>To generate the posterior samples used in this exercise, download and run the following <a href="./assets/img/tutorial/ex21_pyxspec.py" download>PyXspec</a> (<code>$ python ex21_pyxspec.py</code>) or <a href="./assets/img/tutorial/ex21_sherpa.py" download>Sherpa</a> (<code>$ sherpa ex21_sherpa.py</code>) script. The script will generate 30 <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/readme.html">UltraNest</a> output folders by:</br>
+          <li>To generate the posterior samples used in this exercise, download and run the following <a href="./bxa/ex21_pyxspec.py" download>PyXspec</a> (<code>$ python ex21_pyxspec.py</code>) or <a href="./bxa/ex21_sherpa.py" download>Sherpa</a> (<code>$ sherpa ex21_sherpa.py</code>) script. The script will generate 30 <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/readme.html">UltraNest</a> output folders by:</br>
           <ol>
           <li>Simulating a NuSTAR spectra from an <code>absorbed powerlaw</code> model (see <a href="ex13">Exercise 1.3</a>), with <code>PhoIndex</code> sampled from a Gaussian distribution 1.8 +/- 0.3. Note you will need the <a href="https://www.nustar.caltech.edu/system/media_files/binaries/32/original/nustar_point_sources_for_proposers.tgz?1404172745">Point source simulation files</a> distributed by the NuSTAR team to run the scripts (more info <a target="_blank" href="https://www.nustar.caltech.edu/page/response_files">here</a>).</li>
           <li>Each spectrum will then be fit with BXA using non-informative priors for line-of-sight absorption, powerlaw photon index and powerlaw normalisation.</li>
           </ol>
           </li>
-          <li>The script may take some time (~ a few hours) to complete. Alternatively, you can download some pre-generated <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/readme.html"> folders using a similar model <a href="https://www.dropbox.com/s/nyqr3l2s3akvref/ex21_ultranest_posteriors.zip?dl=1">here</a>.
+          <li>The script may take some time (~ a few hours) to complete. Alternatively, you can download some pre-generated <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/readme.html"> folders using a similar model <a href="bxa/ex21_ultranest_posteriors.zip">here</a>.
           <li>From inside the <code>ultranest_posteriors</code> directory, run:</br>
           <blockquote>
           <code>$ <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker/blob/main/load_ultranest_outputs.py">load_ultranest_outputs.py</a> \</br>
@@ -738,7 +738,7 @@
           <code>plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlim.html">xlim</a>(df["q16"].min() - 0.5, df["q84"].max() + 0.5)</code></br>
           <code>plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html">show</a>()</code></br>
           <div class="col-lg-8">
-            <img src="assets/img/tutorial/vis_samples.png" class="img-fluid" alt="">
+            <img src="bxa//vis_samples.png" class="img-fluid" alt="">
           </div>
           </blockquote>
           </li>
