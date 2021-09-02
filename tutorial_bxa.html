@@ -825,8 +825,8 @@
           <ul>
           <li>
           To find the version of your bxa install:</br>
-          <code>import bxa, pkg_resources</code></br>
-          <code>pkg_resources.get_distribution("bxa").version</code></br>
+          <code>import <a target="_blank" href="https://github.com/JohannesBuchner/BXA">bxa</a>, <a target="_blank" href="https://nsoranzo-galaxy.readthedocs.io/en/stable/lib/pkg_resources.html">pkg_resources</a></code></br>
+          <code>pkg_resources.<a target="_blank" href="https://nsoranzo-galaxy.readthedocs.io/en/stable/_modules/pkg_resources.html#get_distribution">get_distribution</a>("bxa").version</code></br>
           </li>
           <li>For very complex fits (e.g., many datasets simultaneously, many parameters, high signal-to-noise spectra, ...), the run time can be decreased with:</br>
           <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(frac_remain=0.5, max_num_improvement_loops=0)</code>
