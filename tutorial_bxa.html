@@ -436,11 +436,13 @@
           </li>
           <li>Is the fit good? How can you tell? What does changing the parameters by a small amount do?</li>
           <li>Next perform the fit with BXA:<blockquote>
-          <p><code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</code><br/>
-          <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.sherpa.html#bxa.sherpa.solver.BXASolver.run">run</a>(resume=True)</code> (note different hyperlinks)<br/>
-          <code>results</code> contains the posterior samples (<code>results["samples"]</code>) for each parameter and the Bayesian evidence (<code>results["logZ"]</code>, <code>results["logZerr"]</code>)</br>
-          (the quantities should also be printed to the screen after the fit is completed).</p>
+          PyXspec: <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</code><br/>
+          Sherpa: <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.sherpa.html#bxa.sherpa.solver.BXASolver.run">run</a>(resume=True)</code> (note different hyperlinks)<br/>
           </blockquote>
+          </li>
+          <li><code>results</code> contains the posterior samples (<code>results["samples"]</code>) for each parameter and the Bayesian evidence (<code>results["logZ"]</code>, <code>results["logZerr"]</code>). The quantities should also be printed to the screen after the fit is completed.
+          </li>
+          <li>For anyone interested in the information <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/readme.html">UltraNest</a> gives during and after a fit, see <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/performance.html">here</a>.
           </li>
           <li>Examine the best-fit values and uncertainties from the posterior samples. This can be done with <code><a target="_blank" href="https://pandas.pydata.org">pandas</a></code> (may require installing with e.g., conda):</br>
           <code>import <a target="_blank" href="https://pandas.pydata.org">pandas</a> as pd</code></br>
@@ -825,7 +827,7 @@
           <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(frac_remain=0.5, max_num_improvement_loops=0)</code>
           </li>
           <li>If you're sure you want to, you can use BXA with chi-squared statistics:</br>
-          PyXspec <code>bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>.allowed_stats.append("chi2")</code></br>
+          PyXspec: <code>bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>.allowed_stats.append("chi2")</code></br>
           Sherpa: <code>bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>.allowed_stats.append("Chi2")</code></br>
           </li>
           <li>You can use BXA with Sherpa to fit 2D models to images:</br>
