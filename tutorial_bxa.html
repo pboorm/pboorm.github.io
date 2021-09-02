@@ -104,7 +104,7 @@
           <li><a href="#ex21"><i class="bx bx-chevron-right"></i> <span>2.1 - BHM</span></a></li>
           <li><a href="#ex22"><i class="bx bx-chevron-right"></i> <span>2.2 - simulations & calibration</span></a></li>
           <li><a href="#ex23"><i class="bx bx-chevron-right"></i> <span>2.3 - model verification</span></a></li>
-          <li><a href="#tipsandtricks"><i class="bx bx-bulb"></i> <span>Useful tips & tricks</span></a></li>
+          <li><a href="#tipsandtricks"><i class="bx bx-bulb"></i> <span>Tips & tricks</span></a></li>
           <li><p>&nbsp; </p></li>
           <li><p>&nbsp; </p></li>
           <li><p>&nbsp; </p></li>
@@ -818,7 +818,7 @@
 <section id="tipsandtricks" class="services">
       <div class="container">
         <div class="section-title">
-          <ul><h3><i class="bx bx-bulb"></i>Useful tips & tricks</h3></ul>
+          <ul><h3><i class="bx bx-bulb"></i>Tips & tricks</h3></ul>
           <ul>
           <ul>
           <li>For very complex fits (e.g., many datasets simultaneously, many parameters, high signal-to-noise spectra, ...), the run time can be decreased with:</br>
@@ -827,6 +827,42 @@
           <li>If you're sure you want to, you can use BXA with chi-squared statistics:</br>
           PyXspec <code>bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>.allowed_stats.append("chi2")</code></br>
           Sherpa: <code>bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>.allowed_stats.append("Chi2")</code></br>
+          </li>
+          <li>You can use BXA with Sherpa to fit 2D models to images:</br>
+              <blockquote>
+              <code>import bxa.sherpa as bxa</code></br>
+              <code><a target="_blank" href="https://cxc.harvard.edu/sherpa/ahelp/load_image.html">load_image</a>("image.fits")</code></br>
+              <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/image_data.html">image_data</a>()</code></br>
+              <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_coord.html">set_coord</a>("physical")</code></br>
+              <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_stat.html">set_stat</a>("cash")</code></br>
+              <code>model = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/gauss2d.html">gauss2d</a>.g1 + <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/const2d.html">const2d</a>.bg</code></br>
+              <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(model)</code></br>
+              <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(g1.ampl, val = 20., min = 1., max = 1.e2)</code></br>
+              <code>...</code></br>
+              <code>parameters = [g1.ampl, ...]</code></br>
+              <code>priors = [bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(g1.ampl), ...]</code></br>
+              <code>priorfunction = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_prior_function">create_prior_function</a>(priors)</code></br>
+              <code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sherpa-analysis.html#bxa.sherpa.solver.BXASolver">BXASolver</a>(prior=priorfunction, parameters=parameters, outputfiles_basename = "fit2d_sherpa")</code></br>
+              <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</code></br>
+              <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/image_data.html">image_data</a>()</code></br>
+              <code><a target="_blank" href="https://cxc.harvard.edu/sherpa/ahelp/image_model.html">image_model</a>(newframe=True)</code></br>
+              <code><a target="_blank" href="https://cxc.harvard.edu/sherpa4.6/ahelp/image_resid.html">image_resid</a>(newframe=True)</code></br>
+              </blockquote>
+          </li>
+          <li>You can create custom priors in BXA with <code><a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/5a6ee5fafbaf7bc609a29dafadae48d27aba50aa/bxa/xspec/priors.py#L75">create_custom_prior_for</a>()</code> (example taken from <a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/master/examples/xspec/example_advanced_priors.py">example_advanced_prior.py</a>):</br>
+          PyXspec:
+          <blockquote>
+          <code>def <a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/master/examples/xspec/example_advanced_priors.py#L27">my_custom_prior</a>(u):</code></br>
+          <code>&nbsp; &nbsp; # prior distributions transform from 0:1 to the parameter range</code></br>
+          <code>&nbsp; &nbsp; # here: a gaussian prior distribution, cut below 1/above 3</code></br>
+          <code>&nbsp; &nbsp; x = <a target="_blank" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html">scipy.stats.norm</a>(1.9, 0.15).ppf(u)</code></br>
+          <code>&nbsp; &nbsp; if x < 1.:</code></br>
+          <code>&nbsp; &nbsp; &nbsp; &nbsp; x = 1</code></br>
+          <code>&nbsp; &nbsp; if x > 3:</code></br>
+          <code>&nbsp; &nbsp; &nbsp; &nbsp; x = 3</code></br>
+          <code>&nbsp; &nbsp; return x</code></br>
+          <code>transformations = [bxa.<a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/5a6ee5fafbaf7bc609a29dafadae48d27aba50aa/bxa/xspec/priors.py#L75">create_custom_prior_for</a>(model, parameter, my_custom_prior)]</code></br>
+          </blockquote>
           </li>
           </ul>
           </ul>
