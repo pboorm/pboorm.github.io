@@ -22,10 +22,19 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Peter Boorman</title>
+  <title>Interactive skymaps</title>
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <!-- <meta content="" name="description"> -->
+  <!-- <meta content="" name="keywords"> -->
+  <meta property="og:title" content="Dr. Peter Boorman" />
+  <meta property="og:locale" content="en_UK" />
+  <meta name="description" content="Peter Boorman X-ray Astronomy" />
+  <meta property="og:description" content="Peter Boorman X-ray Astronomy" />
+  <link rel="canonical" href="https://peterboorman.com/" />
+  <meta property="og:url" content="https://peterboorman.com/" />
+  <meta property="og:site_name" content="Dr. Peter Boorman" />
+  <script type="application/ld+json">
+  {"@type":"WebSite","headline":"Dr. Peter Boorman","url":"https://peterboorman.com/","description":"Peter Boorman X-ray Astronomy","name":"Dr. Peter Boorman","@context":"https://schema.org"}</script>
 
   <!-- Favicons -->
   <!-- <link href="assets/img/favicon.png" rel="icon"> -->
@@ -76,9 +85,9 @@
 
       <nav class="nav-menu">
         <ul>
-          <li class="active"><a href="index.html"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#bat"><i class="bx bx-star"></i> <span>Swift/BAT</span></a></li>
-          <li><a href="#nulands"><i class="bx bx-glasses-alt"></i> <span>NuLANDS</span></a></li>
+          <!-- <li class="active"><a href="index.html"><i class="bx bx-home"></i> <span>Home</span></a></li> -->
+          <li class="active"><a href="#bat"><i class="icofont-satellite"></i> <span>Swift/BAT</span></a></li>
+          <li><a href="#nulands"><i class="icofont-look"></i> <span>NuLANDS</span></a></li>
           <!-- <li><a href="#methods"><i class="bx bx-pencil"></i>Methods</a></li>
           <li><a href="#results"><i class="bx bx-bar-chart"></i>Results</a></li>
           <li><a href="#links"><i class="bx bx-link-alt"></i>Useful links</a></li> -->
@@ -94,7 +103,7 @@
 <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
+    <!-- <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
@@ -106,14 +115,14 @@
         </div>
 
       </div>
-    </section><!-- End Breadcrumbs -->
+    </section> --><!-- End Breadcrumbs -->
 
 <!-- ======= About Section ======= -->
     <section id="bat" class="bat">
       <div class="container">
 
         <div class="section-title">
-          <h2>Swift/Burst Alert Telescope 70-month catalogue</h2>
+          <h2><i class="icofont-satellite"></i> Swift/Burst Alert Telescope 70-month catalogue</h2>
           <iframe width="1100" height="600" frameborder="0" scrolling="no" src="//plot.ly/~pboorm/6.embed"></iframe>
                 <p>This is an interactive sky-map <a href="https://twitter.com/astroadamh">Adam Hill</a> and I have plotted using <a href="https://plot.ly">Python</a> and <a href="https://plot.ly">Plotly</a>.  You can toggle the different redshifts you want to filter the observed points by via the legend on the right.  Every source you see here was detected in the <a href="http://http://swift.gsfc.nasa.gov/results/bs70mon/">70 month Swift/BAT catalogue</a>.  The size of the points corresponds to the amount of hard X-ray flux detected by BAT at the position in the sky!</p>
         </div>
@@ -125,7 +134,7 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>The NuSTAR Local AGN N(H) Distribution Survey (NuLANDS)</h2>
+          <h2><i class="icofont-look"></i> The NuSTAR Local AGN N(H) Distribution Survey (NuLANDS)</h2>
                 <iframe width="1100" height="600" frameborder="0" scrolling="no" src="//plot.ly/~pboorm/10.embed"></iframe>
                 <p>This is an interactive sky-map <a href="http://adsabs.harvard.edu/abs/1994A%26A...283..791K">Keel et al. (1994) sample</a> and I have plotted using, selected based on warm IRAS colours.  A subset of this sample has been selected to observe with NuSTAR, in the NuSTAR Local AGN N_H Distribution Survey (NuLANDS).  This sample of ~30 AGN have been selected to be a representative sample of obscuration.  The sky-map can be filtered by redshift classification.</p>
         </div>
@@ -174,16 +183,19 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
-      <!-- <div class="copyright"> -->
-        <!-- &copy; Copyright <strong><span>iPortfolio</span></strong> -->
-      <!-- </div> -->
-      <div class="credits">
+      <div class="social-links mt-3 text-left">
+          <a href="https://peterboorman.com"><i class="bx bx-arrow-back"></i></a>
+        </div>
+      <!-- <div class="copyright">
+        <a target="_blank" href="https://peterboorman.com"><i class="bx bx-arrow-back"></i> </a>
+      </div> -->
+      <!-- <div class="credits"> -->
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
-        <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
-      </div>
+        <!-- Design: <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
+      <!-- </div> -->
     </div>
   </footer><!-- End  Footer -->
 

@@ -1083,3 +1083,27 @@ section {
     padding-right: 20px 15px;
   }
 }
+
+/*--------------------------------------------------------------
+# Tables
+--------------------------------------------------------------*/
+/*td 
+{
+    height: 50px; 
+    width: 1500px;
+}*/
+
+td 
+{
+    text-align: center; 
+    vertical-align: middle;
+    padding: 0 10px;
+}
+
+th 
+{
+    height:  30px;
+    text-align: center; 
+    vertical-align: middle;
+    padding: 0 20px;
+}
