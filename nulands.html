@@ -278,7 +278,6 @@
             <li><b>Type:</b> The optical spectroscopic type of the source, using the Veron-Cetty & Veron (2010) classifications.</li>
             <li><b>z:</b> The spectroscopic redshift of the source.</li>
             <li><b>Dist.:</b> Distance to the source in Mpc. Entries marked with * correspond to the median redshift-independent distance from NED-D.</li>
-
         </div>
       </div>
 </section>
@@ -289,19 +288,20 @@
           <!-- <ul> -->
             <h2><i class="bx bx-chevron-right"></i> Type 1 AGN</h2>
         </div>
-        <div class="col-lg-12">
-<table border="1" class="dataframe">
+<div style="overflow-x:auto;">
+<input type="text" id="myInput1" onkeyup="myFunction('type1Table', 'myInput1')" placeholder="Search for a source identifier..." title="Type an identifier">
+<table id="myTable" border="1" class="type1Table">
   <thead>
     <tr style="text-align: right;">
-      <th>ID</th>
-      <th>NED</th>
-      <th>Simbad</th>
-      <th>Swift/BAT</th>
-      <th>R. A.</th>
-      <th>Dec.</th>
-      <th>Type</th>
-      <th>z</th>
-      <th>Dist.</th>
+      <th onclick="sortTable('type1Table', 0)">ID</th>
+      <th onclick="sortTable('type1Table', 1)">NED</th>
+      <th onclick="sortTable('type1Table', 2)">Simbad</th>
+      <th onclick="sortTable('type1Table', 3)">Swift/BAT</th>
+      <th onclick="sortTable('type1Table', 4)">R. A.</th>
+      <th onclick="sortTable('type1Table', 5)">Dec.</th>
+      <th onclick="sortTable('type1Table', 6)">Type</th>
+      <th onclick="sortTable('type1Table', 7)">z</th>
+      <th onclick="sortTable('type1Table', 8)">Dist.</th>
     </tr>
   </thead>
   <tbody>
@@ -748,6 +748,7 @@
   </tbody>
 </table>
 </div>
+</div>
       </div>
     </section>
 
@@ -759,19 +760,20 @@
           <!-- <ul> -->
             <h2><i class="bx bx-chevron-right"></i> Type 2 AGN</h2>
         </div>
-        <div class="col-lg-12">
-        <table border="1" class="dataframe">
+<div style="overflow-x:auto;">
+<input type="text" id="myInput2" onkeyup="myFunction('type2Table', 'myInput2')" placeholder="Search for a source identifier..." title="Type an identifier">
+        <table id="myTable" border="1" class="type2Table">
   <thead>
     <tr style="text-align: right;">
-      <th>ID</th>
-      <th>NED</th>
-      <th>Simbad</th>
-      <th>Swift/BAT</th>
-      <th>R. A.</th>
-      <th>Dec.</th>
-      <th>Type</th>
-      <th>z</th>
-      <th>Dist.</th>
+      <th onclick="sortTable('type2Table', 0)">ID</th>
+      <th onclick="sortTable('type2Table', 1)">NED</th>
+      <th onclick="sortTable('type2Table', 2)">Simbad</th>
+      <th onclick="sortTable('type2Table', 3)">Swift/BAT</th>
+      <th onclick="sortTable('type2Table', 4)">R. A.</th>
+      <th onclick="sortTable('type2Table', 5)">Dec.</th>
+      <th onclick="sortTable('type2Table', 6)">Type</th>
+      <th onclick="sortTable('type2Table', 7)">z</th>
+      <th onclick="sortTable('type2Table', 8)">Dist.</th>
     </tr>
   </thead>
   <tbody>
@@ -1680,7 +1682,7 @@
   </tbody>
 </table>
 </div>
-      </div>
+</div>
 </section>
 
 <section id="type3" class="services">
@@ -1689,19 +1691,20 @@
           <!-- <ul> -->
             <h2><i class="bx bx-chevron-right"></i> Low Ionisation Nuclear Emission Region (LINER) sources</h2>
         </div>
-<div class="col-lg-12">
-        <table border="1" class="dataframe">
+<div style="overflow-x:auto;">
+<input type="text" id="myInput3" onkeyup="myFunction('type3Table', 'myInput3')" placeholder="Search for a source identifier..." title="Type an identifier">
+        <table id="myTable" border="1" class="type3Table">
   <thead>
     <tr style="text-align: right;">
-      <th>ID</th>
-      <th>NED</th>
-      <th>Simbad</th>
-      <th>Swift/BAT</th>
-      <th>R. A.</th>
-      <th>Dec.</th>
-      <th>Type</th>
-      <th>z</th>
-      <th>Dist.</th>
+      <th onclick="sortTable('type3Table', 0)">ID</th>
+      <th onclick="sortTable('type3Table', 1)">NED</th>
+      <th onclick="sortTable('type3Table', 2)">Simbad</th>
+      <th onclick="sortTable('type3Table', 3)">Swift/BAT</th>
+      <th onclick="sortTable('type3Table', 4)">R. A.</th>
+      <th onclick="sortTable('type3Table', 5)">Dec.</th>
+      <th onclick="sortTable('type3Table', 6)">Type</th>
+      <th onclick="sortTable('type3Table', 7)">z</th>
+      <th onclick="sortTable('type3Table', 8)">Dist.</th>
     </tr>
   </thead>
   <tbody>
@@ -1772,19 +1775,20 @@
           <!-- <ul> -->
             <h2><i class="bx bx-chevron-right"></i> Optically-normal galaxies</h2>
         </div>
-<div class="col-lg-12">
-        <table border="1" class="dataframe">
+<div style="overflow-x:auto;">
+<input type="text" id="myInput4" onkeyup="myFunction('normalTable', 'myInput4')" placeholder="Search for a source identifier..." title="Type an identifier">
+        <table id="myTable" border="1" class="normalTable">
   <thead>
     <tr style="text-align: right;">
-      <th>ID</th>
-      <th>NED</th>
-      <th>Simbad</th>
-      <th>Swift/BAT</th>
-      <th>R. A.</th>
-      <th>Dec.</th>
-      <th>Type</th>
-      <th>z</th>
-      <th>Dist.</th>
+      <th onclick="sortTable('normalTable', 0)">ID</th>
+      <th onclick="sortTable('normalTable', 1)">NED</th>
+      <th onclick="sortTable('normalTable', 2)">Simbad</th>
+      <th onclick="sortTable('normalTable', 3)">Swift/BAT</th>
+      <th onclick="sortTable('normalTable', 4)">R. A.</th>
+      <th onclick="sortTable('normalTable', 5)">Dec.</th>
+      <th onclick="sortTable('normalTable', 6)">Type</th>
+      <th onclick="sortTable('normalTable', 7)">z</th>
+      <th onclick="sortTable('normalTable', 8)">Dist.</th>
     </tr>
   </thead>
   <tbody>
@@ -2251,19 +2255,20 @@
           <!-- <ul> -->
             <h2><i class="bx bx-chevron-right"></i> Ambiguous sources</h2>
         </div>
-<div class="col-lg-12">
-        <table border="1" class="dataframe">
+<div style="overflow-x:auto;">
+<input type="text" id="myInput5" onkeyup="myFunction('amibguousTable', 'myInput5')" placeholder="Search for a source identifier..." title="Type an identifier">
+        <table id="myTable" border="1" class="amiguousTable">
   <thead>
     <tr style="text-align: right;">
-      <th>ID</th>
-      <th>NED</th>
-      <th>Simbad</th>
-      <th>Swift/BAT</th>
-      <th>R. A.</th>
-      <th>Dec.</th>
-      <th>Type</th>
-      <th>z</th>
-      <th>Dist.</th>
+      <th onclick="sortTable('amiguousTable', 0)">ID</th>
+      <th onclick="sortTable('amiguousTable', 1)">NED</th>
+      <th onclick="sortTable('amiguousTable', 2)">Simbad</th>
+      <th onclick="sortTable('amiguousTable', 3)">Swift/BAT</th>
+      <th onclick="sortTable('amiguousTable', 4)">R. A.</th>
+      <th onclick="sortTable('amiguousTable', 5)">Dec.</th>
+      <th onclick="sortTable('amiguousTable', 6)">Type</th>
+      <th onclick="sortTable('amiguousTable', 7)">z</th>
+      <th onclick="sortTable('amiguousTable', 8)">Dist.</th>
     </tr>
   </thead>
   <tbody>
@@ -2481,6 +2486,87 @@
 </div>
       </div>
 </section>
+
+<script>
+function sortTable(tableClass, n) {
+var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+
+table = document.getElementsByClassName(tableClass)[0];
+switching = true;
+dir = "asc";
+while (switching) {
+    switching = false;
+    rows = table.getElementsByTagName("TR");
+    for (i = 1; i < (rows.length - 1); i++) {
+        shouldSwitch = false;
+        x = rows[i].getElementsByTagName("TD")[n];
+        y = rows[i + 1].getElementsByTagName("TD")[n];
+                var cmpX=isNaN(parseFloat(x.innerHTML))?x.innerHTML.toLowerCase():parseFloat(x.innerHTML);
+                var cmpY=isNaN(parseFloat(y.innerHTML))?y.innerHTML.toLowerCase():parseFloat(y.innerHTML);
+cmpX=(cmpX=='-')?0:cmpX;
+cmpY=(cmpY=='-')?0:cmpY;
+        if (dir == "asc") {
+            if (cmpX > cmpY) {
+                shouldSwitch= true;
+                break;
+            }
+        } else if (dir == "desc") {
+            if (cmpX < cmpY) {
+                shouldSwitch= true;
+                break;
+            }
+        }
+    }
+    if (shouldSwitch) {
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        switchcount ++;      
+    } else {
+        if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+        }
+    }
+}
+}
+</script>
+
+<script>
+function myFunction(tableClass, inputID) {
+
+  // Declare variables 
+  var input = document.getElementById(inputID);
+  var filter = input.value.toUpperCase();
+  var table = document.getElementsByClassName(tableClass)[0];
+  var trs = table.tBodies[0].getElementsByTagName("tr");
+
+  // Loop through first tbody's rows
+  for (var i = 0; i < trs.length; i++) {
+
+    // define the row's cells
+    var tds = trs[i].getElementsByTagName("td");
+
+    // hide the row
+    trs[i].style.display = "none";
+
+    // loop through row cells
+    for (var i2 = 0; i2 < tds.length; i2++) {
+
+      // if there's a match
+      if (tds[i2].innerHTML.toUpperCase().indexOf(filter) > -1) {
+
+        // show the row
+        trs[i].style.display = "";
+
+        // skip to the next row
+        continue;
+
+      }
+    }
+  }
+
+}
+</script>
 
 </main><!-- End #main -->
 
