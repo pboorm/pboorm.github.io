@@ -199,6 +199,14 @@
         <div class="section-title">
           <h2><i class="icofont-chart-flow-2"></i> The sample</h2>
         </div>
+
+        The NuLANDS sample was defined based on the criteria of <a target="_blank" href="https://ui.adsabs.harvard.edu/abs/1985Natur.314..240D/abstract">de Grijp et al., (1985)</a>, whereby the mid-to-far infrared spectrum was identified as "warm" between 25 and 60 &mu;m. This typically targets AGN efficiently since non-active galaxies are typically cooler, with a mid-to-far infrared spectrum peaking at colder temperatures. See the figure below for more info.</br></br>
+        <div class="col-lg-9">
+            <img src="nulands/selection.pdf" class="img-fluid" alt=""></a>
+        </div>
+
+        </br>
+      The figure below shows the NuLANDS extra-galactic targets with warm mid-to-far infrared spectra, separated by optical class. The targets are plotted in <a target="_blank" href="https://en.wikipedia.org/wiki/Supergalactic_coordinate_system">supergalactic coordinates</a>, and each concentric ring is separated by 20 Mpc from the Milky Way located at the very center.</br>
         <div class="embed-responsive embed-responsive-4by3">
           <iframe class="embed-responsive-item" src="nulands/local_group_nulands.html" width="1500" height="1000"></iframe>
         </div>
@@ -222,7 +230,7 @@
       <div class="container">
         <div class="section-title">
           <h2><i class="bx bx-line-chart"></i> X-ray models</h2>
-          For NuLANDS we are fitting a large library of X-ray spectral models to every source with BXA, which combines the nested sampling algorithm with astronomical X-ray spectral fitting packages such as PyXspec and Sherpa.. This enables us to account for a wide range of different physical phenomena in a computationally-efficient manner. We split our X-ray spectral models into four 'classes', which include B(asic), U(nobscured), O(bscured) and P(hysical) models. Below is a figure showcasing the spectral shape diversity the models are able to replicate.
+          For NuLANDS we are fitting a large library of X-ray spectral models to every source with the <a target="_blank" href="https://github.com/JohannesBuchner/BXA">Bayesian X-ray Analysis (BXA) package</a>, which combines <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/method.html">nested sampling algorithms</a> with astronomical X-ray spectral fitting packages such as <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/index.html">PyXspec</a> and <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/">Sherpa</a>. This enables us to account for a wide range of different physical phenomena in a computationally-efficient manner. We split our X-ray spectral models into four 'classes', which include B(asic), U(nobscured), O(bscured) and P(hysical) models. Below is a figure showcasing the spectral shape diversity the models are able to replicate.
           <!-- <h4>B(asic) models</h4>
           <li><b>B1:</b> <code>zcutoffpl</code></li>
           <li><b>B2</b></li>
@@ -273,15 +281,15 @@
           <!-- <ul> -->
             <h2><i class="icofont-list"></i> Source catalogues</h2>
               This section lists the full catalogue of warm IRAS sources within a redshift of 0.044 with their corresponding optical classifications. The columns for each table are as follows:
-            <li><b>ID:</b> The ID number from de Grijp et al., (1987).</li>
-            <li><b>NED:</b> The source name from NED with associated URL.</li>
-            <li><b>Simbad:</b> The source name from Simbad with associated URL.</li>
-            <li><b>Swift/BAT:</b> The 105-month Swift/BAT survey ID with URL to the corresponding source page.</li>
+            <li><b>ID:</b> The ID number from <a target="_blank" href="https://ui.adsabs.harvard.edu/abs/1987A%26AS...70...95D/abstract">de Grijp et al., (1987)</a>.</li>
+            <li><b>NED:</b> The source name from <a target="_blank" href="http://ned.ipac.caltech.edu">NED</a> with associated URL.</li>
+            <li><b>Simbad:</b> The source name from <a target="_blank" href="http://simbad.u-strasbg.fr">Simbad</a> with associated URL.</li>
+            <li><b>Swift/BAT:</b> The <a target="_blank" href="https://swift.gsfc.nasa.gov/results/bs105mon/">105-month Swift/BAT</a> survey ID with URL to the corresponding source page.</li>
             <li><b>R. A.:</b> J2000 source right ascension in degrees.</li>
             <li><b>Dec.:</b> J2000 source declination in degrees.</li>
-            <li><b>Type:</b> The optical spectroscopic type of the source, using the Veron-Cetty & Veron (2010) classifications.</li>
+            <li><b>Type:</b> The optical spectroscopic type of the source, using the <a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2010A%26A...518A..10V/abstract">V&eacute;ron-Cetty & V&eacute;ron (2010)</a> classifications.</li>
             <li><b>z:</b> The spectroscopic redshift of the source.</li>
-            <li><b>Dist.:</b> Distance to the source in Mpc. Entries marked with * correspond to the median redshift-independent distance from NED-D.</li>
+            <li><b>Dist.:</b> Luminosity distance to the source in Mpc assuming cosmological parameters H<sub>0</sub>=67.3 & &Omega;<sub>0</sub>=0.315. Entries marked with * correspond to the median redshift-independent distance from <a target="_blank" href="https://ned.ipac.caltech.edu/Library/Distances/">NED-D</a>.</li>
         </div>
       </div>
 </section>
