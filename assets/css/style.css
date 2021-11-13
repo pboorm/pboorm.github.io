@@ -26,6 +26,10 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
 }
 
+h1.specific {
+  text-align: center;
+}
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -324,6 +328,7 @@ section {
   color: #173b6c;
 }
 
+/* Changed from list-style: none; and padding: 0; on 2021-Nov-13 - see https://www.w3schools.com/css/css_list.asp*/
 .about .content ul {
   list-style: circle;
   padding: 20px;
