@@ -325,8 +325,8 @@ section {
 }
 
 .about .content ul {
-  list-style: none;
-  padding: 0;
+  list-style: circle;
+  padding: 20px;
 }
 
 .about .content ul li {
