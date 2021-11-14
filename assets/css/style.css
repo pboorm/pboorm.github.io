@@ -330,7 +330,7 @@ section {
 
 /* Changed from list-style: none; and padding: 0; on 2021-Nov-13 - see https://www.w3schools.com/css/css_list.asp*/
 .about .content ul {
-  list-style: circle;
+  list-style: disc;
   padding: 20px;
 }
 
