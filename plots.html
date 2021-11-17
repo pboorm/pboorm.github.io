@@ -92,6 +92,7 @@
         <ul>
           <li><a href="#info"><i class="icofont-info"></i>Information</a></li>
           <li><a href="#nh"><i class="icofont-cloudy"></i> Variable obscuration</a></li>
+          <li><a href="#bxa"><i class="icofont-code"></i> BXA GIF</a></li>
           <li><a href="#agn"><i class="icofont-paint"></i> AGN schematic</a></li>
           <li><a href="#agnsed"><i class="icofont-brush"></i> Circum-nuclear environment</a></li>
           <li><a href="#plotlyskymaps"><i class="icofont-telescope"></i> Interactive skymaps</a></li>
@@ -141,6 +142,19 @@
         <div class="embed-responsive embed-responsive-4by3">
           <iframe class="embed-responsive-item" src="https://share.streamlit.io/pboorm/uxclumpysim/main/xsim.py" width="100%" height="100%"></iframe>
         </div>
+      </div>
+</section>
+
+<section id="bxa" class="services">
+      <div class="container">
+        <div class="section-title">
+          <h2><i class="icofont-code"></i> Bayesian X-ray Analysis (BXA) GIF</h2>
+        This GIF shows a series of simulations of an obscured AGN spectrum at incrementally lower observed fluxes. By simultaneously modelling the background and source spectra, <a target="_blank" href="https://github.com/JohannesBuchner/BXA">BXA</a> enables constraints from spectra with no counts. For example, at the lowest fluxes the model still knows how bright the background should be, so the source cannot be brighter than this whilst being completely unobscured. Learn more about how to use BXA in the tutorial I wrote <a target="_blank" href="tutorial_bxa.html">here</a>.
+        </div>
+        
+        <!-- <div class="embed-responsive embed-responsive-4by3"> -->
+          <a href="figures/bxa_gif.gif" target="_blank"><img src="figures/bxa_gif.gif" class="img-fluid" alt=""></a>
+        <!-- </div> -->
       </div>
 </section>
 
