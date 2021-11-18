@@ -93,6 +93,7 @@
           <li><a href="#info"><i class="icofont-info"></i>Information</a></li>
           <li><a href="#nh"><i class="icofont-cloudy"></i> Variable obscuration</a></li>
           <li><a href="#bxa"><i class="icofont-code"></i> BXA GIF</a></li>
+          <li><a href="#nosource"><i class="icofont-question-circle"></i> No-source probabilities</a></li>
           <li><a href="#agn"><i class="icofont-paint"></i> AGN schematic</a></li>
           <li><a href="#agnsed"><i class="icofont-brush"></i> Circum-nuclear environment</a></li>
           <li><a href="#plotlyskymaps"><i class="icofont-telescope"></i> Interactive skymaps</a></li>
@@ -154,6 +155,21 @@
         
         <!-- <div class="embed-responsive embed-responsive-4by3"> -->
           <a href="figures/bxa_gif.gif" target="_blank"><img src="figures/bxa_gif.gif" class="img-fluid" alt=""></a>
+        <!-- </div> -->
+      </div>
+</section>
+
+<section id="nosource" class="services">
+      <div class="container">
+        <div class="section-title">
+          <h2><i class="icofont-question-circle"></i> No-source probability GIF</h2>
+        <p>No-source probabilities are used to quantify detection significance in X-ray astronomy, and is the probability that some amount of detected counts in a source region (<i>N</i><sub><i>A</i><sub>src</sub></sub>) is caused by a background fluctuation (i.e. that there is "no source"). For more information, see discussion in <a href="https://ui.adsabs.harvard.edu/abs/2014ApJ...785...17L/abstract" target="_blank">Lansbury et al., (2014)</a> or <a href="https://ui.adsabs.harvard.edu/#abs/2007ApJ...657.1026W/abstract" target="_blank">Weisskopf et al., (2007)</a></p></br>
+        <p>I created this GIF using code provided by George Lansbury to calculate no-source probabilities and estimate the posterior for the number of source counts. The left panel shows a simulated observation with the number of source+background counts consider in a given instance, as well as the number of background counts (fixed at 20 here). The middle panel shows the Binomial no-source probability distribution, with orange and green regions representing the no-source probabilities for the observation and for the number of counts required to reach a no-source probability of 1%. The right panel then shows the Bayesian posterior distribution on number of source counts using the formalism from <a href="https://ui.adsabs.harvard.edu/abs/1991ApJ...374..344K/abstract" target="_blank">Kraft et al., (1991)</a>.</p></br>
+
+        </div>
+        
+        <!-- <div class="embed-responsive embed-responsive-4by3"> -->
+          <a href="figures/nosourceprob_gif.gif" target="_blank"><img src="figures/nosourceprob_gif.gif" class="img-fluid" alt=""></a>
         <!-- </div> -->
       </div>
 </section>
