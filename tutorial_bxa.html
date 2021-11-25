@@ -358,7 +358,7 @@
           <code>mymod.norm = 10**logpar</code></br>
           Note: the parameter will only be valid for working in BXA. If you want to define a log parameter and use this with a standard Sherpa fit, the log parameter must appear in the model expression.</br></br>
           <li>Create a solver:</br>
-          PyXspec: <code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>(transformations=[prior1, prior2], outputfiles_basename="powerlaw_pyxspec")</code>
+          PyXspec: <code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>(transformations=[prior1, prior2], outputfiles_basename="powerlaw_pyxspec")</code></br>
           Sherpa: <code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sherpa-analysis.html#bxa.sherpa.solver.BXASolver">BXASolver</a>(prior=bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_prior_function">create_prior_function</a>([prior1, prior2]), parameters=[param1, param2], outputfiles_basename="powerlaw_sherpa")</code></br>
           Make sure <code>outputfiles_basename</code> is unique if running PyXspec and Sherpa in the same directory!</br></br>
           </li>
