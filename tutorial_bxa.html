@@ -366,8 +366,8 @@
 
           <li>Set the parameter values.</br>
             Note the <code>min</code>, <code>max</code> parameter bounds are used in the BXA priors and should be set to reasonable values.</br>
-            For PhoIndex, you can assume <code>delta = 0.1</code>, <code>min = -1.</code>, <code>bottom = -1.</code>, <code>top = 4.</code>, <code>max = 4.</code>.</br>
-            For normalisation, you can assume <code>delta = 0.1</code>, <code>min = 1.e-8</code>, <code>bottom = 1.e-8</code>, <code>top = 1.e-1</code>, <code>max = 1.e-1</code>.
+            For <code>PhoIndex</code>, you can assume <code>delta = 0.1</code>, <code>min = -1.</code>, <code>bottom = -1.</code>, <code>top = 4.</code>, <code>max = 4.</code>.</br>
+            For <code>norm</code>, you can assume <code>delta = 0.1</code>, <code>min = 1.e-8</code>, <code>bottom = 1.e-8</code>, <code>top = 1.e-1</code>, <code>max = 1.e-1</code>.
           <ul>
           <li>PyXspec:</br>
           <code>mymod.powerlaw.PhoIndex.values = (value, delta, min, bottom, top, max)</code><br/>
@@ -531,13 +531,14 @@
           <li>Fit the following additional 2 models to the data with BXA (don't forget to give unique <code>outputfiles_basename</code> values!):
             <ol>
           <li>Absorbed powerlaw:</br>
+            For <code>nh</code>, you can assume <code>delta = 0.1</code>, <code>min = 1.e-2</code>, <code>bottom = 1.e-2</code>, <code>top = 5.e2</code>, <code>max = 5.e2</code>.</br>
             <ul>
           <li>PyXspec: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node264.html">TBabs</a> * <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a></code></li>
           <li>Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa4.3/ahelp/xstbabs.html">xstbabs</a> * <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a></code></li>
         </ul></li>
           <li>Absorbed powerlaw + Gaussian emission line (assume the emission line for this source is known to have line centroid energy <code>LineE</code> = 6.3 &plusmn; 0.15 keV, and that the line is narrow with fixed width <code>Sigma</code> = 1 eV):</br>
             <ul>
-          <li>PyXspec: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node264.html">TBabs</a> * <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a> + <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node175.html">gaussian</a></code></li>
+          <li>PyXspec (note to fix a parameter, you can set <code>delta = -1</code>): <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node264.html">TBabs</a> * <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a> + <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node175.html">gaussian</a></code></li>
           <li>Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa4.3/ahelp/xstbabs.html">xstbabs</a> * <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a> + <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsgaussian.html">xsgaussian</a></code></li>
         </ul></br>
       </li>
