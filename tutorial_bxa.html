@@ -142,15 +142,28 @@
           </br>
 
           <h3>For PyXspec users</h3>
+          First, install PyXspec:
           <ul>
-          <li>Using a conda environment (e.g. with <a target="_blank" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a>) should ensure no conflicts occur when installing the Python packages required for BXA.</li>
           <li>Using PyXspec with BXA may require a source distribution of HEASoft. See install instructions here:<br/><a target="_blank" href="https://heasarc.gsfc.nasa.gov/docs/software/heasoft/">https://heasarc.gsfc.nasa.gov/docs/software/heasoft/</a><br/></li>
-          <li>Once the install process has finished, check PyXspec works by typing:
-            <blockquote><p><code>$ conda activate bxa</code> (if using a specific conda environment, otherwise skip this step)<br/>
-            <code>$ python -c 'from xspec import *'</code></p>
-          </blockquote>
-          </li>
-        </ul>
+          </ul>
+
+          We advise using a conda environment (e.g. with <a target="_blank" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a>) to ensure no conflicts occur when installing the Python packages required for BXA. If you have not created a dedicated BXA conda environment before:
+          <ul>
+          <li>Create a new conda environment:</br>
+            <code>$ conda create -n xspecbxa python=3.8</code></li>
+          <li>Activate the new environment:</br>
+            <code>$ conda activate xspecbxa</code></li>
+          <li>Install packages: <code>$ pip install requests corner astropy h5py cython scipy tqdm</code></li>
+          <li>Install BXA v4.0.5: <code>$ pip install bxa</code></li>
+
+          </ul>
+
+          Once the install process has finished, check everthing works as required:
+          <ul>
+            <li>Check PyXspec works: <code>$ python -c 'import xspec'</code></li>
+            <li>Check UltraNest works: <code>$ python -c 'import ultranest</code></li>
+          </ul>
+        </br>
 
           <h3>For Sherpa users</h3>
           <ul>
