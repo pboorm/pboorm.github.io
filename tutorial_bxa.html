@@ -260,7 +260,7 @@
 
           If you don't have your own, download the following Chandra/ACIS spectral files from <a href="bxa/s1_chandra.zip" download>here</a>:
         <ul>
-          <li>Source spectrum (binned with <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/lheasoft/help/ftgrouppha.html">ftgrouppha</a> grouptype=bmin groupscale=1</code>): <code>sim_chan_bmin.pi</code></li>
+          <li>Source spectrum (binned with <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/lheasoft/help/ftgrouppha.html">ftgrouppha</a> grouptype=bmin groupscale=1</code>): <code>sim_chan_bmin1.pi</code></li>
           <li>Response: <code>chan.rmf</code></li>
           <li>Effective area: <code>chan.arf</code></li>
           <li>Background spectrum: <code>sim_chan_bkg.pi</code></li>
@@ -320,10 +320,10 @@
           <li>Load spectra:
           <ul>
             <li>PyXspec:</br>
-              <code>s = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/spectrum.html">Spectrum</a>("sim_chan_bmin.pi")</code></br>
+              <code>s = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/spectrum.html">Spectrum</a>("sim_chan_bmin1.pi")</code></br>
               or <code>s = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>("1:1 sim_chan_bmin1.pi")</code>)</li>
           <li>Sherpa:</br>
-            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "sim_chan_bmin.pi")</code></li>
+            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "sim_chan_bmin1.pi")</code></li>
           </ul>
           </li></br>
 
@@ -621,7 +621,7 @@
         </div>
           For this example, we need another dataset. As an example, we will use a NuSTAR/FPMA spectrum which has a bandpass that extends to E &gt; 10 keV. So including this data with our Chandra spectral analysis will extend the energy range we can study our source over to ~78 keV. To download the NuSTAR spectral files:
           <ul>
-          <li>Source spectrum (<code>sim_nuA_bmin.pi</code>) & background spectrum (<code>sim_nuA_bkg.pi</code>) <a href="bxa/ex16_nustar.zip" download>here</a>.</li>
+          <li>Source spectrum (<code>sim_nuA_bmin1.pi</code>) & background spectrum (<code>sim_nuA_bkg.pi</code>) <a href="bxa/ex16_nustar.zip" download>here</a>.</li>
           <li>Response (<code>nustar.rmf</code>) and effective area (<code>point_30arcsecRad_1arcminOA.arf</code>) files from the <a href="https://www.nustar.caltech.edu/system/media_files/binaries/32/original/nustar_point_sources_for_proposers.tgz?1404172745">Point source simulation files</a> (distributed by the NuSTAR team, more info <a target="_blank" href="https://www.nustar.caltech.edu/page/response_files">here</a>).</li>
           </li>
         </ul></br>
