@@ -325,7 +325,7 @@
           <li>Set the plot device: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.device</a> = "/xw"</code></li>
           </ul>
           </li></br>
-          
+
           <li>Set the x-axis units (e.g., instrument channels or energy):
             <ul>
             <li>PyXspec: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.xAxis</a> = "keV"# or "channel"</code></li>
@@ -364,7 +364,10 @@
           </ul>
           </li></br>
 
-          <li>Set parameters (note the <code>min</code>, <code>max</code> parameter bounds are used in the BXA priors):
+          <li>Set the parameter values.</br>
+            Note the <code>min</code>, <code>max</code> parameter bounds are used in the BXA priors and should be set to reasonable values.</br>
+            For PhoIndex, you can assume <code>delta = 0.1</code>, <code>min = -1.</code>, <code>bottom = -1.</code>, <code>top = 4.</code>, <code>max = 4.</code>.</br>
+            For normalisation, you can assume <code>delta = 0.1</code>, <code>min = 1.e-8</code>, <code>bottom = 1.e-8</code>, <code>top = 1.e-1</code>, <code>max = 1.e-1</code>.
           <ul>
           <li>PyXspec:</br>
           <code>mymod.powerlaw.PhoIndex.values = (value, delta, min, bottom, top, max)</code><br/>
@@ -437,7 +440,7 @@
 
           <li>Perform prior predictive checks:
             <ol>
-          <li>Generate random samples of prior parameter values:
+          <li>Generate random samples of prior parameter values (remember to <code>import numpy</code>!):
           <ul>
           <li>PyXspec: <code>values = solver.prior_function(numpy.random.uniform(size=len(solver.paramnames)))</code></li>
           <li>Sherpa: <code>values = solver.prior_transform(numpy.random.uniform(size=len(solver.paramnames)))</code></li>
