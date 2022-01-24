@@ -155,39 +155,42 @@
             <code>$ conda activate xspecbxa</code></li>
           <li>Install packages: <code>$ pip install requests corner astropy h5py cython scipy tqdm</code></li>
           <li>Install BXA v4.0.5: <code>$ pip install bxa</code></li>
-
           </ul>
 
           Once the install process has finished, check everthing works as required:
           <ul>
             <li>Check PyXspec works: <code>$ python -c 'import xspec'</code></li>
-            <li>Check UltraNest works: <code>$ python -c 'import ultranest</code></li>
+            <li>Check UltraNest works: <code>$ python -c 'import ultranest'</code></li>
+            <li>Check BXA works: <code>$ python -c 'import bxa.xspec as bxa'</code></li>
           </ul>
-        </br>
+          If no error messages come up from these commands, BXA and PyXspec should work.
+
+        </br></br>
 
           <h3>For Sherpa users</h3>
           <ul>
-          <li>Install instructions for CIAO and Sherpa (optionally in a conda environment):<br/><a target="_blank" href="https://cxc.cfa.harvard.edu/ciao/download/">https://cxc.cfa.harvard.edu/ciao/download/</a><br/></li>
-          <li>Once the install process has finished, check Sherpa works by typing:
-          <blockquote><p><code>$ conda activate ciao</code><br/>
-          <code>$ sherpa</code></p>
-          </blockquote>
+          <li>First, install CIAO and Sherpa in a conda environment:<br/><a target="_blank" href="https://cxc.cfa.harvard.edu/ciao/download/">https://cxc.cfa.harvard.edu/ciao/download/</a><br/></li>
+          <li>Once the install process has finished, check Sherpa works:
+          <code>$ conda activate ciao-environment-name</code><br/>
+          <code>$ sherpa</code></br>
+          If there are no errors, Sherpa should be working as expected.
           </li>
         </ul>
 
-          <h3>BXA installation</h3>
+        Then install BXA inside the CIAO conda environment:
+        <ul>
+          <li>Activate the environment: <code>$ conda activate ciao-environment-name</code>
+          <li>Install packages: <code>$ pip install requests corner astropy h5py cython scipy tqdm</code></li>
+          <li>Install BXA v4.0.5: <code>$ pip install bxa</code></li>
+          </ul>
+
+          Once the install process has finished, check everthing works as required:
           <ul>
-          <li>BXA package documentation with installation instructions:<br/><a target="_blank" href="https://johannesbuchner.github.io/BXA/#installation">https://johannesbuchner.github.io/BXA/#installation</a></li>
-          <li>Check BXA was installed correctly:<br/>
-          PyXspec:<br/><blockquote><p><code>$ python -c 'import ultranest'</code><br/>
-          <code>$ python -c 'from xspec import *'</code><br/>
-          <code>$ python -c 'import bxa.xspec as bxa'</code><br/></p>
-          </blockquote>
-          Sherpa:<br/><blockquote><p><code>$ python -c 'import ultranest'</code><br/>
-          <code>$ python -c 'import bxa.sherpa as bxa'</code></p>
-          </blockquote>
-          </li>
-        </ul>
+            <li>Check UltraNest works: <code>$ python -c 'import ultranest'</code></li>
+            <li>Check BXA works: <code>$ python -c 'import bxa.sherpa as bxa'</code></li>
+          </ul>
+          If no error messages come up from these commands, BXA and PyXspec should work.
+
         </div>
       </div>
 </section>
@@ -316,18 +319,18 @@
         </ul>
           </li></br>
 
-          <li>Set the x-axis units (e.g., instrument channels or energy):
-            <ul>
-            <li>PyXspec: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.xAxis</a> = "channel"# or "keV"</code></li>
-          <li>Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_analysis.html">set_analysis</a>("chan")# or "ener"</code></li>
-        </ul>
-          </li></br>
-
           <li>Plot device (PyXspec only):
           <ul>
             <li>No plot device (useful to avoid plot window pop-ups): <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.device</a> = "/null"</code></li>
           <li>Set the plot device: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.device</a> = "/xw"</code></li>
           </ul>
+          </li></br>
+          
+          <li>Set the x-axis units (e.g., instrument channels or energy):
+            <ul>
+            <li>PyXspec: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.xAxis</a> = "keV"# or "channel"</code></li>
+          <li>Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_analysis.html">set_analysis</a>("ener")# or "chan"</code></li>
+        </ul>
           </li></br>
 
           <li>Load spectra:
@@ -445,7 +448,7 @@
           <ul>
           <li>PyXspec:</br>
           <code>from bxa.xspec.solver import <a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#set_parameters">set_parameters</a></code></br>
-          <code>solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#set_parameters">set_parameters</a>(transformations=solver.transformations,values=values)</code></li>
+          <code><a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#set_parameters">set_parameters</a>(transformations=solver.transformations,values=values)</code></li>
           <li>Sherpa:</br>
           <code>for i, p in enumerate(solver.parameters): p.val = values[i]</code></li>
           </ul>
