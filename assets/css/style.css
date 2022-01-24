@@ -6,6 +6,26 @@
 */
 
 /*--------------------------------------------------------------
+# Progress scroll bar -- see solution here https://stackoverflow.com/questions/31594698/progress-bar-when-scroll
+--------------------------------------------------------------*/
+.progressContainer{
+  position: fixed;
+  bottom: 0;
+  left: 15%;
+  width: 85%;
+  background: #fff;
+  height: 5px;
+}
+.progress{
+  height: 5px;
+  background: #149ddd;
+  width: 0;
+  transition: width 0.1s;
+  opacity: 100%;
+}
+
+
+/*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
 body {
@@ -29,6 +49,7 @@ h1, h2, h3, h4, h5, h6 {
 h1.specific {
   text-align: center;
 }
+
 
 /*--------------------------------------------------------------
 # Back to top button
