@@ -6,6 +6,17 @@
 */
 
 /*--------------------------------------------------------------
+# Copy to clipboard button
+--------------------------------------------------------------*/
+
+.cpbt {
+  padding: 0;
+  border: none;
+  background: none;
+  opacity:20%;
+}
+
+/*--------------------------------------------------------------
 # Progress scroll bar -- see solution here https://stackoverflow.com/questions/31594698/progress-bar-when-scroll
 --------------------------------------------------------------*/
 .progressContainer{

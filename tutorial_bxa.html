@@ -54,6 +54,7 @@
 </head>
 
 <body>
+
   <div class="progressContainer"><div id="progress" class="progress"></div></div>
 
 
@@ -150,18 +151,18 @@
           We advise using a conda environment (e.g. with <a target="_blank" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a>) to ensure no conflicts occur when installing the Python packages required for BXA. If you have not created a dedicated BXA conda environment before:
           <ul>
           <li>Create a new conda environment:</br>
-            <code>$ conda create -n xspecbxa python=3.8</code></li>
+            <code>$ </code><code id="c1">conda create -n xspecbxa python=3.8</code>&nbsp; <button class="cpbt" onclick="cp('c1')"><i class="icofont-copy"></i></button></li>
           <li>Activate the new environment:</br>
-            <code>$ conda activate xspecbxa</code></li>
-          <li>Install packages: <code>$ pip install requests corner astropy h5py cython scipy tqdm</code></li>
-          <li>Install BXA v4.0.5: <code>$ pip install bxa</code></li>
+            <code>$ </code><code id="c2">conda activate xspecbxa</code>&nbsp; <button class="cpbt" onclick="cp('c2')"><i class="icofont-copy"></i></button></li>
+          <li>Install packages: <code>$ </code><code id="c3">pip install requests corner astropy h5py cython scipy tqdm</code>&nbsp; <button class="cpbt" onclick="cp('c3')"><i class="icofont-copy"></i></button></li>
+          <li>Install BXA v4.0.5: <code>$ </code><code id="c4">pip install bxa</code>&nbsp; <button class="cpbt" onclick="cp('c4')"><i class="icofont-copy"></i></button></li>
           </ul>
 
           Once the install process has finished, check everthing works as required:
           <ul>
-            <li>Check PyXspec works: <code>$ python -c 'import xspec'</code></li>
-            <li>Check UltraNest works: <code>$ python -c 'import ultranest'</code></li>
-            <li>Check BXA works: <code>$ python -c 'import bxa.xspec as bxa'</code></li>
+            <li>Check PyXspec works: <code>$ </code><code id="c5">python -c 'import xspec'</code>&nbsp; <button class="cpbt" onclick="cp('c5')"><i class="icofont-copy"></i></button></li>
+            <li>Check UltraNest works: <code>$ </code><code id="c6">python -c 'import ultranest'</code>&nbsp; <button class="cpbt" onclick="cp('c6')"><i class="icofont-copy"></i></button></li>
+            <li>Check BXA works: <code>$ </code><code id="c7">python -c 'import bxa.xspec as bxa'</code>&nbsp; <button class="cpbt" onclick="cp('c7')"><i class="icofont-copy"></i></button></li>
           </ul>
           If no error messages come up from these commands, BXA and PyXspec should work.
 
@@ -979,6 +980,18 @@
   <script src="assets/js/main.js"></script>
 
   <script src="assets/js/scroll.js"></script>
+
+  <script>
+    // https://stackoverflow.com/questions/67016340/javascript-copy-to-clipboard-without-concrete-id-in-html-tag
+    function cp(id) {
+  if (!id) return;
+  const code = document.getElementById(id);
+  if (!code) return;
+  if (navigator && navigator.clipboard) { // need to check because it's only available on https and localohost
+    navigator.clipboard.writeText(code.innerHTML);
+  }
+};
+  </script>
 </body>
 
 </html>
