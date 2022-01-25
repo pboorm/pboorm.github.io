@@ -13,8 +13,14 @@
   padding: 0;
   border: none;
   background: none;
-  opacity:20%;
+  opacity:30%;
+  /*color: #CC0066;*/
 }
+.cpbt:visited {opacity: 30%}
+.cpbt:focus {opacity: 40%}
+.cpbt:hover {opacity: 40%}
+.cpbt:active {opacity: 30%}
+
 
 /*--------------------------------------------------------------
 # Progress scroll bar -- see solution here https://stackoverflow.com/questions/31594698/progress-bar-when-scroll

@@ -126,7 +126,7 @@
             <a target="_blank" href="https://en.wikipedia.org/wiki/Bayes%27_theorem"><img src="bxa//bayestheorem.png" class="img-fluid" alt=""></a>
           </div>
           </br>
-          <p>For any questions/comments/suggestions concerning the tutorial, <a href="mailto:peter.boorman@asu.cas.cz" class="email">contact Peter Boorman</a> and/or Johannes Buchner by e-mail.</p>
+          If you have any questions/comments/suggestions concerning the tutorial, please <a href="mailto:peter.boorman@asu.cas.cz" class="email">get in touch</a>!
         </div>
       </div>
     </section>
@@ -151,18 +151,18 @@
           We advise using a conda environment (e.g. with <a target="_blank" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a>) to ensure no conflicts occur when installing the Python packages required for BXA. If you have not created a dedicated BXA conda environment before:
           <ul>
           <li>Create a new conda environment:</br>
-            <code>$ </code><code id="c1">conda create -n xspecbxa python=3.8</code>&nbsp; <button class="cpbt" onclick="cp('c1')"><i class="icofont-copy"></i></button></li>
+            <code>$ conda create -n xspecbxa python=3.8</code>&nbsp; <button class="cpbt" onclick="cx('conda create -n xspecbxa python=3.8')"><i class="icofont-copy"></i></button></li>
           <li>Activate the new environment:</br>
-            <code>$ </code><code id="c2">conda activate xspecbxa</code>&nbsp; <button class="cpbt" onclick="cp('c2')"><i class="icofont-copy"></i></button></li>
-          <li>Install packages: <code>$ </code><code id="c3">pip install requests corner astropy h5py cython scipy tqdm</code>&nbsp; <button class="cpbt" onclick="cp('c3')"><i class="icofont-copy"></i></button></li>
-          <li>Install BXA v4.0.5: <code>$ </code><code id="c4">pip install bxa</code>&nbsp; <button class="cpbt" onclick="cp('c4')"><i class="icofont-copy"></i></button></li>
+            <code>$ conda activate xspecbxa</code>&nbsp; <button class="cpbt" onclick="cx('conda activate xspecbxa')"><i class="icofont-copy"></i></button></li>
+          <li>Install packages: <code>$ pip install requests corner astropy h5py cython scipy tqdm</code>&nbsp; <button class="cpbt" onclick="cx('pip install requests corner astropy h5py cython scipy tqdm')"><i class="icofont-copy"></i></button></li>
+          <li>Install BXA v4.0.5: <code>$ pip install bxa</code>&nbsp; <button class="cpbt" onclick="cx('pip install bxa')"><i class="icofont-copy"></i></button></li>
           </ul>
 
           Once the install process has finished, check everthing works as required:
           <ul>
-            <li>Check PyXspec works: <code>$ </code><code id="c5">python -c 'import xspec'</code>&nbsp; <button class="cpbt" onclick="cp('c5')"><i class="icofont-copy"></i></button></li>
-            <li>Check UltraNest works: <code>$ </code><code id="c6">python -c 'import ultranest'</code>&nbsp; <button class="cpbt" onclick="cp('c6')"><i class="icofont-copy"></i></button></li>
-            <li>Check BXA works: <code>$ </code><code id="c7">python -c 'import bxa.xspec as bxa'</code>&nbsp; <button class="cpbt" onclick="cp('c7')"><i class="icofont-copy"></i></button></li>
+            <li>Check PyXspec works: <code>$ python -c 'import xspec'</code></li>
+            <li>Check UltraNest works: <code>$ python -c 'import ultranest'</code></li>
+            <li>Check BXA works: <code>$ python -c 'import bxa.xspec as bxa'</code>&nbsp; <button class="cpbt" onclick="cx('python -c \'import xspec\'\npython -c \'import ultranest\'\npython -c \'import bxa.xspec as bxa\'')"><i class="icofont-copy"></i></button></li>
           </ul>
           If no error messages come up from these commands, BXA and PyXspec should work.
 
@@ -172,23 +172,23 @@
           <ul>
           <li>First, install CIAO and Sherpa in a conda environment:<br/><a target="_blank" href="https://cxc.cfa.harvard.edu/ciao/download/">https://cxc.cfa.harvard.edu/ciao/download/</a><br/></li>
           <li>Once the install process has finished, check Sherpa works:
-          <code>$ </code><code id="c8">conda activate ciao-environment-name</code>&nbsp; <button class="cpbt" onclick="cp('c8')"><i class="icofont-copy"></i></button><br/>
-          <code>$ </code><code id="c9">sherpa</code>&nbsp; <button class="cpbt" onclick="cp('c9')"><i class="icofont-copy"></i></button></br>
+          <code>$ conda activate ciao-environment-name</code>&nbsp; <button class="cpbt" onclick="cx('conda activate ciao-environment-name')"><i class="icofont-copy"></i></button><br/>
+          <code>$ sherpa</code>&nbsp; <button class="cpbt" onclick="cx('sherpa')"><i class="icofont-copy"></i></button></br>
           If there are no errors, Sherpa should be working as expected.
           </li>
         </ul>
 
         Then install BXA inside the CIAO conda environment:
         <ul>
-          <li>Activate the environment: <code>$ </code><code id="c10">conda activate ciao-environment-name</code>&nbsp; <button class="cpbt" onclick="cp('c10')"><i class="icofont-copy"></i></button></li>
-          <li>Install packages: <code>$ </code><code id="c11">pip install requests corner astropy h5py cython scipy tqdm</code>&nbsp; <button class="cpbt" onclick="cp('c11')"><i class="icofont-copy"></i></button></li>
-          <li>Install BXA v4.0.5: <code>$ </code><code id="c12">pip install bxa</code>&nbsp; <button class="cpbt" onclick="cp('c12')"><i class="icofont-copy"></i></button></li>
+          <li>Activate the environment: <code>$ conda activate ciao-environment-name</code>&nbsp; <button class="cpbt" onclick="cx('conda activate ciao-environment-name')"><i class="icofont-copy"></i></button></li>
+          <li>Install packages: <code>$ pip install requests corner astropy h5py cython scipy tqdm</code>&nbsp; <button class="cpbt" onclick="cx('pip install requests corner astropy h5py cython scipy tqdm')"><i class="icofont-copy"></i></button></li>
+          <li>Install BXA v4.0.5: <code>$ pip install bxa</code>&nbsp; <button class="cpbt" onclick="cx('pip install bxa')"><i class="icofont-copy"></i></button></li>
           </ul>
 
           Once the install process has finished, check everthing works as required:
           <ul>
-            <li>Check UltraNest works: <code>$ </code><code id="c13">python -c 'import ultranest'</code>&nbsp; <button class="cpbt" onclick="cp('c13')"><i class="icofont-copy"></i></button></li>
-            <li>Check BXA works: <code>$ </code><code id="c14">python -c 'import bxa.sherpa as bxa'</code>&nbsp; <button class="cpbt" onclick="cp('c14')"><i class="icofont-copy"></i></button></li>
+            <li>Check UltraNest works: <code>$ python -c 'import ultranest'</code></li>
+            <li>Check BXA works: <code>$ python -c 'import bxa.sherpa as bxa'</code>&nbsp; <button class="cpbt" onclick="cp('python -c \'import ultranest\'\npython -c \'import bxa.sherpa as bxa\'')"><i class="icofont-copy"></i></button></li>
           </ul>
           If no error messages come up from these commands, BXA and PyXspec should work.
 
@@ -201,63 +201,106 @@
 
         <div class="section-title">
           <h2><i class="bx bx-bookmarks"></i> Useful links</h2>
-          <li><p>Xspec &amp; PyXspec documentation:<br/><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/">https://heasarc.gsfc.nasa.gov/xanadu/xspec/</a><br/></p>
+          <h4>Documentation</h4>
+          <ul>
+          <li>Xspec &amp; PyXspec documentation:<br/><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/">https://heasarc.gsfc.nasa.gov/xanadu/xspec/</a>
           </li>
-          </br>
-          <li><p>Xspec Facebook group:<br/><a target="_blank" href="https://www.facebook.com/groups/320119452570/?ref=share">https://www.facebook.com/groups/320119452570/?ref=share</a><br/></p>
+          <li>Sherpa reference for commands:<br/><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/sherpa4.html">https://cxc.cfa.harvard.edu/sherpa/ahelp/sherpa4.html</a>
           </li>
-          </br>
-          <li><p>Sherpa reference for commands:<br/><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/sherpa4.html">https://cxc.cfa.harvard.edu/sherpa/ahelp/sherpa4.html</a><br/></p>
+          <li>UltraNest documentation:<br><a target="_blank" href="https://johannesbuchner.github.io/UltraNest/readme.html">https://johannesbuchner.github.io/UltraNest/readme.html</a>
           </li>
-          </br>
-          <li><p>Astrostatistics Facebook group:<br/><a target="_blank" href="https://www.facebook.com/groups/astro.r/?ref=share">https://www.facebook.com/groups/astro.r/?ref=share</a><br/></p>
+          <li>BXA documentation:</br>
+            <a href="https://johannesbuchner.github.io/BXA/index.html" target="_blank">https://johannesbuchner.github.io/BXA/index.html</a>
           </li>
-          </br>
-          <li><p>X-ray Data Primer by CXC:<br/><a target="_blank" href="https://cxc.cfa.harvard.edu/cdo/xray_primer.pdf">https://cxc.cfa.harvard.edu/cdo/xray_primer.pdf</a><br/></p>
+        </ul>
+
+
+          
+          <h4>Places to ask questions</h4>
+          <ul>
+          <li>Xspec Facebook group:<br/><a target="_blank" href="https://www.facebook.com/groups/320119452570/?ref=share">https://www.facebook.com/groups/320119452570/?ref=share</a>
           </li>
-          </br>
-          <li><p>Information on C-statistics (&amp; modified C-statistics, aka W-stat) used in Xspec &amp; Sherpa by Giacomo Vianello:<br/><a target="_blank" href="https://giacomov.github.io/Bias-in-profile-poisson-likelihood/">https://giacomov.github.io/Bias-in-profile-poisson-likelihood/</a><br/></p>
+          <li>Astrostatistics Facebook group:<br/><a target="_blank" href="https://www.facebook.com/groups/astro.r/?ref=share">https://www.facebook.com/groups/astro.r/?ref=share</a>
           </li>
-          </br>
-          <li><p>Sherpa script for fitting obscured AGN with BXA:<br/><a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/master/examples/sherpa/xagnfitter.py">https://github.com/JohannesBuchner/BXA/blob/master/examples/sherpa/xagnfitter.py</a><br/></p>
+          <li><a href="mailto:boorman@asu.cas.cz">Email</a>!</li>
+        </ul>
+
+          
+          <h4>Scripts</h4>
+          <ul>
+          <li>Sherpa script for fitting obscured AGN with BXA:<br/><a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/master/examples/sherpa/xagnfitter.py">https://github.com/JohannesBuchner/BXA/blob/master/examples/sherpa/xagnfitter.py</a>
           </li>
-          </br>
-          <li><p>X-ray Spectral Fitting lectures by Johannes Buchner:<br/><a target="_blank" href="https://youtu.be/_r4ecpje7nE">https://youtu.be/_r4ecpje7nE</a><br/><a href="https://youtu.be/EIzhDG-0Ji8">https://youtu.be/EIzhDG-0Ji8</a><br/></p>
+          <li>PosteriorStacker (for deriving sample distributions from individual source posterior distributions)<br><a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">https://github.com/JohannesBuchner/PosteriorStacker</a>
           </li>
-          </br>
-          <li><p>UltraNest documentation:<br><a target="_blank" href="https://johannesbuchner.github.io/UltraNest/readme.html">https://johannesbuchner.github.io/UltraNest/readme.html</a><br/></p>
+          <li>example_advanced_priors.py (shows how to include custom priors in BXA)<br><a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/master/examples/xspec/example_advanced_priors.py">https://github.com/JohannesBuchner/BXA/blob/master/examples/xspec/example_advanced_priors.py</a>
           </li>
-          </br>
-          <li><p>BXA citation - Buchner et al., (2014; A&A)<br><a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2014A%26A...564A.125B/abstract">https://ui.adsabs.harvard.edu/abs/2014A%26A...564A.125B/abstract</a><br/></p>
+        </ul>
+
+          <h4>Lectures & videos</h4>
+          <ul>
+            <li>BiD4BEST Bayesian X-ray Spectral Analysis lectures by Johannes Buchner:<br/>
+              <ol>
+              <li><a target="_blank" href="https://youtu.be/_r4ecpje7nE">https://youtu.be/_r4ecpje7nE</a></li>
+              <li><a href="https://youtu.be/EIzhDG-0Ji8">https://youtu.be/EIzhDG-0Ji8</a></li>
+            </ol>
           </li>
-          </br>
-          <li><p>UltraNest citation - Buchner (2021, JOSS)<br><a target="_blank" href="https://arxiv.org/abs/2101.09604">https://arxiv.org/abs/2101.09604</a><br/></p>
+            <li>Graduate-level course: <i>Monte Carlo inference methods</i> by Johannes Buchner:</br>
+            <ol>
+            <li><i>Bayesian inference workflow in astronomy and physics</i>:</br>
+              <a href="https://youtu.be/D2P6xBR_2bQ" target="_blank">https://youtu.be/D2P6xBR_2bQ</a></li>
+            <li><i>Bayesian model comparison, curse of dimensionality, Importance Sampling</i>:</br>
+              <a href="https://youtu.be/TfaGfFnsmW8" target="_blank">https://youtu.be/TfaGfFnsmW8</a></li>
+            <li><i>Markov Chain Monte Carlo (MCMC) and diagnostics</i>:</br>
+              <a href="https://youtu.be/YA6Ezh8CsrY" target="_blank">https://youtu.be/YA6Ezh8CsrY</a></li>
+            <li><i>Hamiltonian Monte Carlo (HMC) by Dr. Francesca Capel</i>:</br>
+              <a href="https://youtu.be/nmHGyXsiaeI" target="_blank">https://youtu.be/nmHGyXsiaeI</a></li>
+            <li><i>Nested Sampling from scratch - Practical Inference for Researchers in the Physical Sciences</i>:</br>
+              <a href="https://youtu.be/baLFl_4ZwXw" target="_blank">https://youtu.be/baLFl_4ZwXw</a></li>
+            <li><i>State-of-the art in nested sampling and MCMC: literature review</i>:</br>
+              <a href="https://youtu.be/HFaqcB_H6MA" target="_blank">https://youtu.be/HFaqcB_H6MA</a></li>
+          </ol>
           </li>
-          </br>
-          <li><p>Nested sampling review - Buchner (2021)<br><a target="_blank" href="https://arxiv.org/abs/2101.09675">https://arxiv.org/abs/2101.09675</a><br/></p>
+          <li> BXA Tutorial at <a href="https://cxc.harvard.edu/cdo/cds2021/schedule.html" target="_blank">Chandra Data Science 2021</a> by Peter Boorman & Johannes Buchner:</br>
+          <ul>
+          <li><a href="https://youtu.be/c1pMDhKFAWA" target="_blank">https://youtu.be/c1pMDhKFAWA</a></li>
+          </ul>
           </li>
-          </br>
-          <li><p>PCA background - Simmonds et al., (2018, A&A)<br><a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...618A..66S/abstract">https://ui.adsabs.harvard.edu/abs/2018A%26A...618A..66S/abstract</a><br/></p>
+          </ul>
+
+          <h4>Useful papers & documents</h4>
+        <ul>
+          <li>X-ray Data Primer by CXC:<br/><a target="_blank" href="https://cxc.cfa.harvard.edu/cdo/xray_primer.pdf">https://cxc.cfa.harvard.edu/cdo/xray_primer.pdf</a>
           </li>
-          </br>
-          <li><p>Simulation-based calibration of false-positive & false-negative rates - Baronchelli et al., (2018, MNRAS)<br><a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2018MNRAS.480.2377B/abstract">https://ui.adsabs.harvard.edu/abs/2018MNRAS.480.2377B/abstract</a><br/></p>
+          <li>Information on C-statistics (&amp; modified C-statistics, aka W-stat) used in Xspec &amp; Sherpa by Giacomo Vianello:<br/><a target="_blank" href="https://giacomov.github.io/Bias-in-profile-poisson-likelihood/">https://giacomov.github.io/Bias-in-profile-poisson-likelihood/</a>
           </li>
-          </br>
-          <li><p>Bayesian Hierarchical Modelling:</p>
+          <li>Nested sampling review - Buchner (2021)<br><a target="_blank" href="https://arxiv.org/abs/2101.09675">https://arxiv.org/abs/2101.09675</a>
+          </li>
+          <li>PCA background - Simmonds et al., (2018, A&A)<br><a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...618A..66S/abstract">https://ui.adsabs.harvard.edu/abs/2018A%26A...618A..66S/abstract</a>
+          </li>
+          <li>Simulation-based calibration of false-positive & false-negative rates - Baronchelli et al., (2018, MNRAS)<br><a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2018MNRAS.480.2377B/abstract">https://ui.adsabs.harvard.edu/abs/2018MNRAS.480.2377B/abstract</a>
+          </li>
+        </ul>
+          <h4>Citations</h4>
+          <ul>
+          <li>Py/Xspec citation - Arnaud et al., (1996; ASPC):<br><a target="_blank" href="https://ui.adsabs.harvard.edu/abs/1996ASPC..101...17A/abstract">https://ui.adsabs.harvard.edu/abs/1996ASPC..101...17A/abstract</a>
+          </li>
+          <li>Sherpa citation - Freeman et al., (2001; SPIE):<br><a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2001SPIE.4477...76F/abstract">https://ui.adsabs.harvard.edu/abs/2001SPIE.4477...76F/abstract</a>
+          In CIAO 4.13, you can use this command to get information on the latest release:</br>
+          <code>sherpa> sherpa.citation("latest")</code>
+          </li>
+          <li>BXA citation - Buchner et al., (2014; A&A)<br><a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2014A%26A...564A.125B/abstract">https://ui.adsabs.harvard.edu/abs/2014A%26A...564A.125B/abstract</a>
+          </li>
+          <li>UltraNest citation - Buchner (2021, JOSS)<br><a target="_blank" href="https://arxiv.org/abs/2101.09604">https://arxiv.org/abs/2101.09604</a>
+          </li>
+          </ul>
+          
+          <h4>Bayesian Hierarchical Modelling with BXA</h4>
           <ul>
           <li>Baronchelli et al., (2020, MNRAS), Section A1<br><a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2020MNRAS.498.5284B/abstract">https://ui.adsabs.harvard.edu/abs/2020MNRAS.498.5284B/abstract</a></li>
           <li>Kuraszkiewicz et al., (2021, ApJ), Section A1<br><a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2021ApJ...913..134K/abstract">https://ui.adsabs.harvard.edu/abs/2021ApJ...913..134K/abstract</a></li>
           <li>Liu et al., (2021, arXiv), Section 3.7<br><a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2021arXiv210614522L/abstract">https://ui.adsabs.harvard.edu/abs/2021arXiv210614522L/abstract</a></li>
           </ul>
-          </li>
-          </br>
-          <li><p>PosteriorStacker (for deriving sample distributions from individual source posterior distributions)<br><a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">https://github.com/JohannesBuchner/PosteriorStacker</a><br/></p>
-          </li>
-          </br>
-          <li><p>example_advanced_priors.py (shows how to include custom priors in BXA)<br><a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/master/examples/xspec/example_advanced_priors.py">https://github.com/JohannesBuchner/BXA/blob/master/examples/xspec/example_advanced_priors.py</a><br/></p>
-          </li>
-          </br>
-          <li><p>Do you know of any others? Please get in touch!</p>
+          <li><b>Do you know of any others?</b> Please <a href="mailto:boorman@asu.cas.cz">get in touch</a>!
           </li>
           </br>
         </div>
@@ -275,7 +318,8 @@
           </ul>
         </div>
 
-          If you don't have your own, download the following Chandra/ACIS spectral files from <a href="bxa/s1_chandra.zip" download>here</a>:
+          If you don't have your own, download the following Chandra/ACIS spectral files from <a href="bxa/s1_chandra.zip" download>here</a>.</br>
+          The compressed folder contains:
         <ul>
           <li>Source spectrum (binned with <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/lheasoft/help/ftgrouppha.html">ftgrouppha</a> grouptype=bmin groupscale=1</code>): <code>sim_chan_bmin1.pi</code></li>
           <li>Response: <code>chan.rmf</code></li>
@@ -289,26 +333,26 @@
         <ul>
           <li>For interactive mode (useful for debugging scripts):
             <ul>
-            <li>PyXspec: <code>$ </code><code id="c101">ipython</code>&nbsp; <button class="cpbt" onclick="cp('c101')"><i class="icofont-copy"></i></button></li>
-            <li>Sherpa: <code>$ </code><code id="c102">sherpa</code>&nbsp; <button class="cpbt" onclick="cp('c102')"><i class="icofont-copy"></i></button></li>
+            <li>PyXspec: </code><code>$ ipython</code>&nbsp; <button class="cpbt" onclick="cx('c101')"><i class="icofont-copy"></i></button></li>
+            <li>Sherpa: </code><code>$ sherpa</code>&nbsp; <button class="cpbt" onclick="cx('c102')"><i class="icofont-copy"></i></button></li>
           </ul>
           </li></br>
 
           <li>For scripting:
             <ul>
-            <li>PyXspec: <code>$ </code><code id="c103">python3 pyxspec_script.py</code>&nbsp; <button class="cpbt" onclick="cp('c103')"><i class="icofont-copy"></i></button></li>
-            <li>Sherpa: <code>$ </code><code id="c104">sherpa sherpa_script.py</code>&nbsp; <button class="cpbt" onclick="cp('c104')"><i class="icofont-copy"></i></button></li>
+            <li>PyXspec: </code><code>$ python3 pyxspec_script.py</code>&nbsp; <button class="cpbt" onclick="cx('python3 pyxspec_script.py')"><i class="icofont-copy"></i></button></li>
+            <li>Sherpa: </code><code>$ sherpa sherpa_script.py</code>&nbsp; <button class="cpbt" onclick="cx('c104')"><i class="icofont-copy"></i></button></li>
           </ul>
           </li></br>
 
           <li>Setup required packages:
             <ul>
               <li>PyXspec:</br>
-          <code>from xspec import *</code></br>
-          <code>import bxa.xspec as bxa</code><br/>
+          <code>from xspec import *</code>&nbsp; <button class="cpbt" onclick="cp('c105')"><i class="icofont-copy"></i></button></br>
+          <code>import bxa.xspec as bxa</code>&nbsp; <button class="cpbt" onclick="cp('c106')"><i class="icofont-copy"></i></button><br/>
         </li>
           <li>Sherpa:</br>
-          <code>import bxa.sherpa as bxa</code>
+          <code>import bxa.sherpa as bxa</code>&nbsp; <button class="cpbt" onclick="cp('c107')"><i class="icofont-copy"></i></button>
         </li>
       </ul>
           </li></br>
@@ -322,7 +366,7 @@
 
           <li>Plot device (PyXspec only):
           <ul>
-            <li>No plot device (useful to avoid plot window pop-ups): <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.device</a> = "/null"</code></li>
+            <li>No plot device (useful to avoid plot window pop-ups): <code id="c1010"><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.device</a> = "/null"</code></li>
           <li>Set the plot device: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.device</a> = "/xw"</code></li>
           </ul>
           </li></br>
@@ -338,7 +382,8 @@
           <ul>
             <li>PyXspec:</br>
               <code>s = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/spectrum.html">Spectrum</a>("sim_chan_bmin1.pi")</code></br>
-              or <code>s = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>("1:1 sim_chan_bmin1.pi")</code>)</li>
+              Or:</br>
+              <code>s = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>("1:1 sim_chan_bmin1.pi")</code></li>
           <li>Sherpa:</br>
             <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "sim_chan_bmin1.pi")</code></li>
           </ul>
@@ -348,7 +393,8 @@
             <ul>
           <li>Pyxspec:</br>
             <code>s.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html">ignore</a>("0.-0.5 8.-**")</code></br>
-            or <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>.ignore("1:0.-0.5 8.-**")</code></li>
+            Or:</br>
+            <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>.ignore("1:0.-0.5 8.-**")</code></li>
           <li>Sherpa:</br>
           <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/ignore_id.html">ignore_id</a>(1, "0.:0.5,8.:")</code></li>
           </ul>
@@ -989,6 +1035,16 @@
   if (!code) return;
   if (navigator && navigator.clipboard) { // need to check because it's only available on https and localohost
     navigator.clipboard.writeText(code.innerHTML);
+  }
+};
+  </script>
+
+  <script>
+    // https://stackoverflow.com/questions/67016340/javascript-copy-to-clipboard-without-concrete-id-in-html-tag
+    function cx(tx) {
+  if (!tx) return;
+  if (navigator && navigator.clipboard) { // need to check because it's only available on https and localohost
+    navigator.clipboard.writeText(tx);
   }
 };
   </script>
