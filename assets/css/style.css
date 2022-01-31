@@ -5,6 +5,42 @@
 * License: https://bootstrapmade.com/license/
 */
 
+/* pre tags */
+
+code {
+    color: #ec3c80;
+    line-height: 0.9em;
+    margin-bottom: 0.1em;
+    padding: 5px;
+    white-space:pre-wrap;
+    /*width: auto;*/
+    /*max-height: 50%;*/
+    /*overflow: auto;*/
+    /*font-family: var(--ff-mono);*/
+    /*font-size: 18px;*/
+    background-color: #EEEEEE;
+    border-radius: 3px;/* sets strength of curved corners */
+    scrollbar-color:var(--scrollbar) transparent;
+    display: inline-block
+}
+
+pre {
+    color: #ec3c80;
+    line-height: 1.3em;
+    margin-bottom: 0.1em;
+    padding: 1px;
+    white-space:pre-wrap;
+    /*width: auto;*/
+    /*max-height: 50%;*/
+    /*overflow: auto;*/
+    font-family: var(--ff-mono);
+    font-size: 14px;
+    background-color: #EEEEEE;
+    border-radius: 3px;/* sets strength of curved corners */
+    scrollbar-color:var(--scrollbar) transparent;
+    display: inline-block
+}
+
 /*--------------------------------------------------------------
 # Copy to clipboard button
 --------------------------------------------------------------*/

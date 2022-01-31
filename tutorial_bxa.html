@@ -139,7 +139,7 @@
           <h2><i class="icofont-fix-tools"></i> Setup</h2>
 
           <h3>&#9888;&#65039; <font color="red">WARNING!</font> &#9888;&#65039; BXA requires a working form of <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/index.html">PyXspec</a> and/or <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/">Sherpa</a>.</h3>
-          <p>Make sure either of these are installed before doing the exercises!</p>
+          <p>Make sure either of these are installed before doing the exercises! Also note the exercises were written for BXA v4.0.5 - if some commands are not working, check which version you are running.</p>
           </br>
 
           <h3>For PyXspec users</h3>
@@ -154,15 +154,17 @@
             <code>$ conda create -n xspecbxa python=3.8</code>&nbsp; <button class="cpbt" onclick="cx('conda create -n xspecbxa python=3.8')"><i class="icofont-copy"></i></button></li>
           <li>Activate the new environment:</br>
             <code>$ conda activate xspecbxa</code>&nbsp; <button class="cpbt" onclick="cx('conda activate xspecbxa')"><i class="icofont-copy"></i></button></li>
-          <li>Install packages: <code>$ pip install requests corner astropy h5py cython scipy tqdm</code>&nbsp; <button class="cpbt" onclick="cx('pip install requests corner astropy h5py cython scipy tqdm')"><i class="icofont-copy"></i></button></li>
-          <li>Install BXA v4.0.5: <code>$ pip install bxa</code>&nbsp; <button class="cpbt" onclick="cx('pip install bxa')"><i class="icofont-copy"></i></button></li>
+          <li>Install packages:</br>
+            <code>$ pip install requests corner astropy h5py cython scipy tqdm</code>&nbsp; <button class="cpbt" onclick="cx('pip install requests corner astropy h5py cython scipy tqdm')"><i class="icofont-copy"></i></button></li>
+          <li>Install BXA:</br>
+            <code>$ pip install bxa</code>&nbsp; <button class="cpbt" onclick="cx('pip install bxa')"><i class="icofont-copy"></i></button></li>
           </ul>
 
-          Once the install process has finished, check everthing works as required:
+          Once the install process has finished, check everthing is installed and works as required:&nbsp; <button class="cpbt" onclick="cx('python -c \'import xspec\'\npython -c \'import ultranest\'\npython -c \'import bxa.xspec as bxa\'')"><i class="icofont-copy"></i></button>
           <ul>
             <li>Check PyXspec works: <code>$ python -c 'import xspec'</code></li>
             <li>Check UltraNest works: <code>$ python -c 'import ultranest'</code></li>
-            <li>Check BXA works: <code>$ python -c 'import bxa.xspec as bxa'</code>&nbsp; <button class="cpbt" onclick="cx('python -c \'import xspec\'\npython -c \'import ultranest\'\npython -c \'import bxa.xspec as bxa\'')"><i class="icofont-copy"></i></button></li>
+            <li>Check BXA works: <code>$ python -c 'import bxa.xspec as bxa'</code></li>
           </ul>
           If no error messages come up from these commands, BXA and PyXspec should work.
 
@@ -171,9 +173,11 @@
           <h3>For Sherpa users</h3>
           <ul>
           <li>First, install CIAO and Sherpa in a conda environment:<br/><a target="_blank" href="https://cxc.cfa.harvard.edu/ciao/download/">https://cxc.cfa.harvard.edu/ciao/download/</a><br/></li>
-          <li>Once the install process has finished, check Sherpa works:
-          <code>$ conda activate ciao-environment-name</code>&nbsp; <button class="cpbt" onclick="cx('conda activate ciao-environment-name')"><i class="icofont-copy"></i></button><br/>
-          <code>$ sherpa</code>&nbsp; <button class="cpbt" onclick="cx('sherpa')"><i class="icofont-copy"></i></button></br>
+          <li>Once the install process has finished, check Sherpa works:</br>
+          <code><pre>
+conda activate ciao-environment-name
+sherpa</pre></code> <button class="cpbt" onclick="cx('conda activate ciao-environment-name\nsherpa')"><i class="icofont-copy"></i></button></br><!-- &nbsp; <button class="cpbt" onclick="cx('conda activate ciao-environment-name')"><i class="icofont-copy"></i></button><br/> -->
+
           If there are no errors, Sherpa should be working as expected.
           </li>
         </ul>
@@ -182,7 +186,7 @@
         <ul>
           <li>Activate the environment: <code>$ conda activate ciao-environment-name</code>&nbsp; <button class="cpbt" onclick="cx('conda activate ciao-environment-name')"><i class="icofont-copy"></i></button></li>
           <li>Install packages: <code>$ pip install requests corner astropy h5py cython scipy tqdm</code>&nbsp; <button class="cpbt" onclick="cx('pip install requests corner astropy h5py cython scipy tqdm')"><i class="icofont-copy"></i></button></li>
-          <li>Install BXA v4.0.5: <code>$ pip install bxa</code>&nbsp; <button class="cpbt" onclick="cx('pip install bxa')"><i class="icofont-copy"></i></button></li>
+          <li>Install: <code>$ pip install bxa</code>&nbsp; <button class="cpbt" onclick="cx('pip install bxa')"><i class="icofont-copy"></i></button></li>
           </ul>
 
           Once the install process has finished, check everthing works as required:
@@ -337,99 +341,106 @@
         <ul>
           <li>For interactive mode (useful for debugging scripts):
             <ul>
-            <li>PyXspec: </code><code>$ ipython</code>&nbsp; <button class="cpbt" onclick="cx('ipython')"><i class="icofont-copy"></i></button></li>
-            <li>Sherpa: </code><code>$ sherpa</code>&nbsp; <button class="cpbt" onclick="cx('sherpa')"><i class="icofont-copy"></i></button></li>
+            <li>PyXspec: <code>$ ipython</code>&nbsp; <button class="cpbt" onclick="cx('ipython')"><i class="icofont-copy"></i></button></li>
+            <li>Sherpa: <code>$ sherpa</code>&nbsp; <button class="cpbt" onclick="cx('sherpa')"><i class="icofont-copy"></i></button></li>
           </ul>
           </li></br>
 
           <li>For scripting:
             <ul>
-            <li>PyXspec: </code><code>$ python3 pyxspec_script.py</code>&nbsp; <button class="cpbt" onclick="cx('python3 pyxspec_script.py')"><i class="icofont-copy"></i></button></li>
-            <li>Sherpa: </code><code>$ sherpa sherpa_script.py</code>&nbsp; <button class="cpbt" onclick="cx('sherpa sherpa_script.py')"><i class="icofont-copy"></i></button></li>
+            <li>PyXspec: <code>$ python3 pyxspec_script.py</code>&nbsp; <button class="cpbt" onclick="cx('python3 pyxspec_script.py')"><i class="icofont-copy"></i></button></li>
+            <li>Sherpa: <code>$ sherpa sherpa_script.py</code>&nbsp; <button class="cpbt" onclick="cx('sherpa sherpa_script.py')"><i class="icofont-copy"></i></button></li>
           </ul>
           </li></br>
 
           <li>Setup required packages:
             <ul>
               <li>PyXspec:</br>
-          <code>from xspec import *</code>&nbsp; <button class="cpbt" onclick="cp('c105')"><i class="icofont-copy"></i></button></br>
-          <code>import bxa.xspec as bxa</code>&nbsp; <button class="cpbt" onclick="cp('c106')"><i class="icofont-copy"></i></button><br/>
+          <code><pre id="import_xspec">
+from xspec import *
+import bxa.xspec as bxa
+</pre></code>&nbsp; <button class="cpbt" onclick="cp('import_xspec')"><i class="icofont-copy"></i></button>
         </li>
           <li>Sherpa:</br>
-          <code>import bxa.sherpa as bxa</code>&nbsp; <button class="cpbt" onclick="cp('c107')"><i class="icofont-copy"></i></button>
+          <code>import bxa.sherpa as bxa</code>&nbsp; <button class="cpbt" onclick="cx('import bxa.sherpa as bxa')"><i class="icofont-copy"></i></button>
         </li>
       </ul>
           </li></br>
 
           <li>Set the statistic (here we use modified C-statistics):
             <ul>
-          <li>PyXspec: <code>Fit.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html#statMethod">statMethod</a> = "cstat"</code></li>
-          <li>Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_stat.html">set_stat</a>("wstat")</code></li>
+          <li>PyXspec: <code>Fit.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html#statMethod">statMethod</a> = "cstat"</code>&nbsp; <button class="cpbt" onclick="cx('Fit.statMethod = &quot;cstat&quot;')"><i class="icofont-copy"></i></button></li>
+          <li>Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_stat.html">set_stat</a>("wstat")</code>&nbsp; <button class="cpbt" onclick="cx('set_stat(&quot;wstat&quot;)')"><i class="icofont-copy"></i></button></li>
         </ul>
           </li></br>
 
           <li>Plot device (PyXspec only):
           <ul>
-            <li>No plot device (useful to avoid plot window pop-ups): <code id="c1010"><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.device</a> = "/null"</code></li>
-          <li>Set the plot device: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.device</a> = "/xw"</code></li>
+            <li>No plot device (useful to avoid plot window pop-ups): <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.device</a> = "/null"</code>&nbsp; <button class="cpbt" onclick="cx('Plot.device = &quot;null&quot;')"><i class="icofont-copy"></i></button></li>
+          <li>Set the plot device: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.device</a> = "/xw"</code>&nbsp; <button class="cpbt" onclick="cx('Plot.device = &quot;/xw&quot;')"><i class="icofont-copy"></i></button></li>
           </ul>
           </li></br>
 
           <li>Set the x-axis units (e.g., instrument channels or energy):
             <ul>
-            <li>PyXspec: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.xAxis</a> = "keV"# or "channel"</code></li>
-          <li>Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_analysis.html">set_analysis</a>("ener")# or "chan"</code></li>
+            <li>PyXspec: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.xAxis</a> = "keV"# or "channel"</code>&nbsp; <button class="cpbt" onclick="cx('Plot.xAxis = &quot;keV&quot;')"><i class="icofont-copy"></i></button></li>
+          <li>Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_analysis.html">set_analysis</a>("ener")# or "chan"</code>&nbsp; <button class="cpbt" onclick="cx('set_analysis(&quot;ener&quot;)')"><i class="icofont-copy"></i></button></li>
         </ul>
           </li></br>
 
           <li>Load spectra:
           <ul>
             <li>PyXspec:</br>
-              <code>s = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/spectrum.html">Spectrum</a>("sim_chan_bmin1.pi")</code></br>
+              <code>s = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/spectrum.html">Spectrum</a>("sim_chan_bmin1.pi")</code>&nbsp; <button class="cpbt" onclick="cx('s = Spectrum(&quot;sim_chan_bmin1.pi&quot;)')"><i class="icofont-copy"></i></button></br>
               Or:</br>
-              <code>s = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>("1:1 sim_chan_bmin1.pi")</code></li>
+              <code>s = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>("1:1 sim_chan_bmin1.pi")</code>&nbsp; <button class="cpbt" onclick="cx('s = AllData(&quot;1:1 sim_chan_bmin1.pi&quot;)')"><i class="icofont-copy"></i></button></li>
           <li>Sherpa:</br>
-            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "sim_chan_bmin1.pi")</code></li>
+            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "sim_chan_bmin1.pi")</code>&nbsp; <button class="cpbt" onclick="cx('load_pha(1, &quot;sim_chan_bmin1.pi&quot;)')"><i class="icofont-copy"></i></button></li>
           </ul>
           </li></br>
 
           <li>Ignore channels:
             <ul>
           <li>Pyxspec:</br>
-            <code>s.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html">ignore</a>("0.-0.5 8.-**")</code></br>
+            <code>s.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html">ignore</a>("0.-0.5 8.-**")</code>&nbsp; <button class="cpbt" onclick="cx('s.ignore(&quot;0.-0.5 8.-**&quot;)')"><i class="icofont-copy"></i></button></br>
             Or:</br>
-            <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>.ignore("1:0.-0.5 8.-**")</code></li>
+            <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>.ignore("1:0.-0.5 8.-**")</code>&nbsp; <button class="cpbt" onclick="cx('AllData.ignore(&quot;0.-0.5 8.-**&quot;)')"><i class="icofont-copy"></i></button></li>
           <li>Sherpa:</br>
-          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/ignore_id.html">ignore_id</a>(1, "0.:0.5,8.:")</code></li>
+          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/ignore_id.html">ignore_id</a>(1, "0.:0.5,8.:")</code>&nbsp; <button class="cpbt" onclick="cx('ignore_id(1, &quot;0.:0.5,8.:&quot;)')"><i class="icofont-copy"></i></button></li>
           </ul>
         </li></br>
 
           <li>Create a model:
             <ul>
           <li>PyXspec:</br>
-          <code>mymod = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">Model</a>("<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>")</code></li>
+          <code>mymod = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">Model</a>("<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>")</code>&nbsp; <button class="cpbt" onclick="cx('mymod=Model(&quot;powerlaw&quot;)')"><i class="icofont-copy"></i></button></li>
           <li>Sherpa:</br>
-          <code>mymod = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a>.mypow</code> (<code>xs</code> is used to indicate Xspec models)</br>
-          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(1, mymod)</code></br>
-          (<code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_default_id.html">get_default_id()</a></code> can be used to show the default id that is used if an id is not specified)</li>
+            <code><pre id="sherpa_create_model">
+mymod = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a>.mypow
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(1, mymod)
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('mymod = xspowerlaw.mypow\nset_source(1, mymod)')"><i class="icofont-copy"></i></button></br>
+          Note <code>xs</code> is used to indicate Xspec models, and <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_default_id.html">get_default_id()</a></code> can be used to show the id that is used if an id is not specified</li>
           </ul>
           </li></br>
 
           <li>Set the parameter values.</br>
             Note the <code>min</code>, <code>max</code> parameter bounds are used in the BXA priors and should be set to reasonable values.</br>
-            For <code>PhoIndex</code>, you can assume <code>delta = 0.1</code>, <code>min = -1.</code>, <code>bottom = -1.</code>, <code>top = 4.</code>, <code>max = 4.</code>.</br>
-            For <code>norm</code>, you can assume <code>delta = 0.1</code>, <code>min = 1.e-8</code>, <code>bottom = 1.e-8</code>, <code>top = 1.e-1</code>, <code>max = 1.e-1</code>.
           <ul>
           <li>PyXspec:</br>
-          <code>mymod.powerlaw.PhoIndex.values = (value, delta, min, bottom, top, max)</code><br/>
-          <code>mymod.powerlaw.norm.values = (value, delta, min, bottom, top, max)</code></br>
+          <code><pre id="pyxspec_set_par_values">
+mymod.powerlaw.PhoIndex.values = (1.9, 0.1, -1., -1., 4., 4.)
+mymod.powerlaw.norm.values = (1.e-3, 0.1, 1.e-8, 1.e-8, 1., 1.)
+</pre></code>&nbsp; <button class="cpbt" onclick="cp('pyxspec_set_par_values')"><i class="icofont-copy"></i></button></li>
           Or:</br>
-          <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">AllModels</a>(1)(1).values = ...</code><br/>
-          <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">AllModels</a>(1)(2).values = ...</code></li>
-          
+          <code><pre>
+<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">AllModels</a>(1)(1).values = 1.9, 0.1, -1., -1., 4., 4.
+<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">AllModels</a>(1)(2).values = 1.e-3, 0.1, 1.e-8, 1.e-8, 1., 1.
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('AllModels(1)(1).values = 1.9, 0.1, -1., -1., 4., 4.\nAllModels(1)(2).values = 1.e-3, 0.1, 1.e-8, 1.e-8, 1., 1.')"><i class="icofont-copy"></i></button></li>          
           <li>Sherpa:</br>
-          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(mypow.phoindex, val=value, min=min, max=max)</code></br>
-          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(mypow.norm, val=value, min=min, max=max)</code></li>
+            <code><pre>
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(mypow.phoindex, val=1.9, min=-1., max=4.)
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(mypow.norm, val=1.e-3, min=1.e-8, max=1.)
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('set_par(mypow.phoindex, val=1.9, min=-1., max=4.)\nset_par(mypow.norm, val=1.e-3, min=1.e-8, max=1.)')"><i class="icofont-copy"></i></button></li>
           </ul>
           </li>
 
@@ -447,44 +458,61 @@
           Note for these exercises, setting priors in BXA is done with the following commands:</br>
           <ul>
             <li>PyXspec:</br>
-          <code>bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(model, param)</code><br/>
-          <code>bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(model, param)</code></br>
-          <!-- (or <code>bxa.<a href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_jeffreys_prior_for">create_jeffreys_prior_for</a>(model, param)</code>)<br/> -->
-          <code>bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_gaussian_prior_for">create_gaussian_prior_for</a>(model, param, mean, std)</code>
+              <code><pre>
+bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(model, param)
+bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(model, param)
+bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_gaussian_prior_for">create_gaussian_prior_for</a>(model, param, mean, std)
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('bxa.create_uniform_prior_for(model, param)\nbxa.create_loguniform_prior_for(model, param)\nbxa.create_gaussian_prior_for(model, param, mean, std)')"><i class="icofont-copy"></i></button>
         </li>
           <li>Sherpa:</br>
-          <code>bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(param)</code><br/>
-          <code>bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(param)</code></br>
-          <!-- (or <code>bxa.<a href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_jeffreys_prior_for">create_jeffreys_prior_for</a>(param)</code>)<br/> -->
-          <code>bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_gaussian_prior_for">create_gaussian_prior_for</a>(param, mean, std)</code><br/>
-          Note: log uniform priors <strong>cannot be zero or negative</strong>. Make sure the parameter ranges you supply are positive.
-          </li>
-        </ul></br>
+            <code><pre>
+bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(param)
+bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(param)
+bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_gaussian_prior_for">create_gaussian_prior_for</a>(param, mean, std)
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('bxa.create_uniform_prior_for(param)\nbxa.create_loguniform_prior_for(param)\nbxa.create_gaussian_prior_for(param, mean, std)')"><i class="icofont-copy"></i></button>          </li>
+        
+          </ul>
+        Note: log uniform priors <strong>cannot be zero or negative</strong>. Make sure the parameter ranges you supply are positive.</br></br>
 
         To start these exercises, load the data, notice the correct energies and create a powerlaw model (see the commands listed above for help). Then:
         <ul>
           <li>Set the parameter priors for the <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node212.html" target="_blank"><code>powerlaw</code></a> model (note <code>norm</code> varies over many orders of magnitude, and <code>PhoIndex</code> can be assumed to have some value within 1.9 &plusmn; 0.15):
           <ul>
           <li>PyXspec:</br>
-          <code>prior1 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_gaussian_prior_for">create_gaussian_prior_for</a>(mymod, mymod.powerlaw.PhoIndex, 1.9, 0.15)</code></br>
-          <code>prior2 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(mymod, mymod.powerlaw.norm)</code></li>
+            <code><pre>
+prior1 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_gaussian_prior_for">create_gaussian_prior_for</a>(mymod, mymod.powerlaw.PhoIndex, 1.9, 0.15)
+prior2 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(mymod, mymod.powerlaw.norm)
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('bxa.create_gaussian_prior_for(mymod, mymod.powerlaw.PhoIndex, 1.9, 0.15)\nbxa.create_loguniform_prior_for(mymod, mymod.powerlaw.norm)')"><i class="icofont-copy"></i></button></li>
           <li>Sherpa:</br>
-          <code>prior1 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_gaussian_prior_for">create_gaussian_prior_for</a>(mypow.phoindex, 1.9, 0.15)</code></br>
-          <code>prior2 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(mypow.norm)</code></li>
+            <code><pre>
+prior1 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_gaussian_prior_for">create_gaussian_prior_for</a>(mymod.PhoIndex, 1.9, 0.15)
+prior2 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(mymod.norm)
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('bxa.create_gaussian_prior_for(mymod, mymod.powerlaw.PhoIndex, 1.9, 0.15)\nbxa.create_loguniform_prior_for(mymod, mymod.powerlaw.norm)')"><i class="icofont-copy"></i></button></li>
           </ul></br>
 
           <li>A note on log parameters (Sherpa only):
           Using a loguniform prior may not give the posterior values of that parameter in log units in Sherpa.</br>
           Instead, the <code><a target="_blank" href="https://sherpa.readthedocs.io/en/latest/model_classes/api/sherpa.models.parameter.Parameter.html#sherpa.models.parameter.Parameter">Parameter</a></code> module can convert a parameter to log units, and then one can use a uniform prior for that parameter. E.g.:</br>
-          <code>from sherpa.models.parameter import <a target="_blank" href="https://sherpa.readthedocs.io/en/latest/model_classes/api/sherpa.models.parameter.Parameter.html#sherpa.models.parameter.Parameter">Parameter</a></code></br>
-          <code>logpar = <a target="_blank" href="https://sherpa.readthedocs.io/en/latest/model_classes/api/sherpa.models.parameter.Parameter.html#sherpa.models.parameter.Parameter">Parameter</a>(modelname, parname, value, min, max, hard_min, hard_max)</code></br>
-          <code>mymod.norm = 10**logpar</code></br>
+<code><pre>from sherpa.models.parameter import <a target="_blank" href="https://sherpa.readthedocs.io/en/latest/model_classes/api/sherpa.models.parameter.Parameter.html#sherpa.models.parameter.Parameter">Parameter</a>
+logpar = <a target="_blank" href="https://sherpa.readthedocs.io/en/latest/model_classes/api/sherpa.models.parameter.Parameter.html#sherpa.models.parameter.Parameter">Parameter</a>(modelname, parname, value, min, max, hard_min, hard_max)
+mymod.norm = 10**logpar
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('from sherpa.models.parameter import Parameter\nlogpar = Parameter(modelname, parname, value, min, max, hard_min, hard_max)\nmymod.norm = 10**logpar')"><i class="icofont-copy"></i></button>
+</li>
           Note the parameter will only be valid for working in BXA. If you want to define a log parameter and use this with a standard Sherpa fit, the log parameter must appear in the model expression.</li></br>
           
           <li>Create a solver:
             <ul>
-          <li>PyXspec: <code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>(transformations=[prior1, prior2], outputfiles_basename="powerlaw_pyxspec")</code></li>
-          <li>Sherpa: <blockquote><code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sherpa-analysis.html#bxa.sherpa.solver.BXASolver">BXASolver</a>(prior=bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_prior_function">create_prior_function</a>([prior1, prior2]), parameters=[param1, param2], outputfiles_basename="powerlaw_sherpa")</code></blockquote></li>
+          <li>PyXspec:</br>
+            <code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>(transformations=[prior1, prior2], outputfiles_basename="powerlaw_pyxspec")</code>
+          &nbsp; <button class="cpbt" onclick="cx('bxa.BXASolver(transformations=[prior1, prior2], outputfiles_basename=&quot;powerlaw_pyxspec&quot;)')"><i class="icofont-copy"></i></button>
+        </li>
+          <li>Sherpa:</br>
+            <code><pre>
+solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sherpa-analysis.html#bxa.sherpa.solver.BXASolver">BXASolver</a>(prior=bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_prior_function">create_prior_function</a>([prior1, prior2]),
+                       parameters=[param1, param2],
+                       outputfiles_basename="powerlaw_sherpa")
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('bxa.BXASolver(prior=bxa.create_prior_function([prior1, prior2]), parameters=[param1, param2], outputfiles_basename=&quot;powerlaw_sherpa&quot;)')"><i class="icofont-copy"></i></button>
+</li>
         </ul>
       Make sure <code>outputfiles_basename</code> is unique if running PyXspec and Sherpa in the same directory!
     </li></br>
@@ -493,26 +521,42 @@
             <ol>
           <li>Generate random samples of prior parameter values (remember to <code>import numpy</code>!):
           <ul>
-          <li>PyXspec: <code>values = solver.prior_function(numpy.random.uniform(size=len(solver.paramnames)))</code></li>
-          <li>Sherpa: <code>values = solver.prior_transform(numpy.random.uniform(size=len(solver.paramnames)))</code></li>
+          <li>PyXspec:</br>
+            <code>values = solver.prior_function(numpy.random.uniform(size=len(solver.paramnames)))</code>
+          &nbsp; <button class="cpbt" onclick="cx('values = solver.prior_function(numpy.random.uniform(size=len(solver.paramnames)))')"><i class="icofont-copy"></i></button>
+        </li>
+          <li>Sherpa:</br>
+            <code>values = solver.prior_transform(numpy.random.uniform(size=len(solver.paramnames)))</code>
+          &nbsp; <button class="cpbt" onclick="cx('values = solver.prior_transform(numpy.random.uniform(size=len(solver.paramnames)))')"><i class="icofont-copy"></i></button>
+        </li>
           </ul>
           </li>
 
           <li>Set the parameters to these values:
           <ul>
           <li>PyXspec:</br>
-          <code>from bxa.xspec.solver import <a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#set_parameters">set_parameters</a></code></br>
-          <code><a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#set_parameters">set_parameters</a>(transformations=solver.transformations,values=values)</code></li>
+          <code><pre>
+from bxa.xspec.solver import <a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#set_parameters">set_parameters</a>
+<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#set_parameters">set_parameters</a>(transformations=solver.transformations,values=values)
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('from bxa.xspec.solver import set_parameters\nset_parameters(transformations=solver.transformations,values=values)')"><i class="icofont-copy"></i></button>
+</li>
           <li>Sherpa:</br>
-          <code>for i, p in enumerate(solver.parameters): p.val = values[i]</code></li>
+          <code>for i, p in enumerate(solver.parameters): p.val = values[i]</code>
+        &nbsp; <button class="cpbt" onclick="cx('for i, p in enumerate(solver.parameters): p.val = values[i]')"><i class="icofont-copy"></i></button>
+      </li>
           </ul>
           </li>
 
           <li>Plot the resulting prior model samples (with the data to help guide the eye):
             <ul>
-          <li>PyXspec: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot</a>("ldata")</code></li>
-          <li>Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/plot_fit.html">plot_fit</a>(xlog=True, ylog=True)</code>
-          </li>
+          <li>PyXspec:</br>
+            <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot</a>("ldata")</code>
+          &nbsp; <button class="cpbt" onclick="cx('Plot(&quot;ldata&quot;)')"><i class="icofont-copy"></i></button>
+        </li>
+          <li>Sherpa:</br>
+            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/plot_fit.html">plot_fit</a>(xlog=True, ylog=True)</code>
+          &nbsp; <button class="cpbt" onclick="cx('plot_fit(xlog=True, ylog=True)')"><i class="icofont-copy"></i></button>
+        </li>
         </ul>
           </li>
 
@@ -522,7 +566,7 @@
           <div class="col-lg-16">
             <img src="bxa//prior_checks.png" class="img-fluid" alt="">
           </div>
-          <li>Are the model ranges covered by the priors physically-acceptable?</li>
+          <li>Produce 10 realisations of the model priors. Are the model ranges covered by the priors physically-acceptable?</li>
           </ul>
         </div>
 </section>
@@ -537,8 +581,14 @@
         <ul>
           <li>First fit the model using Levenberg-Marquadt included in Xspec &amp; Sherpa:
             <ul>
-              <li>PyXspec: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html">Fit</a>.perform()</code></li>
-          <li>Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/fit.html">fit</a>()</code></li>
+              <li>PyXspec:</br>
+                <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html">Fit</a>.perform()</code>
+              &nbsp; <button class="cpbt" onclick="cx('Fit.perform()')"><i class="icofont-copy"></i></button>
+            </li>
+          <li>Sherpa:</br>
+            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/fit.html">fit</a>()</code>
+            &nbsp; <button class="cpbt" onclick="cx('fit()')"><i class="icofont-copy"></i></button>
+        </li>
           </ul>
         </li></br>
 
@@ -546,17 +596,26 @@
 
           <li>Next perform the fit with BXA (note this does not require fitting with Levenberg-Marquadt first):
             <ul>
-          <li>PyXspec: <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</code></li>
-          <li>Sherpa: <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.sherpa.html#bxa.sherpa.solver.BXASolver.run">run</a>(resume=True)</code> (note different hyperlinks)</li>
+          <li>PyXspec:</br>
+            <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</code>
+          &nbsp; <button class="cpbt" onclick="cx('results = solver.run(resume=True)')"><i class="icofont-copy"></i></button>
+        </li>
+          <li>Sherpa:</br>
+            <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.sherpa.html#bxa.sherpa.solver.BXASolver.run">run</a>(resume=True)</code>
+            &nbsp; <button class="cpbt" onclick="cx('results = solver.run(resume=True)')"><i class="icofont-copy"></i></button>
+        </li>
           </ul>
-          <code>results</code> contains the posterior samples (<code>results["samples"]</code>) for each parameter and the Bayesian evidence (<code>results["logZ"]</code>, <code>results["logZerr"]</code>). The quantities should also be printed to the screen after the fit is completed.</br>
+          (Note the hyperlinks are different).</br>
+          <code>results</code> contains the posterior samples (<code>results["samples"]</code>) for each parameter and the Bayesian evidence (<code>results["logZ"]</code>, <code>results["logZerr"]</code>). These quantities should also be printed to the screen after the fit is completed.</br>
           To understand more about the information <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/readme.html">UltraNest</a> prints to the screen during and after a fit, see <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/performance.html">here</a>.
           </li></br>
 
-          <li>Examine the best-fit values and uncertainties from the posterior samples. This can be done with <code><a target="_blank" href="https://pandas.pydata.org">pandas</a></code> (may require installing with e.g., conda):</br>
-          <code>import <a target="_blank" href="https://pandas.pydata.org">pandas</a> as pd</code></br>
-          <code>df = pd.<a target="_blank" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">DataFrame</a>(data=results["samples"], columns=solver.paramnames)</code></br>
-          <code>df.head()</code>
+          <li>Examine the best-fit values and uncertainties from the posterior samples. This can be done with <code><a target="_blank" href="https://pandas.pydata.org">pandas</a></code> (may require installing with e.g., <code>conda install pandas</code>):</br>
+          <code><pre>
+import <a target="_blank" href="https://pandas.pydata.org">pandas</a> as pd
+df = pd.<a target="_blank" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">DataFrame</a>(data=results["samples"], columns=solver.paramnames)
+df.head()</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('import pandas as pd\ndf = pd.DataFrame(data=results[&quot;samples&quot;], columns=solver.paramnames)\ndf.head()')"><i class="icofont-copy"></i></button>
           </li></br>
           <li>How do the best-fits and confidence ranges compare with using nested sampling vs. Levenberg-Marquadt?</li>
           </ul>
@@ -572,25 +631,43 @@
           </div>
           
           <ul>
-          <li>Note to use <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node264.html">TBabs</a>, one should set the abundances to those from <a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2000ApJ...542..914W/abstract">Wilms, Allen &amp; McCray (2000)</a>:
+          <li>Note to use <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node264.html">TBabs</a></code>, one should set the abundances to those from <a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2000ApJ...542..914W/abstract">Wilms, Allen &amp; McCray (2000)</a>:
           <ul>
-          <li>PyXspec: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/xspecsettings.html">Xset.abund</a> = "wilm"</code></li>
-          <li>Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_xsabund.html">set_xsabund</a>("wilm")</code></li></br>
+          <li>PyXspec:</br>
+            <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/xspecsettings.html">Xset.abund</a> = "wilm"</code>
+          &nbsp; <button class="cpbt" onclick="cx('Xset.abund = &quot;wilm&quot;')"><i class="icofont-copy"></i></button>
+        </li>
+          <li>Sherpa:</br>
+            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_xsabund.html">set_xsabund</a>("wilm")</code>
+          &nbsp; <button class="cpbt" onclick="cx('set_xsabund(&quot;wilm&quot;)')"><i class="icofont-copy"></i></button>
+        </li></br>
           </ul>
         </li>
 
-          <li>Fit the following additional 2 models to the data with BXA (don't forget to give unique <code>outputfiles_basename</code> values!):
+          <li>Using your previous code, fit the following additional 2 models to the data with BXA (don't forget to give unique <code>outputfiles_basename</code> values!):
             <ol>
           <li>Absorbed powerlaw:</br>
             For <code>nh</code>, you can assume <code>delta = 0.1</code>, <code>min = 1.e-2</code>, <code>bottom = 1.e-2</code>, <code>top = 5.e2</code>, <code>max = 5.e2</code>.</br>
             <ul>
-          <li>PyXspec: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node264.html">TBabs</a> * <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a></code></li>
-          <li>Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa4.3/ahelp/xstbabs.html">xstbabs</a> * <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a></code></li>
+          <li>PyXspec:</br>
+            <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node264.html">TBabs</a> * <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a></code>
+          &nbsp; <button class="cpbt" onclick="cx('TBabs * powerlaw')"><i class="icofont-copy"></i></button>
+        </li>
+          <li>Sherpa:</br>
+            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa4.3/ahelp/xstbabs.html">xstbabs</a> * <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a></code>
+          &nbsp; <button class="cpbt" onclick="cx('xstbabs * xspowerlaw')"><i class="icofont-copy"></i></button>
+        </li>
         </ul></li>
           <li>Absorbed powerlaw + Gaussian emission line (assume the emission line for this source is known to have line centroid energy <code>LineE</code> = 6.3 &plusmn; 0.15 keV, and that the line is narrow with fixed width <code>Sigma</code> = 1 eV):</br>
             <ul>
-          <li>PyXspec (note to fix a parameter, you can set <code>delta = -1</code>): <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node264.html">TBabs</a> * <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a> + <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node175.html">gaussian</a></code></li>
-          <li>Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa4.3/ahelp/xstbabs.html">xstbabs</a> * <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a> + <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsgaussian.html">xsgaussian</a></code></li>
+          <li>PyXspec (note to fix a parameter, you can set <code>delta = -1</code>):</br>
+            <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node264.html">TBabs</a> * <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a> + <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node175.html">gaussian</a></code>
+          &nbsp; <button class="cpbt" onclick="cx('xstbabs * xspowerlaw + gaussian')"><i class="icofont-copy"></i></button>
+        </li>
+          <li>Sherpa:</br>
+            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa4.3/ahelp/xstbabs.html">xstbabs</a> * <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a> + <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsgaussian.html">xsgaussian</a></code>
+          &nbsp; <button class="cpbt" onclick="cx('xstbabs * xspowerlaw + xsgaussian')"><i class="icofont-copy"></i></button>
+        </li>
         </ul></br>
       </li>
           </ol>
@@ -598,14 +675,19 @@
 
           <li>Copy the <a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/master/examples/xspec/model_compare.py">model_compare.py</a> script to your working directory to perform Bayesian evidence model comparison</li></br>
 
-          <li>Run the script: <code>$ python3 model_compare.py outputfiles_basename1/ outputfiles_basename2/ outputfiles_basename3/</code></li></br>
+          <li>Run the script:</br>
+            <code>$ python3 model_compare.py outputfiles_basename1/ outputfiles_basename2/ outputfiles_basename3/</code>
+          &nbsp; <button class="cpbt" onclick="cx('python3 model_compare.py outputfiles_basename1/ outputfiles_basename2/ outputfiles_basename3/')"><i class="icofont-copy"></i></button>
+        </li></br>
 
           <li>Compute the <a target="_blank" href="https://en.wikipedia.org/wiki/Akaike_information_criterion">Akaike Information Criterion (AIC)</a> for each model in python:</br>
-          <code>import <a target="_blank" href="https://docs.python.org/3/library/json.html">json</a></code></br>
-          <code>basenames = [outputfiles_basename1, outputfiles_basename2, outputfiles_basename3]</code></br>
-          <code>loglikes = <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>([(f, json.<a target="_blank" href="https://docs.python.org/3/library/json.html#json.load">load</a>(open(f + "/info/results.json"))['maximum_likelihood']["logl"]) for f in basenames])</code></br>
-          <code>dofs = <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>([(f, len(json.<a target="_blank" href="https://docs.python.org/3/library/json.html#json.load">load</a>(open(f + "/info/results.json"))['paramnames'])) for f in basenames])</code></br>
-          <code>aic = <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>([(basename, (2. * dofs[basename] - 2. * loglike)) for basename, loglike in loglikes.items()])</code></br>
+          <code><pre>import <a target="_blank" href="https://docs.python.org/3/library/json.html">json</a>
+basenames = [outputfiles_basename1, outputfiles_basename2, outputfiles_basename3]
+loglikes = <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>([(f, json.<a target="_blank" href="https://docs.python.org/3/library/json.html#json.load">load</a>(open(f + "/info/results.json"))["maximum_likelihood"]["logl"]) for f in basenames])
+dofs = <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>([(f, len(json.<a target="_blank" href="https://docs.python.org/3/library/json.html#json.load">load</a>(open(f + "/info/results.json"))["paramnames"])) for f in basenames])
+aic = <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>([(basename, (2. * dofs[basename] - 2. * loglike)) for basename, loglike in loglikes.items()])
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('import json\nbasenames = [outputfiles_basename1, outputfiles_basename2, outputfiles_basename3]\nloglikes = dict([(f, json.load(open(f + &quot;/info/results.json&quot;))[&quot;maximum_likelihood&quot;][&quot;logl&quot;]) for f in basenames])\ndofs = dict([(f, len(json.load(open(f + &quot;/info/results.json&quot;))[&quot;paramnames&quot;])) for f in basenames])\naic = dict([(basename, (2. * dofs[basename] - 2. * loglike)) for basename, loglike in loglikes.items()])')"><i class="icofont-copy"></i></button>
           </li></br>
 
           <li>Which model best explains the data? Why?</li>
@@ -628,16 +710,23 @@
           
           <li>For the model we have used, the equivalent width of the emission line relative to the intrinsic (i.e. unabsorbed) powerlaw continuum is (in terms of the parameters defined):
             <ul>
-          <li>PyXspec: <code>EW = (mymod.gaussian.norm / mymod.powerlaw.norm) * mymod.gaussian.LineE ** mymod.powerlaw.PhoIndex</code></li>
-          <li>Sherpa: <code>EW = (line.norm / mypow.norm) * line.linee ** mypow.phoindex</code></li>
+          <li>PyXspec:</br>
+            <code>EW = (mymod.gaussian.norm / mymod.powerlaw.norm) * mymod.gaussian.LineE ** mymod.powerlaw.PhoIndex</code>
+          &nbsp; <button class="cpbt" onclick="cx('EW = (mymod.gaussian.norm / mymod.powerlaw.norm) * mymod.gaussian.LineE ** mymod.powerlaw.PhoIndex')"><i class="icofont-copy"></i></button>
+        </li>
+          <li>Sherpa:</br>
+            <code>EW = (line.norm / mypow.norm) * line.linee ** mypow.phoindex</code>
+          &nbsp; <button class="cpbt" onclick="cx('EW = (line.norm / mypow.norm) * line.linee ** mypow.phoindex')"><i class="icofont-copy"></i></button>
+        </li>
           </ul>
          Generate posterior samples for equivalent width. If using pandas, this will involve creating a new column in the pandas dataframe of posterior samples for the equivalent width.
         </li></br>
 
           <li>Use the <code>results["samples"]</code> to derive the posterior distribution on equivalent width for the emission line component. If using pandas:</br>
-          <code>import <a target="_blank" href="https://corner.readthedocs.io/en/latest/pages/quickstart.html">corner</a></code></br>
-          <code>figure = corner.corner(df, labels = df.columns, quantiles = [0.16, 0.5, 0.84], show_titles = True)</code>
-          </li></br>
+          <code><pre>import <a target="_blank" href="https://corner.readthedocs.io/en/latest/pages/quickstart.html">corner</a>
+figure = corner.corner(df, labels = df.columns, quantiles = [0.16, 0.5, 0.84], show_titles = True)</pre></code>
+          &nbsp; <button class="cpbt" onclick="cx('import corner\nfigure = corner.corner(df, labels = df.columns, quantiles = [0.16, 0.5, 0.84], show_titles = True)')"><i class="icofont-copy"></i></button>
+        </li></br>
           
           <li>Is the equivalent width degenerate with any other parameters? Why or why not?</li>
           </ul>
@@ -659,17 +748,23 @@
           <li>Create a <a target="_blank" href="https://johannesbuchner.github.io/BXA/xspec-analysis.html#model-discovery">Quantile-Quantile</a> (also <a target="_blank" href="https://en.wikipedia.org/wiki/Q–Q_plot">here</a> for a more general explanation) plot for your fits:
             <ul>
           <li>PyXspec (produces plot):</br>
-          <code>import <a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html">matplotlib.pyplot</a> as plt</code></br>
-          <code>print('creating quantile-quantile plot ...')</code></br>
-          <code>plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html">figure</a>(figsize=(7,7))</code></br>
-          <code>with bxa.XSilence():</code></br>
-          <code>&nbsp; &nbsp; solver.set_best_fit()</code></br>
-          <code>&nbsp; &nbsp; bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/qq.html">qq.qq</a>(prefix=outputfiles_basename, markers=5, annotate=True)</code></br>
-          <code>print('saving plot...')</code></br>
-          <code>plt.<a target="_blank" href="https://matplotlib.org/2.2.5/api/_as_gen/matplotlib.pyplot.savefig.html">savefig</a>(outputfiles_basename + 'qq_model_deviations.pdf', bbox_inches='tight')</code></br>
-          <code>plt.<a target="_blank" href="https://matplotlib.org/2.1.0/api/_as_gen/matplotlib.pyplot.close.html">close</a>()</code></li>
+          <code><pre>import <a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html">matplotlib.pyplot</a> as plt
+print("creating quantile-quantile plot ...")
+plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html">figure</a>(figsize=(7,7))
+with bxa.XSilence():
+    solver.set_best_fit()
+    bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/qq.html">qq.qq</a>(prefix=outputfiles_basename, markers=5, annotate=True)
+print("saving plot...")
+plt.<a target="_blank" href="https://matplotlib.org/2.2.5/api/_as_gen/matplotlib.pyplot.savefig.html">savefig</a>(outputfiles_basename + "qq_model_deviations.pdf", bbox_inches="tight")
+plt.<a target="_blank" href="https://matplotlib.org/2.1.0/api/_as_gen/matplotlib.pyplot.close.html">close</a>()</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('import matplotlib.pyplot as plt\nprint(&quot;creating quantile-quantile plot ...&quot;)\nplt.figure(figsize=(7,7))\nwith bxa.XSilence():\n    solver.set_best_fit()\n    bxa.qq.qq(prefix=outputfiles_basename, markers=5, annotate=True)\nprint(&quot;saving plot...&quot;)\nplt.savefig(outputfiles_basename + &quot;qq_model_deviations.pdf&quot;, bbox_inches=&quot;tight&quot;)\nplt.close()')"><i class="icofont-copy"></i></button>
+</li>
           <li>Sherpa (produces file that needs to be plotted separately):</br>
-          <code>bxa.qq.<a target="_blank" href="http://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/qq.html#qq_export">qq_export</a>(1, bkg=False, outfile=outputfiles_basename + "_qq", elow=0.2, ehigh=10)</code></li>
+          <code><pre>
+from bxa.sherpa.qq import qq_export
+bxa.qq.<a target="_blank" href="http://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/qq.html#qq_export">qq_export</a>(1, bkg=False, outfile=outputfiles_basename + "_qq", elow=0.2, ehigh=10)</pre></code>
+        &nbsp; <button class="cpbt" onclick="cx('from bxa.sherpa.qq import qq_export\nqq_export(1, bkg=False, outfile=outputfiles_basename + &quot;_qq&quot;, elow=0.2, ehigh=10)')"><i class="icofont-copy"></i></button>
+      </li>
           </ul>
           </li></br>
 
