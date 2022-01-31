@@ -5,6 +5,12 @@
 * License: https://bootstrapmade.com/license/
 */
 
+/* toggle text*/
+
+.toggle-text {
+  display: none;
+}
+
 /* pre tags */
 
 code {
