@@ -5,6 +5,11 @@
 * License: https://bootstrapmade.com/license/
 */
 
+/* permalinks visible on hover */
+
+a.headerlink:link {opacity: 0%;}
+a.headerlink:hover {opacity: 100%;}
+a.headerlink:active {opacity: 100%;}
 
 /* toggle text*/
 
