@@ -131,7 +131,7 @@
 <section id="setup" class="services">
       <div class="container">
         <div class="section-title">
-          <h2><i class="icofont-fix-tools"></i> Setup</h2>
+          <h2><i class="icofont-fix-tools"></i> Setup <a class="headerlink" href="#setup" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
 
           <h3>&#9888;&#65039; <font color="red">WARNING!</font> &#9888;&#65039; BXA requires a working form of <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/index.html">PyXspec</a> and/or <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/">Sherpa</a>.</h3>
           <p>Make sure either of these are installed before doing the exercises! Also note the exercises were written for BXA v4.0.5 - if some commands are not working, check which version you are running.</p>
@@ -199,7 +199,7 @@ sherpa</pre></code> <button class="cpbt" onclick="cx('conda activate ciao-enviro
       <div class="container">
 
         <div class="section-title">
-          <h2><i class="bx bx-bookmarks"></i> Useful links</h2>
+          <h2><i class="bx bx-bookmarks"></i> Useful links <a class="headerlink" href="#links" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
           <h4>Documentation</h4>
           <ul>
           <li>Xspec &amp; PyXspec documentation:<br/><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/">https://heasarc.gsfc.nasa.gov/xanadu/xspec/</a>
@@ -276,6 +276,9 @@ sherpa</pre></code> <button class="cpbt" onclick="cx('conda activate ciao-enviro
           <li><a href="https://youtu.be/c1pMDhKFAWA" target="_blank">https://youtu.be/c1pMDhKFAWA</a></li>
           </ul>
           </li>
+          <li>Interactive visualisation of the nested sampling algorithm in UltraNest:<br>
+            <a href="https://johannesbuchner.github.io/UltraNest/method.html?highlight=demo#visualisation" target="_blank">https://johannesbuchner.github.io/UltraNest/method.html?highlight=demo#visualisation</a>
+          </li>
           </ul>
 
           
@@ -312,7 +315,7 @@ sherpa</pre></code> <button class="cpbt" onclick="cx('conda activate ciao-enviro
 <section id="session1" class="services">
       <div class="container">
         <div class="section-title">
-          <h2><i class="bx bx-terminal"></i> Session 1 - spectral fitting & model comparison</h2>
+          <h2><i class="bx bx-terminal"></i> Session 1 - spectral fitting & model comparison <a class="headerlink" href="#session1" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
           <p>Key objectives:</p>
           <ul>
           <li>Fit a spectrum with BXA in Sherpa and/or PyXspec</li>
@@ -446,7 +449,7 @@ mymod.powerlaw.norm.values = (1.e-3, 0.1, 1.e-8, 1.e-8, 1., 1.)
 <section id="ex11" class="services">
       <div class="container">
         <div class="section-title">
-          <h3><i class="bx bx-chevron-right"></i> Exercise 1.1 - prior predictive checks</h3>
+          <h3><i class="bx bx-chevron-right"></i> Exercise 1.1 - prior predictive checks <a class="headerlink" href="#ex11" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
           <em>Prior predictive checks are useful to see if the priors chosen can lead to realistic model realisations.</em>
         </div>
 
@@ -570,7 +573,7 @@ from bxa.xspec.solver import <a target="_blank" href="https://johannesbuchner.gi
       <div class="container">
         <div class="section-title">
           <!-- <ul> -->
-            <h3><i class="bx bx-chevron-right"></i> Exercise 1.2 - fit a model to a spectrum</h3>
+            <h3><i class="bx bx-chevron-right"></i> Exercise 1.2 - fit a model to a spectrum <a class="headerlink" href="#ex12" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
           </div>
         Now that we have checked the priors look reasonable for the data we want to fit, we can fit the model to the data with BXA.
         <ul>
@@ -621,7 +624,7 @@ df.head()</pre></code>
 <section id="ex13" class="services">
       <div class="container">
         <div class="section-title">
-            <h3><i class="bx bx-chevron-right"></i> Exercise 1.3 - fit and compare multiple models</h3>
+            <h3><i class="bx bx-chevron-right"></i> Exercise 1.3 - fit and compare multiple models <a class="headerlink" href="#ex13" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
             <em>Here we use the Bayesian evidence to perform model comparison with Bayes factors.</em>
           </div>
           
@@ -695,7 +698,7 @@ aic = <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#d
 <section id="ex14" class="services">
       <div class="container">
         <div class="section-title">
-            <h3><i class="bx bx-chevron-right"></i> Exercise 1.4 - error propagation</h3>
+            <h3><i class="bx bx-chevron-right"></i> Exercise 1.4 - error propagation <a class="headerlink" href="#ex14" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
             <em>By generating quantities directly from the posterior samples, we propagate the uncertainties and conserve any structure (e.g., degeneracies, multiple modes).</em>
           </div>
 
@@ -731,7 +734,7 @@ figure = corner.corner(df, labels = df.columns, quantiles = [0.16, 0.5, 0.84], s
 <section id="ex15" class="services">
       <div class="container">
         <div class="section-title">
-          <h3><i class="bx bx-chevron-right"></i> Exercise 1.5 - visualisation</h3>
+          <h3><i class="bx bx-chevron-right"></i> Exercise 1.5 - visualisation <a class="headerlink" href="#ex15" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
         </div>
         We want a simple way to check that our model makes sense, that the fit worked, and to infer information on the source being fit.</br></br>
 
@@ -777,7 +780,7 @@ bxa.qq.<a target="_blank" href="http://johannesbuchner.github.io/BXA/_modules/bx
 <section id="ex16" class="services">
       <div class="container">
         <div class="section-title">
-          <h3><i class="bx bx-chevron-right"></i> Exercise 1.6 - fitting multiple datasets simultaneously with BXA</h3>
+          <h3><i class="bx bx-chevron-right"></i> Exercise 1.6 - fitting multiple datasets simultaneously with BXA <a class="headerlink" href="#ex16" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
           <p><em>Sometimes it is advantageous to fit multiple spectra for the same source simultaneously with e.g., a cross-calibration constant to account for instrumental differences in the separate spectra.</em></p>
         </div>
           For this example, we need another dataset. As an example, we will use a NuSTAR/FPMA spectrum which has a bandpass that extends to E &gt; 10 keV. So including this data with our Chandra spectral analysis will extend the energy range we can study our source over to ~78 keV. To download the NuSTAR spectral files:
@@ -848,7 +851,7 @@ results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/
 <section id="ex17" class="services">
       <div class="container">
         <div class="section-title">
-          <h3><i class="bx bx-chevron-right"></i> Exercise 1.7 - (Sherpa only) automated background fitting with BXA</h3>
+          <h3><i class="bx bx-chevron-right"></i> Exercise 1.7 - (Sherpa only) automated background fitting with BXA <a class="headerlink" href="#ex17" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
         </div>
 
         So far, the exercises have used modified C-statistics (aka W-statistics) in which the background is modelled as a stepwise function with the same number of parameters as bins. This process typically requires some form of minimal binning (see discussion <a target="_blank" href="https://giacomov.github.io/Bias-in-profile-poisson-likelihood/">here</a>).</br></br>
@@ -889,7 +892,7 @@ priors += [bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_m
 <section id="session2" class="services">
       <div class="container">
         <div class="section-title">
-          <h2><i class="bx bx-bar-chart-alt-2"></i> Session 2 - more advanced concepts</h2>
+          <h2><i class="bx bx-bar-chart-alt-2"></i> Session 2 - more advanced concepts <a class="headerlink" href="#session2" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
           Key objectives:
           <ul>
           <li>Combine individual posteriors to constrain a population</li>
@@ -942,7 +945,7 @@ fakepha_kwargs["exposure"] = 30.e3
 <section id="ex21" class="services">
       <div class="container">
         <div class="section-title">
-          <h3><i class="bx bx-chevron-right"></i> Exercise 2.1 - Bayesian Hierarchical Modelling</h3>
+          <h3><i class="bx bx-chevron-right"></i> Exercise 2.1 - Bayesian Hierarchical Modelling <a class="headerlink" href="#ex21" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
           <p><em>Here we will combine several individual source posterior distributions to derive a sample distribution for the photon index .</em></p>
         </div>
 
@@ -1005,7 +1008,7 @@ plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotli
 <section id="ex22" class="services">
       <div class="container">
         <div class="section-title">
-            <h3><i class="bx bx-chevron-right"></i> Exercise 2.2 - calibrating model comparison thresholds</h3>
+            <h3><i class="bx bx-chevron-right"></i> Exercise 2.2 - calibrating model comparison thresholds <a class="headerlink" href="#ex22" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
             <p><em>Here we will estimate the false-positive and false-negative rates associated with selecting models via Bayes factors vs. &Delta;&#8239;AIC for the models and data we are using. This will help us determine a good selection threshold to use in terms of &Delta;&#8239;logZ and &Delta;&#8239;AIC.</em></p>
         </div>
         <ul>
@@ -1023,7 +1026,7 @@ plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotli
 <section id="ex23" class="services">
       <div class="container">
         <div class="section-title">
-          <h3><i class="bx bx-chevron-right"></i> Exercise 2.3 - posterior predictive checks</h3>
+          <h3><i class="bx bx-chevron-right"></i> Exercise 2.3 - posterior predictive checks <a class="headerlink" href="#ex23" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
           <p><em>Model selection can only tell us how likely a model is relative to another. Here we will estimate the goodness-of-fit and test the ability of a given model to reproduce the nuances in the source spectrum data with Monte Carlo simulations.</em></p>
         </div>
         <ul>
@@ -1060,7 +1063,7 @@ dof = statinfo[1].dof
 <section id="tipsandtricks" class="services">
       <div class="container">
         <div class="section-title">
-          <h2><i class="bx bx-bulb"></i>Tips & tricks</h2>
+          <h2><i class="bx bx-bulb"></i>Tips & tricks <a class="headerlink" href="#tipsandtricks" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
         </div>
         <ul>
           <li>
@@ -1142,7 +1145,7 @@ results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/
       <div class="container">
 
         <div class="section-title">
-          <h2><i class="bx bx-envelope"></i> Contact</a></h2>
+          <h2><i class="bx bx-envelope"></i> Contact</a> <a class="headerlink" href="#contact" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
         </div>
 
                 <div class="row">
