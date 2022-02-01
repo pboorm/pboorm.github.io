@@ -69,14 +69,8 @@
         <p></p>
         <h1 class="specific"><a href="#welcome">BXA Tutorial</a></h1>
         <div class="social-links mt-3 text-center">
-          <a href="mailto:peter.boorman@asu.cas.cz" class="email"><i class="bx bx-envelope"></i></a>
-          <!-- <a href="https://twitter.com/boorm" class="twitter"><i class="bx bxl-twitter"></i></a> -->
-          <!-- <a href="https://github.com/pboorm" class="github"><i class="bx bxl-github"></i></a> -->
-          <!-- <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a> -->
-          <!-- <a href="https://scholar.google.co.uk/citations?hl=en&user=KMBSQk0AAAAJ&view_op=list_works&gmla=AJsN-F7_Zd8SER40IpgqsThKe1j8238S_jmdhvl6o0_f8H2MzNxBQ774dnpndqenSKkK51UgPtJd1viFOjUek9fbEpgdq4ZIzQ" class="google-plus"><i class="ai ai-google-scholar"></i></a> -->
-          <!-- <a href="https://linkedin.com/in/peter-boorman-5a745999" class="linkedin"><i class="bx bxl-linkedin"></i></a> -->
-          <!-- <a href="https://orcid.org/0000-0001-9379-4716"><i class="fab fa-orcid"></i></a> -->
-          <!-- <a href="https://ui.adsabs.harvard.edu/user/libraries/l9unchukSdu9eSTwLbnVVw" target="_blank"><i class="ai ai-ads"></i></a> -->
+          <a href="http://johannesbuchner.github.io/BXA/" class="github"><i class="bx bxl-github"></i></a>
+          <a href="#contact"><i class="bx bx-envelope"></i></a>
         </div>
       </div>
 
@@ -98,6 +92,7 @@
           <li><a href="#ex22"><i class="bx bx-chevron-right"></i> <span>2.2 - simulations & calibration</span></a></li>
           <li><a href="#ex23"><i class="bx bx-chevron-right"></i> <span>2.3 - model verification</span></a></li>
           <li><a href="#tipsandtricks"><i class="bx bx-bulb"></i> <span>Tips & tricks</span></a></li>
+          <li><a href="#contact"><i class="icofont-letter"></i>Contact</a></li>
           <li><p>&nbsp; </p></li>
           <li><p>&nbsp; </p></li>
           <li><p>&nbsp; </p></li>
@@ -126,7 +121,7 @@
             <a target="_blank" href="https://en.wikipedia.org/wiki/Bayes%27_theorem"><img src="bxa//bayestheorem.png" class="img-fluid" alt=""></a>
           </div>
           </br>
-          If you have any questions/comments/suggestions concerning the tutorial, please <a href="mailto:peter.boorman@asu.cas.cz" class="email">get in touch</a>!
+          If you have any questions/comments/suggestions concerning the tutorial, please <a href="#contact">get in touch</a>!
         </div>
       </div>
     </section>
@@ -226,7 +221,7 @@ sherpa</pre></code> <button class="cpbt" onclick="cx('conda activate ciao-enviro
           </li>
           <li>Astrostatistics Facebook group:<br/><a target="_blank" href="https://www.facebook.com/groups/astro.r/?ref=share">https://www.facebook.com/groups/astro.r/?ref=share</a>
           </li>
-          <li><a href="mailto:boorman@asu.cas.cz">Email</a>!</li>
+          <li><a href="#contact">Email</a>!</li>
         </ul>
 
           
@@ -309,7 +304,7 @@ sherpa</pre></code> <button class="cpbt" onclick="cx('conda activate ciao-enviro
           </ul>
           
           
-          <li><b>Do you know of any others?</b> Please <a href="mailto:boorman@asu.cas.cz">get in touch</a>!
+          <li><b>Do you know of any others?</b> Please <a href="#contact">get in touch</a>!
           </li>
         </div>
 </section>
@@ -797,39 +792,49 @@ bxa.qq.<a target="_blank" href="http://johannesbuchner.github.io/BXA/_modules/bx
           <li>First, include a cross-calibration constant in your model between the Chandra and NuSTAR datasets:</br>
           <ul>
           <li>PyXspec:</br>
-          <code>s = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>("1:1 sim_nuA_bmin1.pi 2:2 sim_chan_bmin1.pi")</code><br/>
-          <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>.ignore("1:0.-3. 78.-** 2:0.-0.5 8.-**")</code><br/>
-          <code>mymod = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">Model</a>("<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node235.html">constant</a> * <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>")</code><br/>
-          <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">AllModels</a>(1)(1).values = (1., -0.01)</code><br/>
-          <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">AllModels</a>(2)(1).values = (1., 0.01, 0.01, 0.01, 10., 10.)</code></li>
+          <code><pre>
+s = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>("1:1 sim_nuA_bmin1.pi 2:2 sim_chan_bmin1.pi")
+<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>.ignore("1:0.-3. 78.-** 2:0.-0.5 8.-**")
+mymod = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">Model</a>("<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node235.html">constant</a> * <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>")
+<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">AllModels</a>(1)(1).values = (1., -0.01)
+<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">AllModels</a>(2)(1).values = (1., 0.01, 0.01, 0.01, 10., 10.)</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('s = AllData(&quot;1:1 sim_nuA_bmin1.pi 2:2 sim_chan_bmin1.pi&quot;)\nAllData.ignore(&quot;1:0.-3. 78.-** 2:0.-0.5 8.-**&quot;)\nmymod = Model(&quot;constant * powerlaw&quot;)\nAllModels(1)(1).values = (1., -0.01)\nAllModels(2)(1).values = (1., 0.01, 0.01, 0.01, 10., 10.)')"><i class="icofont-copy"></i></button>
+          </li>
+          
           <li>Sherpa:</br>
-          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "sim_nuA_bmin1.pi")</code></br>
-          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/ignore_id.html">ignore_id</a>(1, "0.:3.,78.:")</code></br>
-          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(2, "sim_chan_bmin1.pi")</code></br>
-          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/ignore_id.html">ignore_id</a>(2, "0.:0.5,8.:")</code></br>
-          <code>mymod = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a>.mypow</code></br>
-          <code>mymod1 = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsconstant.html">xsconstant</a>("xcal1") * mymod</code></br>
-          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(xcal1, val=1, frozen=True)</code></br>
-          <code>mymod2 = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsconstant.html">xsconstant</a>("xcal2") * mymod</code></br>
-          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(xcal2, val=1, min = 1.e-2, max = 1.e2)</code></br>
-          <!-- <code>Parameter_kwargs = {"modelname": 'crosscal', "name": "logC2", "val": np.log10(xcal2), "min": -2., "max": 2.}</code></br>
-          <code>logXcal2 = Parameter(**Parameter_kwargs)</code></br>
-          <code>set_par(crossCalID.factor, val = 10 ** logXcal2)</code></br> -->
-          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(1, mymod1)</code></br>
-          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(2, mymod2)</code></br>
+          <code><pre>
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "sim_nuA_bmin1.pi")
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/ignore_id.html">ignore_id</a>(1, "0.:3.,78.:")
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(2, "sim_chan_bmin1.pi")
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/ignore_id.html">ignore_id</a>(2, "0.:0.5,8.:")
+mymod = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a>.mypow
+mymod1 = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsconstant.html">xsconstant</a>("xcal1") * mymod
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(xcal1, val=1, frozen=True)
+mymod2 = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsconstant.html">xsconstant</a>("xcal2") * mymod
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(xcal2, val=1, min = 1.e-2, max = 1.e2)
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(1, mymod1)
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(2, mymod2)</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('load_pha(1, &quot;sim_nuA_bmin1.pi&quot;)\nignore_id(1, &quot;0.:3.,78.:&quot;)\nload_pha(2, &quot;sim_chan_bmin1.pi&quot;)\nignore_id(2, &quot;0.:0.5,8.:&quot;)\nmymod = xspowerlaw.mypow\nmymod1 = xsconstant(&quot;xcal1&quot;) * mymod\nset_par(xcal1, val=1, frozen=True)\nmymod2 = xsconstant(&quot;xcal2&quot;) * mymod\nset_par(xcal2, val=1, min = 1.e-2, max = 1.e2)\nset_source(1, mymod1)\nset_source(2, mymod2)')"><i class="icofont-copy"></i></button>
+          <!-- <code>Parameter_kwargs = {"modelname": 'crosscal', "name": "logC2", "val": np.log10(xcal2), "min": -2., "max": 2.}
+          <code>logXcal2 = Parameter(**Parameter_kwargs)
+          <code>set_par(crossCalID.factor, val = 10 ** logXcal2) -->
           </li>
         </ul></li></br>
           <li>Fit the new model with BXA and derive a posterior confidence range on the cross-calibration constant:</br>
           <ul>
           <li>PyXspec:</br>
-          <code>transformations.append(bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(AllModels(2), AllModels(2).constant.factor))</code><br/>
-          <code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>(transformations=transformations, outputfiles_basename="xcal_pl_pyxspec")</code><br/>
-          <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</code></li>
+          <code><pre>
+transformations.append(bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(AllModels(2), AllModels(2).constant.factor))
+solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>(transformations=transformations, outputfiles_basename="xcal_pl_pyxspec")
+results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('transformations.append(bxa.create_loguniform_prior_for(AllModels(2), AllModels(2).constant.factor))\nsolver = bxa.BXASolver(transformations=transformations, outputfiles_basename=&quot;xcal_pl_pyxspec&quot;)\nresults = solver.run(resume=True)')"><i class="icofont-copy"></i></button>        </li>
           <li>Sherpa:</br>
-          <code>priors.append(bxa.create_loguniform_prior_for(xcal2))</code></br>
-          <code>parameters.append(xcal2)</code></br>
-          <code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sherpa-analysis.html#bxa.sherpa.solver.BXASolver">BXASolver</a>(prior=bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_prior_function">create_prior_function</a>([prior1, prior2, ...]), parameters=[param1, param2, ...], outputfiles_basename="xcal_pl_sherpa")</code></br>
-          <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.sherpa.html#bxa.sherpa.solver.BXASolver.run">run</a>(resume=True)</code><br/>
+          <code><pre>
+priors.append(bxa.create_loguniform_prior_for(xcal2))
+parameters.append(xcal2)
+solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sherpa-analysis.html#bxa.sherpa.solver.BXASolver">BXASolver</a>(prior=bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_prior_function">create_prior_function</a>([prior1, prior2, ...]), parameters=[param1, param2, ...], outputfiles_basename="xcal_pl_sherpa")
+results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.sherpa.html#bxa.sherpa.solver.BXASolver.run">run</a>(resume=True)</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('priors.append(bxa.create_loguniform_prior_for(xcal2))\nparameters.append(xcal2)\nsolver = bxa.BXASolver(prior=bxa.create_prior_function([prior1, prior2, ...]), parameters=[param1, param2, ...], outputfiles_basename=&quot;xcal_pl_sherpa&quot;)\nresults = solver.run(resume=True)')"><i class="icofont-copy"></i></button>
           </li>
         </ul></li></br>
 
@@ -854,16 +859,22 @@ bxa.qq.<a target="_blank" href="http://johannesbuchner.github.io/BXA/_modules/bx
           <li>Load the data, source model and priors as in Exercise 1.1 (make sure to also change the statistic from <code>wstat</code> to <code>cstat</code>!)</li></br>
 
           <li>Load the automatic PCA background model (see <a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...618A..66S/abstract">Simmonds et al., 2018</a> for more information):</br>
-          <code>from bxa.sherpa.background.pca import <a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/background/pca.html#auto_background">auto_background</a></code><br/>
-          <code><a target="_blank" href="https://cxc.harvard.edu/sherpa/ahelp/set_model.html">set_model</a>(1, model)</code><br/>
-          <code>convmodel = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_model.html">get_model</a>(1)</code><br/>
-          <code>bkg_model = <a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/background/pca.html#auto_background">auto_background</a>(1)</code><br/>
-          <code><a target="_blank" herf="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_full_model.html">set_full_model</a>(1, convmodel + bkg_model*<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_bkg_scale.html">get_bkg_scale</a>(1))</code></p>
+          <code><pre>
+from bxa.sherpa.background.pca import <a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/background/pca.html#auto_background">auto_background</a>
+<a target="_blank" href="https://cxc.harvard.edu/sherpa/ahelp/set_model.html">set_model</a>(1, model)
+convmodel = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_model.html">get_model</a>(1)
+bkg_model = <a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/background/pca.html#auto_background">auto_background</a>(1)
+<a target="_blank" herf="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_full_model.html">set_full_model</a>(1, convmodel + bkg_model*<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_bkg_scale.html">get_bkg_scale</a>(1))
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('from bxa.sherpa.background.pca import auto_background\nset_model(1, model)\nconvmodel = get_model(1)\nbkg_model = auto_background(1)\nset_full_model(1, convmodel + bkg_model*get_bkg_scale(1))')"><i class="icofont-copy"></i></button>
           </li>
 
           <li>Remember to include the zeroth order component from the PCA background model in the priors and parameters list so that BXA knows to vary it as a free parameter:</br>
-          <code>parameters += [bkg_model.pars[0]]</code><br/>
-          <code>priors += [bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(bkg_model.pars[0])]</code>
+          <code><pre>
+parameters += [bkg_model.pars[0]]
+priors += [bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(bkg_model.pars[0])]
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('parameters += [bkg_model.pars[0]]\npriors += [bxa.create_uniform_prior_for(bkg_model.pars[0])]')"><i class="icofont-copy"></i></button>
           </li></br>
 
           <li>Fit the source + background model with BXA</li></br>
@@ -891,34 +902,38 @@ bxa.qq.<a target="_blank" href="http://johannesbuchner.github.io/BXA/_modules/bx
 
           <ul>
           <li>PyXspec (using <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fakeitsettings.html">fakeit</a></code>):</br>
-          <blockquote>
-          <code>mymod = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">Model</a>("<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>")</code><br/>
-          <code>mymod.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>.PhoIndex.values = (1.9, 0.01, -3., -3., 3., 3.)</code><br/>
-          <code>mymod.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>.norm.values = (1.e-3, 0.01, 1.e-8, 1.e-8, 1., 1.)</code><br/>
-          <code>fakeit_kwargs = {}</code></br>
-          <code>fakeit_kwargs["response"] = "chan.rmf"</code></br>
-          <code>fakeit_kwargs["arf"] = "chan.arf"</code></br>
-          <code>fakeit_kwargs["background"] = "chan_bkg.pi"</code></br>
-          <code>fakeit_kwargs["exposure"] = 30.e3</code></br>
-          <code>fakeit_kwargs["correction"] = "1."</code></br>
-          <code>fakeit_kwargs["backExposure"] = 30.e3</code></br>
-          <code>fakeit_kwargs["fileName"] = "sim_chan.pi"</code></br>
-          <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fakeitsettings.html">fakeit</a>(1, <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fakeitsettings.html">FakeitSettings</a>(**fakeit_kwargs))</code></br>
+          <code><pre>
+mymod = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">Model</a>("<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>")
+mymod.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>.PhoIndex.values = (1.9, 0.01, -3., -3., 3., 3.)
+mymod.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>.norm.values = (1.e-3, 0.01, 1.e-8, 1.e-8, 1., 1.)
+fakeit_kwargs = {}
+fakeit_kwargs["response"] = "chan.rmf"
+fakeit_kwargs["arf"] = "chan.arf"
+fakeit_kwargs["background"] = "chan_bkg.pi"
+fakeit_kwargs["exposure"] = 30.e3
+fakeit_kwargs["correction"] = "1."
+fakeit_kwargs["backExposure"] = 30.e3
+fakeit_kwargs["fileName"] = "sim_chan.pi"
+<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fakeitsettings.html">fakeit</a>(1, <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fakeitsettings.html">FakeitSettings</a>(**fakeit_kwargs))
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('mymod = Model(&quot;powerlaw&quot;)\nmymod.powerlaw.PhoIndex.values = (1.9, 0.01, -3., -3., 3., 3.)\nmymod.powerlaw.norm.values = (1.e-3, 0.01, 1.e-8, 1.e-8, 1., 1.)\nfakeit_kwargs = {}\nfakeit_kwargs[&quot;response&quot;] = &quot;chan.rmf&quot;\nfakeit_kwargs[&quot;arf&quot;] = &quot;chan.arf&quot;\nfakeit_kwargs[&quot;background&quot;] = &quot;chan_bkg.pi&quot;\nfakeit_kwargs[&quot;exposure&quot;] = 30.e3\nfakeit_kwargs[&quot;correction&quot;] = &quot;1.&quot;\nfakeit_kwargs[&quot;backExposure&quot;] = 30.e3\nfakeit_kwargs[&quot;fileName&quot;] = &quot;sim_chan.pi&quot;\nAllData.fakeit(1, FakeitSettings(**fakeit_kwargs))')"><i class="icofont-copy"></i></button>
           </li>
           <li>Sherpa (using <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/fake_pha.html">fake_pha</a></code>):</br>
-          <blockquote>
-          <code>mymod = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a>.mypow</code></br>
-          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(mymod.phoindex, val = 1.9, min = -3., max = 3.)</code></br>
-          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(mymod.norm, val = 1.e-3, min = 1.e-8, max = 1.)</code></br>
-          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "chan_src.pi") #loading pre-exising source spectrum with rmf, arf & bkg present</code></br>
-          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(1, mymod)</code>
-          <code>fakepha_kwargs = {}</code></br>
-          <code>fakepha_kwargs["rmf"] = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_rmf.html">get_rmf</a>()</code></br>
-          <code>fakepha_kwargs["arf"] = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_arf.html">get_arf</a>()</code></br>
-          <code>fakepha_kwargs["bkg"] = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_bkg.html">get_bkg</a>()</code></br>
-          <code>fakepha_kwargs["exposure"] = 30.e3</code></br>
-          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/fake_pha.html">fake_pha</a>(1, **fakepha_kwargs)</code></br>
-          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/save_pha.html">save_pha</a>(1, "sim_chan.pi", clobber = True)</code></br>
+          <code><pre>
+mymod = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a>.mypow
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(mymod.phoindex, val = 1.9, min = -3., max = 3.)
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(mymod.norm, val = 1.e-3, min = 1.e-8, max = 1.)
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "chan_src.pi") #loading pre-exising source spectrum with rmf, arf & bkg present
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(1, mymod)
+fakepha_kwargs = {}
+fakepha_kwargs["rmf"] = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_rmf.html">get_rmf</a>()
+fakepha_kwargs["arf"] = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_arf.html">get_arf</a>()
+fakepha_kwargs["bkg"] = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_bkg.html">get_bkg</a>()
+fakepha_kwargs["exposure"] = 30.e3
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/fake_pha.html">fake_pha</a>(1, **fakepha_kwargs)
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/save_pha.html">save_pha</a>(1, "sim_chan.pi", clobber = True)
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('mymod = xspowerlaw.mypow\nset_par(mymod.phoindex, val = 1.9, min = -3., max = 3.)\nset_par(mymod.norm, val = 1.e-3, min = 1.e-8, max = 1.)\nload_pha(1, &quot;chan_src.pi&quot;) #loading pre-exising source spectrum with rmf, arf & bkg present\nset_source(1, mymod)\nfakepha_kwargs = {}\nfakepha_kwargs[&quot;rmf&quot;] = get_rmf()\nfakepha_kwargs[&quot;arf&quot;] = get_arf()\nfakepha_kwargs[&quot;bkg&quot;] = get_bkg()\nfakepha_kwargs[&quot;exposure&quot;] = 30.e3\nfake_pha(1, **fakepha_kwargs)\nsave_pha(1, &quot;sim_chan.pi&quot;, clobber = True)')"><i class="icofont-copy"></i></button>
           </li>
           </ul>
         </div>
@@ -930,52 +945,60 @@ bxa.qq.<a target="_blank" href="http://johannesbuchner.github.io/BXA/_modules/bx
           <h3><i class="bx bx-chevron-right"></i> Exercise 2.1 - Bayesian Hierarchical Modelling</h3>
           <p><em>Here we will combine several individual source posterior distributions to derive a sample distribution for the photon index .</em></p>
         </div>
-          <li>Install <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">PosteriorStacker</a>: <code>$ pip install posteriorstacker</code></li></br>
-          <li>To generate the posterior samples used in this exercise, download and run the following <a href="./bxa/ex21_pyxspec.py" download>PyXspec</a> (<code>$ python ex21_pyxspec.py</code>) or <a href="./bxa/ex21_sherpa.py" download>Sherpa</a> (<code>$ sherpa ex21_sherpa.py</code>) script. The script will generate 30 <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/readme.html">UltraNest</a> output folders by:</br>
+
+        <ul>
+
+          <li>Install <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">PosteriorStacker</a>:<br>
+            <code>$ pip install posteriorstacker</code>
+            &nbsp; <button class="cpbt" onclick="cx('pip install posteriorstacker')"><i class="icofont-copy"></i></button>
+            <br>Alternatively, you can just download the script and use it in your directory.</li></br>
+          <li>To generate the posterior samples used in this exercise, download and run the following <a href="./bxa/ex21_pyxspec.py" download>PyXspec</a> (<code>$ python3 ex21_pyxspec.py</code> <button class="cpbt" onclick="cx('python3 ex21_pyxspec.py')"><i class="icofont-copy"></i></button>) or <a href="./bxa/ex21_sherpa.py" download>Sherpa</a> (<code>$ sherpa ex21_sherpa.py</code> <button class="cpbt" onclick="cx('sherpa ex21_sherpa.py')"><i class="icofont-copy"></i></button>) script. The script will generate 30 <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/readme.html">UltraNest</a> output folders by:</br>
           <ol>
-          <li>Simulating a NuSTAR spectra from an <code>absorbed powerlaw</code> model (see <a href="ex13">Exercise 1.3</a>), with <code>PhoIndex</code> sampled from a Gaussian distribution 1.8 +/- 0.3. Note you will need the <a href="https://www.nustar.caltech.edu/system/media_files/binaries/32/original/nustar_point_sources_for_proposers.tgz?1404172745">Point source simulation files</a> distributed by the NuSTAR team to run the scripts (more info <a target="_blank" href="https://www.nustar.caltech.edu/page/response_files">here</a>).</li>
+          <li>Simulating NuSTAR spectra from an <code>absorbed powerlaw</code> model (see <a href="ex13">Exercise 1.3</a>), with <code>PhoIndex</code> sampled from a Gaussian distribution 1.8 +/- 0.3. Note you will need the <a href="https://www.nustar.caltech.edu/system/media_files/binaries/32/original/nustar_point_sources_for_proposers.tgz?1404172745">Point source simulation files</a> distributed by the NuSTAR team to run the scripts (more info <a target="_blank" href="https://www.nustar.caltech.edu/page/response_files">here</a>).</li>
           <li>Each spectrum will then be fit with BXA using non-informative priors for line-of-sight column density, powerlaw photon index and powerlaw normalisation.</li>
           </ol>
           </li>
           <li>The script may take some time (~ a few hours) to complete. Alternatively, you can download some pre-generated <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/readme.html">UltraNest</a> folders using a similar model <a href="bxa/ex21_ultranest_posteriors.zip">here</a>.</li></br>
           <li>From inside the <code>ultranest_posteriors</code> directory, run:</br>
-          <blockquote>
-          <code>$ <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker/blob/main/load_ultranest_outputs.py">load_ultranest_outputs.py</a> \</br>
-          fitsim0/ fitsim1/ fitsim2/ fitsim3/ fitsim4/ fitsim5/ fitsim6/ ... \</br>
-          --samples 1000 \</br>
-          --parameter PhoIndex \</br>
-          --out posterior_samples.txt</code></li>
-          </blockquote>
+          <code><pre>
+$ <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker/blob/main/load_ultranest_outputs.py">load_ultranest_outputs.py</a> fitsim0/ fitsim1/ fitsim2/ fitsim3/ fitsim4/ fitsim5/ fitsim6/ ... \
+                            --samples 1000 \
+                            --parameter PhoIndex \
+                            --out posterior_samples.txt
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('load_ultranest_outputs.py fitsim0/ fitsim1/ fitsim2/ fitsim3/ fitsim4/ fitsim5/ fitsim6/ ... --samples 1000 --parameter PhoIndex --out posterior_samples.txt')"><i class="icofont-copy"></i></button>
+          </li>
           <li>The <code>posterior_samples.txt</code> file contains 1000 sampled rows of each posterior.</li></br>
           <li><strong>Important</strong>: if the posterior samples were obtained with a non-uniform prior, the posterior samples should first be resampled according to the inverse of the prior that was used.</li></br>
           <li>Visualise the data by calculating the 16th, 50th & 84th quantiles of each posterior sample and plotting as an errorbar. E.g., in Python:</br>
-          <blockquote>
-          <code>import <a target="_blank" href="https://numpy.org">numpy</a> as np</code></br>
-          <code>import <a target="_blank" href="https://pandas.pydata.org">pandas</a> as pd</code></br>
-          <code>quantiles = [16, 50, 84]</code></br>
-          <code>x = np.<a target="_blank" href="https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html">loadtxt</a>("posterior_samples.txt")</code></br>
-          <code>q = np.<a target="_blank" href="https://numpy.org/doc/stable/reference/generated/numpy.percentile.html">percentile</a>(x, quantiles, axis = 1)</code></br>
-          <code>df = pd.<a target="_blank" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">DataFrame</a>(data = {"q%d" %(qvalue): q[i] for i, qvalue in enumerate(quantiles)})</code></br>
-          </blockquote>
-          <blockquote>
-          <code>import <a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html">matplotlib.pyplot</a> as plt</code></br>
-          <code>plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html">xlabel</a>("PhoIndex")</code></br>
-          <code>plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.errorbar.html">errorbar</a>(x=df["q50"], xerr=[df["q50"]-df["q16"], df["q84"]-df["q50"]], y=range(len(df)), marker="o", ls=" ", color="orange")</code></br>
-          <code>plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlim.html">xlim</a>(df["q16"].min() - 0.5, df["q84"].max() + 0.5)</code></br>
-          <code>plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html">show</a>()</code></br>
+<code><pre>
+import <a target="_blank" href="https://numpy.org">numpy</a> as np
+import <a target="_blank" href="https://pandas.pydata.org">pandas</a> as pd
+quantiles = [16, 50, 84]
+x = np.<a target="_blank" href="https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html">loadtxt</a>("posterior_samples.txt")
+q = np.<a target="_blank" href="https://numpy.org/doc/stable/reference/generated/numpy.percentile.html">percentile</a>(x, quantiles, axis = 1)
+df = pd.<a target="_blank" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">DataFrame</a>(data = {"q%d" %(qvalue): q[i] for i, qvalue in enumerate(quantiles)})
+          
+import <a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html">matplotlib.pyplot</a> as plt
+plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html">xlabel</a>("PhoIndex")
+plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.errorbar.html">errorbar</a>(x=df["q50"], xerr=[df["q50"]-df["q16"], df["q84"]-df["q50"]], y=range(len(df)), marker="o", ls=" ", color="orange")
+plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlim.html">xlim</a>(df["q16"].min() - 0.5, df["q84"].max() + 0.5)
+plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html">show</a>()
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('import numpy as np\nimport pandas as pd\nquantiles = [16, 50, 84]\nx = np.loadtxt(&quot;posterior_samples.txt&quot;)\nq = np.percentile(x, quantiles, axis = 1)\ndf = pd.DataFrame(data = {&quot;q%d&quot; %(qvalue): q[i] for i, qvalue in enumerate(quantiles)})\n\nimport matplotlib.pyplot as plt\nplt.xlabel(&quot;PhoIndex&quot;)\nplt.errorbar(x=df[&quot;q50&quot;], xerr=[df[&quot;q50&quot;]-df[&quot;q16&quot;], df[&quot;q84&quot;]-df[&quot;q50&quot;]], y=range(len\ndf)), marker=&quot;o&quot;, ls=&quot; &quot;, color=&quot;orange&quot;)\nplt.xlim(df[&quot;q16&quot;].min() - 0.5, df[&quot;q84&quot;].max() + 0.5)\nplt.show()')"><i class="icofont-copy"></i></button>
           <div class="col-lg-8">
             <img src="bxa//vis_samples.png" class="img-fluid" alt="">
           </div>
-          </blockquote>
           </li>
-          <li>Run <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">PosteriorStacker</a>:
-          <blockquote>
-          <code>$ <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">posteriorstacker.py</a> posterior_samples.txt 0.5 3. 10 --name="PhoIndex"</code></li>
-          </blockquote>
+          <li>Run <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">PosteriorStacker</a>:<br>
+          <code>$ <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">posteriorstacker.py</a> posterior_samples.txt 0.5 3. 10 --name="PhoIndex"</code>
+          &nbsp; <button class="cpbt" onclick="cx('posteriorstacker.py posterior_samples.txt 0.5 3. 10 --name=&quot;PhoIndex&quot;')"><i class="icofont-copy"></i></button>
           </li>
           <li><a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">PosteriorStacker</a> then fits two models for the parent sample distribution: a histogram model with each bin height as the free parameters (using a <a target="_blank" href="https://en.wikipedia.org/wiki/Dirichlet_distribution">Dirichlet prior</a>) and a Gaussian model with mean and sigma as the free parameters.</li></br>
           <li>Examine the <code>posteriorsamples.txt_out.pdf</code> file.</li></br>
           <li>What can you say about the distribution of <code>PhoIndex</code>? What would happen if you acquired more posterior samples (i.e. by increasing <code>population_size</code> in the simulation scripts) and/or used higher signal-to-noise spectra to fit?</li></br>
+
+        </ul>
       </div>
 </section>
 
@@ -983,16 +1006,17 @@ bxa.qq.<a target="_blank" href="http://johannesbuchner.github.io/BXA/_modules/bx
       <div class="container">
         <div class="section-title">
             <h3><i class="bx bx-chevron-right"></i> Exercise 2.2 - calibrating model comparison thresholds</h3>
-            <p><em>Here we will estimate the signal-to-noise ratio required in the observed data for the Bayes factors to make a model selection.</em></p>
+            <p><em>Here we will estimate the false-positive and false-negative rates associated with selecting models via Bayes factors vs. &Delta;&#8239;AIC for the models and data we are using. This will help us determine a good selection threshold to use in terms of &Delta;&#8239;logZ and &Delta;&#8239;AIC.</em></p>
         </div>
+        <ul>
           <li>Simulate 50 Chandra spectra from the <code>absorbed powerlaw + gaussian</code> best-fit model that you found in <a href="#ex13">Exercise 1.3</a>, with the original Chandra spectrum files.</li></br>
           <li>Repeat the previous step, but for a powerlaw normalisation 5x fainter than the best-fit you found.</li></br>
           <li>For each of the 100 spectra you have simulated, fit the <code>powerlaw</code>, <code>absorbed powerlaw</code> and <code>absorbed powerlaw + gaussian</code> models with BXA.</li></br>
-          <li>Perform the same Bayes factor and <a target="_blank" href="https://en.wikipedia.org/wiki/Akaike_information_criterion">AIC</a> model selection techniques as in <a href="#ex13">Exercise 1.3</a> to select a favoured model for each of the 100 spectra.</li></br>
-          <li>How many times is the correct model that was simulated (<code>absorbed powerlaw + gaussian</code>) selected in the brighter and fainter samples?</li></br>
-          <li>How many times do the Bayes factors not make a decision (i.e. logZ1/Z2 ~ 0)?</li></br>
-          <li>How does the false-positive detection rate vary with signal-to-noise in the source spectrum?</li></br>
-          <li>Use your simulations to estimate an appropriate <a target="_blank" href="https://en.wikipedia.org/wiki/Akaike_information_criterion">AIC</a> threshold that will select the correct models.</li></br>
+          <li>Perform the same Bayes factor and &Delta;&#8239;<a target="_blank" href="https://en.wikipedia.org/wiki/Akaike_information_criterion">AIC</a> model selection techniques as in <a href="#ex13">Exercise 1.3</a> to select a favoured model for each of the 100 spectra.</li></br>
+          <li>How many times is the correct model that was simulated (<code>absorbed powerlaw + gaussian</code>) selected in the brighter and fainter samples? How many times do the Bayes factors not make a decision (i.e. logZ<sub>1</sub>/Z<sub>2</sub> ~ 0)?</li></br>
+          <li>How does the false-positive/negative rate vary with signal-to-noise in the source spectrum?</li></br>
+          <li>Use the same process to estimate an appropriate &Delta;&#8239;<a target="_blank" href="https://en.wikipedia.org/wiki/Akaike_information_criterion">AIC</a> threshold that will select the correct models.</li></br>
+        </ul>
         </div>
 </section>
 
@@ -1000,27 +1024,36 @@ bxa.qq.<a target="_blank" href="http://johannesbuchner.github.io/BXA/_modules/bx
       <div class="container">
         <div class="section-title">
           <h3><i class="bx bx-chevron-right"></i> Exercise 2.3 - posterior predictive checks</h3>
-          <p><em>Here we will test the ability of the model to reproduce the nuances in the source spectrum with simulations.</em></p>
+          <p><em>Model selection can only tell us how likely a model is relative to another. Here we will estimate the goodness-of-fit and test the ability of a given model to reproduce the nuances in the source spectrum data with Monte Carlo simulations.</em></p>
         </div>
-          <li>Load the BXA fit (with e.g., <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</code>) for the <code>powerlaw</code> model from <a href="#ex12">Exercise 1.2</a>.</li></br>
-          <li>Note the best-fit C-statistic & dof values:</br>
+        <ul>
+          <li>Load the BXA fit (with e.g., <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</code> <button class="cpbt" onclick="cx('results = solver.run(resume=True)')"><i class="icofont-copy"></i></button>) for the <code>powerlaw</code> model from <a href="#ex12">Exercise 1.2</a>.</li></br>
+          <li>Note the best-fit C-statistic & degrees of freedom (dofs):</br>
           PyXspec:</br>
-          <code>stat = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html">Fit</a>.statistic</code></br>
-          <code>dof = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html">Fit</a>.dof</code></br>
+          <code><pre>
+stat = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html">Fit</a>.statistic
+dof = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html">Fit</a>.dof
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('stat = Fit.statistic\ndof = Fit.dof')"><i class="icofont-copy"></i></button><br>
           Sherpa:</br>
-          <code>statinfo = <a target="_blank" href="https://cxc.harvard.edu/sherpa/ahelp/get_stat_info.html">get_stat_info</a>()</code></br>
-          <code>stat = statinfo[1].statval</code></br>
-          <code>dof = statinfo[1].dof</code></br>
+          <code><pre>
+statinfo = <a target="_blank" href="https://cxc.harvard.edu/sherpa/ahelp/get_stat_info.html">get_stat_info</a>()
+stat = statinfo[1].statval
+dof = statinfo[1].dof
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('statinfo = get_stat_info()\nstat = statinfo[1].statval\ndof = statinfo[1].dof')"><i class="icofont-copy"></i></button>
           </li></br>
           <li>Perform many times:
           <ol>
           <li>Simulate the best-fit model (make sure to use the same spectral files and exposure time as the original).</li>
-          <li>Store the simulated C-statistic & dof values of the simulated data and model.</li>
+          <li>Without re-fitting*, store the simulated C-statistic & dofs of the simulated data and model.<br>
+            * It would be ideal to re-fit, but this can be inefficient and/or lead to incorrect results with a standard fit in PyXspec and/or Sherpa (due to local minima). Note that performing a standard Sherpa fit will require <b>all free parameters, including log parameters, to appear in the model expression</b>.
+          </li><br>
           </ol>
           </li>
-          <li>Plot the distribution of simulated C-statistic / dof and compare to the real value.</li></br>
-          <li>Is the fit acceptable?</li></br>
-          <li>Now repeat the process with the <code>absorbed powerlaw + gaussian</code> model. Is this fit acceptable?</li></br>
+          <li>Plot the distribution of simulated C-statistic / dof values and compare to the real value. Is the fit acceptable?</li></br>
+          <li>Now repeat the process with the <code>absorbed powerlaw + gaussian</code> model. How does the goodness-of-fit for this model compare to the <code>powerlaw</code> model?</li></br>
+        </ul>
         </div>
 </section>
 
@@ -1029,59 +1062,105 @@ bxa.qq.<a target="_blank" href="http://johannesbuchner.github.io/BXA/_modules/bx
         <div class="section-title">
           <h2><i class="bx bx-bulb"></i>Tips & tricks</h2>
         </div>
+        <ul>
           <li>
           To find the version of your bxa install:</br>
-          <code>import <a target="_blank" href="https://github.com/JohannesBuchner/BXA">bxa</a>, <a target="_blank" href="https://nsoranzo-galaxy.readthedocs.io/en/stable/lib/pkg_resources.html">pkg_resources</a></code></br>
-          <code>pkg_resources.<a target="_blank" href="https://nsoranzo-galaxy.readthedocs.io/en/stable/_modules/pkg_resources.html#get_distribution">get_distribution</a>("bxa").version</code></br>
+          <code><pre>
+import <a target="_blank" href="https://github.com/JohannesBuchner/BXA">bxa</a>, <a target="_blank" href="https://nsoranzo-galaxy.readthedocs.io/en/stable/lib/pkg_resources.html">pkg_resources</a>
+print(pkg_resources.<a target="_blank" href="https://nsoranzo-galaxy.readthedocs.io/en/stable/_modules/pkg_resources.html#get_distribution">get_distribution</a>("bxa").version)
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('import bxa, pkg_resources\nprint(pkg_resources.get_distribution(&quot;bxa&quot;).version)')"><i class="icofont-copy"></i></button>
           </li></br>
-          <li>For very complex fits (e.g., many datasets simultaneously, many parameters, high signal-to-noise spectra, ...), the run time can be decreased with:</br>
-          <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(frac_remain=0.5, max_num_improvement_loops=0)</code>
+          <li>For complex fits (e.g., multiple datasets simultaneously, many parameters, high signal-to-noise spectra, ...), the run time can be decreased with e.g.,:</br>
+            <ul>
+          <li><code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(frac_remain=0.5, max_num_improvement_loops=0)</code> <button class="cpbt" onclick="cx('results = solver.run(frac_remain=0.5, max_num_improvement_loops=0)')"><i class="icofont-copy"></i></button></li>
+          <li>Step-samplers</li>
+        </ul>
           </li></br>
           <li>If you're sure you want to, you can use BXA with chi-squared statistics:</br>
-          PyXspec: <code>bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>.allowed_stats.append("chi2")</code></br>
-          Sherpa: <code>bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>.allowed_stats.append("Chi2")</code></br>
+          <code>bxa.BXASolver.allowed_stats.append("chi2")</code>&nbsp; <button class="cpbt" onclick="cx('bxa.BXASolver.allowed_stats.append(&quot;chi2&quot;)')"><i class="icofont-copy"></i></button>
           </li></br>
+
+          <li>You can create custom priors in BXA with <code><a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/5a6ee5fafbaf7bc609a29dafadae48d27aba50aa/bxa/xspec/priors.py#L75">create_custom_prior_for</a>()</code> (example taken from <a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/master/examples/xspec/example_advanced_priors.py">example_advanced_prior.py</a>):</br>
+          PyXspec:<br>
+          <code><pre>
+def <a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/master/examples/xspec/example_advanced_priors.py#L27">my_custom_prior</a>(u):
+    # prior distributions transform from 0:1 to the parameter range
+    # here: a gaussian prior distribution, cut below 1/above 3
+    x = <a target="_blank" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html">scipy.stats.norm</a>(1.9, 0.15).ppf(u)
+    if x < 1.:
+        x = 1
+    if x > 3:
+        x = 3
+    return x
+transformations = [bxa.<a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/5a6ee5fafbaf7bc609a29dafadae48d27aba50aa/bxa/xspec/priors.py#L75">create_custom_prior_for</a>(model, parameter, my_custom_prior)]
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('def my_custom_prior(u):\n    # prior distributions transform from 0:1 to the parameter range\n    # here: a gaussian prior distribution, cut below 1/above 3\n    x = scipy.stats.norm(1.9, 0.15).ppf(u)\n    if x < 1.:\n        x = 1\n    if x > 3:\n        x = 3\n    return x\ntransformations = [bxa.create_custom_prior_for(model, parameter, my_custom_prior)]')"><i class="icofont-copy"></i></button>
+          </li><br>
+
           <li>You can use BXA with Sherpa to fit 2D models to images:</br>
-              <blockquote>
-              <code>import bxa.sherpa as bxa</code></br>
-              <code><a target="_blank" href="https://cxc.harvard.edu/sherpa/ahelp/load_image.html">load_image</a>("image.fits")</code></br>
-              <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/image_data.html">image_data</a>()</code></br>
-              <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_coord.html">set_coord</a>("physical")</code></br>
-              <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_stat.html">set_stat</a>("cash")</code></br>
-              <code>model = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/gauss2d.html">gauss2d</a>.g1 + <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/gauss2d.html">gauss2d</a>.g2 + <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/const2d.html">const2d</a>.bg</code></br>
-              <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(model)</code></br>
-              <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(g1.ampl, val = 20., min = 1., max = 1.e2)</code></br>
-              <code>...</code></br>
-              <code>parameters = [g1.ampl, ...]</code></br>
-              <code>priors = [bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(g1.ampl), ...]</code></br>
-              <code>priorfunction = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_prior_function">create_prior_function</a>(priors)</code></br>
-              <code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sherpa-analysis.html#bxa.sherpa.solver.BXASolver">BXASolver</a>(prior=priorfunction, parameters=parameters, outputfiles_basename = "fit2d_sherpa")</code></br>
-              <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</code></br>
-              <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/image_data.html">image_data</a>()</code></br>
-              <code><a target="_blank" href="https://cxc.harvard.edu/sherpa/ahelp/image_model.html">image_model</a>(newframe=True)</code></br>
-              <code><a target="_blank" href="https://cxc.harvard.edu/sherpa4.6/ahelp/image_resid.html">image_resid</a>(newframe=True)</code></br>
-              </blockquote>
+              <code><pre>
+import bxa.sherpa as bxa
+<a target="_blank" href="https://cxc.harvard.edu/sherpa/ahelp/load_image.html">load_image</a>("image.fits")
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/image_data.html">image_data</a>()
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_coord.html">set_coord</a>("physical")
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_stat.html">set_stat</a>("cash")
+model = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/gauss2d.html">gauss2d</a>.g1 + <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/gauss2d.html">gauss2d</a>.g2 + <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/const2d.html">const2d</a>.bg
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(model)
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(g1.ampl, val = 20., min = 1., max = 1.e2)
+...
+parameters = [g1.ampl, ...]
+priors = [bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(g1.ampl), ...]
+priorfunction = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_prior_function">create_prior_function</a>(priors)
+solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sherpa-analysis.html#bxa.sherpa.solver.BXASolver">BXASolver</a>(prior=priorfunction, parameters=parameters, outputfiles_basename = "fit2d_sherpa")
+results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/image_data.html">image_data</a>()
+<a target="_blank" href="https://cxc.harvard.edu/sherpa/ahelp/image_model.html">image_model</a>(newframe=True)
+<a target="_blank" href="https://cxc.harvard.edu/sherpa4.6/ahelp/image_resid.html">image_resid</a>(newframe=True)
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('import bxa.sherpa as bxa\nload_image(&quot;image.fits&quot;)\nimage_data()\nset_coord(&quot;physical&quot;)\nset_stat(&quot;cash&quot;)\nmodel = gauss2d.g1 + gauss2d.g2 + const2d.bg\nset_source(model)\nset_par(g1.ampl, val = 20., min = 1., max = 1.e2)\n...\nparameters = [g1.ampl, ...]\npriors = [bxa.create_loguniform_prior_for(g1.ampl), ...]\npriorfunction = bxa.create_prior_function(priors)\nsolver = bxa.BXASolver(prior=priorfunction, parameters=parameters, outputfiles_basename = &quot;fit2d_sherpa&quot;)\nresults = solver.run(resume=True)\nimage_data()\nimage_model(newframe=True)\nimage_resid(newframe=True)')"><i class="icofont-copy"></i></button>
+<br><br>
               Here is an example fit to the image used in <a target="_blank" href="https://cxc.harvard.edu/sherpa/threads/spatial/">this Sherpa tutorial for 2D fitting</a> (left, middle and right panels show the image, best-fit model and residuals respectively):
+              <br><br>
               <div class="col-lg-8">
                 <img src="bxa/ds9_fit2d_sherpa.png" class="img-fluid" alt="">
               </div>
           </li></br>
-          <li>You can create custom priors in BXA with <code><a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/5a6ee5fafbaf7bc609a29dafadae48d27aba50aa/bxa/xspec/priors.py#L75">create_custom_prior_for</a>()</code> (example taken from <a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/master/examples/xspec/example_advanced_priors.py">example_advanced_prior.py</a>):</br>
-          PyXspec:
-          <blockquote>
-          <code>def <a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/master/examples/xspec/example_advanced_priors.py#L27">my_custom_prior</a>(u):</code></br>
-          <code>&nbsp; &nbsp; # prior distributions transform from 0:1 to the parameter range</code></br>
-          <code>&nbsp; &nbsp; # here: a gaussian prior distribution, cut below 1/above 3</code></br>
-          <code>&nbsp; &nbsp; x = <a target="_blank" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html">scipy.stats.norm</a>(1.9, 0.15).ppf(u)</code></br>
-          <code>&nbsp; &nbsp; if x < 1.:</code></br>
-          <code>&nbsp; &nbsp; &nbsp; &nbsp; x = 1</code></br>
-          <code>&nbsp; &nbsp; if x > 3:</code></br>
-          <code>&nbsp; &nbsp; &nbsp; &nbsp; x = 3</code></br>
-          <code>&nbsp; &nbsp; return x</code></br>
-          <code>transformations = [bxa.<a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/5a6ee5fafbaf7bc609a29dafadae48d27aba50aa/bxa/xspec/priors.py#L75">create_custom_prior_for</a>(model, parameter, my_custom_prior)]</code></br>
-          </blockquote>
-          </li>
+          
+        </ul>
         </div>
+</section>
+
+<section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2><i class="bx bx-envelope"></i> Contact</a></h2>
+        </div>
+
+                <div class="row">
+
+          <div class="col-lg-6">
+            <div class="info">
+                  <i class="icofont-question"></i>
+                <h4>Raising issues</h4>
+                <p>BXA: <a href="https://github.com/JohannesBuchner/BXA/issues" target="_blank">github.com/JohannesBuchner/BXA/issues</a><br>
+                UltraNest: <a href="https://github.com/JohannesBuchner/UltraNest/issues" target="_blank">github.com/JohannesBuchner/UltraNest/issues</a></p>
+
+              </div>
+            </div>
+
+          <div class="col-lg-6">
+            <div class="info">
+              <i class="icofont-envelope"></i>
+                <h4>Email</h4>
+                <p>Peter Boorman: <a href="mailto:boorman@asu.cas.cz">boorman@asu.cas.cz</a></p>
+            </div>
+            </div>
+          </div>
+
+
+          
+      </div>
 </section>
 
   </main><!-- End #main -->
