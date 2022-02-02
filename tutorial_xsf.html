@@ -132,63 +132,47 @@
         <div class="section-title">
           <h2><i class="icofont-fix-tools"></i> Setup <a class="headerlink" href="#setup" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
 
-          <h3>&#9888;&#65039; <font color="red">WARNING!</font> &#9888;&#65039; BXA requires a working form of <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/index.html">PyXspec</a> and/or <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/">Sherpa</a>.</h3>
-          <p>Make sure either of these are installed before doing the exercises! Also note the exercises were written for BXA v4.0.5 - if some commands are not working, check which version you are running.</p>
+          <h3>&#9888;&#65039; <font color="red">WARNING!</font> &#9888;&#65039;
+            <br>
+            The exercises on this page require a working form of <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/" target="_blank">Xspec</a>, <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/index.html">PyXspec</a> and/or <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/">Sherpa</a>.</h3>
+          <p>Make sure either of these are installed before doing the exercises!</p>
           </br>
 
-          <h3>For PyXspec users</h3>
-          First, install PyXspec:
+          <h3>For Xspec & PyXspec users</h3>
           <ul>
-          <li>Using PyXspec requires a source distribution of HEASoft. See install instructions here:<br/><a target="_blank" href="https://heasarc.gsfc.nasa.gov/docs/software/heasoft/">https://heasarc.gsfc.nasa.gov/docs/software/heasoft/</a><br/></li>
-          </ul>
+          <li>Install instructions for Xspec and PyXspec are available on the HEASoft website here:
+            <br/>
+            <a target="_blank" href="https://heasarc.gsfc.nasa.gov/docs/software/heasoft/">https://heasarc.gsfc.nasa.gov/docs/software/heasoft/</a>
+            <br/>
+            <b>Note using PyXspec requires a source distribution of HEASoft.</b>
+          </li>
+          
 
-          We advise using a conda environment (e.g. with <a target="_blank" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a>) to ensure no conflicts occur when installing the Python packages required for BXA. If you have not created a dedicated BXA conda environment before:
+          <li>Once the install process has finished, check everthing is installed and works as required:&nbsp;
           <ul>
-          <li>Create a new conda environment:</br>
-            <code>$ conda create -n xspecbxa python=3.8</code>&nbsp; <button class="cpbt" onclick="cx('conda create -n xspecbxa python=3.8')"><i class="icofont-copy"></i></button></li>
-          <li>Activate the new environment:</br>
-            <code>$ conda activate xspecbxa</code>&nbsp; <button class="cpbt" onclick="cx('conda activate xspecbxa')"><i class="icofont-copy"></i></button></li>
-          <li>Install packages:</br>
-            <code>$ pip install requests corner astropy h5py cython scipy tqdm</code>&nbsp; <button class="cpbt" onclick="cx('pip install requests corner astropy h5py cython scipy tqdm')"><i class="icofont-copy"></i></button></li>
-          <li>Install BXA:</br>
-            <code>$ pip install bxa</code>&nbsp; <button class="cpbt" onclick="cx('pip install bxa')"><i class="icofont-copy"></i></button></li>
+            <li>Check Xspec works: <code>$ xspec</code>
+              <button class="cpbt" onclick="cx('xspec')"><i class="icofont-copy"></i></button>
+            </li>
+            <li>Check PyXspec works: <code>$ python -c 'import xspec'</code>
+              <button class="cpbt" onclick="cx('python -c \'import xspec\'')"><i class="icofont-copy"></i></button>
+            </li>
           </ul>
-
-          Once the install process has finished, check everthing is installed and works as required:&nbsp; <button class="cpbt" onclick="cx('python -c \'import xspec\'\npython -c \'import ultranest\'\npython -c \'import bxa.xspec as bxa\'')"><i class="icofont-copy"></i></button>
-          <ul>
-            <li>Check PyXspec works: <code>$ python -c 'import xspec'</code></li>
-            <li>Check UltraNest works: <code>$ python -c 'import ultranest'</code></li>
-            <li>Check BXA works: <code>$ python -c 'import bxa.xspec as bxa'</code></li>
-          </ul>
-          If no error messages come up from these commands, BXA and PyXspec should work.
-
+        </li>
+          If no error messages come up from these commands, Xspec & PyXspec should work.
+        </ul>
         </br></br>
 
           <h3>For Sherpa users</h3>
           <ul>
-          <li>First, install CIAO and Sherpa in a conda environment:<br/><a target="_blank" href="https://cxc.cfa.harvard.edu/ciao/download/">https://cxc.cfa.harvard.edu/ciao/download/</a><br/></li>
+          <li>Install CIAO and Sherpa in a conda environment:<br/><a target="_blank" href="https://cxc.cfa.harvard.edu/ciao/download/">https://cxc.cfa.harvard.edu/ciao/download/</a><br/></li>
           <li>Once the install process has finished, check Sherpa works:</br>
           <code><pre>
 $ conda activate ciao-environment-name
-$ sherpa</pre></code> <button class="cpbt" onclick="cx('conda activate ciao-environment-name\nsherpa')"><i class="icofont-copy"></i></button></br><!-- &nbsp; <button class="cpbt" onclick="cx('conda activate ciao-environment-name')"><i class="icofont-copy"></i></button><br/> -->
+$ sherpa</pre></code> <button class="cpbt" onclick="cx('conda activate ciao-environment-name\nsherpa')"><i class="icofont-copy"></i></button></br>
 
           If there are no errors, Sherpa should be working as expected.
           </li>
         </ul>
-
-        Then install BXA inside the CIAO conda environment:
-        <ul>
-          <li>Activate the environment: <code>$ conda activate ciao-environment-name</code>&nbsp; <button class="cpbt" onclick="cx('conda activate ciao-environment-name')"><i class="icofont-copy"></i></button></li>
-          <li>Install packages: <code>$ pip install requests corner astropy h5py cython scipy tqdm</code>&nbsp; <button class="cpbt" onclick="cx('pip install requests corner astropy h5py cython scipy tqdm')"><i class="icofont-copy"></i></button></li>
-          <li>Install: <code>$ pip install bxa</code>&nbsp; <button class="cpbt" onclick="cx('pip install bxa')"><i class="icofont-copy"></i></button></li>
-          </ul>
-
-          Once the install process has finished, check everthing works as required:
-          <ul>
-            <li>Check UltraNest works: <code>$ python -c 'import ultranest'</code></li>
-            <li>Check BXA works: <code>$ python -c 'import bxa.sherpa as bxa'</code>&nbsp; <button class="cpbt" onclick="cp('python -c \'import ultranest\'\npython -c \'import bxa.sherpa as bxa\'')"><i class="icofont-copy"></i></button></li>
-          </ul>
-          If no error messages come up from these commands, BXA and PyXspec should work.
 
         </div>
       </div>
@@ -198,36 +182,58 @@ $ sherpa</pre></code> <button class="cpbt" onclick="cx('conda activate ciao-envi
       <div class="container">
 
         <div class="section-title">
-          <h2><i class="bx bx-bookmarks"></i> Useful links</h2>
-          <li>Xspec &amp; PyXspec documentation:<br/><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/">https://heasarc.gsfc.nasa.gov/xanadu/xspec/</a><br/>
+          <h2><i class="bx bx-bookmarks"></i> Useful links <a class="headerlink" href="#links" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
+          <h4>Documentation</h4>
+          <ul>
+          <li>Xspec &amp; PyXspec documentation:<br/><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/">https://heasarc.gsfc.nasa.gov/xanadu/xspec/</a>
           </li>
-          </br>
-          <li>Xspec Facebook group:<br/><a target="_blank" href="https://www.facebook.com/groups/320119452570/?ref=share">https://www.facebook.com/groups/320119452570/?ref=share</a><br/>
+          <li>Sherpa reference for commands:<br/><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/sherpa4.html">https://cxc.cfa.harvard.edu/sherpa/ahelp/sherpa4.html</a>
           </li>
-          </br>
-          <li>Sherpa reference for commands:<br/><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/sherpa4.html">https://cxc.cfa.harvard.edu/sherpa/ahelp/sherpa4.html</a><br/>
+        </ul>
+
+
+          
+          <h4>Places to ask questions</h4>
+          <ul>
+          <li>Xspec Facebook group:<br/><a target="_blank" href="https://www.facebook.com/groups/320119452570/?ref=share">https://www.facebook.com/groups/320119452570/?ref=share</a>
           </li>
-          </br>
-          <li>Astrostatistics Facebook group:<br/><a target="_blank" href="https://www.facebook.com/groups/astro.r/?ref=share">https://www.facebook.com/groups/astro.r/?ref=share</a><br/>
+          <li>Astrostatistics Facebook group:<br/><a target="_blank" href="https://www.facebook.com/groups/astro.r/?ref=share">https://www.facebook.com/groups/astro.r/?ref=share</a>
           </li>
-          </br>
-          <li>X-ray Data Primer by CXC:<br/><a target="_blank" href="https://cxc.cfa.harvard.edu/cdo/xray_primer.pdf">https://cxc.cfa.harvard.edu/cdo/xray_primer.pdf</a><br/>
+          <li><a href="#contact">Email</a>!</li>
+        </ul>
+
+          
+          <h4>Useful papers & documents</h4>
+        <ul>
+          <li>X-ray Data Primer by CXC:<br/><a target="_blank" href="https://cxc.cfa.harvard.edu/cdo/xray_primer.pdf">https://cxc.cfa.harvard.edu/cdo/xray_primer.pdf</a>
           </li>
-          </br>
-          <li>Information on C-statistics (&amp; modified C-statistics, aka W-stat) used in Xspec &amp; Sherpa by Giacomo Vianello:<br/><a target="_blank" href="https://giacomov.github.io/Bias-in-profile-poisson-likelihood/">https://giacomov.github.io/Bias-in-profile-poisson-likelihood/</a><br/>
+          <li>Information on C-statistics (&amp; modified C-statistics, aka W-stat) used in Xspec &amp; Sherpa by Giacomo Vianello:<br/><a target="_blank" href="https://giacomov.github.io/Bias-in-profile-poisson-likelihood/">https://giacomov.github.io/Bias-in-profile-poisson-likelihood/</a>
           </li>
-          </br>
-          <li>Py/Xspec citation - Arnaud et al., (1996; ASPC):<br><a target="_blank" href="https://ui.adsabs.harvard.edu/abs/1996ASPC..101...17A/abstract">https://ui.adsabs.harvard.edu/abs/1996ASPC..101...17A/abstract</a><br/>
+        </ul>
+
+
+          <h4>Lectures & videos</h4>
+          <ul>
+            <li>BiD4BEST Bayesian X-ray Spectral Analysis lectures by Johannes Buchner:<br/>
+              <ol>
+              <li><a target="_blank" href="https://youtu.be/_r4ecpje7nE">https://youtu.be/_r4ecpje7nE</a></li>
+              <li><a href="https://youtu.be/EIzhDG-0Ji8">https://youtu.be/EIzhDG-0Ji8</a></li>
+            </ol>
           </li>
-          </br>
-          <li>Sherpa citation - Freeman et al., (2001; SPIE):<br><a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2001SPIE.4477...76F/abstract">https://ui.adsabs.harvard.edu/abs/2001SPIE.4477...76F/abstract</a><br/>
+          </ul>
+
+          <h4>Citations</h4>
+          <ul>
+          <li>Py/Xspec citation - Arnaud et al., (1996; ASPC):<br><a target="_blank" href="https://ui.adsabs.harvard.edu/abs/1996ASPC..101...17A/abstract">https://ui.adsabs.harvard.edu/abs/1996ASPC..101...17A/abstract</a>
+          </li>
+          <li>Sherpa citation - Freeman et al., (2001; SPIE):<br><a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2001SPIE.4477...76F/abstract">https://ui.adsabs.harvard.edu/abs/2001SPIE.4477...76F/abstract</a></br>
           In CIAO 4.13, you can use this command to get information on the latest release:</br>
-          <code>sherpa> sherpa.citation("latest")</code>
+          <code>sherpa> sherpa.citation('latest')</code>&nbsp; <button class="cpbt" onclick="cx('sherpa.citation(\'latest\')')"><i class="icofont-copy"></i></button>
           </li>
-          </br>
-          <li>Do you know of any others? Please get in touch!
+          </ul>
+          
+          <li><b>Do you know of any others?</b> Please <a href="#contact">get in touch</a>!
           </li>
-          </br>
         </div>
 </section>
 
@@ -238,7 +244,7 @@ $ sherpa</pre></code> <button class="cpbt" onclick="cx('conda activate ciao-envi
           <h2><i class="bx bx-terminal"></i> Session 1 - getting started</h2>
           <p>Key objectives:</p>
           <ul>
-            <li>Load a dataset and fit a model to it in Sherpa and/or Py/Xspec</li>
+            <li>Load a spectrum and fit a model to it in Sherpa and/or Py/Xspec</li>
             <li>Explore a parameter space and test the goodness-of-fit</li>
             <li>Get to grips with plotting in Py/Xspec and Sherpa</li>
           </ul>
@@ -258,34 +264,38 @@ $ sherpa</pre></code> <button class="cpbt" onclick="cx('conda activate ciao-envi
         <ul>
           <li>For interactive mode:
             <ul>
-            <li>Xspec: <code>$ xspec</code></li>
-            <li>PyXspec: <code>$ ipython</code></li>
-            <li>Sherpa: <code>$ sherpa</code></li>
+            <li>Xspec:
+              <br>
+              <code>$ xspec</code>&nbsp; <button class="cpbt" onclick="cx('xspec')"><i class="icofont-copy"></i></button>
+            </li>
+            <li>PyXspec:
+              <br>
+              <code><pre>
+$ ipython
+from xspec import *
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('ipython\nfrom xspec import *')"><i class="icofont-copy"></i></button>
+</li>
+            <li>Sherpa:
+              <br>
+              <code>$ sherpa</code>&nbsp; <button class="cpbt" onclick="cx('sherpa')"><i class="icofont-copy"></i></button></li>
           </ul>
           </li></br>
 
           <li>For scripting:
             <ul>
-            <li>Xspec: <code>$ xspec - xspec_script.tcl</code></br>
-            (remember to have exit or quit at the end of the script!)</li>
-            <li>PyXspec: <code>$ python3 pyxspec_script.py</code></li>
-            <li>Sherpa: <code>$ sherpa sherpa_script.py</code></li>
+            <li>Xspec:
+              <br>
+              <code>$ xspec - xspec_script.tcl</code></br>
+            Remember to include <code>exit</code> or <code>quit</code> at the end of the script!</li>
+            <li>PyXspec:
+              <br>
+              <code>$ python3 pyxspec_script.py</code></li>
+            <li>Sherpa:
+              <br>
+              <code>$ sherpa sherpa_script.py</code></li>
           </ul>
-          </li></br>
-
-          <li>Setup required packages (PyXspec and Sherpa only):
-            <ul>
-              <li>PyXspec:</br>
-          <code>from xspec import *</code></br>
-          <code>import bxa.xspec as bxa</code><br/>
-        </li>
-          <li>Sherpa:</br>
-          <code>import bxa.sherpa as bxa</code>
-        </li>
-      </ul>
           </li>
-
-          
 
         </ul>
         </div>
@@ -297,21 +307,38 @@ $ sherpa</pre></code> <button class="cpbt" onclick="cx('conda activate ciao-envi
           <h3><i class="bx bx-chevron-right"></i> Exercise 1.1 - fit a model to data</h3>
         </div>
 
-        Here are the commands needed to set initial settings, load data and fit a model:
+        Before starting, the following commands are required:
         <ul>
-          <li>Set the statistic (here we use modified C-statistics):
+          <li>Set the fit statistic (here we use modified C-statistics):
             <ul>
-          <li>Xspec: <code>set stat cstat</code></li>
-          <li>PyXspec: <code>Fit.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html#statMethod">statMethod</a> = "cstat"</code></li>
-          <li>Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_stat.html">set_stat</a>("wstat")</code></li>
+          <li>Xspec:
+            <br>
+            <code>set stat cstat</code>&nbsp; <button class="cpbt" onclick="cx('set stat cstat')"><i class="icofont-copy"></i></button>
+          </li>
+          <li>PyXspec:
+            <br>
+            <code>Fit.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html#statMethod">statMethod</a> = "cstat"</code>
+            &nbsp; <button class="cpbt" onclick="cx('Fit.statMethod(&quot;cstat&quot;')"><i class="icofont-copy"></i></button>
+          </li>
+          <li>Sherpa:
+            <br>
+            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_stat.html">set_stat</a>("wstat")</code>
+            &nbsp; <button class="cpbt" onclick="cx('set_stat(&quot;wstat&quot;')"><i class="icofont-copy"></i></button>
+          </li>
         </ul>
           </li></br>
 
           <li>Set the x-axis units (e.g., instrument channels or energy):
             <ul>
-            <li>Xspec: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node113.html">setplot</a> <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node113.html#setplotchannel" target="_blank">channel</a></code> (or <code><a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node113.html#setplotenergy" target="_blank">energy</a></code>)</li>
-            <li>PyXspec: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.xAxis</a> = "channel"# or "keV"</code></li>
-            <li>Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_analysis.html">set_analysis</a>("chan")# or "ener"</code></li>
+            <li>Xspec:
+              <br>
+              <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node113.html#setplotenergy">setplot energy</a></code>&nbsp; <button class="cpbt" onclick="cx('setplot energy')"><i class="icofont-copy"></i></button></li>
+          <li>PyXspec:
+            <br>
+            <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.xAxis</a> = "keV"# or "channel"</code>&nbsp; <button class="cpbt" onclick="cx('Plot.xAxis = &quot;keV&quot;')"><i class="icofont-copy"></i></button></li>
+          <li>Sherpa:
+            <br>
+            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_analysis.html">set_analysis</a>("ener")# or "chan"</code>&nbsp; <button class="cpbt" onclick="cx('set_analysis(&quot;ener&quot;)')"><i class="icofont-copy"></i></button></li>
         </ul>
           </li></br>
 
@@ -319,25 +346,30 @@ $ sherpa</pre></code> <button class="cpbt" onclick="cx('conda activate ciao-envi
           <ul>
             <li>PyXspec:</br>
               <ul>
-            <li>No plot device (useful to avoid plot window pop-ups): <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.device</a> = "/null"</code></li>
-          <li>Set the plot device: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.device</a> = "/xw"</code></li>
+            <li>No plot device (useful to avoid plot window pop-ups): <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.device</a> = "/null"</code>&nbsp; <button class="cpbt" onclick="cx('Plot.device = &quot;null&quot;')"><i class="icofont-copy"></i></button></li>
+            <li>Set the plot device: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.device</a> = "/xw"</code>&nbsp; <button class="cpbt" onclick="cx('Plot.device = &quot;/xw&quot;')"><i class="icofont-copy"></i></button></li>
           </ul>
           <li>Xspec:</br>
             <ul>
-              <li>Set the plot device: <code><a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node109.html" target="_blank">cpd</a> /xw</code></li>
+              <li>Set the plot device: <code><a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node109.html" target="_blank">cpd</a> /xw</code>&nbsp; <button class="cpbt" onclick="cx('cpd /xw')"><i class="icofont-copy"></i></button></li>
             </ul>
           </li>
           </ul>
           (other plot devices are available, see <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node109.html" target="_blank">here</a>)
-          </li></br>
+          </li><br>
+        </ul>
 
-          <li>Load spectra:
+        Next, we load in the data and ignore ineffective energies:
+        <ul>
+          <li>Load the spectrum:
           <ul>
-            <li>PyXspec:</br>
+            <li>PyXspec:
+              <br>
               <code>s = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/spectrum.html">Spectrum</a>("sim_chan_bmin.pi")</code></br>
               or <code>s = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>("1:1 sim_chan_bmin1.pi")</code>)</li>
-          <li>Sherpa:</br>
-            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "sim_chan_bmin.pi")</code></li>
+              <li>Sherpa:
+              <br>
+              <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "sim_chan_bmin.pi")</code></li>
           </ul>
           </li></br>
 

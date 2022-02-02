@@ -134,13 +134,13 @@
           <h2><i class="icofont-fix-tools"></i> Setup <a class="headerlink" href="#setup" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
 
           <h3>&#9888;&#65039; <font color="red">WARNING!</font> &#9888;&#65039; BXA requires a working form of <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/index.html">PyXspec</a> and/or <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/">Sherpa</a>.</h3>
-          <p>Make sure either of these are installed before doing the exercises! Also note the exercises were written for BXA v4.0.5 - if some commands are not working, check which version you are running.</p>
+          <p>Make sure either of these are installed before doing the exercises! Also note the exercises were written for BXA v4.0.5 - if some commands are not working as expected, check which version you are running.</p>
           </br>
 
           <h3>For PyXspec users</h3>
           First, install PyXspec:
           <ul>
-          <li>Using PyXspec with BXA may require a source distribution of HEASoft. See install instructions here:<br/><a target="_blank" href="https://heasarc.gsfc.nasa.gov/docs/software/heasoft/">https://heasarc.gsfc.nasa.gov/docs/software/heasoft/</a><br/></li>
+          <li>Using PyXspec requires a source distribution of HEASoft. See install instructions here:<br/><a target="_blank" href="https://heasarc.gsfc.nasa.gov/docs/software/heasoft/">https://heasarc.gsfc.nasa.gov/docs/software/heasoft/</a><br/></li>
           </ul>
 
           We advise using a conda environment (e.g. with <a target="_blank" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a>) to ensure no conflicts occur when installing the Python packages required for BXA. If you have not created a dedicated BXA conda environment before:
@@ -372,18 +372,18 @@ import bxa.xspec as bxa
         </ul>
           </li></br>
 
-          <li>Plot device (PyXspec only):
-          <ul>
-            <li>No plot device (useful to avoid plot window pop-ups): <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.device</a> = "/null"</code>&nbsp; <button class="cpbt" onclick="cx('Plot.device = &quot;null&quot;')"><i class="icofont-copy"></i></button></li>
-          <li>Set the plot device: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.device</a> = "/xw"</code>&nbsp; <button class="cpbt" onclick="cx('Plot.device = &quot;/xw&quot;')"><i class="icofont-copy"></i></button></li>
-          </ul>
-          </li></br>
-
           <li>Set the x-axis units (e.g., instrument channels or energy):
             <ul>
             <li>PyXspec: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.xAxis</a> = "keV"# or "channel"</code>&nbsp; <button class="cpbt" onclick="cx('Plot.xAxis = &quot;keV&quot;')"><i class="icofont-copy"></i></button></li>
           <li>Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_analysis.html">set_analysis</a>("ener")# or "chan"</code>&nbsp; <button class="cpbt" onclick="cx('set_analysis(&quot;ener&quot;)')"><i class="icofont-copy"></i></button></li>
         </ul>
+          </li></br>
+
+          <li>Plot device (PyXspec only):
+          <ul>
+            <li>No plot device (useful to avoid plot window pop-ups): <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.device</a> = "/null"</code>&nbsp; <button class="cpbt" onclick="cx('Plot.device = &quot;null&quot;')"><i class="icofont-copy"></i></button></li>
+            <li>Set the plot device: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.device</a> = "/xw"</code>&nbsp; <button class="cpbt" onclick="cx('Plot.device = &quot;/xw&quot;')"><i class="icofont-copy"></i></button></li>
+          </ul>
           </li></br>
 
           <li>Load spectra:
@@ -397,9 +397,9 @@ import bxa.xspec as bxa
           </ul>
           </li></br>
 
-          <li>Ignore channels:
+          <li>Ignore ineffective energies:
             <ul>
-          <li>Pyxspec:</br>
+          <li>PyXspec:</br>
             <code>s.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html">ignore</a>("0.-0.5 8.-**")</code>&nbsp; <button class="cpbt" onclick="cx('s.ignore(&quot;0.-0.5 8.-**&quot;)')"><i class="icofont-copy"></i></button></br>
             Or:</br>
             <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>.ignore("1:0.-0.5 8.-**")</code>&nbsp; <button class="cpbt" onclick="cx('AllData.ignore(&quot;0.-0.5 8.-**&quot;)')"><i class="icofont-copy"></i></button></li>
