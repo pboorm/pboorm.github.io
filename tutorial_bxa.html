@@ -157,9 +157,15 @@
 
           Once the install process has finished, check everthing is installed and works as required:&nbsp; <button class="cpbt" onclick="cx('python -c \'import xspec\'\npython -c \'import ultranest\'\npython -c \'import bxa.xspec as bxa\'')"><i class="icofont-copy"></i></button>
           <ul>
-            <li>Check PyXspec works: <code>$ python -c 'import xspec'</code></li>
-            <li>Check UltraNest works: <code>$ python -c 'import ultranest'</code></li>
-            <li>Check BXA works: <code>$ python -c 'import bxa.xspec as bxa'</code></li>
+            <li>Check PyXspec works:
+              <br>
+              <code>$ python -c 'import xspec'</code></li>
+            <li>Check UltraNest works:
+              <br>
+              <code>$ python -c 'import ultranest'</code></li>
+            <li>Check BXA works:
+              <br>
+              <code>$ python -c 'import bxa.xspec as bxa'</code></li>
           </ul>
           If no error messages come up from these commands, BXA and PyXspec should work.
 
@@ -179,15 +185,25 @@ $ sherpa</pre></code> <button class="cpbt" onclick="cx('conda activate ciao-envi
 
         Then install BXA inside the CIAO conda environment:
         <ul>
-          <li>Activate the environment: <code>$ conda activate ciao-environment-name</code>&nbsp; <button class="cpbt" onclick="cx('conda activate ciao-environment-name')"><i class="icofont-copy"></i></button></li>
-          <li>Install packages: <code>$ pip install requests corner astropy h5py cython scipy tqdm</code>&nbsp; <button class="cpbt" onclick="cx('pip install requests corner astropy h5py cython scipy tqdm')"><i class="icofont-copy"></i></button></li>
-          <li>Install: <code>$ pip install bxa</code>&nbsp; <button class="cpbt" onclick="cx('pip install bxa')"><i class="icofont-copy"></i></button></li>
+          <li>Activate the environment:
+            <br>
+            <code>$ conda activate ciao-environment-name</code>&nbsp; <button class="cpbt" onclick="cx('conda activate ciao-environment-name')"><i class="icofont-copy"></i></button></li>
+          <li>Install packages:
+            <br>
+            <code>$ pip install requests corner astropy h5py cython scipy tqdm</code>&nbsp; <button class="cpbt" onclick="cx('pip install requests corner astropy h5py cython scipy tqdm')"><i class="icofont-copy"></i></button></li>
+          <li>Install:
+            <br>
+            <code>$ pip install bxa</code>&nbsp; <button class="cpbt" onclick="cx('pip install bxa')"><i class="icofont-copy"></i></button></li>
           </ul>
 
           Once the install process has finished, check everthing works as required:
           <ul>
-            <li>Check UltraNest works: <code>$ python -c 'import ultranest'</code></li>
-            <li>Check BXA works: <code>$ python -c 'import bxa.sherpa as bxa'</code>&nbsp; <button class="cpbt" onclick="cp('python -c \'import ultranest\'\npython -c \'import bxa.sherpa as bxa\'')"><i class="icofont-copy"></i></button></li>
+            <li>Check UltraNest works:
+              <br>
+              <code>$ python -c 'import ultranest'</code></li>
+            <li>Check BXA works:
+              <br>
+              <code>$ python -c 'import bxa.sherpa as bxa'</code>&nbsp; <button class="cpbt" onclick="cp('python -c \'import ultranest\'\npython -c \'import bxa.sherpa as bxa\'')"><i class="icofont-copy"></i></button></li>
           </ul>
           If no error messages come up from these commands, BXA and PyXspec should work.
 
@@ -339,8 +355,17 @@ $ sherpa</pre></code> <button class="cpbt" onclick="cx('conda activate ciao-envi
         <ul>
           <li>For interactive mode (useful for debugging scripts):
             <ul>
-            <li>PyXspec: <code>$ ipython</code>&nbsp; <button class="cpbt" onclick="cx('ipython')"><i class="icofont-copy"></i></button></li>
-            <li>Sherpa: <code>$ sherpa</code>&nbsp; <button class="cpbt" onclick="cx('sherpa')"><i class="icofont-copy"></i></button></li>
+            <li>PyXspec:
+              <br>
+              <code><pre>
+$ ipython
+from xspec import *
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('ipython\nfrom xspec import *')"><i class="icofont-copy"></i></button>
+</li>
+          <li>Sherpa:
+            <br>
+            <code>$ sherpa</code>&nbsp; <button class="cpbt" onclick="cx('sherpa')"><i class="icofont-copy"></i></button></li>
           </ul>
           </li></br>
 
@@ -367,15 +392,23 @@ import bxa.xspec as bxa
 
           <li>Set the statistic (here we use modified C-statistics):
             <ul>
-          <li>PyXspec: <code>Fit.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html#statMethod">statMethod</a> = "cstat"</code>&nbsp; <button class="cpbt" onclick="cx('Fit.statMethod = &quot;cstat&quot;')"><i class="icofont-copy"></i></button></li>
-          <li>Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_stat.html">set_stat</a>("wstat")</code>&nbsp; <button class="cpbt" onclick="cx('set_stat(&quot;wstat&quot;)')"><i class="icofont-copy"></i></button></li>
+          <li>PyXspec:
+            <br>
+            <code>Fit.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html#statMethod">statMethod</a> = "cstat"</code>&nbsp; <button class="cpbt" onclick="cx('Fit.statMethod = &quot;cstat&quot;')"><i class="icofont-copy"></i></button></li>
+          <li>Sherpa:
+            <br>
+            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_stat.html">set_stat</a>("wstat")</code>&nbsp; <button class="cpbt" onclick="cx('set_stat(&quot;wstat&quot;)')"><i class="icofont-copy"></i></button></li>
         </ul>
           </li></br>
 
           <li>Set the x-axis units (e.g., instrument channels or energy):
             <ul>
-            <li>PyXspec: <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.xAxis</a> = "keV"# or "channel"</code>&nbsp; <button class="cpbt" onclick="cx('Plot.xAxis = &quot;keV&quot;')"><i class="icofont-copy"></i></button></li>
-          <li>Sherpa: <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_analysis.html">set_analysis</a>("ener")# or "chan"</code>&nbsp; <button class="cpbt" onclick="cx('set_analysis(&quot;ener&quot;)')"><i class="icofont-copy"></i></button></li>
+            <li>PyXspec:
+              <br>
+              <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot.xAxis</a> = "keV"# or "channel"</code>&nbsp; <button class="cpbt" onclick="cx('Plot.xAxis = &quot;keV&quot;')"><i class="icofont-copy"></i></button></li>
+          <li>Sherpa:
+            <br>
+            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_analysis.html">set_analysis</a>("ener")# or "chan"</code>&nbsp; <button class="cpbt" onclick="cx('set_analysis(&quot;ener&quot;)')"><i class="icofont-copy"></i></button></li>
         </ul>
           </li></br>
 
