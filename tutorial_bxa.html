@@ -709,12 +709,19 @@ aic = <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#d
           <li>For the model we have used, the equivalent width of the emission line relative to the intrinsic (i.e. unabsorbed) powerlaw continuum is (in terms of the parameters defined):
             <ul>
           <li>PyXspec:</br>
-            <code>EW = (mymod.gaussian.norm / mymod.powerlaw.norm) * mymod.gaussian.LineE ** mymod.powerlaw.PhoIndex</code>
-          &nbsp; <button class="cpbt" onclick="cx('EW = (mymod.gaussian.norm / mymod.powerlaw.norm) * mymod.gaussian.LineE ** mymod.powerlaw.PhoIndex')"><i class="icofont-copy"></i></button>
+            <code><pre>
+solver.set_paramnames(["log(nH)", "mypow.phoindex", "mypow.lognorm", "line.linee", "line.lognorm"])
+df = pd.DataFrame(data = results3["samples"], columns = solver3.paramnames)
+df.loc[:, "EW"] = (df["line.lognorm"] / df["mypow.lognorm"]) * df["line.linee"] ** df["mypow.phoindex"]
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('solver.set_paramnames([&quot;log(nH)&quot;, &quot;mypow.phoindex&quot;, &quot;mypow.lognorm&quot;, &quot;line.linee&quot;, &quot;line.lognorm&quot;])\ndf = pd.DataFrame(data = results3[&quot;samples&quot;], columns = solver3.paramnames)\ndf.loc[:, &quot;EW&quot;] = (df[&quot;line.lognorm&quot;] / df[&quot;mypow.lognorm&quot;]) * df[&quot;line.linee&quot;] ** df[&quot;mypow.phoindex&quot;]')"><i class="icofont-copy"></i></button>
         </li>
           <li>Sherpa:</br>
-            <code>EW = (line.norm / mypow.norm) * line.linee ** mypow.phoindex</code>
-          &nbsp; <button class="cpbt" onclick="cx('EW = (line.norm / mypow.norm) * line.linee ** mypow.phoindex')"><i class="icofont-copy"></i></button>
+            <code><pre>
+df = pd.DataFrame(data = results3["samples"], columns = solver3.paramnames)
+df.loc[:, "EW"] = (df["line.norm"] / df["mypow.norm"]) * df["line.linee"] ** df["mypow.phoindex"]
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('df = pd.DataFrame(data = results3[&quot;samples&quot;], columns = solver3.paramnames)\ndf.loc[:, &quot;EW&quot;] = (df[&quot;line.norm&quot;] / df[&quot;mypow.norm&quot;]) * df[&quot;line.linee&quot;] ** df[&quot;mypow.phoindex&quot;]')"><i class="icofont-copy"></i></button>
         </li>
           </ul>
          Generate posterior samples for equivalent width. If using pandas, this will involve creating a new column in the pandas dataframe of posterior samples for the equivalent width.
