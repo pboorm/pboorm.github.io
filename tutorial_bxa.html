@@ -588,7 +588,7 @@ mymod.powerlaw.norm.values = (1.e-3, 0.1, 1.e-8, 1.e-8, 1., 1.)
         </ul>
 
 
-        Then all that remains is to fit the model to the data
+        Then all that remains is to fit the model to the data.
         <ul>
         </ul>
         </div>
@@ -620,7 +620,7 @@ mymod.powerlaw.norm.values = (1.e-3, 0.1, 1.e-8, 1.e-8, 1., 1.)
           </ul>
         </div>
 
-          If you don't have your own, download the following Chandra/ACIS spectral files from <a href="bxa/s1_chandra.zip" download>here</a>.</br>
+          <!-- If you don't have your own, download the following Chandra/ACIS spectral files from <a href="bxa/s1_chandra.zip" download>here</a>.</br>
           The compressed folder contains:
         <ul>
           <li>Source spectrum (binned with <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/lheasoft/help/ftgrouppha.html">ftgrouppha</a> grouptype=bmin groupscale=1</code>): <code>sim_chan_bmin1.pi</code></li>
@@ -732,8 +732,9 @@ mymod = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowe
 </pre></code>&nbsp; <button class="cpbt" onclick="cx('mymod = xspowerlaw.mypow\nset_source(1, mymod)')"><i class="icofont-copy"></i></button></br>
           Note <code>xs</code> is used to indicate Xspec models, and <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_default_id.html">get_default_id()</a></code> can be used to show the id that is used if an id is not specified</li>
           </ul>
-          </li></br>
+          </li></br> -->
 
+          <!-- The first steps are to repeat the process of fitting from Exercise 0.1, but this time with BXA.
           <li>Set the parameter values.</br>
             Note the <code>min</code>, <code>max</code> parameter bounds are used in the BXA priors and should be set to reasonable values.</br>
           <ul>
@@ -755,7 +756,7 @@ mymod.powerlaw.norm.values = (1.e-3, 0.1, 1.e-8, 1.e-8, 1., 1.)
           </ul>
           </li>
 
-        </ul>
+        </ul> -->
         </div>
 </section>
 
@@ -785,7 +786,7 @@ bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/
           </ul>
         Note: log uniform priors <strong>cannot be zero or negative</strong>. Make sure the parameter ranges you supply are positive.</br></br>
 
-        To start these exercises, load the data, notice the correct energies and create a powerlaw model (see the commands listed above for help). Then:
+        To start these exercises, load the data, notice the correct energies and create a powerlaw model (see the commands listed above in <a href="#ex01">Ex 0.1</a> for help). Then:
         <ul>
           <li>Set the parameter priors for the <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node212.html" target="_blank"><code>powerlaw</code></a> model (note <code>norm</code> varies over many orders of magnitude, and <code>PhoIndex</code> can be assumed to have some value within 1.9 &plusmn; 0.15):
           <ul>
