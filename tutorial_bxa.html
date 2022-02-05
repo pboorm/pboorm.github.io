@@ -1404,14 +1404,24 @@ print(pkg_resources.<a target="_blank" href="https://nsoranzo-galaxy.readthedocs
 </pre></code>
 &nbsp; <button class="cpbt" onclick="cx('import bxa, pkg_resources\nprint(pkg_resources.get_distribution(&quot;bxa&quot;).version)')"><i class="icofont-copy"></i></button>
           </li></br>
-          <li>For complex fits (e.g., multiple datasets simultaneously, many parameters, high signal-to-noise spectra, ...), the run time can be decreased with e.g.,:</br>
+          <li>Speeding up BXA: For complex fits (e.g., multiple datasets simultaneously, many parameters, high signal-to-noise spectra, ...), the run time can be decreased with e.g.,:</br>
             <ul>
-          <li><code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(frac_remain=0.5, max_num_improvement_loops=0)</code> <button class="cpbt" onclick="cx('results = solver.run(frac_remain=0.5, max_num_improvement_loops=0)')"><i class="icofont-copy"></i></button>
+              <li>Parallelisation</li>
+          <li>Arguments for <code>solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>()</code>
             <br>
             <ul>
-            <li><code>frac_remain</code> sets the cut-off condition for the integration. A low value is optimal for finding peaks but higher values (e.g., 0.5) can be used if the posterior distribution is a relatively simple shape.
+            <li><code>frac_remain=0.5</code> sets the cut-off condition for the integration. A low value is optimal for finding peaks but higher values (e.g., 0.5) can be used if the posterior distribution is a relatively simple shape.
             </li>
-            <li><code>max_num_improvement_loops</code> sets the number of times <code>run()</code> will try to iteratively assess how many more samples are needed.
+            <li><code>max_num_improvement_loops=0</code> sets the number of times <code>run()</code> will try to iteratively assess how many more samples are needed.
+            </li>
+            <li><code>speed</code>
+              <ul>
+                <li><code>speed="safe"</code></li>
+                <li><code>speed="auto"</code></li>
+                <li><code>speed=int</code></li>
+              </ul>
+            </li>
+            <li><code>speed="safe"</code>, <code>speed="auto"</code>, <code>speed=int</code>
             </li>
             <li>To see the other arguments of <code>run()</code>, see <a href="https://johannesbuchner.github.io/UltraNest/ultranest.html#module-ultranest.integrator" target="_blank">here</a>.
             </li>
