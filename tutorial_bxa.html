@@ -81,10 +81,13 @@
           <li><a href="#setup"><i class="icofont-tools-alt-2"></i> <span>Setup</span></a></li>
           <li><a href="#links"><i class="bx bx-bookmarks"></i> <span>Useful links</span></a></li>
           <li><a href="#session0"><i class="bx bx-terminal"></i>Session 0 - X-ray spectral fitting</a></li>
-          <li><a href="#ex01"><i class="bx bx-chevron-right"></i>0.1 - fitting</a></li>
+          <li><a href="#ex01"><i class="bx bx-chevron-right"></i>0.1 - loading data & plotting</a></li>
+          <li><a href="#ex02"><i class="bx bx-chevron-right"></i>0.2 - fitting</a></li>
+          <li><a href="#ex03"><i class="bx bx-chevron-right"></i>0.3 - multiple spectra</a></li>
+          <li><a href="#ex04"><i class="bx bx-chevron-right"></i>0.4 - simulating data</a></li>
           <li><a href="#session1"><i class="bx bx-terminal"></i>Session 1 - BXA</a></li>
           <li><a href="#ex11"><i class="bx bx-chevron-right"></i>1.1 - priors</a></li>
-          <li><a href="#ex12"><i class="bx bx-chevron-right"></i>1.2 - fitting</a></li>
+          <li><a href="#ex12"><i class="bx bx-chevron-right"></i>1.2 - fitting with BXA</a></li>
           <li><a href="#ex13"><i class="bx bx-chevron-right"></i>1.3 - model comparison</a></li>
           <li><a href="#ex14"><i class="bx bx-chevron-right"></i>1.4 - error propagation</a></li>
           <li><a href="#ex15"><i class="bx bx-chevron-right"></i>1.5 - visualisation</a></li>
@@ -400,23 +403,29 @@ $ sherpa</pre></code> <button class="cpbt" onclick="cx('conda activate ciao-envi
         </div>
 
           <div class="collapse show" id="collapse-session0">
-            <p>Key objectives:</p>
+            This session aims to provide a sufficient background with 
+            <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/" target="_blank">Xspec</a>/<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/" target="_blank">PyXspec</a> 
+            and/or <a href="https://cxc.cfa.harvard.edu/sherpa/ahelp/sherpa4.html" target="_blank">Sherpa</a> to complete the remaining BXA tutorial exercises. For a complete and in-depth 
+            understanding of the features available in these software packages, see the <a href="#links">useful links</a> for the excellent online material provided by each team.
+          </br></br>
+
+            Key objectives:
           <ul>
             <li>Load a spectrum and fit a model to it in Xspec, PyXspec and/or Sherpa</li>
             <li>Explore a parameter space and test the goodness-of-fit</li>
             <li>Get to grips with plotting in Xspec, PyXspec and Sherpa</li>
           </ul>
 
-          If you don't have your own, download the following Chandra/ACIS spectral files from <a href="bxa/s1_chandra.zip" download>here</a>:
+          
+
+          <h3>Getting started</h3>
+          If you don't have your own, download the following Chandra/ACIS spectral files from <a href="bxa/s1_chandra.zip" download>here</a>. The zip file contains:
         <ul>
           <li>Source spectrum (binned with <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/lheasoft/help/ftgrouppha.html">ftgrouppha</a> grouptype=bmin groupscale=1</code>): <code>sim_chan_bmin.pi</code></li>
           <li>Response: <code>chan.rmf</code></li>
           <li>Effective area: <code>chan.arf</code></li>
           <li>Background spectrum: <code>sim_chan_bkg.pi</code></li>
         </ul>
-      </br>
-
-          <h3>Getting started</h3>
           Here are some initial steps to set up a fit for BXA in PyXspec or Sherpa:
         <ul>
           <li>For interactive mode:
@@ -467,32 +476,13 @@ from xspec import *
       <div class="container">
         <div class="section-title">
           <a class="collapselink" data-toggle="collapse" href="#collapse-ex01" aria-expanded="true" aria-controls="collapse-ex01" style="color: #173b6c;">
-          <h3><i class="bx bx-chevron-right"></i> Exercise 0.1 - fit a model to data <a class="headerlink" href="#ex01" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
+          <h3><i class="bx bx-chevron-right"></i> Exercise 0.1 - loading data and plotting <a class="headerlink" href="#ex01" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
         </a>
         </div>
         <div class="collapse show" id="collapse-ex01">
 
         Before starting, the following commands are required:
         <ul>
-          <li>Set the fit statistic (here we use modified C-statistics):
-            <ul>
-          <li>Xspec:
-            <br>
-            <code>set stat cstat</code>&nbsp; <button class="cpbt" onclick="cx('set stat cstat')"><i class="icofont-copy"></i></button>
-          </li>
-          <li>PyXspec:
-            <br>
-            <code>Fit.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html#statMethod">statMethod</a> = "cstat"</code>
-            &nbsp; <button class="cpbt" onclick="cx('Fit.statMethod(&quot;cstat&quot;')"><i class="icofont-copy"></i></button>
-          </li>
-          <li>Sherpa:
-            <br>
-            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_stat.html">set_stat</a>("wstat")</code>
-            &nbsp; <button class="cpbt" onclick="cx('set_stat(&quot;wstat&quot;')"><i class="icofont-copy"></i></button>
-          </li>
-        </ul>
-          </li></br>
-
           <li>Set the x-axis units (e.g., instrument channels or energy):
             <ul>
             <li>Xspec:
@@ -563,7 +553,218 @@ from xspec import *
         </li></br>
       </ul>
 
-      Then we create a simple <code>powerlaw</code> model and set the model parameter values:
+      There are a number of useful settings for plotting the data in Xspec & PyXspec. For a full list, see <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node113.html" target="_blank">here</a>. Some useful examples for these exercises include:
+      <ul>
+        <li>Xspec:
+          <br>
+          <ul>
+            <li><code>setplot area</code>/<code>noarea</code>:
+              <br>
+              For plots, divide the observed data by the response effective area
+            </li>
+            <li><code>setplot add</code>/<code>noadd</code>:
+              <br>
+              Show all additive model components in plots
+            </li>
+            <li><code>setplot background</code>/<code>nobackground</code>:
+              <br>
+              Automatically plot the background in the same plot as the source
+            </li>
+            <li><code>setplot rebin X Y N</code>:
+              <br>
+              Adjacent bins are combined in dataset <code>N</code> until either: (1) the significance of the combined bins is &ge; X &sigma; or (2) <code>Y</code> bins have been combined. To undo on all datasets, use <code>setplot rebin 0 1 -1</code>.
+            </li>
+            <li><code>setplot command range x 0.4 10.</code>
+              <br>
+              To append any IPLOT commands to a list that is executed when the user types <code>plot ... </code>. For a full list of available commands, see:
+            </li>
+        </ul>
+      </li>
+        <li>PyXspec (for command descriptions, see above):
+          <ul>
+            <li><code>Plot.area="True"</code>/<code>"False"</code>
+            </li>
+            <li><code>Plot.add="True</code>/<code>"False"</code>
+            </li>
+            <li><code>Plot.background="True"</code>/<code>"False"</code>
+            </li>
+            <li><code>Plot.setRebin(X, Y, N)</code>
+            </li>
+            <li><code>Plot.addCommand("range x 0.4 10.")</code>
+            </li>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  Plot the observed data <i>inside</i> Xspec, PyXspec and Sherpa:
+  <ul>
+    <li>Xspec (note you can try <code>counts</code>/<code>data</code>/<code>lcounts</code> in place of <code>ldata</code>):
+      <br>
+        <code><pre>
+setplot rebin 2 1000 -1
+plot ldata
+</pre></code>
+    </li>
+    <li>PyXspec (note you can try <code>"counts"</code>/<code>"data"</code>/<code>"lcounts"</code> in place of <code>"ldata"</code>):
+      <br>
+        <code><pre>
+Plot.setRebin(2, 1000)
+Plot("ldata")
+</pre></code>
+    </li>
+  <li>Sherpa (note you can try <code>"counts"</code> in place of <code>"rate"</code>):
+      <br>
+        <code><pre>
+group_snr(1, 2.)
+subtract(1)
+set_analysis(0, "ener", "rate")
+plot_data(xlog=True, ylog=True)
+</pre></code>
+    </li>
+  </ul>
+
+  </ul>
+
+    <h4>Interactive <a href="https://wwwastro.msfc.nasa.gov/qdp/help/plt.html" target="_blank"><code>PLT</code></a> (Xspec only)</h4>
+    In Xspec, you can either use <code>plot</code> or <code>iplot</code> to produce plots. <code>plot</code> will make the plot and return the user to the Xspec prompt, whereas <code>iplot</code> starts the interactive plotting interface which can be used to edit a plot.
+    <br>
+    You can always view the full list of PLT commands being run by Xspec if you increase the verbosity to <code>chatter 25</code> before typing <code>iplot</code>. This is useful for determining the plotting element numbers for different colours, etc. Here are some basic commands for using the interactive PLT interface:
+    <ul>
+      <li><code>LAB title text</code>: Change the title of the plot to "text"
+      </li>
+      <li><code>time off</code>: Remove the time label in the bottom right of the plot
+      </li>
+      <li><code>CS N</code>: Change the character size for text on the plot (values of 0-5 are allowed, 1 is default)
+      </li>
+      <li><code>viewport xlo ylo xhi yhi</code>: Change the location of the plot in the plotting window
+      </li>
+      <li><code>LAB y ylabel</code>: Change the y axis label
+      </li>
+      <li><code>LAB x xlabel</code>: Change the x axis label
+      </li>
+      <li><code>COL 0 on 1..2</code>: Change the colour of elements 1..2 to 0 (i.e. black - for all available colours, see Fig. 5.1 <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node112.html#plot" target="_blank">here</a>)
+      </li>
+      <li><code>LW 5 on 1..2</code>: Change the line width of elements 1-2 to 5 (values can be &ge; 1)
+      </li>
+      <li><code>LAB 5 POS x y "This text is... \fiITALIC\fn NORMAL\uSUPERSCRIPT\d\dSUBSCRIPT"</code>: create a text label.
+        <ul>
+          <li>Greek alphabet in order (use <code>\G</code> for capitals):
+      <br>
+      <code>\ga \gb \gg \gd \ge \gz \gy \gh \gi \gk \gl \gm \gn \gc, \go, \gp, \gr \gs \gt \gu \gf \gx \gq \gw</code>
+    </li>
+  </ul>
+      </li>
+      <li><code>LAB 5 COL 4 CS 1.4</code>: Change the colour of label 5 to 4 (i.e. blue) and change the character size to 1.4
+      </li>
+
+    </ul>
+    IPLOT commands can be used from the Xspec prompt by appending all the commands to a list. Xspec then runs these commands <b>only</b> when you type <code>plot</code>. To interact with this list of commands:
+    <ul>
+      <li><code>setplot command ...</code>: Type this followed by any interactive <a href="https://wwwastro.msfc.nasa.gov/qdp/help/plt.html" target="_blank"><code>PLT</code></a> command to append the command to the list
+      </li>
+      <li><code>setplot list</code>: Show the currently appended plot commands
+      </li>
+      <li><code>setplot delete all</code>: Remove all plot commands from the list
+      </li>
+    </ul>
+    A useful tip is to use the command <code>wdata filename.dat</code> inside interactive <a href="https://wwwastro.msfc.nasa.gov/qdp/help/plt.html" target="_blank"><code>PLT</code></a> (or use <code>setplot command wdata filename.dat</code> with Xspec <code>plot</code>) to save everything being plotted by Xspec to <code>filename.dat</code>. This file can then be read in with e.g., <code>pandas</code> to plot in Python.
+    <br>
+    <br>
+
+  Saving the data to be plotted by yourself can be done with the following:
+  <ul>
+    <li>Xspec:
+      <br>
+        <code><pre>
+setplot rebin 2 1000 -1
+setplot command wdata ldata_plot.dat
+plot ldata
+exit
+</pre></code>
+<br>
+Then the data can be read in to e.g., <code>pandas</code> with:
+<code><pre>
+import pandas as pd
+df = pd.read_csv("ldata_plot.dat", skiprows=3, delim_whitespace=True, names=["EkeV", "EkeV_err", "data", "data_err"])
+</pre></code>
+    </li>
+    <li>PyXspec:
+      <br>
+        <code><pre>
+Plot.setRebin(2, 1000)
+EkeV = Plot.x()
+EkeV_err = Plot.xErr()
+data = Plot.y()
+data_err = Plot.yErr()
+</pre></code>
+    </li>
+    <li>Sherpa:
+      <br>
+        <code><pre>
+group_snr(1, 2.)
+subtract(1)
+set_analysis(0, "ener", "rate")
+srcdata = get_data_plot(1)
+EkeV = srcdata.x
+EkeV_err = srcdata.xerr
+data = srcdata.y
+data_err = srcdata.yerr
+</pre></code>
+    </li>
+  </ul>
+  Save the data being plotted and produce your own spectral plots in the plotting package of your choice. 
+
+
+        </div>
+</section>
+
+
+
+<section id="ex02" class="services">
+      <div class="container">
+        <div class="section-title">
+          <a class="collapselink" data-toggle="collapse" href="#collapse-ex02" aria-expanded="true" aria-controls="collapse-ex02" style="color: #173b6c;">
+          <h3><i class="bx bx-chevron-right"></i> Exercise 0.2 - fit a model to data <a class="headerlink" href="#ex02" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
+        </a>
+        </div>
+        <div class="collapse show" id="collapse-ex02">
+          <ul>
+        <li>Set the <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node314.html#AppendixStatistics" target="_blank">fit statistic</a> (here we use <a href="https://giacomov.github.io/Bias-in-profile-poisson-likelihood" target="_blank">modified C-statistics</a>):
+            <ul>
+          <li>Xspec:
+            <br>
+            <code>set stat cstat</code>&nbsp; <button class="cpbt" onclick="cx('set stat cstat')"><i class="icofont-copy"></i></button>
+          </li>
+          <li>PyXspec:
+            <br>
+            <code>Fit.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html#statMethod">statMethod</a> = "cstat"</code>
+            &nbsp; <button class="cpbt" onclick="cx('Fit.statMethod(&quot;cstat&quot;')"><i class="icofont-copy"></i></button>
+          </li>
+          <li>Sherpa:
+            <br>
+            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_stat.html">set_stat</a>("wstat")</code>
+            &nbsp; <button class="cpbt" onclick="cx('set_stat(&quot;wstat&quot;')"><i class="icofont-copy"></i></button>
+          </li>
+        </ul>
+          </li></br>
+
+          <li>(Optional) turn off the interruption whilst fitting (Xspec & PyXspec only):
+            <ul>
+          <li>Xspec:
+            <br>
+            <code><a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node54.html" target="_blank">query</a> yes</code>
+            &nbsp; <button class="cpbt" onclick="cx('query no')"><i class="icofont-copy"></i></button>
+          </li>
+          <li>PyXspec:
+            <br>
+            <code>Fit.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/extended.html#query">query</a> = "yes"</code>
+            &nbsp; <button class="cpbt" onclick="cx('Fit.query(&quot;yes&quot;')"><i class="icofont-copy"></i></button>
+          </li>
+        </ul>
+          </li></br>
+      </ul>
+      Then first create a simple <code>powerlaw</code> model and set the model parameter values:
       <ul>
           <li>Create the model:
             <ul>
@@ -612,9 +813,104 @@ mymod.powerlaw.norm.values = (1.e-3, 0.1, 1.e-8, 1.e-8, 1., 1.)
         </ul>
 
 
-        Then all that remains is to fit the model to the data.
+        Then all that remains is to plot the model with the data, and then fit the model to the data:
         <ul>
+          <li>Xspec:
+            <br>
+            <code><pre>
+plot ldata del
+fit</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('plot ldata del\nfit')"><i class="icofont-copy"></i></button>
+          </li>
+          <li>PyXspec:
+            <br>
+            <code><pre>
+Plot("ldata del")
+Fit.perform()</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('Plot(&quot;ldata del&quot;)\nFit.perform()')"><i class="icofont-copy"></i></button>
+          </li>
+          <li>Sherpa:
+            <br>
+            <code><pre>
+plot_fit(xlog=True, ylog=True)
+fit()</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('plot_fit(xlog=True, ylog=True)\nfit()')"><i class="icofont-copy"></i></button>
+          </li>
         </ul>
+
+        Beware of local minima! Depending on where you start your fit, the Levenberg-Marquadt algorithm used may struggle to find the global minimum in fit statistic. This can often be spotted by plotting the model with the data in some way, but the effect may be more subtle and harder to notice.
+        <!-- In this example, it is clear there is a problem from plotting the fit but this can be more subtle. -->
+        <br>
+        To check your fit, try starting new fits from alternative parameter values and seeing how the fit statistic changes.
+
+        </div>
+</section>
+
+<section id="ex03" class="services">
+      <div class="container">
+        <div class="section-title">
+          <a class="collapselink" data-toggle="collapse" href="#collapse-ex03" aria-expanded="true" aria-controls="collapse-ex03" style="color: #173b6c;">
+          <h3><i class="bx bx-chevron-right"></i> Exercise 0.3 - working with multiple datasets <a class="headerlink" href="#ex03" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
+        </a>
+        </div>
+        <div class="collapse show" id="collapse-ex03">
+
+
+        </div>
+</section>
+
+<section id="ex04" class="services">
+      <div class="container">
+        <div class="section-title">
+          <a class="collapselink" data-toggle="collapse" href="#collapse-ex04" aria-expanded="true" aria-controls="collapse-ex04" style="color: #173b6c;">
+          <h3><i class="bx bx-chevron-right"></i> Exercise 0.4 - simulating data <a class="headerlink" href="#ex04" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
+        </a>
+        </div>
+        <div class="collapse show" id="collapse-ex04">
+          To simulate data, you will need a response file (rmf), an effective area file (arf) and (optionally) a background spectrum file:
+
+          <ul>
+          <li>Xspec (using <code><a target="_blank" href="">fakeit</a></code>):</br>
+          <code><pre>
+fakeit
+</pre></code>
+          </li>
+          <li>PyXspec (using <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fakeitsettings.html">fakeit</a></code>):</br>
+          <code><pre>
+mymod = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">Model</a>("<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>")
+mymod.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>.PhoIndex.values = (1.9, 0.01, -3., -3., 3., 3.)
+mymod.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>.norm.values = (1.e-3, 0.01, 1.e-8, 1.e-8, 1., 1.)
+fakeit_kwargs = {}
+fakeit_kwargs["response"] = "chan.rmf"
+fakeit_kwargs["arf"] = "chan.arf"
+fakeit_kwargs["background"] = "chan_bkg.pi"
+fakeit_kwargs["exposure"] = 30.e3
+fakeit_kwargs["correction"] = "1."
+fakeit_kwargs["backExposure"] = 30.e3
+fakeit_kwargs["fileName"] = "sim_chan.pi"
+<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fakeitsettings.html">fakeit</a>(1, <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fakeitsettings.html">FakeitSettings</a>(**fakeit_kwargs))
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('mymod = Model(&quot;powerlaw&quot;)\nmymod.powerlaw.PhoIndex.values = (1.9, 0.01, -3., -3., 3., 3.)\nmymod.powerlaw.norm.values = (1.e-3, 0.01, 1.e-8, 1.e-8, 1., 1.)\nfakeit_kwargs = {}\nfakeit_kwargs[&quot;response&quot;] = &quot;chan.rmf&quot;\nfakeit_kwargs[&quot;arf&quot;] = &quot;chan.arf&quot;\nfakeit_kwargs[&quot;background&quot;] = &quot;chan_bkg.pi&quot;\nfakeit_kwargs[&quot;exposure&quot;] = 30.e3\nfakeit_kwargs[&quot;correction&quot;] = &quot;1.&quot;\nfakeit_kwargs[&quot;backExposure&quot;] = 30.e3\nfakeit_kwargs[&quot;fileName&quot;] = &quot;sim_chan.pi&quot;\nAllData.fakeit(1, FakeitSettings(**fakeit_kwargs))')"><i class="icofont-copy"></i></button>
+          </li>
+          <li>Sherpa (using <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/fake_pha.html">fake_pha</a></code>):</br>
+          <code><pre>
+mymod = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a>.mypow
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(mymod.phoindex, val = 1.9, min = -3., max = 3.)
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(mymod.norm, val = 1.e-3, min = 1.e-8, max = 1.)
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "chan_src.pi") #loading pre-exising source spectrum with rmf, arf & bkg present
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(1, mymod)
+fakepha_kwargs = {}
+fakepha_kwargs["rmf"] = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_rmf.html">get_rmf</a>()
+fakepha_kwargs["arf"] = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_arf.html">get_arf</a>()
+fakepha_kwargs["bkg"] = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_bkg.html">get_bkg</a>()
+fakepha_kwargs["exposure"] = 30.e3
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/fake_pha.html">fake_pha</a>(1, **fakepha_kwargs)
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/save_pha.html">save_pha</a>(1, "sim_chan.pi", clobber = True)
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('mymod = xspowerlaw.mypow\nset_par(mymod.phoindex, val = 1.9, min = -3., max = 3.)\nset_par(mymod.norm, val = 1.e-3, min = 1.e-8, max = 1.)\nload_pha(1, &quot;chan_src.pi&quot;) #loading pre-exising source spectrum with rmf, arf & bkg present\nset_source(1, mymod)\nfakepha_kwargs = {}\nfakepha_kwargs[&quot;rmf&quot;] = get_rmf()\nfakepha_kwargs[&quot;arf&quot;] = get_arf()\nfakepha_kwargs[&quot;bkg&quot;] = get_bkg()\nfakepha_kwargs[&quot;exposure&quot;] = 30.e3\nfake_pha(1, **fakepha_kwargs)\nsave_pha(1, &quot;sim_chan.pi&quot;, clobber = True)')"><i class="icofont-copy"></i></button>
+          </li>
+          </ul>
+
         </div>
 </section>
 
@@ -892,7 +1188,7 @@ df.head()</pre></code>
           &nbsp; <button class="cpbt" onclick="cx('python3 model_compare.py outputfiles_basename1/ outputfiles_basename2/ outputfiles_basename3/')"><i class="icofont-copy"></i></button>
         </li></br>
 
-          <li>Compute the <a target="_blank" href="https://en.wikipedia.org/wiki/Akaike_information_criterion">Akaike Information Criterion (AIC)</a> for each model in python:</br>
+          <li>Compute the <a target="_blank" href="https://en.wikipedia.org/wiki/Akaike_information_criterion">Akaike Information Criterion (AIC)</a> (given by <code>AIC = 2&times;dof+Cstat &#8801; 2&times;dof-2&times;log(Likelihood)</code>) for each model in python:</br>
           <code><pre>import <a target="_blank" href="https://docs.python.org/3/library/json.html">json</a>
 basenames = [outputfiles_basename1, outputfiles_basename2, outputfiles_basename3]
 loglikes = <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>([(f, json.<a target="_blank" href="https://docs.python.org/3/library/json.html#json.load">load</a>(open(f + "/info/results.json"))["maximum_likelihood"]["logl"]) for f in basenames])
@@ -902,7 +1198,23 @@ aic = <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#d
 &nbsp; <button class="cpbt" onclick="cx('import json\nbasenames = [outputfiles_basename1, outputfiles_basename2, outputfiles_basename3]\nloglikes = dict([(f, json.load(open(f + &quot;/info/results.json&quot;))[&quot;maximum_likelihood&quot;][&quot;logl&quot;]) for f in basenames])\ndofs = dict([(f, len(json.load(open(f + &quot;/info/results.json&quot;))[&quot;paramnames&quot;])) for f in basenames])\naic = dict([(basename, (2. * dofs[basename] - 2. * loglike)) for basename, loglike in loglikes.items()])')"><i class="icofont-copy"></i></button>
           </li></br>
 
-          <li>Which model best explains the data? Why?</li>
+          <li>Which model best explains the data? Why?</li><br>
+
+          <li>Try adding a new additive <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelApec.html" target="_blank"><code>apec</code></a> component to the model:
+            <br>
+            <ul>
+          <li>PyXspec:</br>
+            <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node264.html">TBabs</a> * <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a> + <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node175.html">gaussian</a> + <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelApec.html" target="_blank">apec</a></code>
+          &nbsp; <button class="cpbt" onclick="cx('xstbabs * xspowerlaw + gaussian + apec')"><i class="icofont-copy"></i></button>
+        </li>
+          <li>Sherpa:</br>
+            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa4.3/ahelp/xstbabs.html">xstbabs</a> * <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a> + <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsgaussian.html">xsgaussian</a> + <a href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsapec.html" target="_blank">apec</a></code>
+          &nbsp; <button class="cpbt" onclick="cx('xstbabs * xspowerlaw + xsgaussian + xsapec')"><i class="icofont-copy"></i></button>
+        </li>
+        </ul></br>
+          </li>
+
+          <li>How does the Bayesian Evidence from fitting the new <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelApec.html" target="_blank"><code>apec</code></a> model to the data compare to the previous models?</li>
 
           </ul>
           </br>
@@ -1138,44 +1450,7 @@ priors += [bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_m
         </ul>
         
 
-          These exercises involve simulating spectra. To do this, you will need a response file (rmf), an effective area file (arf) and (optionally) a background spectrum file:
-
-          <ul>
-          <li>PyXspec (using <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fakeitsettings.html">fakeit</a></code>):</br>
-          <code><pre>
-mymod = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">Model</a>("<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>")
-mymod.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>.PhoIndex.values = (1.9, 0.01, -3., -3., 3., 3.)
-mymod.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>.norm.values = (1.e-3, 0.01, 1.e-8, 1.e-8, 1., 1.)
-fakeit_kwargs = {}
-fakeit_kwargs["response"] = "chan.rmf"
-fakeit_kwargs["arf"] = "chan.arf"
-fakeit_kwargs["background"] = "chan_bkg.pi"
-fakeit_kwargs["exposure"] = 30.e3
-fakeit_kwargs["correction"] = "1."
-fakeit_kwargs["backExposure"] = 30.e3
-fakeit_kwargs["fileName"] = "sim_chan.pi"
-<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fakeitsettings.html">fakeit</a>(1, <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fakeitsettings.html">FakeitSettings</a>(**fakeit_kwargs))
-</pre></code>
-&nbsp; <button class="cpbt" onclick="cx('mymod = Model(&quot;powerlaw&quot;)\nmymod.powerlaw.PhoIndex.values = (1.9, 0.01, -3., -3., 3., 3.)\nmymod.powerlaw.norm.values = (1.e-3, 0.01, 1.e-8, 1.e-8, 1., 1.)\nfakeit_kwargs = {}\nfakeit_kwargs[&quot;response&quot;] = &quot;chan.rmf&quot;\nfakeit_kwargs[&quot;arf&quot;] = &quot;chan.arf&quot;\nfakeit_kwargs[&quot;background&quot;] = &quot;chan_bkg.pi&quot;\nfakeit_kwargs[&quot;exposure&quot;] = 30.e3\nfakeit_kwargs[&quot;correction&quot;] = &quot;1.&quot;\nfakeit_kwargs[&quot;backExposure&quot;] = 30.e3\nfakeit_kwargs[&quot;fileName&quot;] = &quot;sim_chan.pi&quot;\nAllData.fakeit(1, FakeitSettings(**fakeit_kwargs))')"><i class="icofont-copy"></i></button>
-          </li>
-          <li>Sherpa (using <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/fake_pha.html">fake_pha</a></code>):</br>
-          <code><pre>
-mymod = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a>.mypow
-<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(mymod.phoindex, val = 1.9, min = -3., max = 3.)
-<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(mymod.norm, val = 1.e-3, min = 1.e-8, max = 1.)
-<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "chan_src.pi") #loading pre-exising source spectrum with rmf, arf & bkg present
-<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(1, mymod)
-fakepha_kwargs = {}
-fakepha_kwargs["rmf"] = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_rmf.html">get_rmf</a>()
-fakepha_kwargs["arf"] = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_arf.html">get_arf</a>()
-fakepha_kwargs["bkg"] = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_bkg.html">get_bkg</a>()
-fakepha_kwargs["exposure"] = 30.e3
-<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/fake_pha.html">fake_pha</a>(1, **fakepha_kwargs)
-<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/save_pha.html">save_pha</a>(1, "sim_chan.pi", clobber = True)
-</pre></code>
-&nbsp; <button class="cpbt" onclick="cx('mymod = xspowerlaw.mypow\nset_par(mymod.phoindex, val = 1.9, min = -3., max = 3.)\nset_par(mymod.norm, val = 1.e-3, min = 1.e-8, max = 1.)\nload_pha(1, &quot;chan_src.pi&quot;) #loading pre-exising source spectrum with rmf, arf & bkg present\nset_source(1, mymod)\nfakepha_kwargs = {}\nfakepha_kwargs[&quot;rmf&quot;] = get_rmf()\nfakepha_kwargs[&quot;arf&quot;] = get_arf()\nfakepha_kwargs[&quot;bkg&quot;] = get_bkg()\nfakepha_kwargs[&quot;exposure&quot;] = 30.e3\nfake_pha(1, **fakepha_kwargs)\nsave_pha(1, &quot;sim_chan.pi&quot;, clobber = True)')"><i class="icofont-copy"></i></button>
-          </li>
-          </ul>
+          These exercises involve simulating spectra. To see the syntax for simulating data in PyXspec or Sherpa, see <a href="#ex04">Exercise 0.4</a>.
         </div>
 </section>
 
@@ -1184,16 +1459,15 @@ fakepha_kwargs["exposure"] = 30.e3
         <div class="section-title">
           <a class="collapselink" data-toggle="collapse" href="#collapse-ex21" aria-expanded="true" aria-controls="collapse-ex21" style="color: #173b6c;">
             <h3><i class="bx bx-chevron-right"></i> Exercise 2.1 - calibrating model comparison thresholds <a class="headerlink" href="#ex21" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
-            <p><em>Here we will estimate the false-positive and false-negative rates associated with selecting models via Bayes factors vs. &Delta;&#8239;AIC for the models and data we are using. This will help us determine a good selection threshold to use in terms of &Delta;&#8239;logZ and &Delta;&#8239;AIC.</em></p>
+            <p><em>Here we will estimate the false-positive and false-negative rates associated with selecting models via the Bayes Factors (logZ<sub>model 1</sub>/Z<sub>model 2</sub>) & &Delta;&#8239;fit-statistic for the models and data we are using. This helps us determine a good selection threshold to use for these model selection methods.</em></p>
         </a>
         </div>
         <div class="collapse show" id="collapse-ex21">
         <ul>
           <li>Simulate 50 Chandra spectra from the <code>absorbed powerlaw + gaussian</code> best-fit model that you found in <a href="#ex13">Exercise 1.3</a>, with the original Chandra spectrum files.</li></br>
-          <li>Repeat the previous step, but for a powerlaw normalisation 5x fainter than the best-fit you found.</li></br>
+          <li>To test any effect on model comparison thresholds from the flux level of the source, repeat the previous step with a powerlaw normalisation 5&times; fainter than the best-fit you found.</li></br>
           <li>For each of the 100 spectra you have simulated, fit the <code>powerlaw</code>, <code>absorbed powerlaw</code> and <code>absorbed powerlaw + gaussian</code> models with BXA.</li></br>
-          <li>Perform the same Bayes factor and &Delta;&#8239;<a target="_blank" href="https://en.wikipedia.org/wiki/Akaike_information_criterion">AIC</a> model selection techniques as in <a href="#ex13">Exercise 1.3</a> to select a favoured model for each of the 100 spectra.</li></br>
-          <li>How many times is the correct model that was simulated (<code>absorbed powerlaw + gaussian</code>) selected in the brighter and fainter samples? How many times do the Bayes factors not make a decision (i.e. logZ<sub>1</sub>/Z<sub>2</sub> ~ 0)?</li></br>
+          <li>For a series of different values of &Delta;&#8239;logZ and &Delta;&#8239;Wstat, calculate how many of the 200 model fits were correctly identified, and how many times the Bayes Factors did not make a decision (i.e. logZ<sub>1</sub>/Z<sub>2</sub> < threshold).</li></br>
           <li>How does the false-positive/negative rate vary with signal-to-noise in the source spectrum?</li></br>
           <li>Use the same process to estimate an appropriate &Delta;&#8239;<a target="_blank" href="https://en.wikipedia.org/wiki/Akaike_information_criterion">AIC</a> threshold that will select the correct models.</li></br>
         </ul>
@@ -1476,6 +1750,65 @@ results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/
                 <img src="bxa/ds9_fit2d_sherpa.png" class="img-fluid" alt="">
               </div>
           </li></br>
+        </ul>
+      </li>
+    </ul>
+        <ul>
+          <li>Using other sampling algorithms: Once the <code>solver</code> object has been created, you can acquire the log-Likelihood, parameter names and priors as follows:
+            <ul>
+            <li>PyXspec:
+              <br>
+              <code><pre>
+loglike = solver.log_likelihood
+paramnames = solver.paramnames
+prior = solver.prior_function
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('loglike = solver.log_likelihood\nparamnames = solver.paramnames\nprior = solver.prior_function')"><i class="icofont-copy"></i></button>
+              </li>
+              <li>Sherpa:
+              <br>
+              <code><pre>
+loglike = solver.log_likelihood
+paramnames = solver.paramnames
+prior = solver.prior_transform
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('loglike = solver.log_likelihood\nparamnames = solver.paramnames\nprior = solver.prior_transform')"><i class="icofont-copy"></i></button>
+              </li>
+            </ul>
+              <br>
+              These can then be passed to other sampling algorithms (including nested sampling) easily:
+              <ul>
+              <li> MCMC algorithms (e.g., <a href="https://emcee.readthedocs.io/en/stable/" target="_blank"><code>emcee</code></a> or <a href="https://github.com/minaskar/zeus" target="_blank"><code>zeus</code></a>):
+                <br>
+                <code><pre>
+from autoemcee import ReactiveAffineInvariantSampler
+sampler = ReactiveAffineInvariantSampler(paramnames, loglike, prior)
+result = sampler.run()
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('from autoemcee import ReactiveAffineInvariantSampler\nsampler = ReactiveAffineInvariantSampler(paramnames, loglike, prior)\nresult = sampler.run()')"><i class="icofont-copy"></i></button>
+              </li>
+
+              <li>Laplace approximation, Importance Sampling:
+                <br>
+                <code><pre>
+from <a href="https://johannesbuchner.github.io/snowline/example.html" target="_blank">snowline</a> import ReactiveImportanceSampler
+sampler = ReactiveImportanceSampler(paramnames, loglike, transform)
+result = sampler.run()
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('from snowline import ReactiveImportanceSampler\nsampler = ReactiveImportanceSampler(paramnames, loglike, transform)\nresult = sampler.run()')"><i class="icofont-copy"></i></button>
+              </li>
+
+              <li>Nested sampling:
+                <br>
+                <code><pre>
+from ultranest import ReactiveNestedSampler
+sampler = ReactiveNestedSampler(paramnames, loglike, prior)
+result = sampler.run()
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('from ultranest import ReactiveNestedSampler\nsampler = ReactiveNestedSampler(paramnames, loglike, prior)\nresult = sampler.run()')"><i class="icofont-copy"></i></button>
+              </li>
+          </li>
+        </ul>
           
         </ul>
         </div>
