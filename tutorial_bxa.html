@@ -668,7 +668,7 @@ plot_data(xlog=True, ylog=True)
       <li><code>setplot delete all</code>: Remove all plot commands from the list
       </li>
     </ul>
-    A useful tip is to use the command <code>wdata filename.dat</code> inside interactive <a href="https://wwwastro.msfc.nasa.gov/qdp/help/plt.html" target="_blank"><code>PLT</code></a> (or use <code>setplot command wdata filename.dat</code> with Xspec <code>plot</code>) to save everything being plotted by Xspec to <code>filename.dat</code>. This file can then be read in with e.g., <code>pandas</code> to plot in Python.
+    A useful tip is to use the command <code>wdata filename.dat</code> inside interactive <a href="https://wwwastro.msfc.nasa.gov/qdp/help/plt.html" target="_blank"><code>PLT</code></a> (or use <code>setplot command wdata filename.dat</code> with Xspec <code>plot</code>) to save everything being plotted by Xspec to <code>filename.dat</code> (make sure to keep track of the order of the columns!). This file can then be read in with e.g., <code>pandas</code> to plot in Python.
     <br>
     <br>
 
@@ -715,7 +715,6 @@ data_err = srcdata.yerr
   </ul>
   Save the data being plotted and produce your own spectral plots in the plotting package of your choice. 
 
-
         </div>
 </section>
 
@@ -729,6 +728,18 @@ data_err = srcdata.yerr
         </a>
         </div>
         <div class="collapse show" id="collapse-ex02">
+          <div class="col-lg-12">
+            The count rate that we detect and plot as a spectrum with e.g., <code>plot ldata</code> in Xspec is not the true spectrum, 
+            but a form of the true data that has been <i>folded</i> with all the effects arising from detecting the source. 
+            This is why fitting is done with <i>forward-folding</i>.
+            <br>
+            Forward-folding is the process creating a model from some parameters, and then convolving it with the detector 
+            response and effective area. The convolved version of the model is then compared with the convolved data by 
+            some statistical measure, and is repeated until the parameters are optimised according to the statistical measure.
+            <br>
+          <img src="figures/forwardfolding.png" class="img-fluid" alt="">
+        </div>
+        <br><br>
           <ul>
         <li>Set the <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node314.html#AppendixStatistics" target="_blank">fit statistic</a> (here we use <a href="https://giacomov.github.io/Bias-in-profile-poisson-likelihood" target="_blank">modified C-statistics</a>):
             <ul>
@@ -764,7 +775,7 @@ data_err = srcdata.yerr
         </ul>
           </li></br>
       </ul>
-      Then first create a simple <code>powerlaw</code> model and set the model parameter values:
+      Then to start with, create a simple <code>powerlaw</code> model and set the model parameter values:
       <ul>
           <li>Create the model:
             <ul>
@@ -813,7 +824,7 @@ mymod.powerlaw.norm.values = (1.e-3, 0.1, 1.e-8, 1.e-8, 1., 1.)
         </ul>
 
 
-        Then all that remains is to plot the model with the data, and then fit the model to the data:
+        Then we plot the data + model and fit (<b>Try to always plot before you fit!</b> - this helps to see if everything is in order):
         <ul>
           <li>Xspec:
             <br>
@@ -838,10 +849,58 @@ fit()</pre></code>
           </li>
         </ul>
 
-        Beware of local minima! Depending on where you start your fit, the Levenberg-Marquadt algorithm used may struggle to find the global minimum in fit statistic. This can often be spotted by plotting the model with the data in some way, but the effect may be more subtle and harder to notice.
-        <!-- In this example, it is clear there is a problem from plotting the fit but this can be more subtle. -->
+        <h4>Beware of local minima!</h4>
+        Depending on where you start your fit, the Levenberg-Marquadt algorithm may struggle to find the <i>global</i> minimum (i.e. the true best-fit).
+        <br><br>
+        In this example, both plots show an example progression for a fit with the Levenberg-Marquadt algorithm in Xspec. The final fit in the left panel is the global minimum, whereas the
+        right hand plot is a local minimum. Local minima can be quite hard to identify visually and even masquerade as a very good fit. A quick way to initially check is to look for 
+        physically-unrealistic parameter values from a fit. The more thorough way to combat this issue whilst using Levenberg-Marquadt is to try to explore the parameter space more 
+        fully - e.g., with <code>steppar</code> in Xspec/PyXspec or by manually starting the fit from different initial parameter values.
+        <br><br>
+        <div class="row">
+          <div class="col-lg-6">
+          <img src="figures/goodfit.gif" class="img-fluid" alt="">
+        </div>
+
+        <div class="col-lg-6">
+          <img src="figures/badfit.gif" class="img-fluid" alt="">
+        </div>
+      </div>
         <br>
-        To check your fit, try starting new fits from alternative parameter values and seeing how the fit statistic changes.
+        Have you found the best-fit parameter values for your <code>powerlaw</code> fit? Try starting the parameters at different initial values before fitting to check.
+        <br><br>
+        
+        <h4>Plotting a model with data</h4>
+
+        
+
+        When plotting a model with data, there are a few options inside Xspec, PyXspec and Sherpa:
+        <ul>
+          <li>Folded units:
+            <br>
+            See the commands from <a href="#ex01">Exercise 0.1</a>
+          </li>
+          <li>Unfolded units:
+            <ul>
+              <li>Xspec:
+              </li>
+              <li>PyXspec:
+              </li>
+              <li>Sherpa:
+              </li>
+            </ul>
+          </li>
+          <li>Residuals:
+            <ul>
+              <li>Xspec:
+              </li>
+              <li>PyXspec:
+              </li>
+              <li>Sherpa:
+              </li>
+            </ul>
+          </li>
+        </ul>
 
         </div>
 </section>
@@ -854,8 +913,13 @@ fit()</pre></code>
         </a>
         </div>
         <div class="collapse show" id="collapse-ex03">
+          It is often useful to include multiple datasets in spectral fits. Possible reasons include: expanding the energy range being fit over, tracking temporal changes in parameters, calibrating instruments, etc.
+          <br>
+          In this exercise, we will load a number of different datasets for the source considered in <a href="#ex01">Exercises 0.1</a> and <a href="#ex02">0.2</a>, produce plots in folded and unfolded units and finally fit the data with the same <code>powerlaw</code> model.
 
-
+          First, we load in the multiple datasets:
+          <ul>
+          </ul>
         </div>
 </section>
 
@@ -867,7 +931,7 @@ fit()</pre></code>
         </a>
         </div>
         <div class="collapse show" id="collapse-ex04">
-          To simulate data, you will need a response file (rmf), an effective area file (arf) and (optionally) a background spectrum file:
+          To simulate data, you will need a model, response file (rmf), effective area file (arf) and (optionally) a background spectrum file.
 
           <ul>
           <li>Xspec (using <code><a target="_blank" href="">fakeit</a></code>):</br>
@@ -910,6 +974,8 @@ fakepha_kwargs["exposure"] = 30.e3
 &nbsp; <button class="cpbt" onclick="cx('mymod = xspowerlaw.mypow\nset_par(mymod.phoindex, val = 1.9, min = -3., max = 3.)\nset_par(mymod.norm, val = 1.e-3, min = 1.e-8, max = 1.)\nload_pha(1, &quot;chan_src.pi&quot;) #loading pre-exising source spectrum with rmf, arf & bkg present\nset_source(1, mymod)\nfakepha_kwargs = {}\nfakepha_kwargs[&quot;rmf&quot;] = get_rmf()\nfakepha_kwargs[&quot;arf&quot;] = get_arf()\nfakepha_kwargs[&quot;bkg&quot;] = get_bkg()\nfakepha_kwargs[&quot;exposure&quot;] = 30.e3\nfake_pha(1, **fakepha_kwargs)\nsave_pha(1, &quot;sim_chan.pi&quot;, clobber = True)')"><i class="icofont-copy"></i></button>
           </li>
           </ul>
+
+          Use these commands to include a 6.4 keV <code>gauss</code> component in the <code>powerlaw</code> model and simulate a 50 ks exposure with the XRISM/Resolve simulation files that can be found here.
 
         </div>
 </section>
