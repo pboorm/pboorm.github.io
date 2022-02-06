@@ -740,8 +740,9 @@ data_err = srcdata.yerr
           <img src="figures/forwardfolding.png" class="img-fluid" alt="">
         </div>
         <br><br>
+        <div class="col-lg-12">
           <ul>
-        <li>Set the <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node314.html#AppendixStatistics" target="_blank">fit statistic</a> (here we use <a href="https://giacomov.github.io/Bias-in-profile-poisson-likelihood" target="_blank">modified C-statistics</a>):
+        <li>Set the <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node314.html#AppendixStatistics" target="_blank">fit statistic</a> (here we use <a href="https://giacomov.github.io/Bias-in-profile-poisson-likelihood" target="_blank">modified Poisson statistics</a>, which are appropriate in relatively low counts - see figure below):
             <ul>
           <li>Xspec:
             <br>
@@ -758,7 +759,11 @@ data_err = srcdata.yerr
             &nbsp; <button class="cpbt" onclick="cx('set_stat(&quot;wstat&quot;')"><i class="icofont-copy"></i></button>
           </li>
         </ul>
-          </li></br>
+          </li>
+        <br>
+        <img src="figures/likelihoods.png" class="img-fluid" alt="">
+        <br><br>
+
 
           <li>(Optional) turn off the interruption whilst fitting (Xspec & PyXspec only):
             <ul>
@@ -881,28 +886,75 @@ fit()</pre></code>
             See the commands from <a href="#ex01">Exercise 0.1</a>
           </li>
           <li>Unfolded units:
+            <br>
+            Note that plotting in unfolded units is useful to see the possible unconvolved spectrum, but this is <b>model dependent</b>. Changing the model will change the plot.
             <ul>
               <li>Xspec:
+                <br>
+                <ul>
+                  <li><code>plot ufspec</code>
+                  </li>
+                  <li><code>plot eufspec</code>
+                  </li>
+                  <li><code>plot eeufspec</code>
+                  </li>
+                </ul>
               </li>
               <li>PyXspec:
+                <ul>
+                  <li><code>Plot("ufspec")</code>
+                  </li>
+                  <li><code>Plot("eufspec")</code>
+                  </li>
+                  <li><code>Plot("eeufspec")</code>
+                  </li>
+                  Note the model y-axis values can be accessed after running the <code>Plot(...)</code> command with e.g., <code>mod_data = Plot.model()</code>.
+                </ul>
               </li>
               <li>Sherpa:
+                <br>
+                See Sherpa thread <a href="https://cxc.cfa.harvard.edu/sherpa/faq/phot_plot.html" target="_blank">here</a>.
               </li>
             </ul>
           </li>
           <li>Residuals:
             <ul>
               <li>Xspec:
+                <ul>
+                  <li><code>plot residuals</code>
+                  </li>
+                  <li><code>plot ratio</code>
+                  </li>
+                  <li><code>plot delchi</code>
+                  </li>
+                </ul>
               </li>
-              <li>PyXspec:
+              <li>PyXspec (see equivalent descriptions above):
+                <ul>
+                  <li><code>Plot("residuals")</code>
+                  </li>
+                  <li><code>Plot("ratio")</code>
+                  </li>
+                  <li><code>Plot("delchi")</code>
+                  </li>
+                </ul>
               </li>
               <li>Sherpa:
+                <ul>
+                  <li><code>plot_fit_resid(1)</code>
+                  </li>
+                  <li><code>plot_fit_ratio(1)</code>
+                  </li>
+                  <li><code>plot_fit_delchi(1)</code>
+                  </li>
+                </ul>
               </li>
             </ul>
           </li>
         </ul>
 
         </div>
+      </div>
 </section>
 
 <section id="ex03" class="services">
@@ -931,12 +983,18 @@ fit()</pre></code>
         </a>
         </div>
         <div class="collapse show" id="collapse-ex04">
-          To simulate data, you will need a model, response file (rmf), effective area file (arf) and (optionally) a background spectrum file.
+          To simulate data you will need a model, response file (rmf), effective area file (arf) and (optionally) a background spectrum file.
 
           <ul>
-          <li>Xspec (using <code><a target="_blank" href="">fakeit</a></code>):</br>
+          <li>Xspec (using <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node71.html#fakeit">fakeit</a></code>):</br>
           <code><pre>
-fakeit
+fakeit chan_bkg.pi # or none
+For fake spectrum #1 response file is needed: chan.rmf
+   ...and ancillary file: chan.arf
+Use counting statistics in creating fake data? (y): y
+Input optional fake file prefix: 
+Fake data file name: sim_chan.pi
+Exposure time, correction norm, bkg exposure time: 30.e3, 1., 30.e3
 </pre></code>
           </li>
           <li>PyXspec (using <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fakeitsettings.html">fakeit</a></code>):</br>
