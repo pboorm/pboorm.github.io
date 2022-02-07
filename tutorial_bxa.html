@@ -742,7 +742,30 @@ data_err = srcdata.yerr
     &nbsp; <button class="cpbt" onclick="cx('group_snr(1, 2.)\nsubtract(1)\nset_analysis(0, &quot;ener&quot;, &quot;rate&quot;)\nsrcdata = get_data_plot(1)\nEkeV = srcdata.x\nEkeV_err = srcdata.xerr\ndata = srcdata.y\ndata_err = srcdata.yerr')"><i class="icofont-copy"></i></button>
 </li>
   </ul>
-  Save the data being plotted and produce your own spectral plots in the plotting package of your choice. 
+  Save the data being plotted and produce your own spectral plots in the plotting package of your choice. If using Python, here is an example to get started:
+  <br>
+  <code><pre>
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots()
+err_kwargs = {}
+err_kwargs["fmt"] = "o"
+err_kwargs["label"] = "Folded data"
+err_kwargs["mec"] = "royalblue"
+err_kwargs["ecolor"] = "royalblue"
+err_kwargs["mfc"] = "white"
+err_kwargs["markersize"] = 6.
+err_kwargs["markeredgewidth"] = 1.
+err_kwargs["linewidth"] = 1.
+err_kwargs["capthick"] = 0.
+err_kwargs["capsize"] = 0.
+err_kwargs["zorder"] = -1.
+ax.errorbar(EkeV, data, xerr=EkeV_err, yerr=data_err, **err_kwargs)
+ax.set_scale("log")
+ax.set_yscale("log")
+plt.show()
+fig.savefig("folded_data.png")
+</code></code>
+&nbsp; <button class="cpbt" onclick="cx('import matplotlib.pyplot as plt\nfig, ax = plt.subplots()\nerr_kwargs = {}\nerr_kwargs[&quot;fmt&quot;] = &quot;o&quot;\nerr_kwargs[&quot;label&quot;] = &quot;Folded data&quot;\nerr_kwargs[&quot;mec&quot;] = &quot;royalblue&quot;\nerr_kwargs[&quot;ecolor&quot;] = &quot;royalblue&quot;\nerr_kwargs[&quot;mfc&quot;] = &quot;white&quot;\nerr_kwargs[&quot;markersize&quot;] = 6.\nerr_kwargs[&quot;markeredgewidth&quot;] = 1.\nerr_kwargs[&quot;linewidth&quot;] = 1.\nerr_kwargs[&quot;capthick&quot;] = 0.\nerr_kwargs[&quot;capsize&quot;] = 0.\nerr_kwargs[&quot;zorder&quot;] = -1.\nax.errorbar(EkeV, data, xerr=EkeV_err, yerr=data_err, **err_kwargs)\nax.set_scale(&quot;log&quot;)\nax.set_yscale(&quot;log&quot;)\nplt.show()\nfig.savefig(&quot;folded_data.png&quot;)')"><i class="icofont-copy"></i></button>
 
         </div>
 </section>
@@ -1025,7 +1048,7 @@ Plot("cont")</pre></code>
           &nbsp; <button class="cpbt" onclick="cx('Fit.steppar(&quot;log/nolog parno1 lowerbound1 upperbound1 nsteps log/nolog parno2 lowerbound2 upperbound2 nsteps&quot;)\nPlot(&quot;cont&quot;)')"><i class="icofont-copy"></i></button></li>
           <br>
           Note: you will have to choose the <code>lowerbound</code> and <code>upperbound</code> in <code>steppar</code> to encompass the parameter values.
-          
+
           <li>Sherpa:
             <br>
             See Region Projection in this <a href="https://cxc.cfa.harvard.edu/sherpa/threads/confidence_manual/" target="_blank">excellent Sherpa guide</a>.
