@@ -643,10 +643,10 @@ Plot("ldata")
         <code><pre>
 group_snr(1, 2.)
 subtract(1)
-set_analysis(0, "ener", "rate")
+set_analysis(1, "ener", "rate")
 plot_data(xlog=True, ylog=True)
 </pre></code>
-&nbsp; <button class="cpbt" onclick="cx('group_snr(1, 2.)\nsubtract(1)\nset_analysis(0, &quot;ener&quot;, &quot;rate&quot;)\nplot_data(xlog=True, ylog=True)')"><i class="icofont-copy"></i></button>
+&nbsp; <button class="cpbt" onclick="cx('group_snr(1, 2.)\nsubtract(1)\nset_analysis(1, &quot;ener&quot;, &quot;rate&quot;)\nplot_data(xlog=True, ylog=True)')"><i class="icofont-copy"></i></button>
     </li>
   </ul>
 
@@ -780,7 +780,7 @@ data_err = srcdata.yerr
           <li>PyXspec:
             <br>
             <code>Fit.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html#statMethod">statMethod</a> = "cstat"</code>
-            &nbsp; <button class="cpbt" onclick="cx('Fit.statMethod(&quot;cstat&quot;)')"><i class="icofont-copy"></i></button>
+            &nbsp; <button class="cpbt" onclick="cx('Fit.statMethod = &quot;cstat&quot;')"><i class="icofont-copy"></i></button>
             </li>
           <li>Sherpa:
             <br>
@@ -806,7 +806,7 @@ data_err = srcdata.yerr
           <li>PyXspec:
             <br>
             <code>Fit.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/extended.html#query">query</a> = "yes"</code>
-            &nbsp; <button class="cpbt" onclick="cx('Fit.query(&quot;yes&quot;)')"><i class="icofont-copy"></i></button>
+            &nbsp; <button class="cpbt" onclick="cx('Fit.query = &quot;yes&quot;')"><i class="icofont-copy"></i></button>
           </li>
         </ul>
           </li></br>
