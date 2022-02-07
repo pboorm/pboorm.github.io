@@ -937,9 +937,9 @@ fit()</pre></code>
                   <li><code>Plot("ufspec")</code>
                   &nbsp; <button class="cpbt" onclick="cx('Plot(&quot;ufspec&quot;)')"><i class="icofont-copy"></i></button></li>
                   <li><code>Plot("eufspec")</code>
-                  &nbsp; <button class="cpbt" onclick="cx('Plot(&quot;ufspec&quot;)')"><i class="icofont-copy"></i></button></li>
+                  &nbsp; <button class="cpbt" onclick="cx('Plot(&quot;eufspec&quot;)')"><i class="icofont-copy"></i></button></li>
                   <li><code>Plot("eeufspec")</code>
-                  &nbsp; <button class="cpbt" onclick="cx('Plot(&quot;ufspec&quot;)')"><i class="icofont-copy"></i></button></li>
+                  &nbsp; <button class="cpbt" onclick="cx('Plot(&quot;eeufspec&quot;)')"><i class="icofont-copy"></i></button></li>
                   Note the model y-axis values can be accessed after running the <code>Plot(...)</code> command with e.g., <code>mod_data = Plot.model()</code>.
                 </ul>
               </li>
@@ -1023,6 +1023,9 @@ plot cont</pre></code>
 Fit.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html" target="_blank">steppar</a>("log/nolog parno1 lowerbound1 upperbound1 nsteps log/nolog parno2 lowerbound2 upperbound2 nsteps")
 Plot("cont")</pre></code>
           &nbsp; <button class="cpbt" onclick="cx('Fit.steppar(&quot;log/nolog parno1 lowerbound1 upperbound1 nsteps log/nolog parno2 lowerbound2 upperbound2 nsteps&quot;)\nPlot(&quot;cont&quot;)')"><i class="icofont-copy"></i></button></li>
+          <br>
+          Note: you will have to choose the <code>lowerbound</code> and <code>upperbound</code> in <code>steppar</code> to encompass the parameter values.
+          
           <li>Sherpa:
             <br>
             See Region Projection in this <a href="https://cxc.cfa.harvard.edu/sherpa/threads/confidence_manual/" target="_blank">excellent Sherpa guide</a>.
