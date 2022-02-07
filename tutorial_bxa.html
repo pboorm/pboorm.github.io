@@ -152,6 +152,7 @@
           <br><br>
 
         <div class="row">
+          <div class="col-lg-12">
           <h4>Parameter space constraints in the (very) low count regime</h4>
           <p>BXA is capable of accurately estimating parameter confidence contours, even when no source counts are present. In this figure, a series of obscured accreting supermassive black hole (ak AGN)
            spectra are simulated (left panel). The right panel then shows the BXA_derived confidence contours for intrinsic line of sight obscuring column density (log <i>N</i><sub>H</sub>) vs. intrinsic 
@@ -161,7 +162,7 @@
            as expected). The contour found makes sense, since an unobscured AGN (i.e. log <i>N</i><sub>H</sub> ~ 20) should have been detected if it were very bright. This is why the upper left portion of 
          the contour plane is always ruled out.</p>
            <br><br>
-          <div class="col-lg-12">
+          
             <img src="figures/bxa_gif.gif" class="img-fluid" alt="">
           </div>
         </div>
@@ -169,13 +170,14 @@
         <br><br>
 
         <div class="row">
+          <div class="col-lg-12">
           <h4>No need for fine-tuning initial parameters</h4>
           BXA does not require a single pre-defined position in the parameter space to start exploring. In this figure, a series of X-ray spectra are simulated at incrementally brighter fluxes. 
           The right panel shows the confidence contour between two parameters in the simulations - black hole spin vs. the height of the X-ray emitting source above the black hole 
           (assuming the lamp post geometry). Both parameters were assigned uninformative priors before fitting over a wide range of possible values. The size and shape of the confidence contours 
           found are thus independent of any single initial parameter values.
           <br><br>
-          <div class="col-lg-12">
+          
             <img src="figures/kyn_gif.gif" class="img-fluid" alt="">
           </div>
         </div>
@@ -1821,7 +1823,10 @@ print(pkg_resources.<a target="_blank" href="https://nsoranzo-galaxy.readthedocs
           </li></br>
           <li>Speeding up BXA: For complex fits (e.g., multiple datasets simultaneously, many parameters, high signal-to-noise spectra, ...), the run time can be decreased with e.g.,:</br>
             <ul>
-              <li>Parallelisation</li>
+              <li>Parallelisation with MPI (Message Passing Interface):
+                <br>
+                <code>mpiexec -np 4 python3 myscript.py</code>
+              </li>
           <li>Arguments for <code>solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>()</code>
             <br>
             <ul>
@@ -1831,12 +1836,16 @@ print(pkg_resources.<a target="_blank" href="https://nsoranzo-galaxy.readthedocs
             </li>
             <li><code>speed</code>
               <ul>
-                <li><code>speed="safe"</code></li>
-                <li><code>speed="auto"</code></li>
-                <li><code>speed=int</code></li>
+                <li><code>speed="safe"</code>
+                  <br>
+                Reactive Nested Sampler, recommended.</li>
+                <li><code>speed="auto"</code>
+                  <br>
+                Step sampler with adaptive steps.</li>
+                <li><code>speed=int</code>
+                  <br>
+                Step sampler with an integer number of steps. Faster, but the number of steps should be tested to ensure the log Z estimation is accurate.</li>
               </ul>
-            </li>
-            <li><code>speed="safe"</code>, <code>speed="auto"</code>, <code>speed=int</code>
             </li>
             <li>To see the other arguments of <code>run()</code>, see <a href="https://johannesbuchner.github.io/UltraNest/ultranest.html#module-ultranest.integrator" target="_blank">here</a>.
             </li>
