@@ -745,6 +745,7 @@ df = pd.DataFrame(data={"EkeV": EkeV, "EkeV_err": EkeV_err, "data": data, "data_
     <li>Sherpa:
       <br>
         <code><pre>
+import pandas as pd
 group_snr(1, 2.)
 subtract(1)
 set_analysis(0, "ener", "rate")
@@ -753,8 +754,9 @@ EkeV = srcdata.x
 EkeV_err = srcdata.xerr
 data = srcdata.y
 data_err = srcdata.yerr
+df = pd.DataFrame(data={"EkeV": EkeV, "EkeV_err": EkeV_err, "data": data, "data_err": data_err})
 </pre></code>
-    &nbsp; <button class="cpbt" onclick="cx('group_snr(1, 2.)\nsubtract(1)\nset_analysis(0, &quot;ener&quot;, &quot;rate&quot;)\nsrcdata = get_data_plot(1)\nEkeV = srcdata.x\nEkeV_err = srcdata.xerr\ndata = srcdata.y\ndata_err = srcdata.yerr')"><i class="icofont-copy"></i></button>
+    &nbsp; <button class="cpbt" onclick="cx('import pandas as pd\ngroup_snr(1, 2.)\nsubtract(1)\nset_analysis(0, &quot;ener&quot;, &quot;rate&quot;)\nsrcdata = get_data_plot(1)\nEkeV = srcdata.x\nEkeV_err = srcdata.xerr\ndata = srcdata.y\ndata_err = srcdata.yerr\ndf = pd.DataFrame(data={&quot;EkeV&quot;: EkeV, &quot;EkeV_err&quot;: EkeV_err, &quot;data&quot;: data, &quot;data_err&quot;: data_err})')"><i class="icofont-copy"></i></button>
 </li>
   </ul>
   Save the data being plotted and produce your own spectral plots in the plotting package of your choice. If using Python, here is an example to get started:
