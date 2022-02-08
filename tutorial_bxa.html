@@ -732,13 +732,15 @@ df = pd.read_csv("ldata_plot.dat", skiprows=3, delim_whitespace=True, names=["Ek
     <li>PyXspec:
       <br>
         <code><pre>
+import pandas as pd
 Plot.setRebin(2, 1000)
 EkeV = Plot.x()
 EkeV_err = Plot.xErr()
 data = Plot.y()
 data_err = Plot.yErr()
+df = pd.DataFrame(data={"EkeV": EkeV, "EkeV_err": EkeV_err, "data": data, "data_err": data_err})
 </pre></code>
-    &nbsp; <button class="cpbt" onclick="cx('Plot.setRebin(2, 1000)\nEkeV = Plot.x()\nEkeV_err = Plot.xErr()\ndata = Plot.y()\ndata_err = Plot.yErr()')"><i class="icofont-copy"></i></button>
+    &nbsp; <button class="cpbt" onclick="cx('import pandas as pd\nPlot.setRebin(2, 1000)\nEkeV = Plot.x()\nEkeV_err = Plot.xErr()\ndata = Plot.y()\ndata_err = Plot.yErr()\ndf = pd.DataFrame(data={&quot;EkeV&quot;: EkeV, &quot;EkeV_err&quot;: EkeV_err, &quot;data&quot;: data, &quot;data_err&quot;: data_err})')"><i class="icofont-copy"></i></button>
 </li>
     <li>Sherpa:
       <br>
