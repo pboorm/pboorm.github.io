@@ -658,21 +658,29 @@ plot_data(xlog=True, ylog=True)
     You can always view the full list of PLT commands being run by Xspec if you increase the verbosity to <code>chatter 25</code> before typing <code>iplot</code>. This is useful for determining the plotting element numbers for different colours, etc. Here are some basic commands for using the interactive PLT interface:
     <ul>
       <li><code>LAB title text</code>: Change the title of the plot to "text"
-      </li>
+      &nbsp; <button class="cpbt" onclick="cx('LAB title text')"><i class="icofont-copy"></i></button>
+    </li>
       <li><code>time off</code>: Remove the time label in the bottom right of the plot
-      </li>
+      &nbsp; <button class="cpbt" onclick="cx('time off')"><i class="icofont-copy"></i></button>
+    </li>
       <li><code>CS N</code>: Change the character size for text on the plot (values of 0-5 are allowed, 1 is default)
-      </li>
+      &nbsp; <button class="cpbt" onclick="cx('CS 1.2')"><i class="icofont-copy"></i></button>
+    </li>
       <li><code>viewport xlo ylo xhi yhi</code>: Change the location of the plot in the plotting window
-      </li>
+      &nbsp; <button class="cpbt" onclick="cx('viewport 0.1 0.1 0.95 0.95')"><i class="icofont-copy"></i></button>
+    </li>
       <li><code>LAB y ylabel</code>: Change the y axis label
-      </li>
+      &nbsp; <button class="cpbt" onclick="cx('LAB y ylabel')"><i class="icofont-copy"></i></button>
+    </li>
       <li><code>LAB x xlabel</code>: Change the x axis label
-      </li>
+      &nbsp; <button class="cpbt" onclick="cx('LAB x xlabel')"><i class="icofont-copy"></i></button>
+    </li>
       <li><code>COL 0 on 1..2</code>: Change the colour of elements 1..2 to 0 (i.e. black - for all available colours, see Fig. 5.1 <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node112.html#plot" target="_blank">here</a>)
-      </li>
+      &nbsp; <button class="cpbt" onclick="cx('COL 0 on 1..2')"><i class="icofont-copy"></i></button>
+    </li>
       <li><code>LW 5 on 1..2</code>: Change the line width of elements 1-2 to 5 (values can be &ge; 1)
-      </li>
+      &nbsp; <button class="cpbt" onclick="cx('LW 5 on 1..2')"><i class="icofont-copy"></i></button>
+    </li>
       <li><code>LAB 5 POS x y "This text is... \fiITALIC\fn NORMAL\uSUPERSCRIPT\d\dSUBSCRIPT"</code>: create a text label.
         <ul>
           <li>Greek alphabet in order (use <code>\G</code> for capitals):
@@ -682,17 +690,21 @@ plot_data(xlog=True, ylog=True)
   </ul>
       </li>
       <li><code>LAB 5 COL 4 CS 1.4</code>: Change the colour of label 5 to 4 (i.e. blue) and change the character size to 1.4
-      </li>
+      &nbsp; <button class="cpbt" onclick="cx('LAB 5 COL 4 CS 1.4')"><i class="icofont-copy"></i></button>
+    </li>
 
     </ul>
     IPLOT commands can be used from the Xspec prompt by appending all the commands to a list. Xspec then runs these commands <b>only</b> when you type <code>plot</code>. To interact with this list of commands:
     <ul>
       <li><code>setplot command ...</code>: Type this followed by any interactive <a href="https://wwwastro.msfc.nasa.gov/qdp/help/plt.html" target="_blank"><code>PLT</code></a> command to append the command to the list
-      </li>
+      &nbsp; <button class="cpbt" onclick="cx('setplot command ')"><i class="icofont-copy"></i></button>
+    </li>
       <li><code>setplot list</code>: Show the currently appended plot commands
-      </li>
+      &nbsp; <button class="cpbt" onclick="cx('setplot list')"><i class="icofont-copy"></i></button>
+    </li>
       <li><code>setplot delete all</code>: Remove all plot commands from the list
-      </li>
+      &nbsp; <button class="cpbt" onclick="cx('setplot delete all')"><i class="icofont-copy"></i></button>
+    </li>
     </ul>
     A useful tip is to use the command <code>wdata filename.dat</code> inside interactive <a href="https://wwwastro.msfc.nasa.gov/qdp/help/plt.html" target="_blank"><code>PLT</code></a> (or use <code>setplot command wdata filename.dat</code> with Xspec <code>plot</code>) to save everything being plotted by Xspec to <code>filename.dat</code> (make sure to keep track of the order of the columns!). This file can then be read in with e.g., <code>pandas</code> to plot in Python.
     <br>
@@ -708,14 +720,15 @@ setplot command wdata ldata_plot.dat
 plot ldata
 exit
 </pre></code>
-<br>
+&nbsp; <button class="cpbt" onclick="cx('setplot rebin 2 1000 -1\nsetplot command wdata ldata_plot.dat\nplot ldata\nexit')"><i class="icofont-copy"></i></button>
+    <br>
 Then the data can be read in to e.g., <code>pandas</code> with:
 <code><pre>
 import pandas as pd
 df = pd.read_csv("ldata_plot.dat", skiprows=3, delim_whitespace=True, names=["EkeV", "EkeV_err", "data", "data_err"])
 </pre></code>
     &nbsp; <button class="cpbt" onclick="cx('import pandas as pd\ndf = pd.read_csv(&quot;ldata_plot.dat&quot;, skiprows=3, delim_whitespace=True, names=[&quot;EkeV&quot;, &quot;EkeV_err&quot;, &quot;data&quot;, &quot;data_err&quot;])')"><i class="icofont-copy"></i></button>
-</li>
+    </li>
     <li>PyXspec:
       <br>
         <code><pre>
@@ -759,7 +772,7 @@ err_kwargs["linewidth"] = 1.
 err_kwargs["capthick"] = 0.
 err_kwargs["capsize"] = 0.
 err_kwargs["zorder"] = -1.
-ax.errorbar(EkeV, data, xerr=EkeV_err, yerr=data_err, **err_kwargs)
+ax.<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.errorbar.html" target="_blank">errorbar</a>(EkeV, data, xerr=EkeV_err, yerr=data_err, **err_kwargs)
 ax.set_xscale("log")
 ax.set_yscale("log")
 plt.show()
