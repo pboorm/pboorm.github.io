@@ -210,23 +210,39 @@
             <code>$ conda create -n xspecbxa python=3.8</code>&nbsp; <button class="cpbt" onclick="cx('conda create -n xspecbxa python=3.8')"><i class="icofont-copy"></i></button></li>
           <li>Activate the new environment:</br>
             <code>$ conda activate xspecbxa</code>&nbsp; <button class="cpbt" onclick="cx('conda activate xspecbxa')"><i class="icofont-copy"></i></button></li>
-          <li>Install packages:</br>
-            <code>$ pip install requests corner astropy h5py cython scipy tqdm</code>&nbsp; <button class="cpbt" onclick="cx('pip install requests corner astropy h5py cython scipy tqdm')"><i class="icofont-copy"></i></button></li>
-          <li>Install BXA:</br>
-            <code>$ pip install bxa</code>&nbsp; <button class="cpbt" onclick="cx('pip install bxa')"><i class="icofont-copy"></i></button></li>
+          <li>Install BXA:
+            <ul>
+              <li>With Anaconda:
+                <br>
+                <code>$ conda install -c conda-forge bxa</code>&nbsp; <button class="cpbt" onclick="cx('conda install -c conda-forge bxa')"><i class="icofont-copy"></i></button>
+              </li>
+              <li>With <code>pip</code>:
+                <br>
+                <code><pre>
+$ pip install requests corner astropy h5py cython scipy tqdm
+$ pip install bxa</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('pip install requests corner astropy h5py cython scipy tqdm\npip install bxa')"><i class="icofont-copy"></i></button>
+              </li>
+            </ul>
           </ul>
 
           Once the install process has finished, check everthing is installed and works as required:&nbsp; <button class="cpbt" onclick="cx('python -c \'import xspec\'\npython -c \'import ultranest\'\npython -c \'import bxa.xspec as bxa\'')"><i class="icofont-copy"></i></button>
           <ul>
             <li>Check PyXspec works:
               <br>
-              <code>$ python -c 'import xspec'</code></li>
+              <code>$ python -c 'import xspec'</code>
+              &nbsp; <button class="cpbt" onclick="cx('python -c \'import xspec\'')"><i class="icofont-copy"></i></button>
+            </li>
             <li>Check UltraNest works:
               <br>
-              <code>$ python -c 'import ultranest'</code></li>
+              <code>$ python -c 'import ultranest'</code>
+              &nbsp; <button class="cpbt" onclick="cx('python -c \'import ultranest\'')"><i class="icofont-copy"></i></button>
+            </li>
             <li>Check BXA works:
               <br>
-              <code>$ python -c 'import bxa.xspec as bxa'</code></li>
+              <code>$ python -c 'import bxa.xspec as bxa'</code>
+              &nbsp; <button class="cpbt" onclick="cx('python -c \'import bxa.xspec as bxa\'')"><i class="icofont-copy"></i></button>
+            </li>
           </ul>
           If no error messages come up from these commands, BXA and PyXspec should work.
 
@@ -248,25 +264,39 @@ $ sherpa</pre></code> <button class="cpbt" onclick="cx('conda activate ciao-envi
         <ul>
           <li>Activate the environment:
             <br>
-            <code>$ conda activate ciao-environment-name</code>&nbsp; <button class="cpbt" onclick="cx('conda activate ciao-environment-name')"><i class="icofont-copy"></i></button></li>
-          <li>Install packages:
-            <br>
-            <code>$ pip install requests corner astropy h5py cython scipy tqdm</code>&nbsp; <button class="cpbt" onclick="cx('pip install requests corner astropy h5py cython scipy tqdm')"><i class="icofont-copy"></i></button></li>
-          <li>Install:
-            <br>
-            <code>$ pip install bxa</code>&nbsp; <button class="cpbt" onclick="cx('pip install bxa')"><i class="icofont-copy"></i></button></li>
+            <code>$ conda activate ciao-environment-name</code>
+            &nbsp; <button class="cpbt" onclick="cx('conda activate ciao-environment-name')"><i class="icofont-copy"></i></button></li>
+          <li>Install BXA:
+            <ul>
+              <li>With Anaconda:
+                <br>
+                <code>$ conda install -c conda-forge bxa</code>
+                &nbsp; <button class="cpbt" onclick="cx('conda install -c conda-forge bxa')"><i class="icofont-copy"></i></button>
+              </li>
+              <li>With <code>pip</code>:
+                <br>
+                <code><pre>
+$ pip install requests corner astropy h5py cython scipy tqdm
+$ pip install bxa</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('pip install requests corner astropy h5py cython scipy tqdm\npip install bxa')"><i class="icofont-copy"></i></button>
+              </li>
+            </ul>
           </ul>
 
-          Once the install process has finished, check everthing works as required:
+          Once the install process has finished, check everthing works as required:&nbsp; <button class="cpbt" onclick="cp('python -c \'import ultranest\'\npython -c \'import bxa.sherpa as bxa\'')"><i class="icofont-copy"></i></button>
           <ul>
             <li>Check UltraNest works:
               <br>
-              <code>$ python -c 'import ultranest'</code></li>
+              <code>$ python -c 'import ultranest'</code>
+            &nbsp; <button class="cpbt" onclick="cp('python -c \'import ultranest\'')"><i class="icofont-copy"></i></button>
+            </li>
             <li>Check BXA works:
               <br>
-              <code>$ python -c 'import bxa.sherpa as bxa'</code>&nbsp; <button class="cpbt" onclick="cp('python -c \'import ultranest\'\npython -c \'import bxa.sherpa as bxa\'')"><i class="icofont-copy"></i></button></li>
+              <code>$ python -c 'import bxa.sherpa as bxa'</code>
+              &nbsp; <button class="cpbt" onclick="cp('python -c \'import bxa.sherpa as bxa\'')"><i class="icofont-copy"></i></button>
+            </li>
           </ul>
-          If no error messages come up from these commands, BXA and PyXspec should work.
+          If no error messages come up from these commands, BXA should work with Sherpa.
 
         </div>
       </div>
@@ -531,7 +561,7 @@ from xspec import *
           <li>PyXspec:</br>
               <code>s = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/spectrum.html">Spectrum</a>("sim_chan_bmin1.pi")</code>&nbsp; <button class="cpbt" onclick="cx('s = Spectrum(&quot;sim_chan_bmin1.pi&quot;)')"><i class="icofont-copy"></i></button></br>
               Or:</br>
-              <code>s = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>("1:1 sim_chan_bmin1.pi")</code>&nbsp; <button class="cpbt" onclick="cx('s = AllData(&quot;1:1 sim_chan_bmin1.pi&quot;)')"><i class="icofont-copy"></i></button>
+              <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>("1:1 sim_chan_bmin1.pi")</code>&nbsp; <button class="cpbt" onclick="cx('s = AllData(&quot;1:1 sim_chan_bmin1.pi&quot;)')"><i class="icofont-copy"></i></button>
             </li>
           <li>Sherpa:</br>
             <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "sim_chan_bmin1.pi")</code>&nbsp; <button class="cpbt" onclick="cx('load_pha(1, &quot;sim_chan_bmin1.pi&quot;)')"><i class="icofont-copy"></i></button></li>
