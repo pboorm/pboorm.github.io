@@ -93,9 +93,9 @@
           <li><a href="#ex16"><i class="bx bx-chevron-right"></i>1.6 - multiple spectra</a></li>
           <li><a href="#ex17"><i class="bx bx-chevron-right"></i>1.7 - background fitting</a></li>
           <li><a href="#session2"><i class="bx bx-bar-chart-alt-2"></i> <span>Session 2 - more advanced</span></a></li>
-          <li><a href="#ex21"><i class="bx bx-chevron-right"></i> <span>2.1 - simulations & calibration</span></a></li>
-          <li><a href="#ex22"><i class="bx bx-chevron-right"></i> <span>2.2 - model verification</span></a></li>
-          <li><a href="#ex23"><i class="bx bx-chevron-right"></i> <span>2.3 - BHM introduction</span></a></li>
+          <li><a href="#ex21"><i class="bx bx-chevron-right"></i> <span>2.1 - BHM introduction</span></a></li>
+          <li><a href="#ex22"><i class="bx bx-chevron-right"></i> <span>2.2 - simulations & calibration</span></a></li>
+          <li><a href="#ex23"><i class="bx bx-chevron-right"></i> <span>2.3 - model verification</span></a></li>
           <li><a href="#ex24"><i class="bx bx-chevron-right"></i> <span>2.4 - BHM continued</span></a></li>
           <li><a href="#tipsandtricks"><i class="bx bx-bulb"></i> <span>Tips & tricks</span></a></li>
           <li><a href="#contact"><i class="icofont-letter"></i>Contact</a></li>
@@ -1522,7 +1522,10 @@ figure = corner.corner(df, labels = df.columns, quantiles = [0.16, 0.5, 0.84], s
 
           <li>Create a <a target="_blank" href="https://johannesbuchner.github.io/BXA/xspec-analysis.html#model-discovery">Quantile-Quantile</a> (also <a target="_blank" href="https://en.wikipedia.org/wiki/Q–Q_plot">here</a> for a more general explanation) plot for your fits:
             <ul>
-          <li>PyXspec (produces plot):</br>
+          <li>PyXspec (produces plot):
+          </br>
+          <b>Warning:</b> if you have used <code>Plot.setRebin()</code>, you should undo this before using <code>bxa.qq</code> with e.g., <code>Plot.setRebin(0., 1.)</code> (or restart without running <code>Plot.setRebin()</code>)
+          <br>
           <code><pre>import <a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html">matplotlib.pyplot</a> as plt
 print("creating quantile-quantile plot ...")
 plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html">figure</a>(figsize=(7,7))
@@ -1734,71 +1737,11 @@ fakepha_kwargs["exposure"] = 30.e3
       <div class="container">
         <div class="section-title">
           <a class="collapselink" data-toggle="collapse" href="#collapse-ex21" aria-expanded="true" aria-controls="collapse-ex21" style="color: #173b6c;">
-            <h3><i class="bx bx-chevron-right"></i> Exercise 2.1 - calibrating model comparison thresholds <a class="headerlink" href="#ex21" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
-            <p><em>Here we will estimate the false-positive and false-negative rates associated with selecting models via the Bayes Factors (logZ<sub>model 1</sub>/Z<sub>model 2</sub>) & &Delta;&#8239;fit-statistic for the models and data we are using. This helps us determine a good selection threshold to use for these model selection methods.</em></p>
-        </a>
-        </div>
-        <div class="collapse show" id="collapse-ex21">
-        <ul>
-          <li>Simulate 50 Chandra spectra from the <code>absorbed powerlaw + gaussian</code> best-fit model that you found in <a href="#ex13">Exercise 1.3</a>, with the original Chandra spectrum files.</li></br>
-          <li>To test any effect on model comparison thresholds from the flux level of the source, repeat the previous step with a powerlaw normalisation 5&times; fainter than the best-fit you found.</li></br>
-          <li>For each of the 100 spectra you have simulated, fit the <code>powerlaw</code>, <code>absorbed powerlaw</code> and <code>absorbed powerlaw + gaussian</code> models with BXA.</li></br>
-          <li>For a series of different values of &Delta;&#8239;logZ and &Delta;&#8239;Wstat, calculate how many of the 200 model fits were correctly identified, and how many times the Bayes Factors did not make a decision (i.e. logZ<sub>1</sub>/Z<sub>2</sub> < threshold).</li></br>
-          <li>How does the false-positive/negative rate vary with signal-to-noise in the source spectrum?</li></br>
-          <li>Use the same process to estimate an appropriate &Delta;&#8239;<a target="_blank" href="https://en.wikipedia.org/wiki/Akaike_information_criterion">AIC</a> threshold that will select the correct models.</li></br>
-        </ul>
-        </div>
-</section>
-
-<section id="ex22" class="services">
-      <div class="container">
-        <div class="section-title">
-          <a class="collapselink" data-toggle="collapse" href="#collapse-ex22" aria-expanded="true" aria-controls="collapse-ex22" style="color: #173b6c;">
-          <h3><i class="bx bx-chevron-right"></i> Exercise 2.2 - posterior predictive checks <a class="headerlink" href="#ex22" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
-          <p><em>Model selection can only tell us how likely a model is relative to another. Here we will estimate the goodness-of-fit and test the ability of a given model to reproduce the nuances in the source spectrum data with Monte Carlo simulations.</em></p>
-        </a>
-        </div>
-        <div class="collapse show" id="collapse-ex22">
-        <ul>
-          <li>Load the BXA fit (with e.g., <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</code> <button class="cpbt" onclick="cx('results = solver.run(resume=True)')"><i class="icofont-copy"></i></button>) for the <code>powerlaw</code> model from <a href="#ex12">Exercise 1.2</a>.</li></br>
-          <li>Note the best-fit C-statistic & degrees of freedom (dofs):</br>
-          PyXspec:</br>
-          <code><pre>
-stat = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html">Fit</a>.statistic
-dof = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html">Fit</a>.dof
-</pre></code>
-&nbsp; <button class="cpbt" onclick="cx('stat = Fit.statistic\ndof = Fit.dof')"><i class="icofont-copy"></i></button><br>
-          Sherpa:</br>
-          <code><pre>
-statinfo = <a target="_blank" href="https://cxc.harvard.edu/sherpa/ahelp/get_stat_info.html">get_stat_info</a>()
-stat = statinfo[1].statval
-dof = statinfo[1].dof
-</pre></code>
-&nbsp; <button class="cpbt" onclick="cx('statinfo = get_stat_info()\nstat = statinfo[1].statval\ndof = statinfo[1].dof')"><i class="icofont-copy"></i></button>
-          </li></br>
-          <li>Perform many times:
-          <ol>
-          <li>Simulate the best-fit model (make sure to use the same spectral files and exposure time as the original).</li>
-          <li>Without re-fitting*, store the simulated C-statistic & dofs of the simulated data and model.<br>
-            * It would be ideal to re-fit, but this can be inefficient and/or lead to incorrect results with a standard fit in PyXspec and/or Sherpa (due to local minima). Note that performing a standard Sherpa fit will require <b>all free parameters, including log parameters, to appear in the model expression</b>.
-          </li><br>
-          </ol>
-          </li>
-          <li>Plot the distribution of simulated C-statistic / dof values and compare to the real value. Is the fit acceptable?</li></br>
-          <li>Now repeat the process with the <code>absorbed powerlaw + gaussian</code> model. How does the goodness-of-fit for this model compare to the <code>powerlaw</code> model?</li></br>
-        </ul>
-        </div>
-</section>
-
-<section id="ex23" class="services">
-      <div class="container">
-        <div class="section-title">
-          <a class="collapselink" data-toggle="collapse" href="#collapse-ex23" aria-expanded="true" aria-controls="collapse-ex23" style="color: #173b6c;">
-          <h3><i class="bx bx-chevron-right"></i> Exercise 2.3 - Bayesian Hierarchical Modelling introduction <a class="headerlink" href="#ex23" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
+          <h3><i class="bx bx-chevron-right"></i> Exercise 2.1 - Bayesian Hierarchical Modelling introduction <a class="headerlink" href="#ex21" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
           <p><em>Here we will combine several individual source posterior distributions to derive a sample distribution for the photon index .</em></p>
         </a>
         </div>
-        <div class="collapse show" id="collapse-ex23">
+        <div class="collapse show" id="collapse-ex21">
 
         <ul>
 
@@ -1856,11 +1799,74 @@ plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotli
       </div>
 </section>
 
+
+<section id="ex22" class="services">
+      <div class="container">
+        <div class="section-title">
+          <a class="collapselink" data-toggle="collapse" href="#collapse-ex22" aria-expanded="true" aria-controls="collapse-ex22" style="color: #173b6c;">
+            <h3><i class="bx bx-chevron-right"></i> Exercise 2.2 - calibrating model comparison thresholds <a class="headerlink" href="#ex22" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
+            <p><em>Here we will estimate the false-positive and false-negative rates associated with selecting models via the Bayes Factors (logZ<sub>model 1</sub>/Z<sub>model 2</sub>) & &Delta;&#8239;fit-statistic for the models and data we are using. This helps us determine a good selection threshold to use for these model selection methods.</em></p>
+        </a>
+        </div>
+        <div class="collapse show" id="collapse-ex22">
+        <ul>
+          <li>Simulate 50 Chandra spectra from the <code>absorbed powerlaw + gaussian</code> best-fit model that you found in <a href="#ex13">Exercise 1.3</a>, with the original Chandra spectrum files.</li></br>
+          <li>To test any effect on model comparison thresholds from the flux level of the source, repeat the previous step with a powerlaw normalisation 5&times; fainter than the best-fit you found.</li></br>
+          <li>For each of the 100 spectra you have simulated, fit the <code>powerlaw</code>, <code>absorbed powerlaw</code> and <code>absorbed powerlaw + gaussian</code> models with BXA.</li></br>
+          <li>For a series of different values of &Delta;&#8239;logZ and &Delta;&#8239;Wstat, calculate how many of the 200 model fits were correctly identified, and how many times the Bayes Factors did not make a decision (i.e. logZ<sub>1</sub>/Z<sub>2</sub> < threshold).</li></br>
+          <li>How does the false-positive/negative rate vary with signal-to-noise in the source spectrum?</li></br>
+          <li>Use the same process to estimate an appropriate &Delta;&#8239;<a target="_blank" href="https://en.wikipedia.org/wiki/Akaike_information_criterion">AIC</a> threshold that will select the correct models.</li></br>
+        </ul>
+        </div>
+</section>
+
+<section id="ex23" class="services">
+      <div class="container">
+        <div class="section-title">
+          <a class="collapselink" data-toggle="collapse" href="#collapse-ex23" aria-expanded="true" aria-controls="collapse-ex23" style="color: #173b6c;">
+          <h3><i class="bx bx-chevron-right"></i> Exercise 2.3 - posterior predictive checks <a class="headerlink" href="#ex23" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
+          <p><em>Model selection can only tell us how likely a model is relative to another. Here we will estimate the goodness-of-fit and test the ability of a given model to reproduce the nuances in the source spectrum data with Monte Carlo simulations.</em></p>
+        </a>
+        </div>
+        <div class="collapse show" id="collapse-ex23">
+        <ul>
+          <li>Load the BXA fit (with e.g., <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</code> <button class="cpbt" onclick="cx('results = solver.run(resume=True)')"><i class="icofont-copy"></i></button>) for the <code>powerlaw</code> model from <a href="#ex12">Exercise 1.2</a>.</li></br>
+          <li>Note the best-fit C-statistic & degrees of freedom (dofs):</br>
+          PyXspec:</br>
+          <code><pre>
+stat = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html">Fit</a>.statistic
+dof = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html">Fit</a>.dof
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('stat = Fit.statistic\ndof = Fit.dof')"><i class="icofont-copy"></i></button><br>
+          Sherpa:</br>
+          <code><pre>
+statinfo = <a target="_blank" href="https://cxc.harvard.edu/sherpa/ahelp/get_stat_info.html">get_stat_info</a>()
+stat = statinfo[1].statval
+dof = statinfo[1].dof
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('statinfo = get_stat_info()\nstat = statinfo[1].statval\ndof = statinfo[1].dof')"><i class="icofont-copy"></i></button>
+          </li></br>
+          <li>Perform many times:
+          <ol>
+          <li>Simulate the best-fit model (make sure to use the same spectral files and exposure time as the original).</li>
+          <li>Without re-fitting*, store the simulated C-statistic & dofs of the simulated data and model.<br>
+            * It would be ideal to re-fit, but this can be inefficient and/or lead to incorrect results with a standard fit in PyXspec and/or Sherpa (due to local minima). Note that performing a standard Sherpa fit will require <b>all free parameters, including log parameters, to appear in the model expression</b>.
+          </li><br>
+          </ol>
+          </li>
+          <li>Plot the distribution of simulated C-statistic / dof values and compare to the real value. Is the fit acceptable?</li></br>
+          <li>Now repeat the process with the <code>absorbed powerlaw + gaussian</code> model. How does the goodness-of-fit for this model compare to the <code>powerlaw</code> model?</li></br>
+        </ul>
+        </div>
+</section>
+
+
+
 <section id="ex24" class="services">
       <div class="container">
         <div class="section-title">
           <a class="collapselink" data-toggle="collapse" href="#collapse-ex24" aria-expanded="true" aria-controls="collapse-ex24" style="color: #173b6c;">
-          <h3><i class="bx bx-chevron-right"></i> Exercise 2.4 - Bayesian Hierarchical Modelling continued (more challenging) <a class="headerlink" href="#ex24" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
+          <h3><i class="bx bx-chevron-right"></i> Exercise 2.4 (extension) - Bayesian Hierarchical Modelling continued <a class="headerlink" href="#ex24" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
           <p><em>Now you have created a parent population for photon index using PosteriorStacker, this exercise will focus on the <i>N</i><sub>H</sub> distribution.</em></p>
         </a>
         </div>
