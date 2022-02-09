@@ -1592,9 +1592,9 @@ mymod = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/pyth
 <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/ignore_id.html">ignore_id</a>(2, "0.:0.5,8.:")
 mymod = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a>.mypow
 mymod1 = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsconstant.html">xsconstant</a>("xcal1") * mymod
-<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(xcal1, val=1, frozen=True)
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(xcal1.factor, val=1, frozen=True)
 mymod2 = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsconstant.html">xsconstant</a>("xcal2") * mymod
-<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(xcal2, val=1, min = 1.e-2, max = 1.e2)
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(xcal2.factor, val=1, min = 1.e-2, max = 1.e2)
 <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(1, mymod1)
 <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(2, mymod2)</pre></code>
 &nbsp; <button class="cpbt" onclick="cx('load_pha(1, &quot;sim_nuA_bmin1.pi&quot;)\nignore_id(1, &quot;0.:3.,78.:&quot;)\nload_pha(2, &quot;sim_chan_bmin1.pi&quot;)\nignore_id(2, &quot;0.:0.5,8.:&quot;)\nmymod = xspowerlaw.mypow\nmymod1 = xsconstant(&quot;xcal1&quot;) * mymod\nset_par(xcal1, val=1, frozen=True)\nmymod2 = xsconstant(&quot;xcal2&quot;) * mymod\nset_par(xcal2, val=1, min = 1.e-2, max = 1.e2)\nset_source(1, mymod1)\nset_source(2, mymod2)')"><i class="icofont-copy"></i></button>
@@ -1619,7 +1619,8 @@ solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sher
 results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.sherpa.html#bxa.sherpa.solver.BXASolver.run">run</a>(resume=True)</pre></code>
 &nbsp; <button class="cpbt" onclick="cx('priors.append(bxa.create_loguniform_prior_for(xcal2))\nparameters.append(xcal2)\nsolver = bxa.BXASolver(prior=bxa.create_prior_function([prior1, prior2, ...]), parameters=[param1, param2, ...], outputfiles_basename=&quot;xcal_pl_sherpa&quot;)\nresults = solver.run(resume=True)')"><i class="icofont-copy"></i></button>
           </li>
-        </ul></li></br>
+        </ul>
+        Note: if using <code>mod4</code> from the end of <a href="#ex13">Exercise 1.3</a>, the fit may take a long time to complete (up to an hour).</li></br>
 
           <li>How have the confidence ranges on all the parameters changed after including NuSTAR?</li></br>
 
