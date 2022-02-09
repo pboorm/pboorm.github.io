@@ -1422,15 +1422,23 @@ aic = <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#d
           <li>PyXspec:</br>
             <code><pre>
 mod4 = Model("<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node264.html">TBabs</a> * <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a> + <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node175.html">gaussian</a> + <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelApec.html" target="_blank">apec</a>")
+...
 mod4.apec.kT.values = 0.8, 0.01, 1.e-2, 1.e-2, 5., 5.
 mod4.apec.Abundanc.values = 1., -1
 mod4.apec.Redshift.values = 0., -1
 mod4.apec.norm.values = 1.e-4, 0.1, 1.e-10, 1.e-10, 1.e-1, 1.e-1
 </pre></code>
-          &nbsp; <button class="cpbt" onclick="cx('xstbabs * xspowerlaw + gaussian + apec')"><i class="icofont-copy"></i></button>
+          &nbsp; <button class="cpbt" onclick="cx('mod4 = Model(&quot;tbabs * powerlaw + gaussian + apec&quot;)\n\nmod4.apec.kT.values = 0.8, 0.01, 1.e-2, 1.e-2, 5., 5.\nmod4.apec.Abundanc.values = 1., -1\nmod4.apec.Redshift.values = 0., -1\nmod4.apec.norm.values = 1.e-4, 0.1, 1.e-10, 1.e-10, 1.e-1, 1.e-1')"><i class="icofont-copy"></i></button>
         </li>
           <li>Sherpa:</br>
-            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa4.3/ahelp/xstbabs.html">xstbabs</a> * <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a> + <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsgaussian.html">xsgaussian</a> + <a href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsapec.html" target="_blank">apec</a></code>
+            <code><pre>
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa4.3/ahelp/xstbabs.html">xstbabs</a>.tbabs * <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a>.powerlaw + <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsgaussian.html">xsgaussian</a>.gaussian + <a href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsapec.html" target="_blank">xsapec</a>.apec
+...
+set_par(apec.kt, val=0.8, min=1.e-2, max=5.)
+set_par(apec.abundanc, val=1., frozen=True)
+set_par(apec.redshift, val=0., frozen=True)
+set_par(apec.norm, val=1.e-4, min=1.e-10, max=1.e-1)
+</pre></code>
           &nbsp; <button class="cpbt" onclick="cx('xstbabs * xspowerlaw + xsgaussian + xsapec')"><i class="icofont-copy"></i></button>
         </li>
         </ul></br>
