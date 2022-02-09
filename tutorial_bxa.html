@@ -1233,7 +1233,15 @@ solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sher
 </pre></code>&nbsp; <button class="cpbt" onclick="cx('bxa.BXASolver(prior=bxa.create_prior_function([prior1, prior2]), parameters=[param1, param2], outputfiles_basename=&quot;powerlaw_sherpa&quot;)')"><i class="icofont-copy"></i></button>
 </li>
         </ul>
-      Make sure <code>outputfiles_basename</code> is unique if running PyXspec and Sherpa in the same directory!
+      Make sure:
+      <ol>
+      <li><code>outputfiles_basename</code> is unique if running PyXspec and Sherpa in the same directory.
+      </li>
+      <li>(For Sherpa) the priors are in the same order for the <code>prior</code> and <code>parameters</code> attributes.
+      </li>
+      <li>
+      </li>
+    </ol>
     </li></br>
 
           <li>Perform prior predictive checks:
@@ -1382,7 +1390,7 @@ df.head()</pre></code>
           &nbsp; <button class="cpbt" onclick="cx('xstbabs * xspowerlaw')"><i class="icofont-copy"></i></button>
         </li>
         </ul></li>
-          <li>Absorbed powerlaw + Gaussian emission line (assume the emission line for this source is known to have line centroid energy <code>LineE</code> = 6.3 &plusmn; 0.15 keV, and that the line is narrow with fixed width <code>Sigma</code> = 1 eV):</br>
+          <li>Absorbed powerlaw + Gaussian emission line (assume the emission line for this source is known to have line centroid energy <code>LineE</code> = 6.3 &plusmn; 0.15 keV, and that the line is narrow with fixed width <code>Sigma</code> = 1.e-3 keV):</br>
             <ul>
           <li>PyXspec (note to fix a parameter, you can set <code>delta = -1</code>):</br>
             <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node264.html">TBabs</a> * <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a> + <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node175.html">gaussian</a></code>
