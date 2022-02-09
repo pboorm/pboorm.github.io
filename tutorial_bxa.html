@@ -216,7 +216,7 @@
                 <br>
                 <code>$ conda install -c conda-forge bxa</code>&nbsp; <button class="cpbt" onclick="cx('conda install -c conda-forge bxa')"><i class="icofont-copy"></i></button>
               </li>
-              <li>With <code>pip</code>:
+              <li>With <code>pip</code> (<b>see warning below</b>):
                 <br>
                 <code><pre>
 $ pip install requests corner astropy h5py cython scipy tqdm
@@ -273,7 +273,7 @@ $ sherpa</pre></code> <button class="cpbt" onclick="cx('conda activate ciao-envi
                 <code>$ conda install -c conda-forge bxa</code>
                 &nbsp; <button class="cpbt" onclick="cx('conda install -c conda-forge bxa')"><i class="icofont-copy"></i></button>
               </li>
-              <li>With <code>pip</code>:
+              <li>With <code>pip</code> (<b>see warning below</b>):
                 <br>
                 <code><pre>
 $ pip install requests corner astropy h5py cython scipy tqdm
@@ -299,6 +299,24 @@ $ pip install bxa</pre></code>
           If no error messages come up from these commands, BXA should work with Sherpa.
 
         </div>
+
+        <br>
+        <br>
+         *&#9888;&#65039; <b>Warning!</b> 
+         <br>
+         Installing packages with <code>conda</code> and <code>pip</code> can lead to package conflicts, such as:
+         <br>
+         <code><pre>
+ValueError: numpy.ndarray size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+</pre></code>
+<br>
+If this occurs, from inside your <code>conda</code> environment use:
+<br>
+<code><pre>
+pip uninstall ultranest
+conda install -c cond-forge ultranest
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cp('pip uninstall ultranest\nconda install -c cond-forge ultranest')"><i class="icofont-copy"></i></button>
       </div>
     </div>
 </section>
@@ -1120,6 +1138,26 @@ Plot("cont")</pre></code>
           <li>Use Bayes factors to perform model comparison</li>
           <li>Visualise the confidence ranges on each parameter</li>
           </ul>
+          <br>
+          To start with, make sure you import the relevant packages:
+        <br>
+        <ul>
+          <li>PyXspec:
+            <br>
+            <code><pre>
+from xspec import *
+import bxa.xspec as bxa
+</pre></code>
+          &nbsp; <button class="cpbt" onclick="cx('from xspec import *\nimport bxa.xspec as bxa')"><i class="icofont-copy"></i></button></li>
+          </li>
+          <li>Sherpa:
+            <br>
+            <code><pre>
+import bxa.sherpa as bxa
+</pre></code>
+          &nbsp; <button class="cpbt" onclick="cx('import bxa.sherpa as bxa')"><i class="icofont-copy"></i></button></li>
+          </li>
+        </ul>        
         </div>
 </section>
 
@@ -1163,12 +1201,12 @@ bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/
             <code><pre>
 prior1 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_gaussian_prior_for">create_gaussian_prior_for</a>(mymod, mymod.powerlaw.PhoIndex, 1.9, 0.15)
 prior2 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(mymod, mymod.powerlaw.norm)
-</pre></code>&nbsp; <button class="cpbt" onclick="cx('bxa.create_gaussian_prior_for(mymod, mymod.powerlaw.PhoIndex, 1.9, 0.15)\nbxa.create_loguniform_prior_for(mymod, mymod.powerlaw.norm)')"><i class="icofont-copy"></i></button></li>
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('prior1 = bxa.create_gaussian_prior_for(mymod, mymod.powerlaw.PhoIndex, 1.9, 0.15)\nprior2 = bxa.create_loguniform_prior_for(mymod, mymod.powerlaw.norm)')"><i class="icofont-copy"></i></button></li>
           <li>Sherpa:</br>
             <code><pre>
 prior1 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_gaussian_prior_for">create_gaussian_prior_for</a>(mymod.PhoIndex, 1.9, 0.15)
 prior2 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(mymod.norm)
-</pre></code>&nbsp; <button class="cpbt" onclick="cx('bxa.create_gaussian_prior_for(mymod, mymod.powerlaw.PhoIndex, 1.9, 0.15)\nbxa.create_loguniform_prior_for(mymod, mymod.powerlaw.norm)')"><i class="icofont-copy"></i></button></li>
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('prior1 = bxa.create_gaussian_prior_for(mymod, mymod.powerlaw.PhoIndex, 1.9, 0.15)\nprior2 = bxa.create_loguniform_prior_for(mymod, mymod.powerlaw.norm)')"><i class="icofont-copy"></i></button></li>
           </ul></br>
 
           <li>A note on log parameters (Sherpa only):
@@ -1293,7 +1331,7 @@ from bxa.xspec.solver import <a target="_blank" href="https://johannesbuchner.gi
           To understand more about the information <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/readme.html">UltraNest</a> prints to the screen during and after a fit, see <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/performance.html">here</a>.
           </li></br>
 
-          <li>Examine the best-fit values and uncertainties from the posterior samples. This can be done with <code><a target="_blank" href="https://pandas.pydata.org">pandas</a></code> (may require installing with e.g., <code>conda install pandas</code>):</br>
+          <li>Examine the best-fit values and uncertainties from the posterior samples. This can be done with <code><a target="_blank" href="https://pandas.pydata.org">pandas</a></code> (may require installing with e.g., <code>conda install pandas</code> but see warning at the end of <a href="#setup">Setup</a>):</br>
           <code><pre>
 import <a target="_blank" href="https://pandas.pydata.org">pandas</a> as pd
 df = pd.<a target="_blank" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">DataFrame</a>(data=results["samples"], columns=solver.paramnames)
@@ -1382,7 +1420,13 @@ aic = <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#d
             <br>
             <ul>
           <li>PyXspec:</br>
-            <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node264.html">TBabs</a> * <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a> + <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node175.html">gaussian</a> + <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelApec.html" target="_blank">apec</a></code>
+            <code><pre>
+mod4 = Model("<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node264.html">TBabs</a> * <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a> + <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node175.html">gaussian</a> + <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelApec.html" target="_blank">apec</a>")
+mod4.apec.kT.values = 0.8, 0.01, 1.e-2, 1.e-2, 5., 5.
+mod4.apec.Abundanc.values = 1., -1
+mod4.apec.Redshift.values = 0., -1
+mod4.apec.norm.values = 1.e-4, 0.1, 1.e-10, 1.e-10, 1.e-1, 1.e-1
+</pre></code>
           &nbsp; <button class="cpbt" onclick="cx('xstbabs * xspowerlaw + gaussian + apec')"><i class="icofont-copy"></i></button>
         </li>
           <li>Sherpa:</br>
