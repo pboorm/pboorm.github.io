@@ -219,7 +219,7 @@
               <li>With <code>pip</code> (<b>see warning below</b>):
                 <br>
                 <code><pre>
-$ pip install requests corner astropy h5py cython scipy tqdm
+$ pip install requests corner astropy h5py cython scipy tqdm pandas
 $ pip install bxa</pre></code>
 &nbsp; <button class="cpbt" onclick="cx('pip install requests corner astropy h5py cython scipy tqdm\npip install bxa')"><i class="icofont-copy"></i></button>
               </li>
@@ -276,7 +276,7 @@ $ sherpa</pre></code> <button class="cpbt" onclick="cx('conda activate ciao-envi
               <li>With <code>pip</code> (<b>see warning below</b>):
                 <br>
                 <code><pre>
-$ pip install requests corner astropy h5py cython scipy tqdm
+$ pip install requests corner astropy h5py cython scipy tqdm pandas
 $ pip install bxa</pre></code>
 &nbsp; <button class="cpbt" onclick="cx('pip install requests corner astropy h5py cython scipy tqdm\npip install bxa')"><i class="icofont-copy"></i></button>
               </li>
@@ -1786,8 +1786,8 @@ dof = statinfo[1].dof
         <ul>
 
           <li>Install <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">PosteriorStacker</a>:<br>
-            <code>$ pip install posteriorstacker</code>
-            &nbsp; <button class="cpbt" onclick="cx('pip install posteriorstacker')"><i class="icofont-copy"></i></button>
+            <code>$ conda install -c conda-forge posteriorstacker</code>
+            &nbsp; <button class="cpbt" onclick="cx('conda install -c conda-forge posteriorstacker')"><i class="icofont-copy"></i></button>
             <br>Alternatively, you can just download the script and use it in your directory.</li></br>
           <li>To generate the posterior samples used in this exercise, download and run the following <a href="./bxa/ex21_pyxspec.py" download>PyXspec</a> (<code>$ python3 ex21_pyxspec.py</code> <button class="cpbt" onclick="cx('python3 ex21_pyxspec.py')"><i class="icofont-copy"></i></button>) or <a href="./bxa/ex21_sherpa.py" download>Sherpa</a> (<code>$ sherpa ex21_sherpa.py</code> <button class="cpbt" onclick="cx('sherpa ex21_sherpa.py')"><i class="icofont-copy"></i></button>) script. The script will generate 30 <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/readme.html">UltraNest</a> output folders by:</br>
           <ol>
