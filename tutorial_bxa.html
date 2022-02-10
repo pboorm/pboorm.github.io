@@ -1823,14 +1823,50 @@ plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotli
           <img src="figures/modcomp.png" class="img-fluid" alt="">
         </div>
 
-
+        <br><br>
+        Here, you will estimate the false-negative and false-positive rates for model selection between the <code>powerlaw</code> and <code>absorbed powerlaw</code> models from Exercises <a href="#ex12">1.2</a> and <a href="#ex13">1.3</a>.
+        <br><br>
+        First, the false-negative rate:
         <ul>
-          <li>Simulate 50 Chandra spectra from the <code>absorbed powerlaw + gaussian</code> best-fit model that you found in <a href="#ex13">Exercise 1.3</a>, with the original Chandra spectrum files.</li></br>
-          <li>To test any effect on model comparison thresholds from the flux level of the source, repeat the previous step with a powerlaw normalisation 5&times; fainter than the best-fit you found.</li></br>
-          <li>For each of the 100 spectra you have simulated, fit the <code>powerlaw</code>, <code>absorbed powerlaw</code> and <code>absorbed powerlaw + gaussian</code> models with BXA.</li></br>
-          <li>For a series of different values of &Delta;&#8239;logZ and &Delta;&#8239;Wstat, calculate how many of the 200 model fits were correctly identified, and how many times the Bayes Factors did not make a decision (i.e. logZ<sub>1</sub>/Z<sub>2</sub> < threshold).</li></br>
-          <li>How does the false-positive/negative rate vary with signal-to-noise in the source spectrum?</li></br>
-          <li>Use the same process to estimate an appropriate &Delta;&#8239;<a target="_blank" href="https://en.wikipedia.org/wiki/Akaike_information_criterion">AIC</a> threshold that will select the correct models.</li></br>
+          <li>Simulate 100 Chandra spectra from the <code>absorbed powerlaw</code> (i.e. the more complex) best-fit model that you found in <a href="#ex13">Exercise 1.3</a>, with the original Chandra spectrum files.
+          </li>
+          <li>Fit both the <code>powerlaw</code> and <code>absorbed powerlaw</code> models to each of the 100 simulated spectra with BXA.
+          </li>
+          <li>For a series of different values of &Delta;&#8239;logZ and &Delta;&#8239;W-stat, calculate how many of the 100 model fits were correctly identified, and how many times the Bayes Factors did not make a decision (i.e. logZ<sub>1</sub>/Z<sub>2</sub> < threshold).</li>
+          <li>Use the same process to estimate an appropriate &Delta;&#8239;W-stat threshold that will have a small false-negative rate.
+          </li>
+          <li>Repeat these step with a powerlaw normalisation 5&times; fainter than the best-fit.
+          </li>
+          <li>How does the false-negative rate vary with signal-to-noise in the source spectrum?
+          </li>
+          
+        </ul>
+        <br>
+
+        Then, the false-positive rate:
+        <ul>
+          <li>Simulate 100 Chandra spectra from the <code>powerlaw</code> (i.e. the simplest) best-fit model that you found in <a href="#ex12">Exercise 1.2</a>, with the original Chandra spectrum files.
+          </li>
+          <li>Fit both the <code>powerlaw</code> and <code>absorbed powerlaw</code> models to each of the 100 simulated spectra with BXA.
+          </li>
+          <li>For a series of different values of &Delta;&#8239;logZ and &Delta;&#8239;W-stat, calculate how many of the 100 model fits selected a best-fit model that was not <code>powerlaw</code> (i.e. a model was selected that was not the model being simulated).
+          </li>
+          <li>Use the same process to estimate an appropriate &Delta;&#8239;W-stat threshold that will have a small false-positive rate.
+          </li>
+          <li>Repeat these step with a powerlaw normalisation 5&times; fainter than the best-fit.
+          </li>
+          <li>How does the false-positive rate vary with signal-to-noise in the source spectrum?
+          </li>
+          
+        </ul>
+        
+        Finally do the same thing for the more complex model:
+        <ul>
+          <li> Repeat the process to estimate the false-negative and false-positive rates between <code>powerlaw</code> and <code>absorbed powerlaw + gaussian</code> models.
+          </li>
+          <li>Are the rates comparable? Why or why not?
+          </li>
+
         </ul>
         </div>
 </section>
