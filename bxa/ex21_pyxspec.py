@@ -37,6 +37,7 @@ for i, (gam, lognorm, lognh) in enumerate(zip(gam_values, lognorm_values, lognh_
     AllModels(1)(2).values = (gam, 0.01, -3., -3., 3., 3.)
     AllModels(1)(3).values = (10. ** lognorm, 0.01, 1.e-8, 1.e-8, 1.e0, 1.e0)
     exposure = 80.e3
+    fakeit_kwargs = {}
     fakeit_kwargs["response"] = "nustar.rmf"
     fakeit_kwargs["arf"] = "point_30arcsecRad_1arcminOA.arf"
     fakeit_kwargs["background"] = ""

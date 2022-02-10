@@ -1239,8 +1239,6 @@ solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sher
       </li>
       <li>(For Sherpa) the priors are in the same order for the <code>prior</code> and <code>parameters</code> attributes.
       </li>
-      <li>
-      </li>
     </ol>
     </li></br>
 
@@ -1610,12 +1608,18 @@ mymod2 = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xscon
           <ul>
           <li>PyXspec:</br>
           <code><pre>
+prior1 = bxa.create_gaussian_prior_for(mymod, mymod.powerlaw.PhoIndex, 1.9, 0.15)
+prior2 = bxa.create_loguniform_prior_for(mymod, mymod.powerlaw.norm)
+transformations = [prior1, prior2]
 transformations.append(bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(AllModels(2), AllModels(2).constant.factor))
 solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>(transformations=transformations, outputfiles_basename="xcal_pl_pyxspec")
 results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</pre></code>
 &nbsp; <button class="cpbt" onclick="cx('transformations.append(bxa.create_loguniform_prior_for(AllModels(2), AllModels(2).constant.factor))\nsolver = bxa.BXASolver(transformations=transformations, outputfiles_basename=&quot;xcal_pl_pyxspec&quot;)\nresults = solver.run(resume=True)')"><i class="icofont-copy"></i></button>        </li>
           <li>Sherpa:</br>
           <code><pre>
+prior1 = bxa.create_gaussian_prior_for(mymod, mymod.powerlaw.PhoIndex, 1.9, 0.15)
+prior2 = bxa.create_loguniform_prior_for(mymod, mymod.powerlaw.norm)
+priors = [prior1, prior2]
 priors.append(bxa.create_loguniform_prior_for(xcal2))
 parameters.append(xcal2)
 solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sherpa-analysis.html#bxa.sherpa.solver.BXASolver">BXASolver</a>(prior=bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_prior_function">create_prior_function</a>([prior1, prior2, ...]), parameters=[param1, param2, ...], outputfiles_basename="xcal_pl_sherpa")

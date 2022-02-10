@@ -15,7 +15,7 @@ set_xsabund("wilm")
 set_xsxsect("vern")
 set_xscosmo(67.3, 0., 0.685)
 set_analysis("energy")
-set_stat("wstat")
+set_stat("cstat")
 
 ## set up a model
 model = xstbabs.tbabs * xspowerlaw.pl
@@ -61,7 +61,7 @@ for i, (gam, lognorm, lognh) in enumerate(zip(gam_values, lognorm_values, lognh_
     parameters = [tbabs.nh, pl.PhoIndex, pl.norm]
 
     ## priors
-    priors = [bxa.create_loguniform_prior_for(m, m.TBabs.nH),
+    priors = [bxa.create_loguniform_prior_for(tbabs.nH),
               bxa.create_uniform_prior_for(pl.PhoIndex),
               bxa.create_loguniform_prior_for(pl.norm)
               ]
