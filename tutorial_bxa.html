@@ -1892,10 +1892,10 @@ dof = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python
           Sherpa:</br>
           <code><pre>
 statinfo = <a target="_blank" href="https://cxc.harvard.edu/sherpa/ahelp/get_stat_info.html">get_stat_info</a>()
-stat = statinfo[1].statval
-dof = statinfo[1].dof
+stat = statinfo[0].statval
+dof = statinfo[0].dof
 </pre></code>
-&nbsp; <button class="cpbt" onclick="cx('statinfo = get_stat_info()\nstat = statinfo[1].statval\ndof = statinfo[1].dof')"><i class="icofont-copy"></i></button>
+&nbsp; <button class="cpbt" onclick="cx('statinfo = get_stat_info()\nstat = statinfo[0].statval\ndof = statinfo[0].dof')"><i class="icofont-copy"></i></button>
           </li></br>
           <li>Perform many times:
           <ol>
