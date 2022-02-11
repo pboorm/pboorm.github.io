@@ -1901,7 +1901,9 @@ dof = statinfo[0].dof
           <ol>
           <li>Simulate the best-fit model (make sure to use the same spectral files and exposure time as the original).</li>
           <li>Without re-fitting*, store the simulated C-statistic & dofs of the simulated data and model.<br>
-            * It would be ideal to re-fit, but this can be inefficient and/or lead to incorrect results with a standard fit in PyXspec and/or Sherpa (due to local minima). Note that performing a standard Sherpa fit will require <b>all free parameters, including log parameters, to appear in the model expression</b>.
+            * It would be ideal to re-fit, but this can be inefficient and/or lead to incorrect results with a standard (i.e. Levenberg-Marquadt) fit in PyXspec and/or Sherpa due to local minima. Note also that to perform a Levenberg-Marquadt 
+            fit in Sherpa will require all free parameters, <b>including specially-defined log parameters</b>, to appear in the 
+            model expression.
           </li><br>
           </ol>
           </li>
