@@ -81,6 +81,7 @@
       <nav class="nav-menu">
         <ul>
           <li><a href="#info"><i class="icofont-info"></i>Information</a></li>
+          <li><a href="#xifu"><i class="icofont-spinner-alt-3"></i> Black hole spins with X-IFU</a></li>
           <li><a href="#xsf"><i class="icofont-chart-line"></i> X-ray Spectral Fitting 2022</a></li>
           <li><a href="#nh"><i class="icofont-cloudy"></i> Variable obscuration</a></li>
           <li><a href="#bxa"><i class="icofont-code"></i> BXA GIF</a></li>
@@ -123,10 +124,23 @@
 <!-- End Welcome Section -->
 
 
+<section id="xifu" class="services">
+      <div class="container">
+        <div class="section-title">
+          <h2><i class="icofont-spinner-alt-3"></i> Black hole spins with <a href="http://x-ifu.irap.omp.eu" target="_blank">Athena/X-IFU</a> <a class="headerlink" href="#xifu" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
+          In this figure, a series of AGN X-ray spectra are simulated with <a href="http://x-ifu.irap.omp.eu" target="_blank">Athena/X-IFU</a> at incrementally brighter fluxes. 
+          The right panel shows the posterior points found for black hole spin vs. the height of the X-ray emitting source above the black hole (assuming the lamp post geometry). For low, intermediate and high spins, the X-IFU can constrain spin under the assumptions
+          of the simulated model.
+        </div>
+        
+          <a href="figures/xsf_logo_detail.gif" target="_blank"><img src="figures/kyn_gif.gif" class="img-fluid" alt=""></a>
+      </div>
+</section>
+
 <section id="xsf" class="services">
       <div class="container">
         <div class="section-title">
-          <h2><i class="icofont-chart-line"></i> X-ray Spectral Fitting 2022</h2>
+          <h2><i class="icofont-chart-line"></i> X-ray Spectral Fitting 2022 <a class="headerlink" href="#xsf" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
         This is the more detailed version of the <a href="https://www.peterboorman.com/xsf22.html" target="_blank">X-ray Spectral Fitting 2022 winter school</a> logo, visualising the process of prior predictive checks with the <a href="http://mytorus.com" target="_blank">MYtorus AGN obscurer model</a> in a coupled configuration. By assuming a Gaussian prior on the log column density centered at 24.5 with standard deviation 0.1, a range of spectra are constructed. The gif then cycles through the simulated spectra in groups of 50, ordered and coloured by column density.
         </div>
         
@@ -137,7 +151,7 @@
 <section id="nh" class="services">
       <div class="container">
         <div class="section-title">
-          <h2><i class="icofont-cloudy"></i> Variable obscuration</h2>
+          <h2><i class="icofont-cloudy"></i> Variable obscuration <a class="headerlink" href="#nh" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
         Here I use the <a href="https://github.com/JohannesBuchner/xars/blob/master/doc/uxclumpy.rst" target="_blank">UXCLUMPY</a> model (<a href="https://ui.adsabs.harvard.edu/abs/2019A%26A...629A..16B/abstract)" target="_blank">Buchner et al., 2019</a>) to plot the observed X-ray spectrum emerging from a clumpy distribution of gas clouds surrounding an accreting supermassive black hole. The app uses <a href="https://streamlit.io" target="_blnk">streamlit</a>, <a href="https://plotly.com" target="_blank">plotly</a>, <a href="https://pandas.pydata.org" target="_blank">pandas</a>, <a href="https://matplotlib.org" target="_blank">matplotlib</a> & <a href="https://numpy.org" target="_blank">numpy</a>, and was <a href="https://discuss.streamlit.io/t/weekly-roundup-nft-analytics-stock-prices-apps-twittorials-and-more/19219#science-and-tech-5" target="_blank">featured in one of the Weekly Roundups on the Streamlit community forum</a>. The app may take ~5-10 seconds to load - click <a href="https://share.streamlit.io/pboorm/uxclumpysim/main/xsim.py" target="_blank">here</a> to view the app in a new tab.
         </div>
         
@@ -151,7 +165,7 @@
 <section id="bxa" class="services">
       <div class="container">
         <div class="section-title">
-          <h2><i class="icofont-code"></i> Bayesian X-ray Analysis (BXA) GIF</h2>
+          <h2><i class="icofont-code"></i> Bayesian X-ray Analysis (BXA) GIF <a class="headerlink" href="#bxa" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
         This GIF shows a series of simulations of obscured AGN spectra at incrementally lower observed fluxes (whilst maintaining the same intrinsic luminosity and column density - see the dashed "truth" lines in the right panel). By simultaneously modelling the background and source spectra, <a target="_blank" href="https://github.com/JohannesBuchner/BXA">BXA</a> enables constraints from spectra with no net source counts. For example, at the lowest fluxes the source is not detected and any spectrum is background dominated. Since the background is being fit simultaneously to the source + background, the source cannot be brighter than this whilst being completely unobscured. This is why the upper left portion of the contour plot in the right panel is ruled out. Learn more about how to use BXA in the tutorial I wrote <a target="_blank" href="tutorial_bxa.html">here</a>.
         </div>
         
@@ -164,7 +178,7 @@
 <section id="nosource" class="services">
       <div class="container">
         <div class="section-title">
-          <h2><i class="icofont-question-circle"></i> No-source probability GIF</h2>
+          <h2><i class="icofont-question-circle"></i> No-source probability GIF <a class="headerlink" href="#nosource" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
         <p>No-source probabilities are used to quantify detection significance in X-ray astronomy, and is the probability that some amount of detected counts in a source region (<i>N</i><sub><i>A</i><sub>src</sub></sub>) is caused by a background fluctuation (i.e. that there is "no source"). For more information, see discussion in <a href="https://ui.adsabs.harvard.edu/abs/2014ApJ...785...17L/abstract" target="_blank">Lansbury et al., (2014)</a> or <a href="https://ui.adsabs.harvard.edu/#abs/2007ApJ...657.1026W/abstract" target="_blank">Weisskopf et al., (2007)</a></p></br>
         <p>I created this GIF using code provided by George Lansbury to calculate no-source probabilities and estimate the posterior for the number of source counts. The left panel shows a simulated observation with the number of source+background counts consider in a given instance, as well as the number of background counts (fixed at 20 here). The middle panel shows the Binomial no-source probability distribution, with orange and green regions representing the no-source probabilities for the observation and for the number of counts required to reach a no-source probability of 1%. The right panel then shows the Bayesian posterior distribution on number of source counts using the formalism from <a href="https://ui.adsabs.harvard.edu/abs/1991ApJ...374..344K/abstract" target="_blank">Kraft et al., (1991)</a>.</p></br>
 
@@ -179,7 +193,7 @@
 <section id="agn" class="services">
       <div class="container">
         <div class="section-title">
-          <h2><i class="icofont-paint"></i> AGN schematic</h2>
+          <h2><i class="icofont-paint"></i> AGN schematic <a class="headerlink" href="#agn" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
           Inspired by the schematic depicted in <a href="https://www.nature.com/articles/s41550-017-0232-z" target="_blank">Ramos-Almeida & Ricci (2017; NatAs-1-679)</a>, I produced this plot depicting a number of the significant emission regions of AGN on a logarithmic scale with <a href="https://matplotlib.org" target="_blank">matplotlib</a>. This schematic was used in my Ph.D. thesis which was published in <a href="https://link.springer.com/book/10.1007/978-3-030-60361-8" target="_blank">Springer Theses</a>.
         </div>
           
@@ -195,7 +209,7 @@
 <section id="agnsed" class="services">
       <div class="container">
         <div class="section-title">
-          <h2><i class="icofont-brush"></i> Circum-nuclear environment</h2>
+          <h2><i class="icofont-brush"></i> Circum-nuclear environment <a class="headerlink" href="#agnsed" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
         X-rays come from a region extremely close to the accreting supermassive black hole in AGN, and can be scattered and absorbed by material in the circum-nuclear region (see left panel). In contrast, the dust surrounding the black hole acts as a bolometer which absorbs and re-radiates the accretion disc light into the infrared.</br></br>
 
         This can be seen in the right panel, showing several spectral energy distributions. The purple and salmon-coloured spectra on the left show the equivalent emission in X-rays that we would see for a face-on (i.e. unobscured) and edge-on (i.e. obscured) viewing angle, respectively. Clearly there's a significant flux suppression across the entire X-ray spectrum!</br>
@@ -215,7 +229,7 @@
 <section id="plotlyskymaps" class="services">
       <div class="container">
         <div class="section-title">
-          <h2><i class="icofont-telescope"></i> Interactive skymaps</h2>
+          <h2><i class="icofont-telescope"></i> Interactive skymaps <a class="headerlink" href="#plotlyskymaps" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
         </div>
 
         <div class="section-title">
@@ -242,7 +256,7 @@
 <section id="backyard" class="services">
       <div class="container">
         <div class="section-title">
-          <h2><i class="icofont-map"></i> Cosmic backyard</h2>
+          <h2><i class="icofont-map"></i> Cosmic backyard <a class="headerlink" href="#backyard" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
         The <a href="https://ned.ipac.caltech.edu/Library/Distances/" target="_blank">NED redshift-independent Distances catalogue (NED-D)</a> is a comprehensive catalogue of extra-galactic sources for which astronomers have estimated the distance to using techniques that do not rely on a redshift. This is possible with e.g., standard candles (sources with a pre-defined luminosity) or standard rulers (sources with a pre-defined size) which can be used to estimate the distance.
         Plotted in <a target="_blank" href="https://en.wikipedia.org/wiki/Supergalactic_coordinate_system">supergalactic coordinates</a>, this map shows the location of all sources in the NED-D catalogue within approximately 15 million light years from the Milky Way which is located at the center. I used the <a href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics" target="_blank">SVG</a> file format with <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/" target="_blank">Beautiful Soup</a> and <a href="https://matplotlib.org" target="_blank">matplotlib</a> to enable a link to each source's NED page by clicking on individual points. Give it a go!.
         </div>
@@ -257,7 +271,7 @@
 <section id="unification" class="services">
       <div class="container">
         <div class="section-title">
-          <h2><i class="icofont-heartbeat"></i> AGN unification</h2>
+          <h2><i class="icofont-heartbeat"></i> AGN unification <a class="headerlink" href="#unification" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
           The simplest form of the unified model of AGN (<a href="https://ui.adsabs.harvard.edu/abs/1993ARA%26A..31..473A/abstract" target="_blank">Antonucci 1993</a>, <a href="https://ui.adsabs.harvard.edu/abs/1995PASP..107..803U/abstract" target="_blank">Urry & Padovani 1995</a>, <a href="https://ui.adsabs.harvard.edu/abs/2015ARA%26A..53..365N/abstract" target="_blank">Netzer 2015</a>) ascribes different AGN classes to the orientation of some form of circum-nuclear obscurer relative to the line of sight. Originally, Type 1 (face-on, unobscured) and Type 2(edge-on, obscured) AGN were classified by their different optical spectra showing broad permitted and/or narrow forbidden lines, respectively. Since the original identification of Type 1 and 2 AGN, a number of different optical spectroscopic types have been identified, which I show in this plot.
 
         </div>
@@ -271,7 +285,7 @@
 <section id="obscuration" class="services">
       <div class="container">
         <div class="section-title">
-          <h2><i class="icofont-xray"></i> Obscured AGN X-ray spectra</h2>
+          <h2><i class="icofont-xray"></i> Obscured AGN X-ray spectra <a class="headerlink" href="#obscuration" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
           X-ray photons can be absorbed and scattered by atoms in the vicinity of an accreting supermassive black hole. We know that a majority of all AGN are obscured in some form across cosmic time, but a large ongoing question is the geometry of that obscuration. One way to predict the X-ray emission emerging from the dense obscuration surrounding AGN is with Monte Carlo Radiative Transfer. Billions of X-ray photons are simulated and fired through some unique geometry of gas clouds, before the emerging photons are counted and presented as unique X-ray spectra. This plot shows the result of several such simulations with the <a href="https://sites.astro.caltech.edu/~mislavb/download/index.html" target="_blank">borus02</a> uniform density torus model. The gas is assumed to be spherical and covering the central AGN, with polar cut-outs of variable size enabling the user to vary the covering factor of the obscuring gas (i.e. the amount of the sky that is obscured if one were to sit on top of the AGN and stare outwards). Each panel shows the effect of varying a different parameter: (upper left) covering factor, (upper right) incident X-ray spectrum photon index, (lower left) observer inclination and (lower right) line-of-sight obscuring equivalent hydrogen colulmn density.
         </div>
 
