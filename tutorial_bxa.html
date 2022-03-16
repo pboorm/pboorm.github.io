@@ -1196,16 +1196,16 @@ bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/
 
         To start these exercises, load the data, notice the correct energies and create a powerlaw model (see the commands listed above in <a href="#ex01">Ex 0.1</a> for help). Then:
         <ul>
-          <li>Set the parameter priors for the <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node212.html" target="_blank"><code>powerlaw</code></a> model (note <code>norm</code> varies over many orders of magnitude, and <code>PhoIndex</code> can be assumed to have some value within 1.9 &plusmn; 0.15):
+          <li>Set the parameter priors for the <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node212.html" target="_blank"><code>powerlaw</code></a> model (note <code>norm</code> varies over many orders of magnitude, and <code>PhoIndex</code> can be assigned a uniform prior for now):
           <ul>
           <li>PyXspec:</br>
             <code><pre>
-prior1 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_gaussian_prior_for">create_gaussian_prior_for</a>(mymod, mymod.powerlaw.PhoIndex, 1.9, 0.15)
+prior1 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(mymod, mymod.powerlaw.PhoIndex)
 prior2 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(mymod, mymod.powerlaw.norm)
 </pre></code>&nbsp; <button class="cpbt" onclick="cx('prior1 = bxa.create_gaussian_prior_for(mymod, mymod.powerlaw.PhoIndex, 1.9, 0.15)\nprior2 = bxa.create_loguniform_prior_for(mymod, mymod.powerlaw.norm)')"><i class="icofont-copy"></i></button></li>
           <li>Sherpa:</br>
             <code><pre>
-prior1 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_gaussian_prior_for">create_gaussian_prior_for</a>(mymod.PhoIndex, 1.9, 0.15)
+prior1 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(mymod.PhoIndex)
 prior2 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(mymod.norm)
 </pre></code>&nbsp; <button class="cpbt" onclick="cx('prior1 = bxa.create_gaussian_prior_for(mymod, mymod.powerlaw.PhoIndex, 1.9, 0.15)\nprior2 = bxa.create_loguniform_prior_for(mymod, mymod.powerlaw.norm)')"><i class="icofont-copy"></i></button></li>
           </ul></br>
