@@ -1470,7 +1470,7 @@ set_par(apec.norm, val=1.e-4, min=1.e-10, max=1.e-1)
 
           As an example, we will estimate the equivalent width of the emission line used in the Absorbed powerlaw + Gaussian model above.
           <ul>
-          <li>The equivalent width (<code>EW</code> below) of an emission line is defined as the flux in the line divided by the flux of the continuum at the line energy (see the <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node95.html">Xspec documentation</a> for more information).</li></br>
+          <li>The equivalent width (<code>EW</code> below) of an emission line is defined as the flux in the line divided by the flux of the continuum at the line energy (see the <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node96.html">Xspec documentation</a> for more information).</li></br>
           
           <li>For the model we have used, the equivalent width of the emission line relative to the intrinsic (i.e. unabsorbed) powerlaw continuum is (in terms of the parameters defined):
             <ul>
@@ -1478,9 +1478,9 @@ set_par(apec.norm, val=1.e-4, min=1.e-10, max=1.e-1)
             <code><pre>
 solver3.set_paramnames(["log(nH)", "mypow.phoindex", "mypow.lognorm", "line.linee", "line.lognorm"])
 df = pd.DataFrame(data = results3["samples"], columns = solver3.paramnames)
-df.loc[:, "EW"] = (df["line.lognorm"] / df["mypow.lognorm"]) * df["line.linee"] ** df["mypow.phoindex"]
+df.loc[:, "EW"] = (10**df["line.lognorm"] / 10**df["mypow.lognorm"]) * df["line.linee"] ** df["mypow.phoindex"]
 </pre></code>
-&nbsp; <button class="cpbt" onclick="cx('solver3.set_paramnames([&quot;log(nH)&quot;, &quot;mypow.phoindex&quot;, &quot;mypow.lognorm&quot;, &quot;line.linee&quot;, &quot;line.lognorm&quot;])\ndf = pd.DataFrame(data = results3[&quot;samples&quot;], columns = solver3.paramnames)\ndf.loc[:, &quot;EW&quot;] = (df[&quot;line.lognorm&quot;] / df[&quot;mypow.lognorm&quot;]) * df[&quot;line.linee&quot;] ** df[&quot;mypow.phoindex&quot;]')"><i class="icofont-copy"></i></button>
+&nbsp; <button class="cpbt" onclick="cx('solver3.set_paramnames([&quot;log(nH)&quot;, &quot;mypow.phoindex&quot;, &quot;mypow.lognorm&quot;, &quot;line.linee&quot;, &quot;line.lognorm&quot;])\ndf = pd.DataFrame(data = results3[&quot;samples&quot;], columns = solver3.paramnames)\ndf.loc[:, &quot;EW&quot;] = (10**df[&quot;line.lognorm&quot;] / 10**df[&quot;mypow.lognorm&quot;]) * df[&quot;line.linee&quot;] ** df[&quot;mypow.phoindex&quot;]')"><i class="icofont-copy"></i></button>
         </li>
           <li>Sherpa:</br>
             <code><pre>
