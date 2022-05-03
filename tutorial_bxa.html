@@ -1411,14 +1411,14 @@ df.head()</pre></code>
           &nbsp; <button class="cpbt" onclick="cx('python3 model_compare.py outputfiles_basename1/ outputfiles_basename2/ outputfiles_basename3/')"><i class="icofont-copy"></i></button>
         </li></br>
 
-          <li>Compute the <a target="_blank" href="https://en.wikipedia.org/wiki/Akaike_information_criterion">Akaike Information Criterion (AIC)</a> (given by <code>AIC = 2&times;dof+Cstat &#8801; 2&times;dof-2&times;log(Likelihood)</code>) for each model in python:</br>
+          <li>Compute the <a target="_blank" href="https://en.wikipedia.org/wiki/Akaike_information_criterion">Akaike Information Criterion (AIC)</a> (given by <code>AIC = 2&times;nfree+Cstat &#8801; 2&times;nfree-2&times;log(Likelihood)</code>, where <code>nfree</code> is the number of free fit parameters) for each model in python:</br>
           <code><pre>import <a target="_blank" href="https://docs.python.org/3/library/json.html">json</a>
 basenames = [outputfiles_basename1, outputfiles_basename2, outputfiles_basename3]
 loglikes = <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>([(f, json.<a target="_blank" href="https://docs.python.org/3/library/json.html#json.load">load</a>(open(f + "/info/results.json"))["maximum_likelihood"]["logl"]) for f in basenames])
-dofs = <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>([(f, len(json.<a target="_blank" href="https://docs.python.org/3/library/json.html#json.load">load</a>(open(f + "/info/results.json"))["paramnames"])) for f in basenames])
-aic = <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>([(basename, (2. * dofs[basename] - 2. * loglike)) for basename, loglike in loglikes.items()])
+nfree = <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>([(f, len(json.<a target="_blank" href="https://docs.python.org/3/library/json.html#json.load">load</a>(open(f + "/info/results.json"))["paramnames"])) for f in basenames])
+aic = <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>([(basename, (2. * nfree[basename] - 2. * loglike)) for basename, loglike in loglikes.items()])
 </pre></code>
-&nbsp; <button class="cpbt" onclick="cx('import json\nbasenames = [outputfiles_basename1, outputfiles_basename2, outputfiles_basename3]\nloglikes = dict([(f, json.load(open(f + &quot;/info/results.json&quot;))[&quot;maximum_likelihood&quot;][&quot;logl&quot;]) for f in basenames])\ndofs = dict([(f, len(json.load(open(f + &quot;/info/results.json&quot;))[&quot;paramnames&quot;])) for f in basenames])\naic = dict([(basename, (2. * dofs[basename] - 2. * loglike)) for basename, loglike in loglikes.items()])')"><i class="icofont-copy"></i></button>
+&nbsp; <button class="cpbt" onclick="cx('import json\nbasenames = [outputfiles_basename1, outputfiles_basename2, outputfiles_basename3]\nloglikes = dict([(f, json.load(open(f + &quot;/info/results.json&quot;))[&quot;maximum_likelihood&quot;][&quot;logl&quot;]) for f in basenames])\nnfree = dict([(f, len(json.load(open(f + &quot;/info/results.json&quot;))[&quot;paramnames&quot;])) for f in basenames])\naic = dict([(basename, (2. * nfree[basename] - 2. * loglike)) for basename, loglike in loglikes.items()])')"><i class="icofont-copy"></i></button>
           </li></br>
 
           <li>Which model best explains the data? Why?</li><br>
