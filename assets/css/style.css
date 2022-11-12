@@ -310,7 +310,8 @@ h1.specific {
   height: 100vh;
   /*background: url("../img/profile_v2.jpeg") top center;*/
   /*background: url("../img/landscape.jpg") top center;*/
-  background: url("../../figures/austria.jpeg") top center;
+/*  background: url("../../figures/austria.jpeg") top center;*/
+  background: url("../../figures/mount_wilson.jpeg") top center;
   background-size: cover;
 }
 

@@ -1224,14 +1224,14 @@ mymod.norm = 10**logpar
             <ul>
           <li>PyXspec:</br>
             <code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>(transformations=[prior1, prior2], outputfiles_basename="powerlaw_pyxspec")</code>
-          &nbsp; <button class="cpbt" onclick="cx('bxa.BXASolver(transformations=[prior1, prior2], outputfiles_basename=&quot;powerlaw_pyxspec&quot;)')"><i class="icofont-copy"></i></button>
+          &nbsp; <button class="cpbt" onclick="cx('solver = bxa.BXASolver(transformations=[prior1, prior2], outputfiles_basename=&quot;powerlaw_pyxspec&quot;)')"><i class="icofont-copy"></i></button>
         </li>
           <li>Sherpa:</br>
             <code><pre>
 solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sherpa-analysis.html#bxa.sherpa.solver.BXASolver">BXASolver</a>(prior=bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_prior_function">create_prior_function</a>([prior1, prior2]),
                        parameters=[param1, param2],
                        outputfiles_basename="powerlaw_sherpa")
-</pre></code>&nbsp; <button class="cpbt" onclick="cx('bxa.BXASolver(prior=bxa.create_prior_function([prior1, prior2]), parameters=[param1, param2], outputfiles_basename=&quot;powerlaw_sherpa&quot;)')"><i class="icofont-copy"></i></button>
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('solver = bxa.BXASolver(prior=bxa.create_prior_function([prior1, prior2]), parameters=[param1, param2], outputfiles_basename=&quot;powerlaw_sherpa&quot;)')"><i class="icofont-copy"></i></button>
 </li>
         </ul>
       Make sure:
