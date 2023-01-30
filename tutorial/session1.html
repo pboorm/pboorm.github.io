@@ -232,14 +232,14 @@ model1.zpowerlw.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)
           <ul>
           <li>PyXspec:</br>
             <code><pre>
-prior1 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(model1, model1.powerlaw.PhoIndex)
-prior2 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(model1, model1.powerlaw.norm)
-</pre></code>&nbsp; <button class="cpbt" onclick="cx('prior1 = bxa.create_uniform_prior_for(model1, model1.powerlaw.PhoIndex)\nprior2 = bxa.create_loguniform_prior_for(model1, model1.powerlaw.norm)')"><i class="icofont-copy"></i></button></li>
+prior1 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(model1, model1.zpowerlw.PhoIndex)
+prior2 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(model1, model1.zpowerlw.norm)
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('prior1 = bxa.create_uniform_prior_for(model1, model1.zpowerlw.PhoIndex)\nprior2 = bxa.create_loguniform_prior_for(model1, model1.zpowerlw.norm)')"><i class="icofont-copy"></i></button></li>
           <li>Sherpa:</br>
             <code><pre>
 prior1 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(model1.PhoIndex)
 prior2 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(model1.norm)
-</pre></code>&nbsp; <button class="cpbt" onclick="cx('prior1 = bxa.create_uniform_prior_for(model1, model1.powerlaw.PhoIndex)\nprior2 = bxa.create_loguniform_prior_for(model1, model1.powerlaw.norm)')"><i class="icofont-copy"></i></button></li>
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('prior1 = bxa.create_uniform_prior_for(model1, model1.zpowerlw.PhoIndex)\nprior2 = bxa.create_loguniform_prior_for(model1, model1.zpowerlw.norm)')"><i class="icofont-copy"></i></button></li>
           </ul></br>
 
           <li>A note on log parameters (Sherpa only):
