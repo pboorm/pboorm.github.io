@@ -153,12 +153,12 @@
           
 
           <h3>Getting started</h3>
-          If you don't have your own, download the following Chandra/ACIS spectral files from <a href="../bxa/s1_chandra.zip" download>here</a>. The zip file contains:
+          If you don't have your own, download the following NuSTAR spectral files from <a href="setup.html#download" download>here</a>. The zip file contains:
         <ul>
-          <li>Source spectrum (binned with <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/lheasoft/help/ftgrouppha.html">ftgrouppha</a> grouptype=bmin groupscale=1</code>): <code>sim_chan_bmin.pi</code></li>
-          <li>Response: <code>chan.rmf</code></li>
-          <li>Effective area: <code>chan.arf</code></li>
-          <li>Background spectrum: <code>sim_chan_bkg.pi</code></li>
+          <li>Source spectrum (binned with <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/lheasoft/help/ftgrouppha.html">ftgrouppha</a> grouptype=bmin groupscale=5</code>): <code>nustar_src.pha</code></li>
+          <li>Response: <code>nustar.rmf</code></li>
+          <li>Effective area: <code>nustar.arf</code></li>
+          <li>Background spectrum: <code>nustar_bkg.pha</code></li>
         </ul>
           Here are some initial steps to set up a fit for BXA in PyXspec or Sherpa:
         <ul>
@@ -307,15 +307,15 @@ outfile=nustar_src_bmin5.pha
           <li>Load spectra:
           <ul>
             <li>Xspec:</br>
-              <code>data 1:1 sim_chan_bmin1.pi</code>&nbsp; <button class="cpbt" onclick="cx('data 1:1 sim_chan_bmin1.pi')"><i class="icofont-copy"></i></button></br>
+              <code>data 1:1 nustar_src_bmin5.pha.pi</code>&nbsp; <button class="cpbt" onclick="cx('data 1:1 nustar_src_bmin5.pha.pi')"><i class="icofont-copy"></i></button></br>
             </li>
           <li>PyXspec:</br>
-              <code>s = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/spectrum.html">Spectrum</a>("sim_chan_bmin1.pi")</code>&nbsp; <button class="cpbt" onclick="cx('s = Spectrum(&quot;sim_chan_bmin1.pi&quot;)')"><i class="icofont-copy"></i></button></br>
+              <code>s = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/spectrum.html">Spectrum</a>("nustar_src_bmin5.pha.pi")</code>&nbsp; <button class="cpbt" onclick="cx('s = Spectrum(&quot;nustar_src_bmin5.pha.pi&quot;)')"><i class="icofont-copy"></i></button></br>
               Or:</br>
-              <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>("1:1 sim_chan_bmin1.pi")</code>&nbsp; <button class="cpbt" onclick="cx('s = AllData(&quot;1:1 sim_chan_bmin1.pi&quot;)')"><i class="icofont-copy"></i></button>
+              <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>("1:1 nustar_src_bmin5.pha.pi")</code>&nbsp; <button class="cpbt" onclick="cx('s = AllData(&quot;1:1 nustar_src_bmin5.pha.pi&quot;)')"><i class="icofont-copy"></i></button>
             </li>
           <li>Sherpa:</br>
-            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "sim_chan_bmin1.pi")</code>&nbsp; <button class="cpbt" onclick="cx('load_pha(1, &quot;sim_chan_bmin1.pi&quot;)')"><i class="icofont-copy"></i></button></li>
+            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "nustar_src_bmin5.pha.pi")</code>&nbsp; <button class="cpbt" onclick="cx('load_pha(1, &quot;nustar_src_bmin5.pha.pi&quot;)')"><i class="icofont-copy"></i></button></li>
           </ul>
           </li></br>
 
@@ -520,6 +520,7 @@ EkeV_err = Plot.xErr()
 data = Plot.y()
 data_err = Plot.yErr()
 df = pd.DataFrame(data={"EkeV": EkeV, "EkeV_err": EkeV_err, "data": data, "data_err": data_err})
+df.to_csv("csv_filename.csv", index=False)
 </pre></code>
     &nbsp; <button class="cpbt" onclick="cx('import pandas as pd\nPlot.setRebin(2, 1000)\nEkeV = Plot.x()\nEkeV_err = Plot.xErr()\ndata = Plot.y()\ndata_err = Plot.yErr()\ndf = pd.DataFrame(data={&quot;EkeV&quot;: EkeV, &quot;EkeV_err&quot;: EkeV_err, &quot;data&quot;: data, &quot;data_err&quot;: data_err})')"><i class="icofont-copy"></i></button>
 </li>
@@ -536,6 +537,7 @@ EkeV_err = srcdata.xerr
 data = srcdata.y
 data_err = srcdata.yerr
 df = pd.DataFrame(data={"EkeV": EkeV, "EkeV_err": EkeV_err, "data": data, "data_err": data_err})
+df.to_csv("csv_filename.csv", index=False)
 </pre></code>
     &nbsp; <button class="cpbt" onclick="cx('import pandas as pd\ngroup_snr(1, 2.)\nsubtract(1)\nset_analysis(0, &quot;ener&quot;, &quot;rate&quot;)\nsrcdata = get_data_plot(1)\nEkeV = srcdata.x\nEkeV_err = srcdata.xerr\ndata = srcdata.y\ndata_err = srcdata.yerr\ndf = pd.DataFrame(data={&quot;EkeV&quot;: EkeV, &quot;EkeV_err&quot;: EkeV_err, &quot;data&quot;: data, &quot;data_err&quot;: data_err})')"><i class="icofont-copy"></i></button>
 </li>
@@ -875,23 +877,23 @@ mymod = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/pyth
 mymod.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>.PhoIndex.values = (1.9, 0.01, -3., -3., 3., 3.)
 mymod.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>.norm.values = (1.e-3, 0.01, 1.e-8, 1.e-8, 1., 1.)
 fakeit_kwargs = {}
-fakeit_kwargs["response"] = "chan.rmf"
-fakeit_kwargs["arf"] = "chan.arf"
-fakeit_kwargs["background"] = "sim_chan_bkg.pi"
-fakeit_kwargs["exposure"] = 30.e3
+fakeit_kwargs["response"] = "rmf_file_name"
+fakeit_kwargs["arf"] = "arf_file_name"
+fakeit_kwargs["background"] = "bkg_file_name"
+fakeit_kwargs["exposure"] = exposure
 fakeit_kwargs["correction"] = "1."
-fakeit_kwargs["backExposure"] = 30.e3
-fakeit_kwargs["fileName"] = "sim_chan.pi"
+fakeit_kwargs["backExposure"] = exposure
+fakeit_kwargs["fileName"] = "output_filename"
 <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fakeitsettings.html">fakeit</a>(1, <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fakeitsettings.html">FakeitSettings</a>(**fakeit_kwargs))
 </pre></code>
-&nbsp; <button class="cpbt" onclick="cx('mymod = Model(&quot;powerlaw&quot;)\nmymod.powerlaw.PhoIndex.values = (1.9, 0.01, -3., -3., 3., 3.)\nmymod.powerlaw.norm.values = (1.e-3, 0.01, 1.e-8, 1.e-8, 1., 1.)\nfakeit_kwargs = {}\nfakeit_kwargs[&quot;response&quot;] = &quot;chan.rmf&quot;\nfakeit_kwargs[&quot;arf&quot;] = &quot;chan.arf&quot;\nfakeit_kwargs[&quot;background&quot;] = &quot;chan_bkg.pi&quot;\nfakeit_kwargs[&quot;exposure&quot;] = 30.e3\nfakeit_kwargs[&quot;correction&quot;] = &quot;1.&quot;\nfakeit_kwargs[&quot;backExposure&quot;] = 30.e3\nfakeit_kwargs[&quot;fileName&quot;] = &quot;sim_chan.pi&quot;\nAllData.fakeit(1, FakeitSettings(**fakeit_kwargs))')"><i class="icofont-copy"></i></button>
+&nbsp; <button class="cpbt" onclick="cx('mymod = Model(&quot;powerlaw&quot;)\nmymod.powerlaw.PhoIndex.values = (1.9, 0.01, -3., -3., 3., 3.)\nmymod.powerlaw.norm.values = (1.e-3, 0.01, 1.e-8, 1.e-8, 1., 1.)\nfakeit_kwargs = {}\nfakeit_kwargs[&quot;response&quot;] = &quot;rmf_file_name&quot;\nfakeit_kwargs[&quot;arf&quot;] = &quot;arf_file_name&quot;\nfakeit_kwargs[&quot;background&quot;] = &quot;bkg_file_name&quot;\nfakeit_kwargs[&quot;exposure&quot;] = exposure\nfakeit_kwargs[&quot;correction&quot;] = &quot;1.&quot;\nfakeit_kwargs[&quot;backExposure&quot;] = exposure\nfakeit_kwargs[&quot;fileName&quot;] = &quot;output_filename&quot;\nAllData.fakeit(1, FakeitSettings(**fakeit_kwargs))')"><i class="icofont-copy"></i></button>
           </li>
           <li>Sherpa (using <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/fake_pha.html">fake_pha</a></code>):</br>
           <code><pre>
 mymod = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a>.mypow
 <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(mymod.phoindex, val = 1.9, min = -3., max = 3.)
 <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(mymod.norm, val = 1.e-3, min = 1.e-8, max = 1.)
-<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "chan_src.pi") #loading pre-exising source spectrum with rmf, arf & bkg present
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "nustar_src_bmin.pha") #loading pre-exising source spectrum with rmf, arf & bkg present
 <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(1, mymod)
 fakepha_kwargs = {}
 fakepha_kwargs["rmf"] = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_rmf.html">get_rmf</a>()
@@ -899,9 +901,9 @@ fakepha_kwargs["arf"] = <a target="_blank" href="https://cxc.cfa.harvard.edu/she
 fakepha_kwargs["bkg"] = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_bkg.html">get_bkg</a>()
 fakepha_kwargs["exposure"] = 30.e3
 <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/fake_pha.html">fake_pha</a>(1, **fakepha_kwargs)
-<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/save_pha.html">save_pha</a>(1, "sim_chan.pi", clobber = True)
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/save_pha.html">save_pha</a>(1, "output_filename", clobber = True)
 </pre></code>
-&nbsp; <button class="cpbt" onclick="cx('mymod = xspowerlaw.mypow\nset_par(mymod.phoindex, val = 1.9, min = -3., max = 3.)\nset_par(mymod.norm, val = 1.e-3, min = 1.e-8, max = 1.)\nload_pha(1, &quot;chan_src.pi&quot;) #loading pre-exising source spectrum with rmf, arf & bkg present\nset_source(1, mymod)\nfakepha_kwargs = {}\nfakepha_kwargs[&quot;rmf&quot;] = get_rmf()\nfakepha_kwargs[&quot;arf&quot;] = get_arf()\nfakepha_kwargs[&quot;bkg&quot;] = get_bkg()\nfakepha_kwargs[&quot;exposure&quot;] = 30.e3\nfake_pha(1, **fakepha_kwargs)\nsave_pha(1, &quot;sim_chan.pi&quot;, clobber = True)')"><i class="icofont-copy"></i></button>
+&nbsp; <button class="cpbt" onclick="cx('mymod = xspowerlaw.mypow\nset_par(mymod.phoindex, val = 1.9, min = -3., max = 3.)\nset_par(mymod.norm, val = 1.e-3, min = 1.e-8, max = 1.)\nload_pha(1, &quot;nustar_src_bmin5.pha&quot;) #loading pre-exising source spectrum with rmf, arf & bkg present\nset_source(1, mymod)\nfakepha_kwargs = {}\nfakepha_kwargs[&quot;rmf&quot;] = get_rmf()\nfakepha_kwargs[&quot;arf&quot;] = get_arf()\nfakepha_kwargs[&quot;bkg&quot;] = get_bkg()\nfakepha_kwargs[&quot;exposure&quot;] = 30.e3\nfake_pha(1, **fakepha_kwargs)\nsave_pha(1, &quot;output_filename.pi&quot;, clobber = True)')"><i class="icofont-copy"></i></button>
           </li>
           </ul>
 
