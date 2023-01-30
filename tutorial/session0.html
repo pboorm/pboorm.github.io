@@ -559,13 +559,13 @@ err_kwargs["linewidth"] = 1.
 err_kwargs["capthick"] = 0.
 err_kwargs["capsize"] = 0.
 err_kwargs["zorder"] = -1.
-ax.<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.errorbar.html" target="_blank">errorbar</a>(EkeV, data, xerr=EkeV_err, yerr=data_err, **err_kwargs)
+ax.<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.errorbar.html" target="_blank">errorbar</a>(df["EkeV"], df["data"], xerr=df["EkeV_err"], yerr=df["data_err"], **err_kwargs)
 ax.<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_xscale.html" target="_blank">set_xscale</a>("log")
 ax.<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_yscale.html" target="_blank">set_yscale</a>("log")
 plt.show()
 fig.savefig("folded_data.png")
 </pre></code>
-&nbsp; <button class="cpbt" onclick="cx('import matplotlib.pyplot as plt\nfig, ax = plt.subplots()\nerr_kwargs = {}\nerr_kwargs[&quot;fmt&quot;] = &quot;o&quot;\nerr_kwargs[&quot;label&quot;] = &quot;Folded data&quot;\nerr_kwargs[&quot;mec&quot;] = &quot;royalblue&quot;\nerr_kwargs[&quot;ecolor&quot;] = &quot;royalblue&quot;\nerr_kwargs[&quot;mfc&quot;] = &quot;white&quot;\nerr_kwargs[&quot;markersize&quot;] = 6.\nerr_kwargs[&quot;markeredgewidth&quot;] = 1.\nerr_kwargs[&quot;linewidth&quot;] = 1.\nerr_kwargs[&quot;capthick&quot;] = 0.\nerr_kwargs[&quot;capsize&quot;] = 0.\nerr_kwargs[&quot;zorder&quot;] = -1.\nax.errorbar(EkeV, data, xerr=EkeV_err, yerr=data_err, **err_kwargs)\nax.set_xscale(&quot;log&quot;)\nax.set_yscale(&quot;log&quot;)\nplt.show()\nfig.savefig(&quot;folded_data.png&quot;)')"><i class="icofont-copy"></i></button>
+&nbsp; <button class="cpbt" onclick="cx('import matplotlib.pyplot as plt\nfig, ax = plt.subplots()\nerr_kwargs = {}\nerr_kwargs[&quot;fmt&quot;] = &quot;o&quot;\nerr_kwargs[&quot;label&quot;] = &quot;Folded data&quot;\nerr_kwargs[&quot;mec&quot;] = &quot;royalblue&quot;\nerr_kwargs[&quot;ecolor&quot;] = &quot;royalblue&quot;\nerr_kwargs[&quot;mfc&quot;] = &quot;white&quot;\nerr_kwargs[&quot;markersize&quot;] = 6.\nerr_kwargs[&quot;markeredgewidth&quot;] = 1.\nerr_kwargs[&quot;linewidth&quot;] = 1.\nerr_kwargs[&quot;capthick&quot;] = 0.\nerr_kwargs[&quot;capsize&quot;] = 0.\nerr_kwargs[&quot;zorder&quot;] = -1.\nax.errorbar(df[&quot;EkeV&quot;], df[&quot;data&quot;], xerr=df[&quot;EkeV_err&quot;], yerr=df[&quot;data_err&quot;], **err_kwargs)\nax.set_xscale(&quot;log&quot;)\nax.set_yscale(&quot;log&quot;)\nplt.show()\nfig.savefig(&quot;folded_data.png&quot;)')"><i class="icofont-copy"></i></button>
 
         </div>
 </section>
