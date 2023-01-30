@@ -5,6 +5,12 @@
 * License: https://bootstrapmade.com/license/
 */
 
+/* title page links for sections */
+
+a.titlelink:link {opacity: 100%;}
+a.titlelink:hover {opacity: 80%;}
+a.titlelink:active {opacity: 60%;}
+
 /* collapse links for sections */
 
 a.collapselink:link {opacity: 100%;}

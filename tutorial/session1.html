@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Using academicons -->
+  <!-- <link rel="stylesheet" href="../assets/academicons-1.9/css/academicons.min.css"/> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <!-- Using fontawesome -->
+  <script src="https://kit.fontawesome.com/f5e5434f52.js" crossorigin="anonymous"></script>
+
+
+  <!-- <link rel="apple-touch-icon" href="./favicon.ico" /> -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Session 1</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+  <!-- <meta content="" name="description"> -->
+  <!-- <meta content="" name="keywords"> -->
+  <meta property="og:title" content="BXA Tutorial Session 1" />
+  <meta property="og:locale" content="en_UK" />
+  <meta name="description" content="BXA Tutorial Session 1" />
+  <meta property="og:description" content="BXA Tutorial Session 1" />
+  <link rel="canonical" href="https://peterboorman.com/" />
+  <meta property="og:url" content="https://peterboorman.com/" />
+  <meta property="og:site_name" content="BXA Tutorial Session 1" />
+  <script type="application/ld+json">
+  {"@type":"WebSite","headline":"BXA Tutorial Session 1","url":"https://peterboorman.com/tutorial_bxa.html","description":"BXA Tutorial Session 1","name":"BXA Tutorial Session 1","@context":"https://schema.org"}</script>
+
+  <!-- Favicons -->
+  <!-- <link href="../assets/img/favicon.png" rel="icon"> -->
+  <link href="favicon.ico" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="../assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: iPortfolio - v1.4.1
+  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <div class="progressContainer"><div id="progress" class="progress"></div></div>
+
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+      <div class="profile">
+        <a href="../tutorial_bxa.html"><img src="../figures/plots_logo.png" alt="" class="img-fluid rounded-circle"></img></a>
+        <p></p>
+        <h1 class="specific"><a href="#session0">Session 1</a></h1>
+        <div class="social-links mt-3 text-center">
+          <a href="http://johannesbuchner.github.io/BXA/" class="github"><i class="bx bxl-github"></i></a>
+          <a href="../tutorial_bxa.html#contact"><i class="bx bx-envelope"></i></a>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="../tutorial_bxa.html#welcome"><i class="bx bx-star"></i> <span>Welcome</span></a></li>
+          <li><a href="whybxa.html"><i class="icofont-light-bulb"></i> <span>Why use BXA?</span></a></li>
+          <li><a href="setup.html"><i class="icofont-tools-alt-2"></i> <span>Setup</span></a></li>
+          <li><a href="setup.html#download"><i class="bx bx-download"></i> <span>Download spectra</span></a></li>
+          <li><a href="session0.html"><i class="bx bx-terminal"></i>Session 0 - X-ray spectral fitting</a></li>
+          <li><a href="session0.html#ex01"><i class="bx bx-chevron-right"></i>0.1 - binning data</a></li>
+          <li><a href="session0.html#ex02"><i class="bx bx-chevron-right"></i>0.2 - loading data</a></li>
+          <li><a href="session0.html#ex03"><i class="bx bx-chevron-right"></i>0.3 - plotting</a></li>
+          <li><a href="session0.html#ex04"><i class="bx bx-chevron-right"></i>0.4 - fitting</a></li>
+          <li><a href="session0.html#ex05"><i class="bx bx-chevron-right"></i>0.5 - simulating data</a></li>
+          <li><a href="#session1"><i class="bx bx-line-chart"></i>Session 1 - BXA</a></li>
+          <li><a href="#ex11"><i class="bx bx-chevron-right"></i>1.1 - prior predictive checks</a></li>
+          <li><a href="#ex12"><i class="bx bx-chevron-right"></i>1.2 - fitting a model</a></li>
+          <li><a href="#ex13"><i class="bx bx-chevron-right"></i>1.3 - fit some more models</a></li>
+          <li><a href="#ex14"><i class="bx bx-chevron-right"></i>1.4 - error propagation</a></li>
+          <li><a href="#ex15"><i class="bx bx-chevron-right"></i>1.5 - fit multiple datasets</a></li>
+          <li><a href="#ex16"><i class="bx bx-chevron-right"></i>1.6 - background fitting</a></li>
+          <li><a href="session2.html"><i class="bx bx-check-circle"></i>Session 2 - model checking</a></li>
+          <li><a href="session2.html#ex21"><i class="bx bx-chevron-right"></i>2.1 - visualisation</a></li>
+          <li><a href="session2.html#ex22"><i class="bx bx-chevron-right"></i>2.2 - quantile-quantile checks</a></li>
+          <li><a href="session2.html#ex23"><i class="bx bx-chevron-right"></i>2.3 - posterior predictive checks</a></li>
+          <li><a href="session3.html"><i class="bx bx-select-multiple"></i>Session 3 - model comparison</a></li>
+          <li><a href="session3.html#ex31"><i class="bx bx-chevron-right"></i>3.1 - Bayes factors</a></li>
+          <li><a href="session3.html#ex32"><i class="bx bx-chevron-right"></i>3.2 - type I errors</a></li>
+          <li><a href="session3.html#ex33"><i class="bx bx-chevron-right"></i>3.3 - type II errors</a></li>
+          <li><a href="session3.html#ex34"><i class="bx bx-chevron-right"></i>3.4 - extension</a></li>
+          <li><a href="session4.html"><i class="bx bx-bar-chart-alt-2"></i>Session 4 - parent distributions</a></li>
+          <li><a href="session4.html#ex41"><i class="bx bx-chevron-right"></i>4.1 - gaussian</a></li>
+          <li><a href="session4.html#ex42"><i class="bx bx-chevron-right"></i>4.2 - histogram</a></li>
+          <li><a href="session4.html#ex43"><i class="bx bx-chevron-right"></i>4.3 - preparing for a proposal</a></li>
+          <li><a href="session5.html"><i class="bx bx-analyse"></i>Session 5 - advanced usage</a></li>
+          <li><a href="session5.html#ex51"><i class="bx bx-chevron-right"></i>5.1 - information gain</a></li>
+          <li><a href="session5.html#ex52"><i class="bx bx-chevron-right"></i>5.2 - custom priors</a></li>
+          <li><a href="session5.html#ex53"><i class="bx bx-chevron-right"></i>5.3 - step samplers</a></li>
+          <li><a href="tipsandtricks.html"><i class="bx bx-bulb"></i> <span>Tips & tricks</span></a></li>
+          <li><a href="links.html"><i class="bx bx-bookmarks"></i> <span>Useful links</span></a></li>
+          <li><a href="#contact"><i class="icofont-letter"></i>Contact</a></li>
+          <li><p>&nbsp; </p></li>
+          <li><p>&nbsp; </p></li>
+          <li><p>&nbsp; </p></li>
+          <li><p>&nbsp; </p></li>
+          <li><p>&nbsp; </p></li>
+          <li><p>&nbsp; </p></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+      <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+
+    </div>
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+<section id="session1" class="services">
+      <div class="container">
+        <div class="section-title">
+          <a class="collapselink" data-toggle="collapse" href="#collapse-session1" aria-expanded="true" aria-controls="collapse-session1" style="color: #173b6c;">
+          <h2><i class="bx bx-line-chart"></i> Session 1 - getting started with BXA <a class="headerlink" href="#session1" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
+        </a>
+        </div>
+        <div class="collapse show" id="collapse-session1">
+          This session introduces how to construct a BXA fit to spectra in a variety of different setups.
+          </br></br>
+          <p>Key objectives:</p>
+          <ul>
+          <li>Fit a spectrum with BXA in Sherpa and/or PyXspec</li>
+          <li>Interact with posteriors</li>
+          <li>Fit more than one spectrum simultaneously with BXA</li>
+          </ul>
+          <br>
+          To start with, make sure you import the relevant packages:
+        <br>
+        <ul>
+          <li>PyXspec:
+            <br>
+            <code><pre>
+from xspec import *
+import bxa.xspec as bxa
+</pre></code>
+          &nbsp; <button class="cpbt" onclick="cx('from xspec import *\nimport bxa.xspec as bxa')"><i class="icofont-copy"></i></button></li>
+          </li>
+          <li>Sherpa:
+            <br>
+            <code><pre>
+import bxa.sherpa as bxa
+</pre></code>
+          &nbsp; <button class="cpbt" onclick="cx('import bxa.sherpa as bxa')"><i class="icofont-copy"></i></button></li>
+          </li>
+        </ul>        
+        </div>
+</section>
+
+
+
+
+<section id="ex11" class="services">
+      <div class="container">
+        <div class="section-title">
+          <a class="collapselink" data-toggle="collapse" href="#collapse-ex11" aria-expanded="true" aria-controls="collapse-ex11" style="color: #173b6c;">
+          <h3><i class="bx bx-chevron-right"></i> Exercise 1.1 - prior predictive checks <a class="headerlink" href="#ex11" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
+        </a>
+          <em>Prior predictive checks are used to see if the priors chosen can lead to realistic model realisations.</em>
+        </div>
+
+        <div class="collapse show" id="collapse-ex11">
+          Note for these exercises, setting priors in BXA is done with the following commands:</br>
+          <ul>
+            <li>PyXspec:</br>
+              <code><pre>
+bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(model, param)
+bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(model, param)
+bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_gaussian_prior_for">create_gaussian_prior_for</a>(model, param, mean, std)
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('bxa.create_uniform_prior_for(model, param)\nbxa.create_loguniform_prior_for(model, param)\nbxa.create_gaussian_prior_for(model, param, mean, std)')"><i class="icofont-copy"></i></button>
+        </li>
+          <li>Sherpa:</br>
+            <code><pre>
+bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(param)
+bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(param)
+bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_gaussian_prior_for">create_gaussian_prior_for</a>(param, mean, std)
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('bxa.create_uniform_prior_for(param)\nbxa.create_loguniform_prior_for(param)\nbxa.create_gaussian_prior_for(param, mean, std)')"><i class="icofont-copy"></i></button>          </li>
+        
+          </ul>
+        Also, log uniform priors <strong>cannot be zero or negative</strong>. Make sure the parameter ranges you supply are positive.</br></br>
+
+        To start with, we will fit the NuSTAR data alone. First load the data, notice the correct energies and create <code>model1</code> based on a powerlaw (see the commands in <a href="#ex01">Ex 0.1</a> for help). Note the target in question can be assumed to be at redshift 0.05 with a Galactic column density of <i>N</i><sub>H</sub> = 4&times;10<sup>20</sup> cm<sup>-2</sup>:
+        <ul>
+          <li>PyXspec:</br>
+            <code><pre>
+model1 = Model("TBabs*zpowerlw")
+model1.TBabs.nH.values = (0.04, -1.) ## Milky Way absorption
+model1.zpowerlw.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)
+model1.zpowerlw.Redshift.values = (0.05, -1.)
+model1.zpowerlw.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('model1 = Model(&quot;TBabs*zpowerlw&quot;)\nmodel1.TBabs.nH.values = (0.04, -1.) ## Milky Way absorption\nmodel1.zpowerlw.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)\nmodel1.zpowerlw.Redshift.values = (0.05, -1.)\nmodel1.zpowerlw.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)')"><i class="icofont-copy"></i></button></li>
+        </ul>
+
+        <ul>
+        <li>Note to use <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node264.html">TBabs</a></code>, one should set the abundances to those from <a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2000ApJ...542..914W/abstract">Wilms, Allen &amp; McCray (2000)</a>:
+          <ul>
+          <li>PyXspec:</br>
+            <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/xspecsettings.html">Xset.abund</a> = "wilm"</code>
+          &nbsp; <button class="cpbt" onclick="cx('Xset.abund = &quot;wilm&quot;')"><i class="icofont-copy"></i></button>
+        </li>
+          <li>Sherpa:</br>
+            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_xsabund.html">set_xsabund</a>("wilm")</code>
+          &nbsp; <button class="cpbt" onclick="cx('set_xsabund(&quot;wilm&quot;)')"><i class="icofont-copy"></i></button>
+        </li>
+          </ul>
+        </li>
+      </ul>
+
+        <ul>
+          <li>Set the parameter priors for <code>model1</code> (note <code>norm</code> varies over many orders of magnitude, and <code>PhoIndex</code> can be assigned a uniform prior for now):
+          <ul>
+          <li>PyXspec:</br>
+            <code><pre>
+prior1 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(model1, model1.powerlaw.PhoIndex)
+prior2 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(model1, model1.powerlaw.norm)
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('prior1 = bxa.create_uniform_prior_for(model1, model1.powerlaw.PhoIndex)\nprior2 = bxa.create_loguniform_prior_for(model1, model1.powerlaw.norm)')"><i class="icofont-copy"></i></button></li>
+          <li>Sherpa:</br>
+            <code><pre>
+prior1 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(model1.PhoIndex)
+prior2 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(model1.norm)
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('prior1 = bxa.create_uniform_prior_for(model1, model1.powerlaw.PhoIndex)\nprior2 = bxa.create_loguniform_prior_for(model1, model1.powerlaw.norm)')"><i class="icofont-copy"></i></button></li>
+          </ul></br>
+
+          <li>A note on log parameters (Sherpa only):
+          Using a loguniform prior may not give the posterior values of that parameter in log units in Sherpa.</br>
+          Instead, the <code><a target="_blank" href="https://sherpa.readthedocs.io/en/latest/model_classes/api/sherpa.models.parameter.Parameter.html#sherpa.models.parameter.Parameter">Parameter</a></code> module can convert a parameter to log units, and then one can use a uniform prior for that parameter. E.g.:</br>
+<code><pre>from sherpa.models.parameter import <a target="_blank" href="https://sherpa.readthedocs.io/en/latest/model_classes/api/sherpa.models.parameter.Parameter.html#sherpa.models.parameter.Parameter">Parameter</a>
+logpar = <a target="_blank" href="https://sherpa.readthedocs.io/en/latest/model_classes/api/sherpa.models.parameter.Parameter.html#sherpa.models.parameter.Parameter">Parameter</a>(modelname, parname, value, min, max, hard_min, hard_max)
+model1.norm = 10**logpar
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('from sherpa.models.parameter import Parameter\nlogpar = Parameter(modelname, parname, value, min, max, hard_min, hard_max)\nmodel1.norm = 10**logpar')"><i class="icofont-copy"></i></button>
+</li>
+          Note the parameter will only be valid for working in BXA. If you want to define a log parameter and use this with a standard Sherpa fit, the log parameter must appear in the model expression.</li></br>
+          
+          <li>Create a solver:
+            <ul>
+          <li>PyXspec:</br>
+            <code>solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>(transformations=[prior1, prior2], outputfiles_basename="model1_nu")</code>
+          &nbsp; <button class="cpbt" onclick="cx('solver = bxa.BXASolver(transformations=[prior1, prior2], outputfiles_basename=&quot;model1_nu&quot;)')"><i class="icofont-copy"></i></button>
+        </li>
+          <li>Sherpa:</br>
+            <code><pre>
+solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sherpa-analysis.html#bxa.sherpa.solver.BXASolver">BXASolver</a>(prior=bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_prior_function">create_prior_function</a>([prior1, prior2]),
+                       parameters=[param1, param2],
+                       outputfiles_basename="powerlaw_sherpa")
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('solver = bxa.BXASolver(prior=bxa.create_prior_function([prior1, prior2]), parameters=[param1, param2], outputfiles_basename=&quot;powerlaw_sherpa&quot;)')"><i class="icofont-copy"></i></button>
+</li>
+        </ul>
+      Make sure:
+      <ol>
+      <li><code>outputfiles_basename</code> is always unique. Especially if running PyXspec and Sherpa in the same directory.
+      </li>
+      <li>(For Sherpa) the priors are in the same order for the <code>prior</code> and <code>parameters</code> attributes.
+      </li>
+    </ol>
+    </li></br>
+
+          <li>Perform prior predictive checks:
+            <ol>
+          <li>Generate a random sample of prior parameter values (remember to <code>import numpy</code>!):
+          <ul>
+          <li>PyXspec:</br>
+            <code>values = solver.prior_function(numpy.random.uniform(size=len(solver.paramnames)))</code>
+          &nbsp; <button class="cpbt" onclick="cx('values = solver.prior_function(numpy.random.uniform(size=len(solver.paramnames)))')"><i class="icofont-copy"></i></button>
+        </li>
+          <li>Sherpa:</br>
+            <code>values = solver.prior_transform(numpy.random.uniform(size=len(solver.paramnames)))</code>
+          &nbsp; <button class="cpbt" onclick="cx('values = solver.prior_transform(numpy.random.uniform(size=len(solver.paramnames)))')"><i class="icofont-copy"></i></button>
+        </li>
+          </ul>
+          </li>
+
+          <li>Set the parameters to these values:
+          <ul>
+          <li>PyXspec:</br>
+          <code><pre>
+from bxa.xspec.solver import <a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#set_parameters">set_parameters</a>
+<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#set_parameters">set_parameters</a>(transformations=solver.transformations,values=values)
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('from bxa.xspec.solver import set_parameters\nset_parameters(transformations=solver.transformations,values=values)')"><i class="icofont-copy"></i></button>
+</li>
+          <li>Sherpa:</br>
+          <code>for i, p in enumerate(solver.parameters): p.val = values[i]</code>
+        &nbsp; <button class="cpbt" onclick="cx('for i, p in enumerate(solver.parameters): p.val = values[i]')"><i class="icofont-copy"></i></button>
+      </li>
+          </ul>
+          </li>
+
+          <li>Plot the resulting prior model realisation with the data:
+            <ul>
+          <li>PyXspec:</br>
+            <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/plotmanager.html">Plot</a>("ldata")</code>
+          &nbsp; <button class="cpbt" onclick="cx('Plot(&quot;ldata&quot;)')"><i class="icofont-copy"></i></button>
+        </li>
+          <li>Sherpa:</br>
+            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/plot_fit.html">plot_fit</a>(xlog=True, ylog=True)</code>
+          &nbsp; <button class="cpbt" onclick="cx('plot_fit(xlog=True, ylog=True)')"><i class="icofont-copy"></i></button>
+        </li>
+        </ul>
+          </li>
+          <li>Repeat 100 times, and plot the prior realisations with the data. Are the model ranges covered by the priors physically-acceptable?</li>
+
+          </ol>
+          </li>
+
+          <div class="col-lg-16">
+            <img src="../bxa/prior_checks.png" class="img-fluid" alt="">
+          </div>
+          </ul>
+        </div>
+</section>
+
+<section id="ex12" class="services">
+      <div class="container">
+        <div class="section-title">
+          <a class="collapselink" data-toggle="collapse" href="#collapse-ex12" aria-expanded="true" aria-controls="collapse-ex12" style="color: #173b6c;">
+            <h3><i class="bx bx-chevron-right"></i> Exercise 1.2 - fit a model to a spectrum <a class="headerlink" href="#ex12" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
+          </a>
+          </div>
+          <div class="collapse show" id="collapse-ex12">
+        Now that we have checked the priors look reasonable for the data we want to fit, we can fit the model to the data with BXA and get parameter posteriors.
+        <ul>
+          <li>First fit the model using Levenberg-Marquardt included in Xspec &amp; Sherpa:
+            <ul>
+              <li>PyXspec:</br>
+                <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fitmanager.html">Fit</a>.perform()</code>
+              &nbsp; <button class="cpbt" onclick="cx('Fit.perform()')"><i class="icofont-copy"></i></button>
+            </li>
+          <li>Sherpa:</br>
+            <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/fit.html">fit</a>()</code>
+            &nbsp; <button class="cpbt" onclick="cx('fit()')"><i class="icofont-copy"></i></button>
+        </li>
+          </ul>
+        </li></br>
+
+          <li>Is the fit good? How can you tell? What does changing the parameters by a small amount do?</li></br>
+
+          <li>Next perform the fit with BXA (note this does not require fitting with Levenberg-Marquardt first):
+            <ul>
+          <li>PyXspec:</br>
+            <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</code>
+          &nbsp; <button class="cpbt" onclick="cx('results = solver.run(resume=True)')"><i class="icofont-copy"></i></button>
+        </li>
+          <li>Sherpa:</br>
+            <code>results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.sherpa.html#bxa.sherpa.solver.BXASolver.run">run</a>(resume=True)</code>
+            &nbsp; <button class="cpbt" onclick="cx('results = solver.run(resume=True)')"><i class="icofont-copy"></i></button>
+        </li>
+          </ul>
+          (Note the hyperlinks are different).</br>
+          <code>results</code> contains the posterior samples (<code>results["samples"]</code>) for each parameter and the Bayesian evidence (<code>results["logZ"]</code>, <code>results["logZerr"]</code>). These quantities should also be printed to the screen after the fit is completed.</br>
+          To understand more about the information <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/readme.html">UltraNest</a> prints to the screen during and after a fit, see <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/performance.html">here</a>.
+          </li></br>
+
+          <li>Examine the best-fit values and uncertainties from the posterior samples. This can be done with <code><a target="_blank" href="https://pandas.pydata.org">pandas</a></code> (may require installing with e.g., <code>conda install pandas</code> but see warning at the end of <a href="#setup">Setup</a>):</br>
+          <code><pre>
+import <a target="_blank" href="https://pandas.pydata.org">pandas</a> as pd
+posterior_df = pd.<a target="_blank" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">DataFrame</a>(data=results["samples"], columns=solver.paramnames)
+posterior_df.to_csv("%s/posterior.csv" %(outputfiles_basename), index=False)</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('import pandas as pd\nposterior_df = pd.DataFrame(data=results[&quot;samples&quot;], columns=solver.paramnames)\nposterior_df.to_csv(&quot;%s/posterior.csv&quot; %(outputfiles_basename), index=False)')"><i class="icofont-copy"></i></button>
+          </li></br>
+          <li>How do the best-fits and confidence ranges compare with using nested sampling vs. Levenberg-Marquardt?</li></br>
+          <li>Finally, save the best-fit model (which is loaded as the current model by default with BXA) set-up to enable restoring it easily at later stages:</br>
+          <code><pre>
+Xset.save("%s/model.xcm" %(outputfiles_basename))</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('Xset.save(&quot;%s/model.xcm&quot; %(outputfiles_basename))')"><i class="icofont-copy"></i></button>
+          </li></br>
+          </ul>
+          </br>
+        </div>
+</section>
+
+<section id="ex13" class="services">
+      <div class="container">
+        <div class="section-title">
+          <a class="collapselink" data-toggle="collapse" href="#collapse-ex13" aria-expanded="true" aria-controls="collapse-ex13" style="color: #173b6c;">
+          <h3><i class="bx bx-chevron-right"></i> Exercise 1.3 - fit different models <a class="headerlink" href="#ex13" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
+        </a>
+        </div>
+        <div class="collapse show" id="collapse-ex13">
+
+        Next fit an additional two models to the data (which are used in subsequent exercises). Make sure to perform prior predictive checks each time before fitting.</br></br>
+
+          <ul>
+          <li><code>model2</code> features the same powerlaw as in <code>model1</code> but with additional photo-electric absorption:</br>
+            <ul>
+              <li>PyXspec:</br>
+          <code><pre>
+model2 = Model("TBabs*zTBabs*(zpowerlw)")
+model2.TBabs.nH.values = (0.04, -1.) ## Milky Way absorption
+model2.zTBabs.Redshift.values = (0.05, -1.)
+model2.zTBabs.nH.values = (1., 0.01, 0.01, 0.01, 100., 100.)
+model2.zpowerlw.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)
+model2.zpowerlw.Redshift.link = "p%d" %(model2.zTBabs.Redshift.index)
+model2.zpowerlw.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('model2 = Model(&quot;TBabs*zTBabs*(zpowerlw)&quot;)\nmodel2.TBabs.nH.values = (0.04, -1.) ## Milky Way absorption\nmodel2.zTBabs.Redshift.values = (0.05, -1.)\nmodel2.zTBabs.nH.values = (1., 0.01, 0.01, 0.01, 100., 100.)\nmodel2.zpowerlw.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)\nmodel2.zpowerlw.Redshift.link = &quot;p%d&quot; %(model2.zTBabs.Redshift.index)\nmodel2.zpowerlw.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)')"><i class="icofont-copy"></i></button>
+          </li>
+        </ul>
+      </br>
+      Use the same priors as for <code>model1</code> with an additional <code>loguniform</code> prior for <code>TBabs.nH</code>.
+        </li>
+
+        <li><code>model3</code> features the same absorbed powerlaw as in <code>model2</code> but with an additional Gaussian line:</br>
+            <ul>
+              <li>PyXspec:</br>
+          <code><pre>
+model3 = Model("TBabs*zTBabs*(zpowerlw+zgauss)")
+model3.TBabs.nH.values = (0.04, -1.) ## Milky Way absorption
+model3.zTBabs.Redshift.values = (0.05, -1.)
+model3.zTBabs.nH.values = (1., 0.01, 0.01, 0.01, 100., 100.)
+model3.zpowerlw.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)
+model3.zpowerlw.Redshift.link = "p%d" %(model3.zTBabs.Redshift.index)
+model3.zpowerlw.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)
+model3.zgauss.LineE.values = (6.4, 0.1, 6., 6., 7.2, 7.2)
+model3.zgauss.Sigma.values = (1.e-3, 0.01, 1.e-3, 1.e-3, 1., 1.)
+model3.zgauss.Redshift.link = "p%d" %(model3.zTBabs.Redshift.index)
+model3.zgauss.norm.values = (1.e-5, 0.01, 1.e-10, 1.e-10, 1., 1.)
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('model3 = Model(&quot;TBabs*zTBabs*(zpowerlw+zgauss)&quot;)\nmodel3.TBabs.nH.values = (0.04, -1.) ## Milky Way absorption\nmodel3.zTBabs.Redshift.values = (0.05, -1.)\nmodel3.zTBabs.nH.values = (1., 0.01, 0.01, 0.01, 100., 100.)\nmodel3.zpowerlw.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)\nmodel3.zpowerlw.Redshift.link = &quot;p%d&quot; %(model3.zTBabs.Redshift.index)\nmodel3.zpowerlw.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)\nmodel3.zgauss.LineE.values = (6.4, 0.1, 6., 6., 7.2, 7.2)\nmodel3.zgauss.Sigma.values = (1.e-3, 0.01, 1.e-3, 1.e-3, 1., 1.)\nmodel3.zgauss.Redshift.link = &quot;p%d&quot; %(model3.zTBabs.Redshift.index)\nmodel3.zgauss.norm.values = (1.e-5, 0.01, 1.e-10, 1.e-10, 1., 1.)')"><i class="icofont-copy"></i></button>
+          </li>
+        </ul>
+      </br>
+      Assume a uniform prior for <code>zgauss.LineE</code> and loguniform priors for <code>zgauss.Sigma</code> and <code>zgauss.norm</code>.
+        </li>
+
+      </ul>
+      </div>
+</section>
+
+
+
+<section id="ex14" class="services">
+      <div class="container">
+        <div class="section-title">
+          <a class="collapselink" data-toggle="collapse" href="#collapse-ex14" aria-expanded="true" aria-controls="collapse-ex14" style="color: #173b6c;">
+            <h3><i class="bx bx-chevron-right"></i> Exercise 1.4 - error propagation <a class="headerlink" href="#ex14" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
+            <em>By generating quantities directly from the posterior samples, we propagate the uncertainties and conserve any structure (e.g., degeneracies, multiple modes).</em>
+          </a>
+          </div>
+          <div class="collapse show" id="collapse-ex14">
+
+          We will consider three examples for posterior-based error propagation. Note the example code uses a <code>posterior_df</code> pandas dataframe to propagate the uncertainties.
+          <ul>
+            <li>Unabsorbed powerlaw flux: To calculate the flux of the powerlaw model component, we multiple by energy and integrate between <code>Emin_keV=2</code> and <code>Emax_keV=10</code>. Make sure to convert the units of the powerlaw normalisation so we get flux in erg/s/cm<sup>2</sup>.
+              <code><pre>
+## note have to be careful if PhoIndex ~ 2
+if np.isclose(PhoIndex, 2., atol = 1.e-2):
+    logflux = lognorm + np.log10(np.log(Emax_keV / Emin_keV))
+else:
+    A = 2. - PhoIndex
+    logflux = lognorm + np.log10(((Emax_keV**A) - (Emin_keV**A)) / A)
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('## note have to be careful if PhoIndex ~ 2\nif np.isclose(PhoIndex, 2., atol = 1.e-2):\n    logflux = lognorm + np.log10(np.log(Emax_keV / Emin_keV))\nelse:\n    A = 2. - PhoIndex\n    logflux = lognorm + np.log10(((Emax_keV**A) - (Emin_keV**A)) / A)')"><i class="icofont-copy"></i></button>
+            </li>
+            <li>Unabsorbed powerlaw luminosity: Now we have the unabsorbed flux, and we know the source is at redshift 0.05 we can estimate the distance and thus the luminosity.
+<code><pre>
+from tqdm import tqdm
+z = 0.05
+from astropy.cosmology import FlatLambdaCDM
+chosen_cosmology = FlatLambdaCDM(H0=67.3, Om0=0.315)
+D_cm = chosen_cosmology.luminosity_distance(z).value*(10**6)*(3.086*10**18)
+tqdm.pandas(desc="Calculating logluminosity in the 2-10 keV band")
+posterior_df.loc[:, "loglum"] = posterior_df["logflux"].progress_apply(lambda x: x + np.log10(4.*np.pi) + 2.*np.log10(D_cm))
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('from tqdm import tqdm\nz = 0.05\nfrom astropy.cosmology import FlatLambdaCDM\nchosen_cosmology = FlatLambdaCDM(H0=67.3, Om0=0.315)\nD_cm = chosen_cosmology.luminosity_distance(z).value*(10**6)*(3.086*10**18)\ntqdm.pandas(desc=&quote;Calculating logluminosity&quote;)\nposterior_df.loc[:, &quot;loglum&quot;] = posterior_df[&quot;logflux&quot;].progress_apply(lambda x: x + np.log10(4.*np.pi) + 2.*np.log10(D_cm))')"><i class="icofont-copy"></i></button>
+            </li>
+          <li>Unabsorbed equivalent width: The equivalent width (<code>EW</code> below) of an emission line is defined as the flux in the line divided by the flux of the continuum at the line energy (see the <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node96.html">Xspec documentation</a> for more information). By considering just the <code>zpowerlw></code> and <code>zgauss</code> components (i.e. no absorption), we get the unabsorbed equivalent width.</br>
+<code><pre>
+EW_keV = ((10 ** lognorm_zgauss)/(10 ** lognorm_zpow))*(LineE**PhoIndex) / (1.+z)
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('EW_keV = ((10 ** lognorm_zgauss)/(10 ** lognorm_zpow))*(LineE**PhoIndex) / (1.+z)')"><i class="icofont-copy"></i></button>
+</br>
+          </li></br>
+          
+          <li>Are any of the secondary parameters you have derived degenerate with the original parameters?</li></br>
+          <li>How do the unabsorbed flux and equivalent width posteriors compare between different models?</li></br>
+          
+          <li>Extension: load a fixed number of posterior model rows and calculate the absorbed flux and equivalent widths. How do their posteriors compare to the unabsorbed values derived above?</li>
+          </ul>
+        </div>
+</section>
+
+
+<section id="ex15" class="services">
+      <div class="container">
+        <div class="section-title">
+          <a class="collapselink" data-toggle="collapse" href="#collapse-ex15" aria-expanded="true" aria-controls="collapse-ex15" style="color: #173b6c;">
+          <h3><i class="bx bx-chevron-right"></i> Exercise 1.5 - fitting multiple datasets simultaneously with BXA <a class="headerlink" href="#ex15" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
+          <p><em>Sometimes it is advantageous to fit multiple spectra for the same source simultaneously with a cross-calibration constant to account for instrumental differences associated with the separate spectra.</em></p>
+        </a>
+        </div>
+        <div class="collapse show" id="collapse-ex15">
+          For this example, we need another dataset. As an example, we will use the Chandra/ACIS spectrum included in the <a href="setup.html#download">downloadable files</a> which will be fit in the energy range 0.5-8 keV to extend our spectral range to lower energies than attainable with just NuSTAR.</br></br>
+
+        We first assume that the source was not variable between the NuSTAR and Chandra observations, and thus only account for differences arising from the calibration of either instrument with an additional factor pre-multiplying each spectrum.</br></br>
+        <ul>
+          <li>First, include a cross-calibration constant in your model between the Chandra and NuSTAR datasets:</br>
+          <ul>
+          <li>PyXspec:</br>
+          <code><pre>
+AllData("1:1 nustar_src_bmin5.pha 2:2 chandra_src_bmin5.pi")
+AllData.ignore("1:0.-3. 78.-** 2:0.-0.5 8.-**")
+
+model1 = Model("constant*TBabs*zpowerlw")
+AllModels(1).constant.factor.values = (1., -1.)
+AllModels(1).TBabs.nH.values = (0.04, -1.) ## Milky Way absorption
+AllModels(1).zpowerlw.PhoIndex.values = (1.8, 0.1, -3., -2., 9., 10.)
+AllModels(1).zpowerlw.Redshift.values = (0.05, -1.)
+AllModels(1).zpowerlw.norm.values = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)
+AllModels(2).constant.factor = (1., 0.01, 0.1, 0.1, 10., 10.)
+Plot("ldata")
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('AllData(&quot;1:1 nustar_src_bmin5.pha 2:2 chandra_src_bmin5.pi&quot;)\nAllData.ignore(&quot;1:0.-3. 78.-** 2:0.-0.5 8.-**&quot;)\nmodel1 = Model(&quot;constant*TBabs*zpowerlw&quot;)\nAllModels(1).constant.factor.values = (1., -1.)\nAllModels(1).TBabs.nH.values = (0.04, -1.) ## Milky Way absorption\nAllModels(1).zpowerlw.PhoIndex.values = (1.8, 0.1, -3., -2., 9., 10.)\nAllModels(1).zpowerlw.Redshift.values = (0.05, -1.)\nAllModels(1).zpowerlw.norm.values = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)\nAllModels(2).constant.factor = (1., 0.01, 0.1, 0.1, 10., 10.)\nPlot(&quot;ldata&quot;)')"><i class="icofont-copy"></i></button>
+          </li>
+          
+          <li>Sherpa:</br>
+          <code><pre>
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "nustar_src_bmin5.pha")
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/ignore_id.html">ignore_id</a>(1, "0.:3.,78.:")
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(2, "chandra_src_bmin5.pi")
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/ignore_id.html">ignore_id</a>(2, "0.:0.5,8.:")
+model1 = xstbabs.tbabs*<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a>.mypow
+x1model1 = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsconstant.html">xsconstant</a>("xcal1") * model1
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(xcal1.factor, val=1, frozen=True)
+x2model2 = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsconstant.html">xsconstant</a>("xcal2") * model1
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(xcal2.factor, val=1, min = 1.e-2, max = 1.e2)
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(1, x1model1)
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(2, x2model2)</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('load_pha(1, &quot;nustar_src_bmin5.pha&quot;)\nignore_id(1, &quot;0.:3.,78.:&quot;)\nload_pha(2, &quot;chandra_src_bmin5.pi&quot;)\nignore_id(2, &quot;0.:0.5,8.:&quot;)\nmodel1 = xstbabs.tbabs*xspowerlaw.mypow\nx1model1 = xsconstant(&quot;xcal1&quot;) * model1\nset_par(xcal1.factor, val=1, frozen=True)\nx2model2 = xsconstant(&quot;xcal2&quot;) * model1\nset_par(xcal2.factor, val=1, min = 1.e-2, max = 1.e2)\nset_source(1, x1model1)\nset_source(2, x2model2)')"><i class="icofont-copy"></i></button>
+          </li>
+        </ul></li></br>
+          <li>Fit the new model with BXA and derive a posterior confidence range on the cross-calibration constant. Remember to do prior predictive checks before fitting!</br>
+          <ul>
+          <li>PyXspec:</br>
+          <code><pre>
+prior1 = bxa.create_uniform_prior_for(model1, model1.zpowerlw.PhoIndex)
+prior2 = bxa.create_loguniform_prior_for(model1, model1.zpowerlw.norm)
+prior3 = bxa.create_loguniform_prior_for(AllModels(2), AllModels(2)(1))
+solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>(transformations=[prior1, prior2, prior3], outputfiles_basename="model1_nuchan")
+results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('prior1 = bxa.create_uniform_prior_for(model1, model1.zpowerlw.PhoIndex)\nprior2 = bxa.create_loguniform_prior_for(model1, model1.zpowerlw.norm)\nprior3 = bxa.create_loguniform_prior_for(AllModels(2), AllModels(2)(1))\nsolver = bxa.BXASolver(transformations=[prior1, prior2, prior3], outputfiles_basename=&quot;model1_nuchan&quot;)\nresults = solver.run(resume=True)')"><i class="icofont-copy"></i></button>        </li>
+          <li>Sherpa:</br>
+          <code><pre>
+prior1 = bxa.create_uniform_prior_for(model1, model1.powerlaw.PhoIndex)
+prior2 = bxa.create_loguniform_prior_for(model1, model1.powerlaw.norm)
+prior3 = bxa.create_loguniform_prior_for(xcal2)
+priors = [prior1, prior2, prior3]
+parameters = [model1.powerlaw.PhoIndex, model1.powerlaw.norm, xcal2]
+solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sherpa-analysis.html#bxa.sherpa.solver.BXASolver">BXASolver</a>(prior=bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_prior_function">create_prior_function</a>(priors), parameters=parameters, outputfiles_basename="model1_nuchan")
+results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.sherpa.html#bxa.sherpa.solver.BXASolver.run">run</a>(resume=True)</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('prior1 = bxa.create_uniform_prior_for(model1, model1.powerlaw.PhoIndex)\nprior2 = bxa.create_loguniform_prior_for(model1, model1.powerlaw.norm)\nprior3 = bxa.create_loguniform_prior_for(xcal2)\npriors = [prior1, prior2, prior3]\nparameters = [model1.powerlaw.PhoIndex, model1.powerlaw.norm, xcal2]\nsolver = bxa.BXASolver(prior=bxa.create_prior_function(priors), parameters=parameters, outputfiles_basename=&quot;model1_nuchan&quot;)\nresults = solver.run(resume=True)')"><i class="icofont-copy"></i></button>
+          </li>
+        </ul>
+        Warning: fitting <code>model3</code> with both datasets simultaneously can take up to an hour.</li></br>
+
+          <li>How have the confidence ranges on all the model parameters changed after including Chandra?</li></br>
+
+          <li>Have the uncertainties on unabsorbed flux or equivalent width changed?</li></br>
+          </ul>
+        </div>
+</section>
+
+<section id="ex16" class="services">
+      <div class="container">
+        <div class="section-title">
+          <a class="collapselink" data-toggle="collapse" href="#collapse-ex16" aria-expanded="true" aria-controls="collapse-ex16" style="color: #173b6c;">
+          <h3><i class="bx bx-chevron-right"></i> Exercise 1.6 - (Sherpa only) automated background fitting with BXA <a class="headerlink" href="#ex16" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
+        </a>
+        </div>
+        <div class="collapse show" id="collapse-ex16">
+
+        So far, the exercises have used modified C-statistics (aka W-statistics) in which the background is modelled as a stepwise function with the same number of parameters as bins. This process typically requires some form of minimal binning (see discussion <a target="_blank" href="https://giacomov.github.io/Bias-in-profile-poisson-likelihood/">here</a>).</br></br>
+
+          Using C-statistics can be more flexible, since no binning is required by simultaneously fitting a background model instead. Here we use the <code><a target="_blank" href="https://johannesbuchner.github.io/BXA/pca-background-models.html">auto_background</a></code> function in BXA, which provides a powerful way to implement background models in Sherpa, and simultaneously fit with a source model using BXA.</br></br>
+
+          <ul>
+          <li>Load the data, source model and priors as in <a href="#ex11">Exercise 1.1</a> (make sure to also change the statistic from <code>wstat</code> to <code>cstat</code>!)</li></br>
+
+          <li>Load the automatic PCA background model (see <a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...618A..66S/abstract">Simmonds et al., 2018</a> for more information):</br>
+          <code><pre>
+from bxa.sherpa.background.pca import <a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/background/pca.html#auto_background">auto_background</a>
+<a target="_blank" href="https://cxc.harvard.edu/sherpa/ahelp/set_model.html">set_model</a>(1, model)
+convmodel = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_model.html">get_model</a>(1)
+bkg_model = <a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/background/pca.html#auto_background">auto_background</a>(1)
+<a target="_blank" herf="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_full_model.html">set_full_model</a>(1, convmodel + bkg_model*<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_bkg_scale.html">get_bkg_scale</a>(1))
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('from bxa.sherpa.background.pca import auto_background\nset_model(1, model)\nconvmodel = get_model(1)\nbkg_model = auto_background(1)\nset_full_model(1, convmodel + bkg_model*get_bkg_scale(1))')"><i class="icofont-copy"></i></button>
+          </li>
+
+          <li>Remember to include the zeroth order component from the PCA background model in the priors and parameters list so that BXA knows to vary it as a free parameter:</br>
+          <code><pre>
+parameters += [bkg_model.pars[0]]
+priors += [bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(bkg_model.pars[0])]
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('parameters += [bkg_model.pars[0]]\npriors += [bxa.create_uniform_prior_for(bkg_model.pars[0])]')"><i class="icofont-copy"></i></button>
+          </li></br>
+
+          <li>Fit the source + background model with BXA</li></br>
+
+          <li>Check the background fit (e.g., with <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/plot_bkg_fit.html">get_bkg_fit</a></code>, <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/plot_bkg_fit_ratio.html">get_bkg_fit_ratio</a></code>, <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/plot_bkg_fit_resid.html">get_bkg_fit_resid</a></code>).</li></br>
+
+          <li>Have the uncertainty ranges changed at all for the parameters? Why or why not?</li>
+        </ul>
+      </div>
+</section>
+
+
+
+<section id="nav" class="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="info">
+                <a href="session0.html"><h4>Previous: Session 0</h4></a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="info">
+                <a href="session2.html"><h4>Next: Session 2</h4></a>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
+
+
+
+<section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <a class="collapselink" data-toggle="collapse" href="#collapse-contact" aria-expanded="true" aria-controls="collapse-contact" style="color: #173b6c;">
+          <h2><i class="bx bx-envelope"></i> Contact</a> <a class="headerlink" href="#contact" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
+        </a>
+        </div>
+        <div class="collapse show" id="collapse-contact">
+
+                <div class="row">
+
+          <div class="col-lg-6">
+            <div class="info">
+                  <i class="icofont-question"></i>
+                <h4>Raising issues</h4>
+                <br>
+                <ul>
+                  <li>BXA: <a href="https://github.com/JohannesBuchner/BXA/issues" target="_blank">github.com/JohannesBuchner/BXA/issues</a></li>
+                  <li>UltraNest: <a href="https://github.com/JohannesBuchner/UltraNest/issues" target="_blank">github.com/JohannesBuchner/UltraNest/issues</a></li>
+
+              </div>
+            </div>
+
+          <div class="col-lg-6">
+            <div class="info">
+              <i class="icofont-envelope"></i>
+                <h4>Email</h4>
+                <br>
+                <ul>
+                  <li>Peter Boorman: <a href="mailto:boorman[at]asu[dot]cas[dot]cz">boorman[at]asu[dot]cas[dot]cz</a></li>
+                  <li>Johannes Buchner: <a href="mailto:jbuchner[at]mpe[dot]mpg[dot]de">jbuchner[at]mpe[dot]mpg[dot]de</a></li>
+                </ul>
+            </div>
+            </div>
+          </div>
+
+
+          
+      </div>
+</section>
+
+
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="social-links mt-3 text-left">
+          <a href="../tutorial_bxa.html"><i class="bx bx-home-alt"></i></a>
+        </div>
+      <!-- <div class="copyright">
+        <a target="_blank" href="https://peterboorman.com"><i class="bx bx-arrow-back"></i> </a>
+      </div> -->
+      <!-- <div class="credits"> -->
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
+        <!-- Design: <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
+      <!-- </div> -->
+    </div>
+  </footer>
+  <!-- End  Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="../assets/vendor/counterup/counterup.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../assets/vendor/venobox/venobox.min.js"></script>
+  <script src="../assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="../assets/vendor/typed.js/typed.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+  <script src="../assets/js/scroll.js"></script>
+
+  <script>
+    // https://stackoverflow.com/questions/67016340/javascript-copy-to-clipboard-without-concrete-id-in-html-tag
+    function cp(id) {
+  if (!id) return;
+  const code = document.getElementById(id);
+  if (!code) return;
+  if (navigator && navigator.clipboard) { // need to check because it's only available on https and localohost
+    navigator.clipboard.writeText(code.innerHTML);
+  }
+};
+  </script>
+
+  <script>
+    // https://stackoverflow.com/questions/67016340/javascript-copy-to-clipboard-without-concrete-id-in-html-tag
+    function cx(tx) {
+  if (!tx) return;
+  if (navigator && navigator.clipboard) { // need to check because it's only available on https and localohost
+    navigator.clipboard.writeText(tx);
+  }
+};
+  </script>
+</body>
+
+</html>

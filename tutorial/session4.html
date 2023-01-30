@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Using academicons -->
+  <!-- <link rel="stylesheet" href="../assets/academicons-1.9/css/academicons.min.css"/> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <!-- Using fontawesome -->
+  <script src="https://kit.fontawesome.com/f5e5434f52.js" crossorigin="anonymous"></script>
+
+
+  <!-- <link rel="apple-touch-icon" href="./favicon.ico" /> -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Session 4</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+  <!-- <meta content="" name="description"> -->
+  <!-- <meta content="" name="keywords"> -->
+  <meta property="og:title" content="BXA Tutorial Session 4" />
+  <meta property="og:locale" content="en_UK" />
+  <meta name="description" content="BXA Tutorial Session 4" />
+  <meta property="og:description" content="BXA Tutorial Session 4" />
+  <link rel="canonical" href="https://peterboorman.com/" />
+  <meta property="og:url" content="https://peterboorman.com/" />
+  <meta property="og:site_name" content="BXA Tutorial Session 4" />
+  <script type="application/ld+json">
+  {"@type":"WebSite","headline":"BXA Tutorial Session 4","url":"https://peterboorman.com/tutorial_bxa.html","description":"BXA Tutorial Session 4","name":"BXA Tutorial Session 4","@context":"https://schema.org"}</script>
+
+  <!-- Favicons -->
+  <!-- <link href="../assets/img/favicon.png" rel="icon"> -->
+  <link href="favicon.ico" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="../assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: iPortfolio - v1.4.1
+  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <div class="progressContainer"><div id="progress" class="progress"></div></div>
+
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+      <div class="profile">
+        <a href="../tutorial_bxa.html"><img src="../figures/plots_logo.png" alt="" class="img-fluid rounded-circle"></img></a>
+        <p></p>
+        <h1 class="specific"><a href="#session0">Session 4</a></h1>
+        <div class="social-links mt-3 text-center">
+          <a href="http://johannesbuchner.github.io/BXA/" class="github"><i class="bx bxl-github"></i></a>
+          <a href="../tutorial_bxa.html#contact"><i class="bx bx-envelope"></i></a>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="../tutorial_bxa.html#welcome"><i class="bx bx-star"></i> <span>Welcome</span></a></li>
+          <li><a href="whybxa.html"><i class="icofont-light-bulb"></i> <span>Why use BXA?</span></a></li>
+          <li><a href="setup.html"><i class="icofont-tools-alt-2"></i> <span>Setup</span></a></li>
+          <li><a href="setup.html#download"><i class="bx bx-download"></i> <span>Download spectra</span></a></li>
+          <li><a href="session0.html"><i class="bx bx-terminal"></i>Session 0 - X-ray spectral fitting</a></li>
+          <li><a href="session0.html#ex01"><i class="bx bx-chevron-right"></i>0.1 - binning data</a></li>
+          <li><a href="session0.html#ex02"><i class="bx bx-chevron-right"></i>0.2 - loading data</a></li>
+          <li><a href="session0.html#ex03"><i class="bx bx-chevron-right"></i>0.3 - plotting</a></li>
+          <li><a href="session0.html#ex04"><i class="bx bx-chevron-right"></i>0.4 - fitting</a></li>
+          <li><a href="session0.html#ex05"><i class="bx bx-chevron-right"></i>0.5 - simulating data</a></li>
+          <li><a href="session1.html"><i class="bx bx-line-chart"></i>Session 1 - BXA</a></li>
+          <li><a href="session1.html#ex11"><i class="bx bx-chevron-right"></i>1.1 - prior predictive checks</a></li>
+          <li><a href="session1.html#ex12"><i class="bx bx-chevron-right"></i>1.2 - fitting a model</a></li>
+          <li><a href="session1.html#ex13"><i class="bx bx-chevron-right"></i>1.3 - fit some more models</a></li>
+          <li><a href="session1.html#ex14"><i class="bx bx-chevron-right"></i>1.4 - error propagation</a></li>
+          <li><a href="session1.html#ex15"><i class="bx bx-chevron-right"></i>1.5 - fit multiple datasets</a></li>
+          <li><a href="session1.html#ex16"><i class="bx bx-chevron-right"></i>1.6 - background fitting</a></li>
+          <li><a href="session2.html"><i class="bx bx-check-circle"></i>Session 2 - model checking</a></li>
+          <li><a href="session2.html#ex21"><i class="bx bx-chevron-right"></i>2.1 - visualisation</a></li>
+          <li><a href="session2.html#ex22"><i class="bx bx-chevron-right"></i>2.2 - quantile-quantile checks</a></li>
+          <li><a href="session2.html#ex23"><i class="bx bx-chevron-right"></i>2.3 - posterior predictive checks</a></li>
+          <li><a href="session3.html"><i class="bx bx-select-multiple"></i>Session 3 - model comparison</a></li>
+          <li><a href="session3.html#ex31"><i class="bx bx-chevron-right"></i>3.1 - Bayes factors</a></li>
+          <li><a href="session3.html#ex32"><i class="bx bx-chevron-right"></i>3.2 - type I errors</a></li>
+          <li><a href="session3.html#ex33"><i class="bx bx-chevron-right"></i>3.3 - type II errors</a></li>
+          <li><a href="session3.html#ex34"><i class="bx bx-chevron-right"></i>3.4 - extension</a></li>
+          <li><a href="#session4"><i class="bx bx-bar-chart-alt-2"></i>Session 4 - parent distributions</a></li>
+          <li><a href="#ex41"><i class="bx bx-chevron-right"></i>4.1 - Gaussian</a></li>
+          <li><a href="#ex42"><i class="bx bx-chevron-right"></i>4.2 - histogram</a></li>
+          <li><a href="#ex43"><i class="bx bx-chevron-right"></i>4.3 - preparing for a proposal</a></li>
+          <li><a href="session5.html"><i class="bx bx-analyse"></i>Session 5 - advanced usage</a></li>
+          <li><a href="session5.html#ex51"><i class="bx bx-chevron-right"></i>5.1 - information gain</a></li>
+          <li><a href="session5.html#ex52"><i class="bx bx-chevron-right"></i>5.2 - custom priors</a></li>
+          <li><a href="session5.html#ex53"><i class="bx bx-chevron-right"></i>5.3 - step samplers</a></li>
+          <li><a href="tipsandtricks.html"><i class="bx bx-bulb"></i> <span>Tips & tricks</span></a></li>
+          <li><a href="links.html"><i class="bx bx-bookmarks"></i> <span>Useful links</span></a></li>
+          <li><a href="#contact"><i class="icofont-letter"></i>Contact</a></li>
+          <li><p>&nbsp; </p></li>
+          <li><p>&nbsp; </p></li>
+          <li><p>&nbsp; </p></li>
+          <li><p>&nbsp; </p></li>
+          <li><p>&nbsp; </p></li>
+          <li><p>&nbsp; </p></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+      <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+
+    </div>
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+
+<section id="session4" class="services">
+      <div class="container">
+        <div class="section-title">
+          <a class="collapselink" data-toggle="collapse" href="#collapse-session4" aria-expanded="true" aria-controls="collapse-session4" style="color: #173b6c;">
+          <h2><i class="bx bx-bar-chart-alt-2"></i> Session 4 - parent distributions <a class="headerlink" href="#session4" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
+          </a>
+          </div>
+          <div class="collapse show" id="collapse-session2">
+          When constraining a parameter for a sample of sources, it can be useful to determine what parent model could have generated the parameter posteriors you have constrained. This session uses Hierarchical Bayesian modelling to do this.
+          </br></br>
+          Key objectives:
+          <ul>
+          <li>Understand the concept of parent distributions</li>
+          <li>Combine individual posteriors to constrain a parent distribution</li>
+          <li>Constrain a variety of parent distribution models for a given set of posteriors</li>
+        </ul>
+
+          These exercises involve simulating spectra. To do this you will need a model, response file (rmf), effective area file (arf) and (optionally) a background spectrum file:
+
+          <ul>
+          <li>PyXspec (using <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fakeitsettings.html">fakeit</a></code>):</br>
+          <code><pre>
+mymod = <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/model.html">Model</a>("<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>")
+mymod.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>.PhoIndex.values = (1.9, 0.01, -3., -3., 3., 3.)
+mymod.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/XSmodelPowerlaw.html">powerlaw</a>.norm.values = (1.e-3, 0.01, 1.e-8, 1.e-8, 1., 1.)
+fakeit_kwargs = {}
+fakeit_kwargs["response"] = "chan.rmf"
+fakeit_kwargs["arf"] = "chan.arf"
+fakeit_kwargs["background"] = "sim_chan_bkg.pi"
+fakeit_kwargs["exposure"] = 30.e3
+fakeit_kwargs["correction"] = "1."
+fakeit_kwargs["backExposure"] = 30.e3
+fakeit_kwargs["fileName"] = "sim_chan.pi"
+<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fakeitsettings.html">fakeit</a>(1, <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fakeitsettings.html">FakeitSettings</a>(**fakeit_kwargs))
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('mymod = Model(&quot;powerlaw&quot;)\nmymod.powerlaw.PhoIndex.values = (1.9, 0.01, -3., -3., 3., 3.)\nmymod.powerlaw.norm.values = (1.e-3, 0.01, 1.e-8, 1.e-8, 1., 1.)\nfakeit_kwargs = {}\nfakeit_kwargs[&quot;response&quot;] = &quot;chan.rmf&quot;\nfakeit_kwargs[&quot;arf&quot;] = &quot;chan.arf&quot;\nfakeit_kwargs[&quot;background&quot;] = &quot;chan_bkg.pi&quot;\nfakeit_kwargs[&quot;exposure&quot;] = 30.e3\nfakeit_kwargs[&quot;correction&quot;] = &quot;1.&quot;\nfakeit_kwargs[&quot;backExposure&quot;] = 30.e3\nfakeit_kwargs[&quot;fileName&quot;] = &quot;sim_chan.pi&quot;\nAllData.fakeit(1, FakeitSettings(**fakeit_kwargs))')"><i class="icofont-copy"></i></button>
+          </li>
+          <li>Sherpa (using <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/fake_pha.html">fake_pha</a></code>):</br>
+          <code><pre>
+mymod = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a>.mypow
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(mymod.phoindex, val = 1.9, min = -3., max = 3.)
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(mymod.norm, val = 1.e-3, min = 1.e-8, max = 1.)
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "chan_src.pi") #loading pre-exising source spectrum with rmf, arf & bkg present
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(1, mymod)
+fakepha_kwargs = {}
+fakepha_kwargs["rmf"] = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_rmf.html">get_rmf</a>()
+fakepha_kwargs["arf"] = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_arf.html">get_arf</a>()
+fakepha_kwargs["bkg"] = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_bkg.html">get_bkg</a>()
+fakepha_kwargs["exposure"] = 30.e3
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/fake_pha.html">fake_pha</a>(1, **fakepha_kwargs)
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/save_pha.html">save_pha</a>(1, "sim_chan.pi", clobber = True)
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('mymod = xspowerlaw.mypow\nset_par(mymod.phoindex, val = 1.9, min = -3., max = 3.)\nset_par(mymod.norm, val = 1.e-3, min = 1.e-8, max = 1.)\nload_pha(1, &quot;chan_src.pi&quot;) #loading pre-exising source spectrum with rmf, arf & bkg present\nset_source(1, mymod)\nfakepha_kwargs = {}\nfakepha_kwargs[&quot;rmf&quot;] = get_rmf()\nfakepha_kwargs[&quot;arf&quot;] = get_arf()\nfakepha_kwargs[&quot;bkg&quot;] = get_bkg()\nfakepha_kwargs[&quot;exposure&quot;] = 30.e3\nfake_pha(1, **fakepha_kwargs)\nsave_pha(1, &quot;sim_chan.pi&quot;, clobber = True)')"><i class="icofont-copy"></i></button>
+          </li>
+          </ul>
+        </div>
+</section>
+
+<section id="ex41" class="services">
+      <div class="container">
+        <div class="section-title">
+          <a class="collapselink" data-toggle="collapse" href="#collapse-ex41" aria-expanded="true" aria-controls="collapse-ex41" style="color: #173b6c;">
+          <h3><i class="bx bx-chevron-right"></i> Exercise 4.1 - Gaussian parent distribution <a class="headerlink" href="#ex21" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
+          <p><em>Here we will combine several individual source posterior distributions to derive a sample distribution for the photon index .</em></p>
+        </a>
+        </div>
+        <div class="collapse show" id="collapse-ex41">
+
+        <ul>
+
+          <li>Install <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">PosteriorStacker</a>:<br>
+            <code>$ conda install -c conda-forge posteriorstacker</code>
+            &nbsp; <button class="cpbt" onclick="cx('conda install -c conda-forge posteriorstacker')"><i class="icofont-copy"></i></button>
+            <br>Alternatively, you can just download the script and use it in your directory.</li></br>
+          <li>To generate the posterior samples used in this exercise, download and run the following <a href="./bxa/ex21_pyxspec.py" download>PyXspec</a> (<code>$ python3 ex21_pyxspec.py</code> <button class="cpbt" onclick="cx('python3 ex21_pyxspec.py')"><i class="icofont-copy"></i></button>) or <a href="./bxa/ex21_sherpa.py" download>Sherpa</a> (<code>$ sherpa ex21_sherpa.py</code> <button class="cpbt" onclick="cx('sherpa ex21_sherpa.py')"><i class="icofont-copy"></i></button>) script. The script will generate 30 <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/readme.html">UltraNest</a> output folders by:</br>
+          <ol>
+          <li>Simulating NuSTAR spectra from an <code>absorbed powerlaw</code> model (see <a href="ex13">Exercise 1.3</a>), with <code>PhoIndex</code> sampled from a Gaussian distribution 1.8 +/- 0.3. Note you will need the <a href="https://www.nustar.caltech.edu/system/media_files/binaries/32/original/nustar_point_sources_for_proposers.tgz?1404172745">Point source simulation files</a> distributed by the NuSTAR team to run the scripts (more info <a target="_blank" href="https://www.nustar.caltech.edu/page/response_files">here</a>).</li>
+          <li>Each spectrum will then be fit with BXA using non-informative priors for line-of-sight column density, powerlaw photon index and powerlaw normalisation.</li>
+          </ol>
+          </li>
+          <li>The script may take some time (~ a few hours) to complete. Alternatively, you can download some pre-generated <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/readme.html">UltraNest</a> folders using a similar model <a href="bxa/ex21_ultranest_posteriors.zip">here</a>.</li></br>
+          <li>From inside the <code>ultranest_posteriors</code> directory, run:</br>
+          <code><pre>
+$ <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker/blob/main/load_ultranest_outputs.py">load_ultranest_outputs.py</a> fitsim0/ fitsim1/ fitsim2/ fitsim3/ fitsim4/ fitsim5/ fitsim6/ ... \
+                            --samples 1000 \
+                            --parameter PhoIndex \
+                            --out posterior_samples.txt
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('load_ultranest_outputs.py fitsim0/ fitsim1/ fitsim2/ fitsim3/ fitsim4/ fitsim5/ fitsim6/ fitsim7/ fitsim8/ fitsim9/ fitsim11/ fitsim12/ fitsim13/ fitsim14/ fitsim15/ fitsim16/ fitsim17/ fitsim18/ fitsim19/ fitsim20/ fitsim21/ fitsim22/ fitsim23/ fitsim24/ fitsim25/ fitsim26/ fitsim27/ fitsim28/ fitsim29/ --samples 1000 --parameter PhoIndex --out posterior_samples.txt')"><i class="icofont-copy"></i></button>
+          </li>
+          <li>The <code>posterior_samples.txt</code> file contains 1000 sampled rows of each posterior.</li></br>
+          <li><strong>Important</strong>: if the posterior samples were obtained with a non-uniform prior, the posterior samples should first be resampled according to the inverse of the prior that was used.</li></br>
+          <li>Visualise the data by calculating the 16th, 50th & 84th quantiles of each posterior sample and plotting as an errorbar. E.g., in Python:</br>
+<code><pre>
+import <a target="_blank" href="https://numpy.org">numpy</a> as np
+import <a target="_blank" href="https://pandas.pydata.org">pandas</a> as pd
+quantiles = [16, 50, 84]
+x = np.<a target="_blank" href="https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html">loadtxt</a>("posterior_samples.txt")
+q = np.<a target="_blank" href="https://numpy.org/doc/stable/reference/generated/numpy.percentile.html">percentile</a>(x, quantiles, axis = 1)
+df = pd.<a target="_blank" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">DataFrame</a>(data = {"q%d" %(qvalue): q[i] for i, qvalue in enumerate(quantiles)})
+          
+import <a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html">matplotlib.pyplot</a> as plt
+plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html">xlabel</a>("PhoIndex")
+plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.errorbar.html">errorbar</a>(x=df["q50"], xerr=[df["q50"]-df["q16"], df["q84"]-df["q50"]], y=range(len(df)), marker="o", ls=" ", color="orange")
+plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlim.html">xlim</a>(df["q16"].min() - 0.5, df["q84"].max() + 0.5)
+plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html">show</a>()
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('import numpy as np\nimport pandas as pd\nquantiles = [16, 50, 84]\nx = np.loadtxt(&quot;posterior_samples.txt&quot;)\nq = np.percentile(x, quantiles, axis = 1)\ndf = pd.DataFrame(data = {&quot;q%d&quot; %(qvalue): q[i] for i, qvalue in enumerate(quantiles)})\n\nimport matplotlib.pyplot as plt\nplt.xlabel(&quot;PhoIndex&quot;)\nplt.errorbar(x=df[&quot;q50&quot;], xerr=[df[&quot;q50&quot;]-df[&quot;q16&quot;], df[&quot;q84&quot;]-df[&quot;q50&quot;]], y=range(len\ndf)), marker=&quot;o&quot;, ls=&quot; &quot;, color=&quot;orange&quot;)\nplt.xlim(df[&quot;q16&quot;].min() - 0.5, df[&quot;q84&quot;].max() + 0.5)\nplt.show()')"><i class="icofont-copy"></i></button>
+          <div class="col-lg-8">
+            <img src="../bxa/vis_samples.png" class="img-fluid" alt="">
+          </div>
+          </li>
+          <li>Run <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">PosteriorStacker</a>:<br>
+          <code>$ <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">posteriorstacker.py</a> posterior_samples.txt 0.5 3. 10 --name="PhoIndex"</code>
+          &nbsp; <button class="cpbt" onclick="cx('posteriorstacker.py posterior_samples.txt 0.5 3. 10 --name=&quot;PhoIndex&quot;')"><i class="icofont-copy"></i></button>
+          </li>
+          <li><a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">PosteriorStacker</a> then fits two models for the parent sample distribution: a histogram model with each bin height as the free parameters (using a <a target="_blank" href="https://en.wikipedia.org/wiki/Dirichlet_distribution">Dirichlet prior</a>) and a Gaussian model with mean and sigma as the free parameters.</li></br>
+          <li>Examine the <code>posteriorsamples.txt_out.pdf</code> file.</li></br>
+          <li>What can you say about the distribution of <code>PhoIndex</code>? What would happen if you acquired more posterior samples (i.e. by increasing <code>population_size</code> in the simulation scripts) and/or used higher signal-to-noise spectra to fit?</li></br>
+
+        </ul>
+      </div>
+</section>
+
+
+
+
+<section id="ex42" class="services">
+      <div class="container">
+        <div class="section-title">
+          <a class="collapselink" data-toggle="collapse" href="#collapse-ex42" aria-expanded="true" aria-controls="collapse-ex42" style="color: #173b6c;">
+          <h3><i class="bx bx-chevron-right"></i> Exercise 4.2 - histogram parent distribution <a class="headerlink" href="#ex42" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
+          <p><em>Now you have created a parent population for photon index using PosteriorStacker, this exercise will focus on the <i>N</i><sub>H</sub> distribution.</em></p>
+        </a>
+        </div>
+        <div class="collapse show" id="collapse-ex42">
+
+        <i>Context:</i> The column density (<i>N</i><sub>H</sub>) distribution is a useful quantity for studies of accreting supermassive black holes (aka Active Galactic Nuclei; AGN).
+          Of particular interest in this regard is the "Compton-thick" fraction - i.e. the fraction of sources with log <i>N</i><sub>H</sub> / cm<sup>-2</sup> > 24.
+        <br><br>
+        <b>The goal of this exercise is to estimate the uncertainty on each bin in a log <i>N</i><sub>H</sub> distribution from a survey of 30 AGN.</b>
+        <br><br>
+
+        For the AGN being simulated, we can assume:
+        <ul>
+          <li>Every AGN follows the same baseline model:
+            <br>
+            <code>model = TBabs[Gal] * TBabs[AGN] * powerlaw</code>
+            <br>
+            Where:
+            <ul>
+              <li><code>TBabs[Gal]</code> is the absorbing column density arising from the Milky Way, assumed to be <i>N</i><sub>H</sub> = 10<sup>20</sup> cm<sup>-2</sup> for every AGN.
+              </li>
+              <li><code>TBabs[AGN]</code> is the absorbing column density at the source. This is the parameter we want to generate a population <i>N</i><sub>H</sub> distribution from.
+              </li>
+              <li><code>powerlaw</code> is the intrinsic emission from the AGN, with photon index within 1.9 &pm; 0.1 and normalisation within 10<sup>-4</sup> to 10<sup>-1</sup> photons/keV/cm<sup>2</sup>/s at 1 keV.
+              </li>
+              Note this assumes that every AGN is at redshift zero.
+            </ul>
+          </li>
+          <li>Every AGN has a column density <i>N</i><sub>H</sub> in the range 10<sup>20</sup> - 10<sup>25</sup> cm<sup>-2</sup>. (Remember the units of <i>N</i><sub>H</sub> in <code>TBabs</code> is 10<sup>22</sup> cm<sup>-2</sup>!)
+          </li>
+          <li>Every AGN observation will be carried out by NuSTAR. Note the energy range for spectral analysis will be 3-78 keV, and you can assume observation exposures of 100 ks with no background present. Response (<code>nustar.rmf</code>) and effective area (<code>point_30arcsecRad_1arcminOA.arf</code>) files can be found in the <a href="https://www.nustar.caltech.edu/system/media_files/binaries/32/original/nustar_point_sources_for_proposers.tgz?1404172745">point source simulation files</a> (distributed by the NuSTAR team, more info <a target="_blank" href="https://www.nustar.caltech.edu/page/response_files">here</a>).
+          </li>
+          <li>The parent <i>N</i><sub>H</sub> distribution follows this shape:
+            <br><br>
+            <div class="col-lg-8">
+              <img src="bxa/simnhdist.png" class="img-fluid" alt="">
+            </div>
+            <br>
+            To generate <code>N</code> random log <i>N</i><sub>H</sub> values from this distribution, you can use the following code:
+            <code><pre>
+import <a href="https://scipy.org" target="_blank">scipy</a>.<a href="https://docs.scipy.org/doc/scipy/reference/interpolate.html" target="_blank">interpolate</a>
+import <a target="_blank" href="https://numpy.org">numpy</a> as np
+np.<a href="https://numpy.org/doc/stable/reference/random/index.html" target="_blank">random</a>.<a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.seed.html" target="_blank">seed</a>(42)
+fractions = [0.25, 0.05, 0.15, 0.2, 0.3]
+bins = [20., 21., 22., 23., 24., 25.]
+cdf = np.<a href="https://numpy.org/doc/stable/reference/generated/numpy.append.html" target="_blank">append</a>(0., np.<a href="https://numpy.org/doc/stable/reference/generated/numpy.cumsum.html" target="_blank">cumsum</a>(fractions) / np.<a href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html" target="_blank">sum</a>(fractions))
+interp_cdf = <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp1d.html" target="_blank">scipy.interpolate.interp1d</a>(cdf, bins, bounds_error = False)
+rands = np.<a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.uniform.html" target="_blank">random.uniform</a>(size = N)
+random_lognh_values = interp_cdf(rands)
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('import scipy.interpolate\nimport numpy as np\nnp.random.seed(42)\nfractions = [0.25, 0.05, 0.15, 0.2, 0.3]\nbins = [20., 21., 22., 23., 24., 25.]\ncdf = np.append(0., np.cumsum(fractions) / np.sum(fractions))\ninterp_cdf = scipy.interpolate.interp1d(cdf, bins, bounds_error = False)\nrands = np.random.uniform(size = N)\nrandom_lognh_values = interp_cdf(rands)')"><i class="icofont-copy"></i></button>
+          </li>
+        </ul>
+
+        Your challenge:
+        <br>
+        <ul>
+          <li>Simulate 30 AGN spectra from the model described in the assumptions above, each with a randomly generated log <i>N</i><sub>H</sub> value.</li>
+          <li>Re-fit each spectrum with BXA to generate log <i>N</i><sub>H</sub> posteriors for each source.</li>
+          <li>Combine the individual log <i>N</i><sub>H</sub> posteriors with PosteriorStacker to estimate the <i>N</i><sub>H</sub> distribution with the same bins as in the above plot.</li>
+          <li>Estimate the fractions for each log <i>N</i><sub>H</sub> bin from the histogram model <code>results["samples"]</code>, e.g.:
+            <br>
+            <code><pre>
+lo_hist = np.<a href="https://numpy.org/doc/stable/reference/generated/numpy.quantile.html" target="_blank">quantile</a>(result["samples"], 0.16, axis = 0)
+mid_hist = np.<a href="https://numpy.org/doc/stable/reference/generated/numpy.quantile.html" target="_blank">quantile</a>(result["samples"], 0.5, axis = 0)
+hi_hist = np.<a href="https://numpy.org/doc/stable/reference/generated/numpy.quantile.html" target="_blank">quantile</a>(result["samples"], 0.84, axis = 0)
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('lo_hist = np.quantile(result[&quot;samples&quot;], 0.16, axis = 0)\nmid_hist = np.quantile(result[&quot;samples&quot;], 0.5, axis = 0)\nhi_hist = np.quantile(result[&quot;samples&quot;], 0.84, axis = 0)')"><i class="icofont-copy"></i></button>
+          <li>Can your <i>N</i><sub>H</sub> distribution constraints be improved? How could spectra below 3 keV help constrain the <i>N</i><sub>H</sub> distribution?</li>
+        </ul>
+          
+      </div>
+</section>
+
+
+<section id="ex43" class="services">
+      <div class="container">
+        <div class="section-title">
+          <a class="collapselink" data-toggle="collapse" href="#collapse-ex43" aria-expanded="true" aria-controls="collapse-ex43" style="color: #173b6c;">
+          <h3><i class="bx bx-chevron-right"></i> Exercise 4.3 - preparing for a proposal <a class="headerlink" href="#ex43" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
+          <p><em>Now you have created a parent population for photon index using PosteriorStacker, this exercise will focus on the <i>N</i><sub>H</sub> distribution.</em></p>
+        </a>
+        </div>
+        <div class="collapse show" id="collapse-ex43">
+
+        <i>Context:</i> The column density (<i>N</i><sub>H</sub>) distribution is a useful quantity for studies of accreting supermassive black holes (aka Active Galactic Nuclei; AGN).
+          Of particular interest in this regard is the "Compton-thick" fraction - i.e. the fraction of sources with log <i>N</i><sub>H</sub> / cm<sup>-2</sup> > 24.
+        <br><br>
+        <b>The goal of this exercise is to estimate the uncertainty on each bin in a log <i>N</i><sub>H</sub> distribution from a survey of 30 AGN.</b>
+        <br><br>
+
+        For the AGN being simulated, we can assume:
+        <ul>
+          <li>Every AGN follows the same baseline model:
+            <br>
+            <code>model = TBabs[Gal] * TBabs[AGN] * powerlaw</code>
+            <br>
+            Where:
+            <ul>
+              <li><code>TBabs[Gal]</code> is the absorbing column density arising from the Milky Way, assumed to be <i>N</i><sub>H</sub> = 10<sup>20</sup> cm<sup>-2</sup> for every AGN.
+              </li>
+              <li><code>TBabs[AGN]</code> is the absorbing column density at the source. This is the parameter we want to generate a population <i>N</i><sub>H</sub> distribution from.
+              </li>
+              <li><code>powerlaw</code> is the intrinsic emission from the AGN, with photon index within 1.9 &pm; 0.1 and normalisation within 10<sup>-4</sup> to 10<sup>-1</sup> photons/keV/cm<sup>2</sup>/s at 1 keV.
+              </li>
+              Note this assumes that every AGN is at redshift zero.
+            </ul>
+          </li>
+          <li>Every AGN has a column density <i>N</i><sub>H</sub> in the range 10<sup>20</sup> - 10<sup>25</sup> cm<sup>-2</sup>. (Remember the units of <i>N</i><sub>H</sub> in <code>TBabs</code> is 10<sup>22</sup> cm<sup>-2</sup>!)
+          </li>
+          <li>Every AGN observation will be carried out by NuSTAR. Note the energy range for spectral analysis will be 3-78 keV, and you can assume observation exposures of 100 ks with no background present. Response (<code>nustar.rmf</code>) and effective area (<code>point_30arcsecRad_1arcminOA.arf</code>) files can be found in the <a href="https://www.nustar.caltech.edu/system/media_files/binaries/32/original/nustar_point_sources_for_proposers.tgz?1404172745">point source simulation files</a> (distributed by the NuSTAR team, more info <a target="_blank" href="https://www.nustar.caltech.edu/page/response_files">here</a>).
+          </li>
+          <li>The parent <i>N</i><sub>H</sub> distribution follows this shape:
+            <br><br>
+            <div class="col-lg-8">
+              <img src="bxa/simnhdist.png" class="img-fluid" alt="">
+            </div>
+            <br>
+            To generate <code>N</code> random log <i>N</i><sub>H</sub> values from this distribution, you can use the following code:
+            <code><pre>
+import <a href="https://scipy.org" target="_blank">scipy</a>.<a href="https://docs.scipy.org/doc/scipy/reference/interpolate.html" target="_blank">interpolate</a>
+import <a target="_blank" href="https://numpy.org">numpy</a> as np
+np.<a href="https://numpy.org/doc/stable/reference/random/index.html" target="_blank">random</a>.<a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.seed.html" target="_blank">seed</a>(42)
+fractions = [0.25, 0.05, 0.15, 0.2, 0.3]
+bins = [20., 21., 22., 23., 24., 25.]
+cdf = np.<a href="https://numpy.org/doc/stable/reference/generated/numpy.append.html" target="_blank">append</a>(0., np.<a href="https://numpy.org/doc/stable/reference/generated/numpy.cumsum.html" target="_blank">cumsum</a>(fractions) / np.<a href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html" target="_blank">sum</a>(fractions))
+interp_cdf = <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp1d.html" target="_blank">scipy.interpolate.interp1d</a>(cdf, bins, bounds_error = False)
+rands = np.<a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.uniform.html" target="_blank">random.uniform</a>(size = N)
+random_lognh_values = interp_cdf(rands)
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('import scipy.interpolate\nimport numpy as np\nnp.random.seed(42)\nfractions = [0.25, 0.05, 0.15, 0.2, 0.3]\nbins = [20., 21., 22., 23., 24., 25.]\ncdf = np.append(0., np.cumsum(fractions) / np.sum(fractions))\ninterp_cdf = scipy.interpolate.interp1d(cdf, bins, bounds_error = False)\nrands = np.random.uniform(size = N)\nrandom_lognh_values = interp_cdf(rands)')"><i class="icofont-copy"></i></button>
+          </li>
+        </ul>
+
+        Your challenge:
+        <br>
+        <ul>
+          <li>Simulate 30 AGN spectra from the model described in the assumptions above, each with a randomly generated log <i>N</i><sub>H</sub> value.</li>
+          <li>Re-fit each spectrum with BXA to generate log <i>N</i><sub>H</sub> posteriors for each source.</li>
+          <li>Combine the individual log <i>N</i><sub>H</sub> posteriors with PosteriorStacker to estimate the <i>N</i><sub>H</sub> distribution with the same bins as in the above plot.</li>
+          <li>Estimate the fractions for each log <i>N</i><sub>H</sub> bin from the histogram model <code>results["samples"]</code>, e.g.:
+            <br>
+            <code><pre>
+lo_hist = np.<a href="https://numpy.org/doc/stable/reference/generated/numpy.quantile.html" target="_blank">quantile</a>(result["samples"], 0.16, axis = 0)
+mid_hist = np.<a href="https://numpy.org/doc/stable/reference/generated/numpy.quantile.html" target="_blank">quantile</a>(result["samples"], 0.5, axis = 0)
+hi_hist = np.<a href="https://numpy.org/doc/stable/reference/generated/numpy.quantile.html" target="_blank">quantile</a>(result["samples"], 0.84, axis = 0)
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('lo_hist = np.quantile(result[&quot;samples&quot;], 0.16, axis = 0)\nmid_hist = np.quantile(result[&quot;samples&quot;], 0.5, axis = 0)\nhi_hist = np.quantile(result[&quot;samples&quot;], 0.84, axis = 0)')"><i class="icofont-copy"></i></button>
+          <li>Can your <i>N</i><sub>H</sub> distribution constraints be improved? How could spectra below 3 keV help constrain the <i>N</i><sub>H</sub> distribution?</li>
+        </ul>
+          
+      </div>
+</section>
+
+
+<section id="nav" class="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="info">
+                <a href="session3.html"><h4>Previous: Session 3</h4></a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="info">
+                <a href="session5.html"><h4>Next: Session 5</h4></a>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
+
+
+<section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <a class="collapselink" data-toggle="collapse" href="#collapse-contact" aria-expanded="true" aria-controls="collapse-contact" style="color: #173b6c;">
+          <h2><i class="bx bx-envelope"></i> Contact</a> <a class="headerlink" href="#contact" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h2>
+        </a>
+        </div>
+        <div class="collapse show" id="collapse-contact">
+
+                <div class="row">
+
+          <div class="col-lg-6">
+            <div class="info">
+                  <i class="icofont-question"></i>
+                <h4>Raising issues</h4>
+                <br>
+                <ul>
+                  <li>BXA: <a href="https://github.com/JohannesBuchner/BXA/issues" target="_blank">github.com/JohannesBuchner/BXA/issues</a></li>
+                  <li>UltraNest: <a href="https://github.com/JohannesBuchner/UltraNest/issues" target="_blank">github.com/JohannesBuchner/UltraNest/issues</a></li>
+
+              </div>
+            </div>
+
+          <div class="col-lg-6">
+            <div class="info">
+              <i class="icofont-envelope"></i>
+                <h4>Email</h4>
+                <br>
+                <ul>
+                  <li>Peter Boorman: <a href="mailto:boorman[at]asu[dot]cas[dot]cz">boorman[at]asu[dot]cas[dot]cz</a></li>
+                  <li>Johannes Buchner: <a href="mailto:jbuchner[at]mpe[dot]mpg[dot]de">jbuchner[at]mpe[dot]mpg[dot]de</a></li>
+                </ul>
+            </div>
+            </div>
+          </div>
+
+
+          
+      </div>
+</section>
+
+
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="social-links mt-3 text-left">
+          <a href="../tutorial_bxa.html"><i class="bx bx-home-alt"></i></a>
+        </div>
+      <!-- <div class="copyright">
+        <a target="_blank" href="https://peterboorman.com"><i class="bx bx-arrow-back"></i> </a>
+      </div> -->
+      <!-- <div class="credits"> -->
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
+        <!-- Design: <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
+      <!-- </div> -->
+    </div>
+  </footer>
+  <!-- End  Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="../assets/vendor/counterup/counterup.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../assets/vendor/venobox/venobox.min.js"></script>
+  <script src="../assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="../assets/vendor/typed.js/typed.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+  <script src="../assets/js/scroll.js"></script>
+
+  <script>
+    // https://stackoverflow.com/questions/67016340/javascript-copy-to-clipboard-without-concrete-id-in-html-tag
+    function cp(id) {
+  if (!id) return;
+  const code = document.getElementById(id);
+  if (!code) return;
+  if (navigator && navigator.clipboard) { // need to check because it's only available on https and localohost
+    navigator.clipboard.writeText(code.innerHTML);
+  }
+};
+  </script>
+
+  <script>
+    // https://stackoverflow.com/questions/67016340/javascript-copy-to-clipboard-without-concrete-id-in-html-tag
+    function cx(tx) {
+  if (!tx) return;
+  if (navigator && navigator.clipboard) { // need to check because it's only available on https and localohost
+    navigator.clipboard.writeText(tx);
+  }
+};
+  </script>
+</body>
+
+</html>
