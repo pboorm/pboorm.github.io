@@ -231,7 +231,7 @@ from xspec import *
               </li>
             </ul>
             </li></br>
-            <li>The solutions for these exercises were produced using <code>bmin=5</code> with the following <code>ftgrouppha</code> script:
+            <li>The solutions for these exercises were produced using <code>bmin=5</code> with the following <code>ftgrouppha</code> script (make sure to be inside the directory containing the spectral files):</br>
               <code><pre>
 ftgrouppha grouptype=bmin groupscale=5 clobber=yes \
 infile=nustar_src.pha \
@@ -241,7 +241,7 @@ outfile=nustar_src_bmin5.pha
 &nbsp; <button class="cpbt" onclick="cx('ftgrouppha grouptype=bmin groupscale=5 clobber=yes infile=nustar_src.pha backfile=nustar_bkg.pha outfile=nustar_src_bmin5.pha')"><i class="icofont-copy"></i></button>
             </li></br>
 
-            <li>If using binning in a fit (i.e. there is no background model), there is often no single option that is ideal for all scenarios. It is recommended to try a variety of different methods to ensure biases are minimal in a fit.</li>
+            <li>If using a binned spectrum in a fit (i.e. there is no background model), there is often no single option that is ideal for all scenarios. It is recommended to try a variety of different methods to ensure biases are minimal in a fit.</li>
 
           </ul>
 
