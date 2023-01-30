@@ -883,7 +883,7 @@ fakeit_kwargs["background"] = "bkg_file_name"
 fakeit_kwargs["exposure"] = exposure
 fakeit_kwargs["correction"] = "1."
 fakeit_kwargs["backExposure"] = exposure
-fakeit_kwargs["fileName"] = "output_filename"
+fakeit_kwargs["fileName"] = "output_filename.pha"
 <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fakeitsettings.html">fakeit</a>(1, <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/fakeitsettings.html">FakeitSettings</a>(**fakeit_kwargs))
 </pre></code>
 &nbsp; <button class="cpbt" onclick="cx('mymod = Model(&quot;powerlaw&quot;)\nmymod.powerlaw.PhoIndex.values = (1.9, 0.01, -3., -3., 3., 3.)\nmymod.powerlaw.norm.values = (1.e-3, 0.01, 1.e-8, 1.e-8, 1., 1.)\nfakeit_kwargs = {}\nfakeit_kwargs[&quot;response&quot;] = &quot;rmf_file_name&quot;\nfakeit_kwargs[&quot;arf&quot;] = &quot;arf_file_name&quot;\nfakeit_kwargs[&quot;background&quot;] = &quot;bkg_file_name&quot;\nfakeit_kwargs[&quot;exposure&quot;] = exposure\nfakeit_kwargs[&quot;correction&quot;] = &quot;1.&quot;\nfakeit_kwargs[&quot;backExposure&quot;] = exposure\nfakeit_kwargs[&quot;fileName&quot;] = &quot;output_filename&quot;\nAllData.fakeit(1, FakeitSettings(**fakeit_kwargs))')"><i class="icofont-copy"></i></button>
@@ -901,7 +901,7 @@ fakepha_kwargs["arf"] = <a target="_blank" href="https://cxc.cfa.harvard.edu/she
 fakepha_kwargs["bkg"] = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_bkg.html">get_bkg</a>()
 fakepha_kwargs["exposure"] = 30.e3
 <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/fake_pha.html">fake_pha</a>(1, **fakepha_kwargs)
-<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/save_pha.html">save_pha</a>(1, "output_filename", clobber = True)
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/save_pha.html">save_pha</a>(1, "output_filename.pha", clobber = True)
 </pre></code>
 &nbsp; <button class="cpbt" onclick="cx('mymod = xspowerlaw.mypow\nset_par(mymod.phoindex, val = 1.9, min = -3., max = 3.)\nset_par(mymod.norm, val = 1.e-3, min = 1.e-8, max = 1.)\nload_pha(1, &quot;nustar_src_bmin5.pha&quot;) #loading pre-exising source spectrum with rmf, arf & bkg present\nset_source(1, mymod)\nfakepha_kwargs = {}\nfakepha_kwargs[&quot;rmf&quot;] = get_rmf()\nfakepha_kwargs[&quot;arf&quot;] = get_arf()\nfakepha_kwargs[&quot;bkg&quot;] = get_bkg()\nfakepha_kwargs[&quot;exposure&quot;] = 30.e3\nfake_pha(1, **fakepha_kwargs)\nsave_pha(1, &quot;output_filename.pi&quot;, clobber = True)')"><i class="icofont-copy"></i></button>
           </li>
