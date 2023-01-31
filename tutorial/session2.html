@@ -167,16 +167,18 @@
 
           <li>Are there any parameter degeneracies? Why or why not?</li></br>
 
-          <li>Next, save the spectral realisations corresponding to each row of the posterior into a pandas dataframe. This will enable us to plot the convolved posterior spectrum.
+          <li>Next, save the spectral realisations corresponding to each row of the posterior into a pandas dataframe. This will enable us to plot the convolved posterior spectrum. If you want to plot the convolved posterior for Chandra and NuSTAR, you can pass the data group number to the <code>Plot</code> commands as e.g., <code>Plot.y(2)</code>.
 <code><pre>
+Xset.restore("%s/model.xcm" %(outputfiles_basename))
 Plot("ldata")
-spec_df = pd.DataFrame(data = {"E_keV": Plot.x(1), "E_keV_err": Plot.xErr(1)})
-for i, row in posterior_df.iterrows():
+spec_df = pd.DataFrame(data = {"E_keV": Plot.x(1), "E_keV_err": Plot.xErr(1), "ldata": Plot.y(1), "ldata_err": Plot.yErr(1), "model_bestfit": Plot.model(1)})
+for i, row in posterior_df[posterior_df.columns.iterrows():
     <a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#set_parameters">set_parameters</a>(transformations=solver.transformations, values=row.values)
     Plot("ldata")
-    spec_realisation = <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html" target="_blank">pd.DataFrame</a>(data = {"ldata_%d" %(i): Plot.y(1), "ldata_err_%d" %(i): Plot.yErr(1)})
-    spec_df = <a href="https://pandas.pydata.org/docs/reference/api/pandas.concat.html" target="_blank">pd.concat</a>([spec_df, spec_realisation], axis=1)</pre></code>
-&nbsp; <button class="cpbt" onclick="cx('Plot(&quot;ldata&quot;)\nspec_df = pd.DataFrame(data = {&quot;E_keV&quot;: Plot.x(1), &quot;E_keV_err&quot;: Plot.xErr(1)})\nfor i, row in posterior_df.iterrows():\n    set_parameters(transformations=solver.transformations, values=row.values)\n    Plot(&quot;ldata&quot;)\n    spec_realisation = pd.DataFrame(data = {&quot;ldata_%d&quot; %(i): Plot.y(1), &quot;ldata_err_%d&quot; %(i): Plot.yErr(1)})\n    spec_df = pd.concat([spec_df, spec_realisation], axis=1)')"><i class="icofont-copy"></i></button>
+    spec_realisation = pd.<a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html" target="_blank">(data = {"m_%d" %(i): Plot.model(1)})
+    spec_df = pd.<a href="https://pandas.pydata.org/docs/reference/api/pandas.concat.html" target="_blank">pd.concat</a>([spec_df, spec_realisation], axis=1)
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('Xset.restore(&quot;%s/model.xcm&quot; %(outputfiles_basename))\nPlot(&quot;ldata&quot;)\nspec_df = pd.DataFrame(data = {&quot;E_keV&quot;: Plot.x(1), &quot;E_keV_err&quot;: Plot.xErr(1), &quot;ldata&quot;: Plot.y(1), &quot;ldata_err&quot;: Plot.yErr(1), &quot;model_bestfit&quot;: Plot.model(1)})\nfor i, row in posterior_df[posterior_df.columns.iterrows():\n    set_parameters(transformations=solver.transformations, values=row.values)\n    Plot(&quot;ldata&quot;)\n    spec_realisation = pd.(data = {&quot;m_%d&quot; %(i): Plot.model(1)})\n    spec_df = pd.pd.concat([spec_df, spec_realisation], axis=1)')"><i class="icofont-copy"></i></button>
           </li></br>
 
           <li>Use <code>PredictionBand</code> in <code>ultranest.plot</code> to overplot the posterior spectral range onto the data.
