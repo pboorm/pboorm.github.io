@@ -182,7 +182,7 @@ for i, row in posterior_df.iterrows():
           </li></br>
 
           <li>
-            Plot 200 sepectral realisations to show the posterior range of the convolved spectral fit.</br>
+            Plot 200 spectral realisations to show the posterior range of the convolved spectral fit.</br>
 <code><pre>
 for column in [c for c in df.columns if c.startswith("m_")][0:200]:
     ax.plot(df["E_keV"], df[column], c="k", alpha=0.05)
@@ -238,8 +238,16 @@ mod_counts = np.array(Plot.model(1)) * 2. * np.array(Plot.xErr(1))</pre></code>
           </li>
           </ul>
           </li></br>
+          <div class="col-lg-16">
+            <img src="ex22a.png" class="img-fluid" alt="">
+          </div>
+        </br>
 
           <li>Plot alternative Q-Q plots for each model with spectral energy against the difference between cumulative data and cumulative model counts. Do all the models explain the data in a satisfactory way? Why or why not?</li></br>
+          <div class="col-lg-16">
+            <img src="ex22b.png" class="img-fluid" alt="">
+          </div>
+        </br>
 
           <li>The best-fit model is only part of the story. By saving the individual cumulative model realisations (similar to <a href="#ex21">Exercise 2.1</a>), plot Q-Q and Q-Q-difference plots with the posterior model ranges shown.</li></br>
 
