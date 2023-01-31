@@ -200,15 +200,15 @@ bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/
           </ul>
         Also, log uniform priors <strong>cannot be zero or negative</strong>. Make sure the parameter ranges you supply are positive.</br></br>
 
-        To start with, we will fit the NuSTAR data alone. First load the data, notice the correct energies and create <code>model1</code> based on a powerlaw (see the commands in <a href="#ex01">Ex 0.1</a> for help). Note the target in question can be assumed to be at redshift 0.05 with a Galactic column density of <i>N</i><sub>H</sub> = 4&times;10<sup>20</sup> cm<sup>-2</sup>:
+        To start with, we will fit the NuSTAR data alone. First load the data, notice the correct energies and create <code>model1</code> based on a powerlaw (see the commands in <a href="#ex01">Exercise 0.1</a> for help). Note the target in question can be assumed to be at redshift 0.05 with a Galactic column density of <i>N</i><sub>H</sub> = 4&times;10<sup>20</sup> cm<sup>-2</sup>:
         <ul>
           <li>PyXspec:</br>
             <code><pre>
-model1 = Model("TBabs*zpowerlw")
-model1.TBabs.nH.values = (0.04, -1.) ## Milky Way absorption
-model1.zpowerlw.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)
-model1.zpowerlw.Redshift.values = (0.05, -1.)
-model1.zpowerlw.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)
+model1 = Model("<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>*<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>")
+model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.nH.values = (0.04, -1.) ## Milky Way absorption
+model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)
+model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.Redshift.values = (0.05, -1.)
+model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)
 </pre></code>&nbsp; <button class="cpbt" onclick="cx('model1 = Model(&quot;TBabs*zpowerlw&quot;)\nmodel1.TBabs.nH.values = (0.04, -1.) ## Milky Way absorption\nmodel1.zpowerlw.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)\nmodel1.zpowerlw.Redshift.values = (0.05, -1.)\nmodel1.zpowerlw.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)')"><i class="icofont-copy"></i></button></li>
         </ul>
 
@@ -232,8 +232,8 @@ model1.zpowerlw.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)
           <ul>
           <li>PyXspec:</br>
             <code><pre>
-prior1 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(model1, model1.zpowerlw.PhoIndex)
-prior2 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(model1, model1.zpowerlw.norm)
+prior1 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(model1, model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.PhoIndex)
+prior2 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(model1, model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.norm)
 </pre></code>&nbsp; <button class="cpbt" onclick="cx('prior1 = bxa.create_uniform_prior_for(model1, model1.zpowerlw.PhoIndex)\nprior2 = bxa.create_loguniform_prior_for(model1, model1.zpowerlw.norm)')"><i class="icofont-copy"></i></button></li>
           <li>Sherpa:</br>
             <code><pre>
@@ -277,14 +277,14 @@ solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sher
 
           <li>Perform prior predictive checks:
             <ol>
-          <li>Generate a random sample of prior parameter values (remember to <code>import numpy</code>!):
+          <li>Generate a random sample of prior parameter values (remember to <code>import <a href="https://numpy.org" target="_blank">numpy</a></code>!):
           <ul>
           <li>PyXspec:</br>
-            <code>values = solver.prior_function(numpy.random.uniform(size=len(solver.paramnames)))</code>
+            <code>values = solver.prior_function(<a href="https://numpy.org" target="_blank">numpy</a>.random.uniform(size=len(solver.paramnames)))</code>
           &nbsp; <button class="cpbt" onclick="cx('values = solver.prior_function(numpy.random.uniform(size=len(solver.paramnames)))')"><i class="icofont-copy"></i></button>
         </li>
           <li>Sherpa:</br>
-            <code>values = solver.prior_transform(numpy.random.uniform(size=len(solver.paramnames)))</code>
+            <code>values = solver.prior_transform(<a href="https://numpy.org" target="_blank">numpy</a>.random.uniform(size=len(solver.paramnames)))</code>
           &nbsp; <button class="cpbt" onclick="cx('values = solver.prior_transform(numpy.random.uniform(size=len(solver.paramnames)))')"><i class="icofont-copy"></i></button>
         </li>
           </ul>
@@ -404,42 +404,42 @@ Xset.save("%s/model.xcm" %(outputfiles_basename))</pre></code>
             <ul>
               <li>PyXspec:</br>
           <code><pre>
-model2 = Model("TBabs*zTBabs*(zpowerlw)")
-model2.TBabs.nH.values = (0.04, -1.) ## Milky Way absorption
-model2.zTBabs.Redshift.values = (0.05, -1.)
-model2.zTBabs.nH.values = (1., 0.01, 0.01, 0.01, 100., 100.)
-model2.zpowerlw.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)
-model2.zpowerlw.Redshift.link = "p%d" %(model2.zTBabs.Redshift.index)
-model2.zpowerlw.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)
+model2 = Model("<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>*<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>*(<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>)")
+model2.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.nH.values = (0.04, -1.) ## Milky Way absorption
+model2.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.Redshift.values = (0.05, -1.)
+model2.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.nH.values = (1., 0.01, 0.01, 0.01, 100., 100.)
+model2.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)
+model2.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.Redshift.link = "p%d" %(model2.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.Redshift.index)
+model2.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)
 </pre></code>
 &nbsp; <button class="cpbt" onclick="cx('model2 = Model(&quot;TBabs*zTBabs*(zpowerlw)&quot;)\nmodel2.TBabs.nH.values = (0.04, -1.) ## Milky Way absorption\nmodel2.zTBabs.Redshift.values = (0.05, -1.)\nmodel2.zTBabs.nH.values = (1., 0.01, 0.01, 0.01, 100., 100.)\nmodel2.zpowerlw.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)\nmodel2.zpowerlw.Redshift.link = &quot;p%d&quot; %(model2.zTBabs.Redshift.index)\nmodel2.zpowerlw.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)')"><i class="icofont-copy"></i></button>
           </li>
         </ul>
       </br>
-      Use the same priors as for <code>model1</code> with an additional <code>loguniform</code> prior for <code>zTBabs.nH</code>.
+      Use the same priors as for <code>model1</code> with an additional <code>loguniform</code> prior for <code><a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.nH</code>.
         </li>
 
         <li><code>model3</code> features the same absorbed powerlaw as in <code>model2</code> but with an additional Gaussian line:</br>
             <ul>
               <li>PyXspec:</br>
           <code><pre>
-model3 = Model("TBabs*zTBabs*(zpowerlw+zgauss)")
-model3.TBabs.nH.values = (0.04, -1.) ## Milky Way absorption
-model3.zTBabs.Redshift.values = (0.05, -1.)
-model3.zTBabs.nH.values = (1., 0.01, 0.01, 0.01, 100., 100.)
-model3.zpowerlw.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)
-model3.zpowerlw.Redshift.link = "p%d" %(model3.zTBabs.Redshift.index)
-model3.zpowerlw.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)
-model3.zgauss.LineE.values = (6.4, 0.1, 6., 6., 7.2, 7.2)
-model3.zgauss.Sigma.values = (1.e-3, 0.01, 1.e-3, 1.e-3, 1., 1.)
-model3.zgauss.Redshift.link = "p%d" %(model3.zTBabs.Redshift.index)
-model3.zgauss.norm.values = (1.e-5, 0.01, 1.e-10, 1.e-10, 1., 1.)
+model3 = Model("<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>*<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>*(<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>+zgauss)")
+model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.nH.values = (0.04, -1.) ## Milky Way absorption
+model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.Redshift.values = (0.05, -1.)
+model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.nH.values = (1., 0.01, 0.01, 0.01, 100., 100.)
+model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)
+model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.Redshift.link = "p%d" %(model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.Redshift.index)
+model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)
+model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node176.html" target="_blank">zgauss</a>.LineE.values = (6.4, 0.1, 6., 6., 7.2, 7.2)
+model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node176.html" target="_blank">zgauss</a>.Sigma.values = (1.e-3, 0.01, 1.e-3, 1.e-3, 1., 1.)
+model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node176.html" target="_blank">zgauss</a>.Redshift.link = "p%d" %(model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.Redshift.index)
+model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node176.html" target="_blank">zgauss</a>.norm.values = (1.e-5, 0.01, 1.e-10, 1.e-10, 1., 1.)
 </pre></code>
 &nbsp; <button class="cpbt" onclick="cx('model3 = Model(&quot;TBabs*zTBabs*(zpowerlw+zgauss)&quot;)\nmodel3.TBabs.nH.values = (0.04, -1.) ## Milky Way absorption\nmodel3.zTBabs.Redshift.values = (0.05, -1.)\nmodel3.zTBabs.nH.values = (1., 0.01, 0.01, 0.01, 100., 100.)\nmodel3.zpowerlw.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)\nmodel3.zpowerlw.Redshift.link = &quot;p%d&quot; %(model3.zTBabs.Redshift.index)\nmodel3.zpowerlw.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)\nmodel3.zgauss.LineE.values = (6.4, 0.1, 6., 6., 7.2, 7.2)\nmodel3.zgauss.Sigma.values = (1.e-3, 0.01, 1.e-3, 1.e-3, 1., 1.)\nmodel3.zgauss.Redshift.link = &quot;p%d&quot; %(model3.zTBabs.Redshift.index)\nmodel3.zgauss.norm.values = (1.e-5, 0.01, 1.e-10, 1.e-10, 1., 1.)')"><i class="icofont-copy"></i></button>
           </li>
         </ul>
       </br>
-      Assume a uniform prior for <code>zgauss.LineE</code> and loguniform priors for <code>zgauss.Sigma</code> and <code>zgauss.norm</code>.
+      Assume a uniform prior for <code><a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node176.html" target="_blank">zgauss</a>.LineE</code> and loguniform priors for <code><a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node176.html" target="_blank">zgauss</a>.Sigma</code> and <code><a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node176.html" target="_blank">zgauss</a>.norm</code>.
         </li>
 
       </ul>
@@ -463,24 +463,24 @@ model3.zgauss.norm.values = (1.e-5, 0.01, 1.e-10, 1.e-10, 1., 1.)
             <li>Unabsorbed powerlaw flux: To calculate the flux of the powerlaw model component, we multiple by energy and integrate between <code>Emin_keV=2</code> and <code>Emax_keV=10</code>. Make sure to convert the units of the powerlaw normalisation so we get flux in erg/s/cm<sup>2</sup>.
               <code><pre>
 ## note have to be careful if PhoIndex ~ 2
-if np.isclose(PhoIndex, 2., atol = 1.e-2):
-    logflux = lognorm + np.log10(np.log(Emax_keV / Emin_keV))
+if <a href="https://numpy.org/doc/stable/reference/generated/numpy.isclose.html" target="_blank">numpy.isclose</a>(PhoIndex, 2., atol = 1.e-2):
+    logflux = lognorm + <a href="https://numpy.org/doc/stable/reference/generated/numpy.log10.html" target="_blank">numpy.log10</a>(<a href="https://numpy.org/doc/stable/reference/generated/numpy.log.html" target="_blank">numpy.log</a>(Emax_keV / Emin_keV))
 else:
     A = 2. - PhoIndex
-    logflux = lognorm + np.log10(((Emax_keV**A) - (Emin_keV**A)) / A)
+    logflux = lognorm + <a href="https://numpy.org/doc/stable/reference/generated/numpy.log10.html" target="_blank">numpy.log10</a>(((Emax_keV**A) - (Emin_keV**A)) / A)
 </pre></code>
-&nbsp; <button class="cpbt" onclick="cx('## note have to be careful if PhoIndex ~ 2\nif np.isclose(PhoIndex, 2., atol = 1.e-2):\n    logflux = lognorm + np.log10(np.log(Emax_keV / Emin_keV))\nelse:\n    A = 2. - PhoIndex\n    logflux = lognorm + np.log10(((Emax_keV**A) - (Emin_keV**A)) / A)')"><i class="icofont-copy"></i></button>
+&nbsp; <button class="cpbt" onclick="cx('## note have to be careful if PhoIndex ~ 2\nif numpy.isclose(PhoIndex, 2., atol = 1.e-2):\n    logflux = lognorm + numpy.log10(numpy.log(Emax_keV / Emin_keV))\nelse:\n    A = 2. - PhoIndex\n    logflux = lognorm + numpy.log10(((Emax_keV**A) - (Emin_keV**A)) / A)')"><i class="icofont-copy"></i></button>
             </li>
             <li>Unabsorbed powerlaw luminosity: Now we have the unabsorbed flux, and we know the source is at redshift 0.05 we can estimate the distance and thus the luminosity.
 <code><pre>
-from tqdm import tqdm
+from <a href="https://tqdm.github.io" target="_blank">tqdm</a> import tqdm
 z = 0.05
-from astropy.cosmology import FlatLambdaCDM
-chosen_cosmology = FlatLambdaCDM(H0=67.3, Om0=0.315)
+from <a href="https://docs.astropy.org/en/stable/cosmology/index.html" target="_blank">astropy.cosmology</a> import <a href="https://docs.astropy.org/en/stable/api/astropy.cosmology.FlatLambdaCDM.html" target="_blank">FlatLambdaCDM</a>
+chosen_cosmology = <a href="https://docs.astropy.org/en/stable/api/astropy.cosmology.FlatLambdaCDM.html" target="_blank">FlatLambdaCDM</a>(H0=67.3, Om0=0.315)
 D_cm = chosen_cosmology.luminosity_distance(z).value*(10**6)*(3.086*10**18)
 tqdm.pandas(desc="Calculating logluminosity in the 2-10 keV band")
-posterior_df.loc[:, "loglum"] = posterior_df["logflux"].progress_apply(lambda x: x + np.log10(4.*np.pi) + 2.*np.log10(D_cm))
-</pre></code>&nbsp; <button class="cpbt" onclick="cx('from tqdm import tqdm\nz = 0.05\nfrom astropy.cosmology import FlatLambdaCDM\nchosen_cosmology = FlatLambdaCDM(H0=67.3, Om0=0.315)\nD_cm = chosen_cosmology.luminosity_distance(z).value*(10**6)*(3.086*10**18)\ntqdm.pandas(desc=&quote;Calculating logluminosity&quote;)\nposterior_df.loc[:, &quot;loglum&quot;] = posterior_df[&quot;logflux&quot;].progress_apply(lambda x: x + np.log10(4.*np.pi) + 2.*np.log10(D_cm))')"><i class="icofont-copy"></i></button>
+posterior_df.loc[:, "loglum"] = posterior_df["logflux"].progress_apply(lambda x: x + <a href="https://numpy.org/doc/stable/reference/generated/numpy.log10.html" target="_blank">numpy.log10</a>(4.*<a href="https://numpy.org" target="_blank">numpy</a>.pi) + 2.*<a href="https://numpy.org/doc/stable/reference/generated/numpy.log10.html" target="_blank">numpy.log10</a>(D_cm))
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('from tqdm import tqdm\nz = 0.05\nfrom astropy.cosmology import FlatLambdaCDM\nchosen_cosmology = FlatLambdaCDM(H0=67.3, Om0=0.315)\nD_cm = chosen_cosmology.luminosity_distance(z).value*(10**6)*(3.086*10**18)\ntqdm.pandas(desc=&quote;Calculating logluminosity&quote;)\nposterior_df.loc[:, &quot;loglum&quot;] = posterior_df[&quot;logflux&quot;].progress_apply(lambda x: x + numpy.log10(4.*numpy.pi) + 2.*numpy.log10(D_cm))')"><i class="icofont-copy"></i></button>
             </li>
           <li>Unabsorbed equivalent width: The equivalent width (<code>EW</code> below) of an emission line is defined as the flux in the line divided by the flux of the continuum at the line energy (see the <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node96.html">Xspec documentation</a> for more information). By considering just the <code>zpowerlw></code> and <code>zgauss</code> components (i.e. no absorption), we get the unabsorbed equivalent width.</br>
 <code><pre>
@@ -492,7 +492,7 @@ EW_keV = ((10 ** lognorm_zgauss)/(10 ** lognorm_zpow))*(LineE**PhoIndex) / (1.+z
           <li>Are any of the secondary parameters you have derived degenerate with the original parameters?</li></br>
           <li>How do the unabsorbed flux and equivalent width posteriors compare between different models?</li></br>
           
-          <li>Extension: load a fixed number of posterior model rows and calculate the absorbed flux and equivalent widths. How do their posteriors compare to the unabsorbed values derived above?</li>
+          <li>Extension: load a fixed number of posterior model rows into Xspec and calculate the observed flux and equivalent widths. How do the <em>observed</em> (i.e. absorbed) model fluxes and equivalent width posteriors compare to the unabsorbed values derived above?</li>
           </ul>
         </div>
 </section>
@@ -516,14 +516,14 @@ EW_keV = ((10 ** lognorm_zgauss)/(10 ** lognorm_zpow))*(LineE**PhoIndex) / (1.+z
           <li>PyXspec:</br>
           <code><pre>
 AllData("1:1 nustar_src_bmin5.pha 2:2 chandra_src_bmin5.pi")
-AllData.ignore("1:0.-3. 78.-** 2:0.-0.5 8.-**")
+<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/extended.html#ignore-notice" target="_blank">AllData.ignore</a>("1:0.-3. 78.-** 2:0.-0.5 8.-**")
 
-model1 = Model("constant*TBabs*zpowerlw")
+model1 = Model("constant*<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>*<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>")
 AllModels(1).constant.factor.values = (1., -1.)
-AllModels(1).TBabs.nH.values = (0.04, -1.) ## Milky Way absorption
-AllModels(1).zpowerlw.PhoIndex.values = (1.8, 0.1, -3., -2., 9., 10.)
-AllModels(1).zpowerlw.Redshift.values = (0.05, -1.)
-AllModels(1).zpowerlw.norm.values = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)
+AllModels(1).<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.nH.values = (0.04, -1.) ## Milky Way absorption
+AllModels(1).<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.PhoIndex.values = (1.8, 0.1, -3., -2., 9., 10.)
+AllModels(1).<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.Redshift.values = (0.05, -1.)
+AllModels(1).<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.norm.values = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)
 AllModels(2).constant.factor = (1., 0.01, 0.1, 0.1, 10., 10.)
 Plot("ldata")
 </pre></code>
@@ -536,7 +536,7 @@ Plot("ldata")
 <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/ignore_id.html">ignore_id</a>(1, "0.:3.,78.:")
 <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(2, "chandra_src_bmin5.pi")
 <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/ignore_id.html">ignore_id</a>(2, "0.:0.5,8.:")
-model1 = xstbabs.tbabs*<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a>.mypow
+model1 = <a href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xstbabs.html" target="_blank">xstbabs</a>.tbabs*<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a>.mypow
 x1model1 = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsconstant.html">xsconstant</a>("xcal1") * model1
 <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(xcal1.factor, val=1, frozen=True)
 x2model2 = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsconstant.html">xsconstant</a>("xcal2") * model1
@@ -550,19 +550,19 @@ x2model2 = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsc
           <ul>
           <li>PyXspec:</br>
           <code><pre>
-prior1 = bxa.create_uniform_prior_for(model1, model1.zpowerlw.PhoIndex)
-prior2 = bxa.create_loguniform_prior_for(model1, model1.zpowerlw.norm)
+prior1 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(model1, model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.PhoIndex)
+prior2 = bxa.create_loguniform_prior_for(model1, model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.norm)
 prior3 = bxa.create_loguniform_prior_for(AllModels(2), AllModels(2)(1))
 solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>(transformations=[prior1, prior2, prior3], outputfiles_basename="model1_nuchan")
 results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</pre></code>
 &nbsp; <button class="cpbt" onclick="cx('prior1 = bxa.create_uniform_prior_for(model1, model1.zpowerlw.PhoIndex)\nprior2 = bxa.create_loguniform_prior_for(model1, model1.zpowerlw.norm)\nprior3 = bxa.create_loguniform_prior_for(AllModels(2), AllModels(2)(1))\nsolver = bxa.BXASolver(transformations=[prior1, prior2, prior3], outputfiles_basename=&quot;model1_nuchan&quot;)\nresults = solver.run(resume=True)')"><i class="icofont-copy"></i></button>        </li>
           <li>Sherpa:</br>
           <code><pre>
-prior1 = bxa.create_uniform_prior_for(model1, model1.powerlaw.PhoIndex)
-prior2 = bxa.create_loguniform_prior_for(model1, model1.powerlaw.norm)
+prior1 = bxa.create_uniform_prior_for(model1, model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.PhoIndex)
+prior2 = bxa.create_loguniform_prior_for(model1, model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.norm)
 prior3 = bxa.create_loguniform_prior_for(xcal2)
 priors = [prior1, prior2, prior3]
-parameters = [model1.powerlaw.PhoIndex, model1.powerlaw.norm, xcal2]
+parameters = [model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.PhoIndex, model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.norm, xcal2]
 solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/sherpa-analysis.html#bxa.sherpa.solver.BXASolver">BXASolver</a>(prior=bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/priors.html#create_prior_function">create_prior_function</a>(priors), parameters=parameters, outputfiles_basename="model1_nuchan")
 results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.sherpa.html#bxa.sherpa.solver.BXASolver.run">run</a>(resume=True)</pre></code>
 &nbsp; <button class="cpbt" onclick="cx('prior1 = bxa.create_uniform_prior_for(model1, model1.powerlaw.PhoIndex)\nprior2 = bxa.create_loguniform_prior_for(model1, model1.powerlaw.norm)\nprior3 = bxa.create_loguniform_prior_for(xcal2)\npriors = [prior1, prior2, prior3]\nparameters = [model1.powerlaw.PhoIndex, model1.powerlaw.norm, xcal2]\nsolver = bxa.BXASolver(prior=bxa.create_prior_function(priors), parameters=parameters, outputfiles_basename=&quot;model1_nuchan&quot;)\nresults = solver.run(resume=True)')"><i class="icofont-copy"></i></button>

@@ -322,15 +322,15 @@ outfile=nustar_src_bmin5.pha
           <li>Ignore ineffective energies:
             <ul>
           <li>Xspec:</br>
-            <code>ignore 1:0.-0.5 8.-**</code>&nbsp; <button class="cpbt" onclick="cx('ignore 1:0.-0.5 8.-**')"><i class="icofont-copy"></i></button></br>
+            <code>ignore 1:0.-3. 79.-**</code>&nbsp; <button class="cpbt" onclick="cx('ignore 1:0.-3. 79.-**')"><i class="icofont-copy"></i></button></br>
           </li>
           <li>PyXspec:</br>
-            <code>s.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html">ignore</a>("0.-0.5 8.-**")</code>&nbsp; <button class="cpbt" onclick="cx('s.ignore(&quot;0.-0.5 8.-**&quot;)')"><i class="icofont-copy"></i></button></br>
+            <code>s.<a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html">ignore</a>("0.-3. 79.-**")</code>&nbsp; <button class="cpbt" onclick="cx('s.ignore(&quot;0.-3. 79.-**&quot;)')"><i class="icofont-copy"></i></button></br>
             Or:</br>
-            <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>.ignore("1:0.-0.5 8.-**")</code>&nbsp; <button class="cpbt" onclick="cx('AllData.ignore(&quot;0.-0.5 8.-**&quot;)')"><i class="icofont-copy"></i></button>
+            <code><a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/datamanager.html#datamanager-label">AllData</a>.ignore("1:0.-3. 79.-**")</code>&nbsp; <button class="cpbt" onclick="cx('AllData.ignore(&quot;0.-3. 79.-**&quot;)')"><i class="icofont-copy"></i></button>
           </li>
           <li>Sherpa:</br>
-          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/ignore_id.html">ignore_id</a>(1, "0.:0.5,8.:")</code>&nbsp; <button class="cpbt" onclick="cx('ignore_id(1, &quot;0.:0.5,8.:&quot;)')"><i class="icofont-copy"></i></button></li>
+          <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/ignore_id.html">ignore_id</a>(1, "0.:3.,79.:")</code>&nbsp; <button class="cpbt" onclick="cx('ignore_id(1, &quot;0.:3.,79.:&quot;)')"><i class="icofont-copy"></i></button></li>
           </ul>
         </li></br>
       </ul>
@@ -372,10 +372,15 @@ outfile=nustar_src_bmin5.pha
               <br>
               Adjacent bins are combined in dataset <code>N</code> until either: (1) the significance of the combined bins is &ge; X &sigma; or (2) <code>Y</code> bins have been combined. To undo on all datasets, use <code>setplot rebin 0 1 -1</code>.
             </li>
-            <li><code><a href="https://heasarc.gsfc.nasa.gov/docs/xanadu/xspec/manual/node30.html" target="_blank">setplot command range x</a> 0.4 10.</code>
-              &nbsp; <button class="cpbt" onclick="cx('setplot command range x 0.4 10.')"><i class="icofont-copy"></i></button>
+            <li><code><a href="https://heasarc.gsfc.nasa.gov/docs/xanadu/xspec/manual/node30.html" target="_blank">setplot command range x</a> xmin xmax</code>
+              &nbsp; <button class="cpbt" onclick="cx('setplot command range x xmin xmax')"><i class="icofont-copy"></i></button>
               <br>
-              To append any IPLOT commands to a list that is executed when the user types <code>plot ... </code>. For a full list of available commands, see:
+              To append any IPLOT commands to a list that is executed when the user types <code>plot ... </code>.
+            </li>
+            <li><code><a href="https://heasarc.gsfc.nasa.gov/docs/xanadu/xspec/manual/node30.html" target="_blank">setplot delete all</a></code>
+              &nbsp; <button class="cpbt" onclick="cx('setplot delete all')"><i class="icofont-copy"></i></button>
+              <br>
+              To delete all IPLOT commands from the current list.
             </li>
         </ul>
       </li>
@@ -393,8 +398,11 @@ outfile=nustar_src_bmin5.pha
             <li><code>Plot.setRebin(X, Y, N)</code>
             &nbsp; <button class="cpbt" onclick="cx('Plot.setRebin(2, 1000, 1)')"><i class="icofont-copy"></i></button>
               </li>
-            <li><code>Plot.addCommand("range x 0.4 10.")</code>
-            &nbsp; <button class="cpbt" onclick="cx('Plot.addCommand(&quot;range x 0.4 10.&quot;)')"><i class="icofont-copy"></i></button>
+            <li><code>Plot.addCommand("range x xmin xmax")</code>
+            &nbsp; <button class="cpbt" onclick="cx('Plot.addCommand(&quot;range x xmin xmax.&quot;)')"><i class="icofont-copy"></i></button></br>
+              </li>
+              <li><code>Plot.commands = ()</code>
+            &nbsp; <button class="cpbt" onclick="cx('Plot.commands = ()')"><i class="icofont-copy"></i></button></br>
               </li>
         </li>
       </ul>
@@ -893,7 +901,7 @@ fakeit_kwargs["fileName"] = "output_filename.pha"
 mymod = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xspowerlaw.html">xspowerlaw</a>.mypow
 <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(mymod.phoindex, val = 1.9, min = -3., max = 3.)
 <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_par.html">set_par</a>(mymod.norm, val = 1.e-3, min = 1.e-8, max = 1.)
-<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "nustar_src_bmin.pha") #loading pre-exising source spectrum with rmf, arf & bkg present
+<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/load_pha.html">load_pha</a>(1, "nustar_src_bmin5.pha") #loading pre-exising source spectrum with rmf, arf & bkg present
 <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_source.html">set_source</a>(1, mymod)
 fakepha_kwargs = {}
 fakepha_kwargs["rmf"] = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_rmf.html">get_rmf</a>()
