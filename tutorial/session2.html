@@ -171,7 +171,7 @@
 <code><pre>
 Xset.restore("%s/model.xcm" %(outputfiles_basename))
 Plot("ldata")
-spec_df = pd.DataFrame(data = {"E_keV": Plot.x(1), "E_keV_err": Plot.xErr(1), "ldata": Plot.y(1), "ldata_err": Plot.yErr(1), "model_bestfit": Plot.model(1)})
+spec_df = pd.<a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html" target="_blank">DataFrame</a>(data = {"E_keV": Plot.x(1), "E_keV_err": Plot.xErr(1), "ldata": Plot.y(1), "ldata_err": Plot.yErr(1), "model_bestfit": Plot.model(1)})
 for i, row in posterior_df.iterrows():
     <a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#set_parameters">set_parameters</a>(transformations=solver.transformations, values=row.values)
     Plot("ldata")
@@ -181,10 +181,32 @@ for i, row in posterior_df.iterrows():
 &nbsp; <button class="cpbt" onclick="cx('Xset.restore(&quot;%s/model.xcm&quot; %(outputfiles_basename))\nPlot(&quot;ldata&quot;)\nspec_df = pd.DataFrame(data = {&quot;E_keV&quot;: Plot.x(1), &quot;E_keV_err&quot;: Plot.xErr(1), &quot;ldata&quot;: Plot.y(1), &quot;ldata_err&quot;: Plot.yErr(1), &quot;model_bestfit&quot;: Plot.model(1)})\nfor i, row in posterior_df.iterrows():\n    set_parameters(transformations=solver.transformations, values=row.values)\n    Plot(&quot;ldata&quot;)\n    spec_realisation = pd.DataFrame(data = {&quot;m_%d&quot; %(i): Plot.model(1)})\n    spec_df = pd.concat([spec_df, spec_realisation], axis=1)')"><i class="icofont-copy"></i></button>
           </li></br>
 
-          <li>Use <code>PredictionBand</code> in <code>ultranest.plot</code> to overplot the posterior spectral range onto the data.
+          <li>
+            Plot 200 sepectral realisations to show the posterior range of the convolved spectral fit.</br>
 <code><pre>
+for column in [c for c in df.columns if c.startswith("m_")][0:200]:
+    ax.plot(df["E_keV"], df[column], c="k", alpha=0.05)
 </pre></code>
-&nbsp; <button class="cpbt" onclick="cx('')"><i class="icofont-copy"></i></button>
+&nbsp; <button class="cpbt" onclick="cx('for column in [c for c in df.columns if c.startswith(&quot;m_&quot;)][0:200]:\n    ax.plot(df[&quot;E_keV&quot;], df[column], c=&quot;k&quot;, alpha=0.05)')"><i class="icofont-copy"></i></button></br>
+<div class="col-lg-16">
+          <div class="col-lg-16">
+            <img src="ex21a.png" class="img-fluid" alt="">
+          </div>
+          </li>
+
+          <li>Use <code>PredictionBand</code> in <code>ultranest.plot</code> to overplot the 68% unconvolved posterior spectral range with the data.</br>
+<code><pre>
+from ultranest.plot import PredictionBand
+plt.sca(ax)
+band = PredictionBand(df["E_keV"].values)
+for i, column in enumerate([c for c in df.columns if c.startswith("m_")][0:200]):
+    band.add(df[column].values)
+band.shade(q=0.34)
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('plt.sca(ax)\nband = PredictionBand(df[&quot;E_keV&quot;].values)\nfor i, column in enumerate([c for c in df.columns if c.startswith(&quot;m_&quot;)][0:200]):\n    band.add(df[column].values)\nband.shade(q=0.34)')"><i class="icofont-copy"></i></button></br>
+          <div class="col-lg-16">
+            <img src="ex21b.png" class="img-fluid" alt="">
+          </div>
           </li></br>
 
           <li>Does the model do a good job of explaining the data? Why or why not?</li>
