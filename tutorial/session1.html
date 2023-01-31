@@ -208,8 +208,8 @@ model1 = Model("<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node2
 model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.nH.values = (0.04, -1.) ## Milky Way absorption
 model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)
 model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.Redshift.values = (0.05, -1.)
-model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)
-</pre></code>&nbsp; <button class="cpbt" onclick="cx('model1 = Model(&quot;TBabs*zpowerlw&quot;)\nmodel1.TBabs.nH.values = (0.04, -1.) ## Milky Way absorption\nmodel1.zpowerlw.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)\nmodel1.zpowerlw.Redshift.values = (0.05, -1.)\nmodel1.zpowerlw.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)')"><i class="icofont-copy"></i></button></li>
+model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.norm.values = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('model1 = Model(&quot;TBabs*zpowerlw&quot;)\nmodel1.TBabs.nH.values = (0.04, -1.) ## Milky Way absorption\nmodel1.zpowerlw.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)\nmodel1.zpowerlw.Redshift.values = (0.05, -1.)\nmodel1.zpowerlw.norm.values = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)')"><i class="icofont-copy"></i></button></li>
         </ul>
 
         <ul>
@@ -380,7 +380,7 @@ posterior_df.to_csv("%s/posterior.csv" %(outputfiles_basename), index=False)</pr
           <li>How do the best-fits and confidence ranges compare with using nested sampling vs. Levenberg-Marquardt?</li></br>
           <li>Finally, save the best-fit model (which is loaded as the current model by default with BXA) set-up to enable restoring it easily at later stages:</br>
           <code><pre>
-Xset.save("%s/model.xcm" %(outputfiles_basename))</pre></code>
+<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/xspecsettings.html" target="_blank">Xset</a>.save("%s/model.xcm" %(outputfiles_basename))</pre></code>
 &nbsp; <button class="cpbt" onclick="cx('Xset.save(&quot;%s/model.xcm&quot; %(outputfiles_basename))')"><i class="icofont-copy"></i></button>
           </li></br>
           </ul>
@@ -408,11 +408,11 @@ model2 = Model("<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node2
 model2.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.nH.values = (0.04, -1.) ## Milky Way absorption
 model2.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.Redshift.values = (0.05, -1.)
 model2.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.nH.values = (1., 0.01, 0.01, 0.01, 100., 100.)
-model2.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)
+model2.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.PhoIndex.values = (1.8, 0.1, -3., -2., 9., 10.)
 model2.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.Redshift.link = "p%d" %(model2.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.Redshift.index)
-model2.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)
+model2.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.norm.values = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)
 </pre></code>
-&nbsp; <button class="cpbt" onclick="cx('model2 = Model(&quot;TBabs*zTBabs*(zpowerlw)&quot;)\nmodel2.TBabs.nH.values = (0.04, -1.) ## Milky Way absorption\nmodel2.zTBabs.Redshift.values = (0.05, -1.)\nmodel2.zTBabs.nH.values = (1., 0.01, 0.01, 0.01, 100., 100.)\nmodel2.zpowerlw.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)\nmodel2.zpowerlw.Redshift.link = &quot;p%d&quot; %(model2.zTBabs.Redshift.index)\nmodel2.zpowerlw.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)')"><i class="icofont-copy"></i></button>
+&nbsp; <button class="cpbt" onclick="cx('model2 = Model(&quot;TBabs*zTBabs*(zpowerlw)&quot;)\nmodel2.TBabs.nH.values = (0.04, -1.) ## Milky Way absorption\nmodel2.zTBabs.Redshift.values = (0.05, -1.)\nmodel2.zTBabs.nH.values = (1., 0.01, 0.01, 0.01, 100., 100.)\nmodel2.zpowerlw.PhoIndex.values = (1.8, 0.1, -3., -2., 9., 10.)\nmodel2.zpowerlw.Redshift.link = &quot;p%d&quot; %(model2.zTBabs.Redshift.index)\nmodel2.zpowerlw.norm.values = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)')"><i class="icofont-copy"></i></button>
           </li>
         </ul>
       </br>
@@ -427,15 +427,15 @@ model3 = Model("<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node2
 model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.nH.values = (0.04, -1.) ## Milky Way absorption
 model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.Redshift.values = (0.05, -1.)
 model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.nH.values = (1., 0.01, 0.01, 0.01, 100., 100.)
-model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)
+model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.PhoIndex.values = (1.8, 0.1, -3., -2., 9., 10.)
 model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.Redshift.link = "p%d" %(model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.Redshift.index)
-model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)
+model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.norm.values = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)
 model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node176.html" target="_blank">zgauss</a>.LineE.values = (6.4, 0.1, 6., 6., 7.2, 7.2)
 model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node176.html" target="_blank">zgauss</a>.Sigma.values = (1.e-3, 0.01, 1.e-3, 1.e-3, 1., 1.)
 model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node176.html" target="_blank">zgauss</a>.Redshift.link = "p%d" %(model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.Redshift.index)
 model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node176.html" target="_blank">zgauss</a>.norm.values = (1.e-5, 0.01, 1.e-10, 1.e-10, 1., 1.)
 </pre></code>
-&nbsp; <button class="cpbt" onclick="cx('model3 = Model(&quot;TBabs*zTBabs*(zpowerlw+zgauss)&quot;)\nmodel3.TBabs.nH.values = (0.04, -1.) ## Milky Way absorption\nmodel3.zTBabs.Redshift.values = (0.05, -1.)\nmodel3.zTBabs.nH.values = (1., 0.01, 0.01, 0.01, 100., 100.)\nmodel3.zpowerlw.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)\nmodel3.zpowerlw.Redshift.link = &quot;p%d&quot; %(model3.zTBabs.Redshift.index)\nmodel3.zpowerlw.norm = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)\nmodel3.zgauss.LineE.values = (6.4, 0.1, 6., 6., 7.2, 7.2)\nmodel3.zgauss.Sigma.values = (1.e-3, 0.01, 1.e-3, 1.e-3, 1., 1.)\nmodel3.zgauss.Redshift.link = &quot;p%d&quot; %(model3.zTBabs.Redshift.index)\nmodel3.zgauss.norm.values = (1.e-5, 0.01, 1.e-10, 1.e-10, 1., 1.)')"><i class="icofont-copy"></i></button>
+&nbsp; <button class="cpbt" onclick="cx('model3 = Model(&quot;TBabs*zTBabs*(zpowerlw+zgauss)&quot;)\nmodel3.TBabs.nH.values = (0.04, -1.) ## Milky Way absorption\nmodel3.zTBabs.Redshift.values = (0.05, -1.)\nmodel3.zTBabs.nH.values = (1., 0.01, 0.01, 0.01, 100., 100.)\nmodel3.zpowerlw.PhoIndex.values = (1.8, 0.1, -3., -2., 9., 10.)\nmodel3.zpowerlw.Redshift.link = &quot;p%d&quot; %(model3.zTBabs.Redshift.index)\nmodel3.zpowerlw.norm.values = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)\nmodel3.zgauss.LineE.values = (6.4, 0.1, 6., 6., 7.2, 7.2)\nmodel3.zgauss.Sigma.values = (1.e-3, 0.01, 1.e-3, 1.e-3, 1., 1.)\nmodel3.zgauss.Redshift.link = &quot;p%d&quot; %(model3.zTBabs.Redshift.index)\nmodel3.zgauss.norm.values = (1.e-5, 0.01, 1.e-10, 1.e-10, 1., 1.)')"><i class="icofont-copy"></i></button>
           </li>
         </ul>
       </br>
@@ -524,7 +524,7 @@ AllModels(1).<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.
 AllModels(1).<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.PhoIndex.values = (1.8, 0.1, -3., -2., 9., 10.)
 AllModels(1).<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.Redshift.values = (0.05, -1.)
 AllModels(1).<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.norm.values = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)
-AllModels(2).constant.factor = (1., 0.01, 0.1, 0.1, 10., 10.)
+AllModels(2).constant.factor.values = (1., 0.01, 0.1, 0.1, 10., 10.)
 Plot("ldata")
 </pre></code>
 &nbsp; <button class="cpbt" onclick="cx('AllData(&quot;1:1 nustar_src_bmin5.pha 2:2 chandra_src_bmin5.pi&quot;)\nAllData.ignore(&quot;1:0.-3. 78.-** 2:0.-0.5 8.-**&quot;)\nmodel1 = Model(&quot;constant*TBabs*zpowerlw&quot;)\nAllModels(1).constant.factor.values = (1., -1.)\nAllModels(1).TBabs.nH.values = (0.04, -1.) ## Milky Way absorption\nAllModels(1).zpowerlw.PhoIndex.values = (1.8, 0.1, -3., -2., 9., 10.)\nAllModels(1).zpowerlw.Redshift.values = (0.05, -1.)\nAllModels(1).zpowerlw.norm.values = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)\nAllModels(2).constant.factor = (1., 0.01, 0.1, 0.1, 10., 10.)\nPlot(&quot;ldata&quot;)')"><i class="icofont-copy"></i></button>
