@@ -172,10 +172,10 @@
 Plot("ldata")
 spec_df = pd.DataFrame(data = {"E_keV": Plot.x(1), "E_keV_err": Plot.xErr(1)})
 for i, row in posterior_df.iterrows():
-    set_parameters(transformations=solver.transformations, values=row.values)
+    <a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#set_parameters">set_parameters</a>(transformations=solver.transformations, values=row.values)
     Plot("ldata")
-    spec_realisation = pd.DataFrame(data = {"ldata_%d" %(i): Plot.y(1), "ldata_err_%d" %(i): Plot.yErr(1)})
-    spec_df = pd.concat([spec_df, spec_realisation], axis=1)</pre></code>
+    spec_realisation = <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html" target="_blank">pd.DataFrame</a>(data = {"ldata_%d" %(i): Plot.y(1), "ldata_err_%d" %(i): Plot.yErr(1)})
+    spec_df = <a href="https://pandas.pydata.org/docs/reference/api/pandas.concat.html" target="_blank">pd.concat</a>([spec_df, spec_realisation], axis=1)</pre></code>
 &nbsp; <button class="cpbt" onclick="cx('Plot(&quot;ldata&quot;)\nspec_df = pd.DataFrame(data = {&quot;E_keV&quot;: Plot.x(1), &quot;E_keV_err&quot;: Plot.xErr(1)})\nfor i, row in posterior_df.iterrows():\n    set_parameters(transformations=solver.transformations, values=row.values)\n    Plot(&quot;ldata&quot;)\n    spec_realisation = pd.DataFrame(data = {&quot;ldata_%d&quot; %(i): Plot.y(1), &quot;ldata_err_%d&quot; %(i): Plot.yErr(1)})\n    spec_df = pd.concat([spec_df, spec_realisation], axis=1)')"><i class="icofont-copy"></i></button>
           </li></br>
 

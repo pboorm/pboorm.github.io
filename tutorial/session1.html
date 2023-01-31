@@ -460,7 +460,7 @@ model3.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node176.html" 
 
           We will consider three examples for posterior-based error propagation. Note the example code uses a <code>posterior_df</code> pandas dataframe to propagate the uncertainties.
           <ul>
-            <li>Unabsorbed powerlaw flux: To calculate the flux of the powerlaw model component, we multiple by energy and integrate between <code>Emin_keV=2</code> and <code>Emax_keV=10</code>. Make sure to convert the units of the powerlaw normalisation so we get flux in erg/s/cm<sup>2</sup>.
+            <li>Unabsorbed powerlaw flux: To calculate the flux of the powerlaw model component, we multiple by energy and integrate between <code>Emin_keV=2</code> and <code>Emax_keV=10</code>. Make sure to convert the units of the powerlaw normalisation so we get flux in erg/s/cm<sup>2</sup>.</br>
               <code><pre>
 ## note have to be careful if PhoIndex ~ 2
 if <a href="https://numpy.org/doc/stable/reference/generated/numpy.isclose.html" target="_blank">numpy.isclose</a>(PhoIndex, 2., atol = 1.e-2):
@@ -479,7 +479,7 @@ from <a href="https://docs.astropy.org/en/stable/cosmology/index.html" target="_
 chosen_cosmology = <a href="https://docs.astropy.org/en/stable/api/astropy.cosmology.FlatLambdaCDM.html" target="_blank">FlatLambdaCDM</a>(H0=67.3, Om0=0.315)
 D_cm = chosen_cosmology.luminosity_distance(z).value*(10**6)*(3.086*10**18)
 tqdm.pandas(desc="Calculating logluminosity in the 2-10 keV band")
-posterior_df.loc[:, "loglum"] = posterior_df["logflux"].progress_apply(lambda x: x + <a href="https://numpy.org/doc/stable/reference/generated/numpy.log10.html" target="_blank">numpy.log10</a>(4.*<a href="https://numpy.org" target="_blank">numpy</a>.pi) + 2.*<a href="https://numpy.org/doc/stable/reference/generated/numpy.log10.html" target="_blank">numpy.log10</a>(D_cm))
+posterior_df.loc[:, "loglum"] = posterior_df["logflux"].progress_apply(lambda x: x + <a href="https://numpy.org/doc/stable/reference/generated/numpy.log10.html" target="_blank">numpy.log10</a>(4.*<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/python/html/xspecsettings.html" target="_blank">numpy.pi</a>) + 2.*<a href="https://numpy.org/doc/stable/reference/generated/numpy.log10.html" target="_blank">numpy.log10</a>(D_cm))
 </pre></code>&nbsp; <button class="cpbt" onclick="cx('from tqdm import tqdm\nz = 0.05\nfrom astropy.cosmology import FlatLambdaCDM\nchosen_cosmology = FlatLambdaCDM(H0=67.3, Om0=0.315)\nD_cm = chosen_cosmology.luminosity_distance(z).value*(10**6)*(3.086*10**18)\ntqdm.pandas(desc=&quote;Calculating logluminosity&quote;)\nposterior_df.loc[:, &quot;loglum&quot;] = posterior_df[&quot;logflux&quot;].progress_apply(lambda x: x + numpy.log10(4.*numpy.pi) + 2.*numpy.log10(D_cm))')"><i class="icofont-copy"></i></button>
             </li>
           <li>Unabsorbed equivalent width: The equivalent width (<code>EW</code> below) of an emission line is defined as the flux in the line divided by the flux of the continuum at the line energy (see the <a target="_blank" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node96.html">Xspec documentation</a> for more information). By considering just the <code>zpowerlw></code> and <code>zgauss</code> components (i.e. no absorption), we get the unabsorbed equivalent width.</br>
