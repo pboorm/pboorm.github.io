@@ -224,20 +224,43 @@ band.shade(q=0.34)
         </a>
         </div>
         <div class="collapse show" id="collapse-ex22">
+          A useful way to visualise the plot is with Quantile-Quantile (Q-Q) plots -- i.e. the cumulative observed counts vs. the cumulative predicted model counts. The benefit of using cumulative counts is that the data does not need to be binned more than it already has been.</br></br>
           <ul>
-          <li> A useful way to visualise the plot is with Quantile-Quantile (Q-Q) plots -- i.e. the cumulative observed counts vs. the cumulative predicted model counts. The benefit of using cumulative counts is that the data does not need to be binned more than it already has been.</li></br>
-
-          <li>First produce the Q-Q plot for each of the BXA-derived best-fit spectral models for <code>model1</code>. Make sure to plot the total detected counts on both axes.
+          <li>First produce the Q-Q plot for the BXA-derived best-fit spectral model for <code>model1</code>. Make sure to plot the total detected counts on both axes.
             <ul>
             <li>PyXspec:</br>
               <code><pre>
+Xset.restore("%s/model.xcm" %(outputfiles_basename))
+Plot.background = True
+Plot("lcounts")
 src_counts = np.array(Plot.y(1)) * 2. * np.array(Plot.xErr(1))
 bkg_counts = np.array(Plot.backgroundVals(1)) * 2. * np.array(Plot.xErr(1))
-mod_counts = np.array(Plot.model(1)) * 2. * np.array(Plot.xErr(1))</pre></code>
-&nbsp; <button class="cpbt" onclick="cx('src_counts = np.array(Plot.y(1)) * 2. * np.array(Plot.xErr(1))\nbkg_counts = np.array(Plot.backgroundVals(1)) * 2. * np.array(Plot.xErr(1))\nmod_counts = np.array(Plot.model(1)) * 2. * np.array(Plot.xErr(1))')"><i class="icofont-copy"></i></button>
+mod_counts = np.array(Plot.model(1)) * 2. * np.array(Plot.xErr(1))
+Qdata = np.cumsum(src_counts + bkg_counts)
+Qmodel = np.cumsum(mod_counts + bkg_counts)</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('Xset.restore(&quot;%s/model.xcm&quot; %(outputfiles_basename))\nPlot.background = True\nPlot(&quot;lcounts&quot;)\nsrc_counts = np.array(Plot.y(1)) * 2. * np.array(Plot.xErr(1))\nbkg_counts = np.array(Plot.backgroundVals(1)) * 2. * np.array(Plot.xErr(1))\nmod_counts = np.array(Plot.model(1)) * 2. * np.array(Plot.xErr(1))\nQdata = np.cumsum(src_counts + bkg_counts)\nQmodel = np.cumsum(mod_counts + bkg_counts)')"><i class="icofont-copy"></i></button>
           </li>
-          </ul>
-          </li></br>
+          </ul></br>
+          <li>The best-fit model is only part of the story. By saving the individual cumulative model realisations (similar to <a href="#ex21">Exercise 2.1</a>), plot a Q-Q plot for <code>model1</code> with the total posterior model ranges included.</br>
+          <ul>
+            <li>PyXspec:</br>
+              <code><pre>
+Xset.restore("%s/model.xcm" %(outputfiles_basename))
+Plot.background = True
+Plot("lcounts")
+src_counts = np.array(Plot.y(1)) * 2. * np.array(Plot.xErr(1))
+bkg_counts = np.array(Plot.backgroundVals(1)) * 2. * np.array(Plot.xErr(1))
+qq_df = pd.DataFrame(data = {"E_keV": Plot.x(1), "E_keV_err": Plot.xErr(1), "src_counts": src_counts, "bkg_counts": bkg_counts})
+for i, row in posterior_df.iterrows():
+    set_parameters(transformations=solver.transformations, values=row.values)
+    Plot("lcounts")
+    mod_counts = np.array(Plot.model(1)) * 2. * np.array(Plot.xErr(1))
+    qq_realisation = pd.DataFrame(data = {"mod_counts_%d" %(i): mod_counts})
+    qq_df = pd.concat([qq_df, qq_realisation], axis=1)</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('Xset.restore(&quot;%s/model.xcm&quot; %(outputfiles_basename))\nPlot.background = True\nPlot(&quot;lcounts&quot;)\nsrc_counts = np.array(Plot.y(1)) * 2. * np.array(Plot.xErr(1))\nbkg_counts = np.array(Plot.backgroundVals(1)) * 2. * np.array(Plot.xErr(1))\nqq_df = pd.DataFrame(data = {&quot;E_keV&quot;: Plot.x(1), &quot;E_keV_err&quot;: Plot.xErr(1), &quot;src_counts&quot;: src_counts, &quot;bkg_counts&quot;:\nbkg_counts})\nfor i, row in posterior_df.iterrows():\n    set_parameters(transformations=solver.transformations, values=row.values)\n    Plot(&quot;lcounts&quot;)\n    mod_counts = np.array(Plot.model(1)) * 2. * np.array(Plot.xErr(1))\n    qq_realisation = pd.DataFrame(data = {&quot;mod_counts_%d&quot; %(i): mod_counts})\n    qq_df = pd.concat([qq_df, qq_realisation], axis=1)')"><i class="icofont-copy"></i></button>
+          </li>
+        </ul>
+        </li></br>
           <div class="col-lg-16">
             <img src="ex22a.png" class="img-fluid" alt="">
           </div>
@@ -249,8 +272,7 @@ mod_counts = np.array(Plot.model(1)) * 2. * np.array(Plot.xErr(1))</pre></code>
           </div>
         </br>
 
-          <li>The best-fit model is only part of the story. By saving the individual cumulative model realisations (similar to <a href="#ex21">Exercise 2.1</a>), plot Q-Q and Q-Q-difference plots with the posterior model ranges shown.</li></br>
-
+          
           <li>Repeat the above exercises for <code>model2</code> and <code>model3</code>.
           </ul>
       </div>
