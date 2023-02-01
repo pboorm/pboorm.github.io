@@ -266,7 +266,7 @@ for i, row in posterior_df.iterrows():
           </div>
         </br>
 
-          <li>Plot alternative Q-Q plots for each model with spectral energy against the difference between cumulative data and cumulative model counts. Do all the models explain the data in a satisfactory way? Why or why not?</li></br>
+          <li>It can be difficult to interpret the deviations from the 1:1 line by eye in Q-Q plots. As an alternative, plot the different between cumulative data and cumulative model counts against energy. Do all the models explain the data in a satisfactory way? Why or why not?</li></br>
           <div class="col-lg-16">
             <img src="ex22b.png" class="img-fluid" alt="">
           </div>
@@ -300,11 +300,18 @@ fitstat = Fit.statistic</pre></code>
 &nbsp; <button class="cpbt" onclick="cx('fitstat = Fit.statistic')"><i class="icofont-copy"></i></button>
               </ul>
             </li></br>
-            <li>Plot the distribution of fit statistics together with the fit statistic from the best-fit.</li></br>
-
+            <li>Plot the distribution of fit statistics together with the fit statistic from the best-fit.</br></br>
+            <div class="col-lg-16">
+            <img src="ex23a.png" class="img-fluid" alt="">
+          </div>
+        </li></br>
             <li>Now instead of just saving the fit statistic on each iteration, save the data required for the Q-Q plot (i.e. source, background and model counts as well as energy).</li></br>
 
-            <li>Plot the Q-Q and Q-Q-difference plots as in <a href="#ex22">Exercise 2.2</a>, but include the posterior range that you have generated with simulations.</li></br>
+            <li>Plot the Q-Q and Q-Q-difference plots as in <a href="#ex22">Exercise 2.2</a>, but include the posterior range that you have generated with simulations.</br></br>
+            <div class="col-lg-16">
+            <img src="ex23b.png" class="img-fluid" alt="">
+          </div>
+        </li></br>
 
             <li>Repeat this process for <code>model2</code> and <code>model3</code>. What can you say about the deviations from a perfect fit for each model?</li>
 
