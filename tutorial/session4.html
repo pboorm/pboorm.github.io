@@ -192,6 +192,67 @@ fakepha_kwargs["exposure"] = 30.e3
       <div class="container">
         <div class="section-title">
           <a class="collapselink" data-toggle="collapse" href="#collapse-ex41" aria-expanded="true" aria-controls="collapse-ex41" style="color: #173b6c;">
+          <h3><i class="bx bx-chevron-right"></i> Exercise 4.1 - generate data from a distribution <a class="headerlink" href="#ex21" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
+          </a>
+        </div>
+        <div class="collapse show" id="collapse-ex41">
+          For these exercises, we will constrain two parent distributions from a simulated population of sources. The model being used is a version of <code>model2</code>
+        <ul>
+          <li>To generate the posterior samples used in this exercise, download and run the following <a href="exercise4.1.py" download>PyXspec</a> (<code>$ python3 exercise4.1.py</code> <button class="cpbt" onclick="cx('python3 exercise4.1.py')"><i class="icofont-copy"></i></button>). The script will generate 30 spectra and fit with BXA to produce <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/readme.html">UltraNest</a> output folders.</br>
+            <!--  or <a href="./bxa/ex21_sherpa.py" download>Sherpa</a> (<code>$ sherpa ex21_sherpa.py</code> <button class="cpbt" onclick="cx('sherpa ex21_sherpa.py')"><i class="icofont-copy"></i></button>) script -->
+          <ol>
+          <li>Simulating NuSTAR spectra from <code>model2</code> (see <a href="ex13">Exercise 1.3</a>), with <code>PhoIndex</code> sampled from a Gaussian distribution 1.8 +/- 0.3. Note you will need the <a href="https://www.nustar.caltech.edu/system/media_files/binaries/32/original/nustar_point_sources_for_proposers.tgz?1404172745">Point source simulation files</a> distributed by the NuSTAR team to run the scripts (more info <a target="_blank" href="https://www.nustar.caltech.edu/page/response_files">here</a>).</li>
+          <li>Each spectrum will then be fit with BXA using non-informative priors for line-of-sight column density, powerlaw photon index and powerlaw normalisation.</li>
+          </ol>
+          </li>
+          <li>The script may take some time (~ a few hours) to complete. Alternatively, you can download some pre-generated <a target="_blank" href="https://johannesbuchner.github.io/UltraNest/readme.html">UltraNest</a> folders using a similar model <a href="bxa/ex21_ultranest_posteriors.zip">here</a>.</li></br>
+          <li>From inside the <code>ultranest_posteriors</code> directory, run:</br>
+          <code><pre>
+$ <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker/blob/main/load_ultranest_outputs.py">load_ultranest_outputs.py</a> fitsim0/ fitsim1/ fitsim2/ fitsim3/ fitsim4/ fitsim5/ fitsim6/ ... \
+                            --samples 1000 \
+                            --parameter PhoIndex \
+                            --out posterior_samples.txt
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('load_ultranest_outputs.py fitsim0/ fitsim1/ fitsim2/ fitsim3/ fitsim4/ fitsim5/ fitsim6/ fitsim7/ fitsim8/ fitsim9/ fitsim11/ fitsim12/ fitsim13/ fitsim14/ fitsim15/ fitsim16/ fitsim17/ fitsim18/ fitsim19/ fitsim20/ fitsim21/ fitsim22/ fitsim23/ fitsim24/ fitsim25/ fitsim26/ fitsim27/ fitsim28/ fitsim29/ --samples 1000 --parameter PhoIndex --out posterior_samples.txt')"><i class="icofont-copy"></i></button>
+          </li>
+          <li>The <code>posterior_samples.txt</code> file contains 1000 sampled rows of each posterior.</li></br>
+          <li><strong>Important</strong>: if the posterior samples were obtained with a non-uniform prior, the posterior samples should first be resampled according to the inverse of the prior that was used.</li></br>
+          <li>Visualise the data by calculating the 16th, 50th & 84th quantiles of each posterior sample and plotting as an errorbar. E.g., in Python:</br>
+<code><pre>
+import <a target="_blank" href="https://numpy.org">numpy</a> as np
+import <a target="_blank" href="https://pandas.pydata.org">pandas</a> as pd
+quantiles = [16, 50, 84]
+x = np.<a target="_blank" href="https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html">loadtxt</a>("posterior_samples.txt")
+q = np.<a target="_blank" href="https://numpy.org/doc/stable/reference/generated/numpy.percentile.html">percentile</a>(x, quantiles, axis = 1)
+df = pd.<a target="_blank" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">DataFrame</a>(data = {"q%d" %(qvalue): q[i] for i, qvalue in enumerate(quantiles)})
+          
+import <a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html">matplotlib.pyplot</a> as plt
+plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html">xlabel</a>("PhoIndex")
+plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.errorbar.html">errorbar</a>(x=df["q50"], xerr=[df["q50"]-df["q16"], df["q84"]-df["q50"]], y=range(len(df)), marker="o", ls=" ", color="orange")
+plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlim.html">xlim</a>(df["q16"].min() - 0.5, df["q84"].max() + 0.5)
+plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html">show</a>()
+</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('import numpy as np\nimport pandas as pd\nquantiles = [16, 50, 84]\nx = np.loadtxt(&quot;posterior_samples.txt&quot;)\nq = np.percentile(x, quantiles, axis = 1)\ndf = pd.DataFrame(data = {&quot;q%d&quot; %(qvalue): q[i] for i, qvalue in enumerate(quantiles)})\n\nimport matplotlib.pyplot as plt\nplt.xlabel(&quot;PhoIndex&quot;)\nplt.errorbar(x=df[&quot;q50&quot;], xerr=[df[&quot;q50&quot;]-df[&quot;q16&quot;], df[&quot;q84&quot;]-df[&quot;q50&quot;]], y=range(len\ndf)), marker=&quot;o&quot;, ls=&quot; &quot;, color=&quot;orange&quot;)\nplt.xlim(df[&quot;q16&quot;].min() - 0.5, df[&quot;q84&quot;].max() + 0.5)\nplt.show()')"><i class="icofont-copy"></i></button>
+          <div class="col-lg-8">
+            <img src="../bxa/vis_samples.png" class="img-fluid" alt="">
+          </div>
+          </li>
+          <li>Run <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">PosteriorStacker</a>:<br>
+          <code>$ <a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">posteriorstacker.py</a> posterior_samples.txt 0.5 3. 10 --name="PhoIndex"</code>
+          &nbsp; <button class="cpbt" onclick="cx('posteriorstacker.py posterior_samples.txt 0.5 3. 10 --name=&quot;PhoIndex&quot;')"><i class="icofont-copy"></i></button>
+          </li>
+          <li><a target="_blank" href="https://github.com/JohannesBuchner/PosteriorStacker">PosteriorStacker</a> then fits two models for the parent sample distribution: a histogram model with each bin height as the free parameters (using a <a target="_blank" href="https://en.wikipedia.org/wiki/Dirichlet_distribution">Dirichlet prior</a>) and a Gaussian model with mean and sigma as the free parameters.</li></br>
+          <li>Examine the <code>posteriorsamples.txt_out.pdf</code> file.</li></br>
+          <li>What can you say about the distribution of <code>PhoIndex</code>? What would happen if you acquired more posterior samples (i.e. by increasing <code>population_size</code> in the simulation scripts) and/or used higher signal-to-noise spectra to fit?</li></br>
+
+        </ul>
+      </div>
+</section>
+
+<section id="ex41" class="services">
+      <div class="container">
+        <div class="section-title">
+          <a class="collapselink" data-toggle="collapse" href="#collapse-ex41" aria-expanded="true" aria-controls="collapse-ex41" style="color: #173b6c;">
           <h3><i class="bx bx-chevron-right"></i> Exercise 4.1 - Gaussian parent distribution <a class="headerlink" href="#ex21" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
           <p><em>Here we will combine several individual source posterior distributions to derive a sample distribution for the photon index .</em></p>
         </a>
