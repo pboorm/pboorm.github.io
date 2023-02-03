@@ -199,9 +199,9 @@ plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotli
 plt.<a target="_blank" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html">show</a>()
 </pre></code>
 &nbsp; <button class="cpbt" onclick="cx('import numpy as np\nimport pandas as pd\nquantiles = [16, 50, 84]\nx = np.loadtxt(&quot;posterior_samples.txt&quot;)\nq = np.percentile(x, quantiles, axis = 1)\ndf = pd.DataFrame(data = {&quot;q%d&quot; %(qvalue): q[i] for i, qvalue in enumerate(quantiles)})\n\nimport matplotlib.pyplot as plt\nplt.xlabel(&quot;PhoIndex&quot;)\nplt.errorbar(x=df[&quot;q50&quot;], xerr=[df[&quot;q50&quot;]-df[&quot;q16&quot;], df[&quot;q84&quot;]-df[&quot;q50&quot;]], y=range(len\ndf)), marker=&quot;o&quot;, ls=&quot; &quot;, color=&quot;orange&quot;)\nplt.xlim(df[&quot;q16&quot;].min() - 0.5, df[&quot;q84&quot;].max() + 0.5)\nplt.show()')"><i class="icofont-copy"></i></button>
-          <div class="col-lg-8">
+          <!-- <div class="col-lg-8">
             <img src="../bxa/vis_samples.png" class="img-fluid" alt="">
-          </div>
+          </div> -->
           </li>
           
         </ul>
