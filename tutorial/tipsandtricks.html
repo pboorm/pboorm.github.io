@@ -103,13 +103,13 @@
           <li><a href="session3.html#ex33"><i class="bx bx-chevron-right"></i>3.3 - type II errors</a></li>
           <li><a href="session3.html#ex34"><i class="bx bx-chevron-right"></i>3.4 - extension</a></li>
           <li><a href="session4.html"><i class="bx bx-bar-chart-alt-2"></i>Session 4 - parent distributions</a></li>
-          <li><a href="session4.html#ex41"><i class="bx bx-chevron-right"></i>4.1 - Gaussian</a></li>
-          <li><a href="session4.html#ex42"><i class="bx bx-chevron-right"></i>4.2 - histogram</a></li>
-          <li><a href="session4.html#ex43"><i class="bx bx-chevron-right"></i>4.3 - preparing for a proposal</a></li>
+          <li><a href="session4.html#ex41"><i class="bx bx-chevron-right"></i>4.1 - generating data</a></li>
+          <li><a href="session4.html#ex42"><i class="bx bx-chevron-right"></i>4.2 - Gaussian model</a></li>
+          <li><a href="session4.html#ex43"><i class="bx bx-chevron-right"></i>4.3 - histogram model</a></li>
           <li><a href="session5.html"><i class="bx bx-analyse"></i>Session 5 - advanced usage</a></li>
           <li><a href="session5.html#ex51"><i class="bx bx-chevron-right"></i>5.1 - information gain</a></li>
           <li><a href="session5.html#ex52"><i class="bx bx-chevron-right"></i>5.2 - custom priors</a></li>
-          <li><a href="session5.html#ex53"><i class="bx bx-chevron-right"></i>5.3 - step samplers</a></li>
+          <li><a href="session5.html#ex53"><i class="bx bx-chevron-right"></i>5.3 - speeding up BXA</a></li>
           <li><a href="tipsandtricks.html"><i class="bx bx-bulb"></i> <span>Tips & tricks</span></a></li>
           <li><a href="links.html"><i class="bx bx-bookmarks"></i> <span>Useful links</span></a></li>
           <li><a href="#contact"><i class="icofont-letter"></i>Contact</a></li>
@@ -147,57 +147,20 @@ print(pkg_resources.<a target="_blank" href="https://nsoranzo-galaxy.readthedocs
 </pre></code>
 &nbsp; <button class="cpbt" onclick="cx('import bxa, pkg_resources\nprint(pkg_resources.get_distribution(&quot;bxa&quot;).version)')"><i class="icofont-copy"></i></button>
           </li></br>
-          <li>Speeding up BXA: For complex fits (e.g., multiple datasets simultaneously, many parameters, high signal-to-noise spectra, ...), the run time can be decreased with e.g.,:</br>
-            <ul>
-              <li>Parallelisation with MPI (Message Passing Interface):
-                <br>
-                <code>mpiexec -np 4 python3 myscript.py</code>
-              </li>
-          <li>Arguments for <code>solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>()</code>
-            <br>
-            <ul>
-            <li><code>frac_remain=0.5</code> sets the cut-off condition for the integration. A low value is optimal for finding peaks but higher values (e.g., 0.5) can be used if the posterior distribution is a relatively simple shape.
-            </li>
-            <li><code>max_num_improvement_loops=0</code> sets the number of times <code>run()</code> will try to iteratively assess how many more samples are needed.
-            </li>
-            <li><code>speed</code>
-              <ul>
-                <li><code>speed="safe"</code>
-                  <br>
-                Reactive Nested Sampler, recommended.</li>
-                <li><code>speed="auto"</code>
-                  <br>
-                Step sampler with adaptive steps.</li>
-                <li><code>speed=int</code>
-                  <br>
-                Step sampler with an integer number of steps. Faster, but the number of steps should be tested to ensure the log Z estimation is accurate.</li>
-              </ul>
-            </li>
-            <li>To see the other arguments of <code>run()</code>, see <a href="https://johannesbuchner.github.io/UltraNest/ultranest.html#module-ultranest.integrator" target="_blank">here</a>.
-            </li>
-          </ul>
-          <!-- <li>Step-samplers</li> -->
-          </li></br>
-          <li>If you're sure you want to, you can use BXA with chi-squared statistics:</br>
+
+          <li>To use BXA with chi-squared statistics (if you're sure you want to):</br>
           <code>bxa.BXASolver.allowed_stats.append("chi2")</code>&nbsp; <button class="cpbt" onclick="cx('bxa.BXASolver.allowed_stats.append(&quot;chi2&quot;)')"><i class="icofont-copy"></i></button>
           </li></br>
 
-          <li>You can create custom priors in BXA with <code><a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/5a6ee5fafbaf7bc609a29dafadae48d27aba50aa/bxa/xspec/priors.py#L75">create_custom_prior_for</a>()</code> (example taken from <a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/master/examples/xspec/example_advanced_priors.py">example_advanced_prior.py</a>):</br>
-          PyXspec:<br>
+
+          <li>Renaming BXA parameters: sometimes models can have multiple parameters with the same name (e.g., two or more additive model components with a <code>norm</code> parameter). When the BXA fit is run, the posterior and corner plot will show the same parameter name, making it difficult to interpret which parameters are which. An alternative is to change the parameter name when inside the corresponding prior:</br>
           <code><pre>
-def <a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/master/examples/xspec/example_advanced_priors.py#L27">my_custom_prior</a>(u):
-    # prior distributions transform from 0:1 to the parameter range
-    # here: a gaussian prior distribution, cut below 1/above 3
-    x = <a target="_blank" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html">scipy.stats.norm</a>(1.9, 0.15).ppf(u)
-    if x < 1.:
-        x = 1
-    if x > 3:
-        x = 3
-    return x
-transformations = [bxa.<a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/5a6ee5fafbaf7bc609a29dafadae48d27aba50aa/bxa/xspec/priors.py#L75">create_custom_prior_for</a>(model, parameter, my_custom_prior)]
-</pre></code>
-&nbsp; <button class="cpbt" onclick="cx('def my_custom_prior(u):\n    # prior distributions transform from 0:1 to the parameter range\n    # here: a gaussian prior distribution, cut below 1/above 3\n    x = scipy.stats.norm(1.9, 0.15).ppf(u)\n    if x < 1.:\n        x = 1\n    if x > 3:\n        x = 3\n    return x\ntransformations = [bxa.create_custom_prior_for(model, parameter, my_custom_prior)]')"><i class="icofont-copy"></i></button>
-          </li><br>
+prior1 = bxa.create_loguniform_prior_for(model, model.zpowerlw.norm)
+prior1["name"] = "log(norm_zpo)"
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('prior1 = bxa.create_loguniform_prior_for(model, model.zpowerlw.norm)\nprior1[&quot;name&quot;] = &quot;log(norm_zpo)&quot;')"><i class="icofont-copy"></i></button>
+          </li></br>
+
+
 
           <li>You can use BXA with Sherpa to fit 2D models to images:</br>
               <code><pre>
@@ -223,7 +186,7 @@ results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/
               Here is an example fit to the image used in <a target="_blank" href="https://cxc.harvard.edu/sherpa/threads/spatial/">this Sherpa tutorial for 2D fitting</a> (left, middle and right panels show the image, best-fit model and residuals respectively):
               <br><br>
               <div class="col-lg-8">
-                <img src="bxa/ds9_fit2d_sherpa.png" class="img-fluid" alt="">
+                <img src="../bxa/ds9_fit2d_sherpa.png" class="img-fluid" alt="">
               </div>
           </li></br>
         </ul>
@@ -285,6 +248,7 @@ result = sampler.run()
               </li>
           </li>
         </ul>
+      </br>
           <li>
             Plotting contours:
               <br>
@@ -341,13 +305,13 @@ g.export("/path/to/your/corner.png")
 
         <div class="row">
           <div class="col-lg-4">
-            <img src="bxa/corner_example.png" class="img-fluid" alt="">
+            <img src="../bxa/corner_example.png" class="img-fluid" alt="">
           </div>
           <div class="col-lg-4">
-            <img src="bxa/chainconsumer_example.png" class="img-fluid" alt="">
+            <img src="../bxa/chainconsumer_example.png" class="img-fluid" alt="">
           </div>
           <div class="col-lg-4">
-            <img src="bxa/getdist_example.png" class="img-fluid" alt="">
+            <img src="../bxa/getdist_example.png" class="img-fluid" alt="">
           </div>
 
           </li>

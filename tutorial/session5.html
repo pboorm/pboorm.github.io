@@ -103,13 +103,13 @@
           <li><a href="session3.html#ex33"><i class="bx bx-chevron-right"></i>3.3 - type II errors</a></li>
           <li><a href="session3.html#ex34"><i class="bx bx-chevron-right"></i>3.4 - extension</a></li>
           <li><a href="session4.html"><i class="bx bx-bar-chart-alt-2"></i>Session 4 - parent distributions</a></li>
-          <li><a href="session4.html#ex41"><i class="bx bx-chevron-right"></i>4.1 - Gaussian</a></li>
-          <li><a href="session4.html#ex42"><i class="bx bx-chevron-right"></i>4.2 - histogram</a></li>
-          <li><a href="session4.html#ex43"><i class="bx bx-chevron-right"></i>4.3 - preparing for a proposal</a></li>
+          <li><a href="session4.html#ex41"><i class="bx bx-chevron-right"></i>4.1 - generating data</a></li>
+          <li><a href="session4.html#ex42"><i class="bx bx-chevron-right"></i>4.2 - Gaussian model</a></li>
+          <li><a href="session4.html#ex43"><i class="bx bx-chevron-right"></i>4.3 - histogram model</a></li>
           <li><a href="#session5"><i class="bx bx-analyse"></i>Session 5 - advanced usage</a></li>
           <li><a href="#ex51"><i class="bx bx-chevron-right"></i>5.1 - information gain</a></li>
           <li><a href="#ex52"><i class="bx bx-chevron-right"></i>5.2 - custom priors</a></li>
-          <li><a href="#ex53"><i class="bx bx-chevron-right"></i>5.3 - step samplers</a></li>
+          <li><a href="#ex53"><i class="bx bx-chevron-right"></i>5.3 - speeding up BXA</a></li>
           <li><a href="tipsandtricks.html"><i class="bx bx-bulb"></i> <span>Tips & tricks</span></a></li>
           <li><a href="links.html"><i class="bx bx-bookmarks"></i> <span>Useful links</span></a></li>
           <li><a href="#contact"><i class="icofont-letter"></i>Contact</a></li>
@@ -193,7 +193,24 @@ bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/
         </a>
         </div>
         <div class="collapse show" id="collapse-ex52">
+          <ul>
+            <li>You can create custom priors in BXA with <code><a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/5a6ee5fafbaf7bc609a29dafadae48d27aba50aa/bxa/xspec/priors.py#L75">create_custom_prior_for()</a></code> (see <a target="_blank" href="https://github.com/JohannesBuchner/BXA/blob/master/examples/xspec/example_advanced_priors.py">example_advanced_prior.py</a> for an example).</li></br>
 
+            <li>Cross-calibration constants cannot be negative and can (in theory) vary over orders of magnitude. However, if the instruments are operating as expected one would expect the cross-calibration to be approximately consistent with unity. Create a custom log-Gaussian prior for the cross-calibration between NuSTAR and Chandra introduced in <a href="session1.html#ex15">Exercise 1.5</a>:<br>
+          <code><pre>
+def custom_log_gaussian_prior(u):
+    """
+    Gaussian prior in the log (base 10) of the parameter
+    """
+    logx = scipy.stats.norm(0., 0.03).ppf(u)
+    x = 10 ** (logx)
+    return x
+
+prior = bxa.create_custom_prior_for(AllModels(2), AllModels(2)(1), custom_log_gaussian_prior)</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('def custom_log_gaussian_prior(u):\n    &quot;&quot;&quot;\n    Gaussian prior in the log (base 10) of the parameter\n    &quot;&quot;&quot;\n    logx = scipy.stats.norm(0., 0.03).ppf(u)\n    x = 10 ** (logx)\n    return x\nprior = bxa.create_custom_prior_for(AllModels(2), AllModels(2)(1), custom_log_gaussian_prior)')"><i class="icofont-copy"></i></button>
+          </li><br>
+          <li>Use this prior to generate new BXA fits for <code>model1</code>, <code>model2</code> and <code>model3</code>. Did the runtime change? Has the posterior changed for the cross-calibration? Why or why not?
+          </ul>
       </div>
     </div>
 </section>
@@ -202,10 +219,40 @@ bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/
       <div class="container">
         <div class="section-title">
           <a class="collapselink" data-toggle="collapse" href="#collapse-ex53" aria-expanded="true" aria-controls="collapse-ex53" style="color: #173b6c;">
-          <h3><i class="bx bx-chevron-right"></i> Exercise 5.3 - step samplers <a class="headerlink" href="#ex53" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
+          <h3><i class="bx bx-chevron-right"></i> Exercise 5.3 - speeding up BXA <a class="headerlink" href="#ex53" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
+        <em>For complex fits (e.g., multiple datasets simultaneously, many parameters, high signal-to-noise spectra, ...), BXA supports a number of settings and features for reducing the overall runtime.</em>
         </a>
         </div>
         <div class="collapse show" id="collapse-ex53">
+            <ul>
+              <li>Use the built in parallelisation with MPI (Message Passing Interface) to run a new fit with BXA using one of the models:
+                <code>mpiexec -np 4 python3 myscript.py</code>
+              </li><br>
+
+              <li>Run a new fit using the alternative arguments in <code>solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>()</code>:
+            <ul>
+            <li><code>frac_remain=float</code>: sets the cut-off condition for the integration. A low value for float is optimal for finding peaks but higher values (e.g., 0.5) can be used if the posterior distribution is a relatively simple shape.
+            </li>
+            <li><code>max_num_improvement_loops=0</code>: sets the number of times <code>run()</code> will try to iteratively assess how many more samples are needed.
+            </li>
+          </ul>
+      </li></br>
+            <li>Nested sampling requires samples to be drawn from the prior that exceed some likelihood threshold. One method to achieve this is with step samplers, that can be faster for fits with many free parameters (see <a href="https://ui.adsabs.harvard.edu/abs/2022arXiv221109426B/abstract" target="_blank">Buchner+22</a> for more details). In BXA, step samplers can be implemented with the <code>speed</code> argument in <code>solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>()</code>:
+              <ul>
+                <li><code>speed="safe"</code>
+                  <br>
+                Reactive Nested Sampler, recommended.</li>
+                <li><code>speed="auto"</code>
+                  <br>
+                Step sampler with adaptive steps.</li>
+                <li><code>speed=int</code>
+                  <br>
+                Step sampler with an integer number of steps. This option is faster, but the number of steps should be tested to ensure the Bayesian evidence estimation is accurate.</li>
+                <li>To see the other arguments of <code>run()</code>, see <a href="https://johannesbuchner.github.io/UltraNest/ultranest.html#module-ultranest.integrator" target="_blank">here</a>.</li>
+              </ul>
+            </li></br>
+            <li>Fit <code>model1</code> to the NuSTAR data with step samplers of 10, 20 and 30 steps. Is the Bayesian evidence estimation for each stable and consistent with the original value found in <a href="session1.html#ex12">Exercise 1.2</a>?</li>
+          </ul>
 
       </div>
     </div>
