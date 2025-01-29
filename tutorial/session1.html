@@ -555,7 +555,7 @@ x2model2 = <a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/xsc
           <li>PyXspec:</br>
           <code><pre>
 prior1 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(model1, model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.PhoIndex)
-prior2 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_uniform_prior_for">create_uniform_prior_for</a>(model1, model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.norm)
+prior2 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(model1, model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.norm)
 prior3 = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(AllModels(2), AllModels(2)(1))
 solver = bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/solver.html#BXASolver">BXASolver</a>(transformations=[prior1, prior2, prior3], outputfiles_basename="model1_nuchan")
 results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/bxa.xspec.html#bxa.xspec.solver.BXASolver.run">run</a>(resume=True)</pre></code>
