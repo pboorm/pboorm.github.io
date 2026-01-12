@@ -629,19 +629,19 @@ AllData.<a href="https://heasarc.gsfc.nasa.gov/docs/software/xspec/python/html/s
           <code><pre>
 Model("atable{nustar_src.pha_model.fits}", "pcanustar", 2)
 
-## pcabkg.isSource -- True for dataset 1
+## pcanustar.isSource -- True for dataset 1
 AllModels(1, "pcanustar")(1).values = (1., -1.)
-## pcabkg.norm -- the only variable parameter
+## pcanustar.norm -- the only variable parameter
 AllModels(1, "pcanustar")(2).values = (1., 0.01, 0.1, 0.1, 10., 10.)
 
-## pcabkg.isSource -- False for dataset 2
+## pcanustar.isSource -- False for dataset 2
 AllModels(2, "pcanustar")(1).values = (0., -1.)
-## pcabkg.norm -- should be tied to the variable normalisation above
+## pcanustar.norm -- should be tied to the variable normalisation above
 AllModels(2, "pcanustar")(2).link = AllModels(1, "pcanustar")(2)
 
 ## create a prior for the only variable background parameter
 prior_pcanustar = bxa.<a href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(AllModels(1, "pcanustar"), AllModels(1, "pcanustar")(2))
-</pre></code>&nbsp; <button class="cpbt" onclick="cx('Model(&quot;atable{nustar_src.pha_model.fits}&quot;, &quot;pcanustar&quot;, 2)\n\n## pcabkg.isSource -- True for dataset 1\nAllModels(1, &quot;pcanustar&quot;)(1).values = (1., -1.)\n## pcabkg.norm -- the only variable parameter\nAllModels(1, &quot;pcanustar&quot;)(2).values = (1., 0.01, 0.1, 0.1, 10., 10.)\n\n## pcabkg.isSource -- False for dataset 2\nAllModels(2, &quot;pcanustar&quot;)(1).values = (0., -1.)\n## pcabkg.norm -- should be tied to the variable normalisation above\nAllModels(2, &quot;pcanustar&quot;)(2).link = AllModels(1, &quot;pcanustar&quot;)(2)\n\n## create a prior for the only variable background parameter\nprior_pcanustar = bxa.create_loguniform_prior_for(AllModels(1, &quot;pcanustar&quot;), AllModels(1, &quot;pcanustar&quot;)(2))')";><i class="icofont-copy"></i></button></br></br>
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('Model(&quot;atable{nustar_src.pha_model.fits}&quot;, &quot;pcanustar&quot;, 2)\n\n## pcanustar.isSource -- True for dataset 1\nAllModels(1, &quot;pcanustar&quot;)(1).values = (1., -1.)\n## pcanustar.norm -- the only variable parameter\nAllModels(1, &quot;pcanustar&quot;)(2).values = (1., 0.01, 0.1, 0.1, 10., 10.)\n\n## pcanustar.isSource -- False for dataset 2\nAllModels(2, &quot;pcanustar&quot;)(1).values = (0., -1.)\n## pcanustar.norm -- should be tied to the variable normalisation above\nAllModels(2, &quot;pcanustar&quot;)(2).link = AllModels(1, &quot;pcanustar&quot;)(2)\n\n## create a prior for the only variable background parameter\nprior_pcanustar = bxa.create_loguniform_prior_for(AllModels(1, &quot;pcanustar&quot;), AllModels(1, &quot;pcanustar&quot;)(2))')";><i class="icofont-copy"></i></button></br></br>
             </li>
 
             <li>
