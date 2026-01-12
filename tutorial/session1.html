@@ -625,7 +625,7 @@ AllData.<a href="https://heasarc.gsfc.nasa.gov/docs/software/xspec/python/html/s
             </li>
 
             <li>
-          Next we load the background model and its associated parameters. We also include a prior on the normalisation of the fit. Allowing the normalisation to vary during the fit will include some realistic uncertainty associated with fitting the background spectrum. Note this parameter should be close to unity.</br>
+          Next we load the background model and its associated parameters. We also include a prior on the normalisation of the background model to provide some realistic uncertainty associated with fitting the background spectrum. Note this parameter should be close to unity.</br>
           <code><pre>
 Model("atable{nustar_src.pha_model.fits}", "pcanustar", 2)
 
