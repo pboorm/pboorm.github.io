@@ -586,11 +586,12 @@ results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/
         <div class="section-title">
           <a class="collapselink" data-toggle="collapse" href="#collapse-ex16" aria-expanded="true" aria-controls="collapse-ex16" style="color: #173b6c;">
           <h3><i class="bx bx-chevron-right"></i> Exercise 1.6 - automated background fitting with BXA <a class="headerlink" href="#ex16" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
+        <p><em>An alternative technique to W-statistics is to use C-statistics, which does not require any spectral binning so long as a viable background model exists. Here we explore how to implement background models within PyXspec and Sherpa.</em></p>
         </a>
         </div>
         <div class="collapse show" id="collapse-ex16">
 
-        So far, the exercises have used modified C-statistics (aka W-statistics) in which the background is modelled as a stepwise function with the same number of parameters as bins. This process typically requires some form of minimal binning to avoid having too many background bins with zero counts (see discussion <a target="_blank" href="https://giacomov.github.io/Bias-in-profile-poisson-likelihood/">here</a>).</br></br>
+        So far the exercises have used modified C-statistics (aka W-statistics) in which the background is modelled as a stepwise function with the same number of parameters as bins. This process typically requires some form of minimal binning to avoid having too many background bins with zero counts (see discussion <a target="_blank" href="https://giacomov.github.io/Bias-in-profile-poisson-likelihood/">here</a>).</br></br>
 
           Using C-statistics can be more flexible, since no binning is required by simultaneously fitting a background model with the source model instead. Here we use the <a target="_blank" href="https://johannesbuchner.github.io/BXA/pca-background-models.html">PCA background models</a> presented by <a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...618A..66S/abstract">Simmonds et al., 2018</a> together with the automated fitting procedure available as part of BXA. Note since the background models are empirical and are fit in detector space, these should not be convolved by the detector response. The processes to achieve this after quite different in PyXspec and Sherpa, as follows.</br></br>
 
@@ -624,7 +625,7 @@ AllData.<a href="https://heasarc.gsfc.nasa.gov/docs/software/xspec/python/html/s
             </li>
 
             <li>
-          Next we load the background model and its associated parameters. We also include a prior on the normalisation of the fit. Allowing the normalisation to vary during the fit will include some realistic uncertainty associated with the background spectrum.</br>
+          Next we load the background model and its associated parameters. We also include a prior on the normalisation of the fit. Allowing the normalisation to vary during the fit will include some realistic uncertainty associated with fitting the background spectrum. Note this parameter should be close to unity.</br>
           <code><pre>
 Model("atable{nustar_src.pha_model.fits}", "pcanustar", 2)
 
