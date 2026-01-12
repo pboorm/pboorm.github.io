@@ -206,7 +206,7 @@ bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/
             <code><pre>
 model1 = Model("<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>*<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>")
 model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>.nH.values = (0.04, -1.) ## Milky Way absorption
-model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)
+model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.PhoIndex = (1.8, 0.1, -3., -3., 10., 10.)
 model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.Redshift.values = (0.05, -1.)
 model1.<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>.norm.values = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)
 </pre></code>&nbsp; <button class="cpbt" onclick="cx('model1 = Model(&quot;TBabs*zpowerlw&quot;)\nmodel1.TBabs.nH.values = (0.04, -1.) ## Milky Way absorption\nmodel1.zpowerlw.PhoIndex = (1.8, 0.1, -3., -2., 9., 10.)\nmodel1.zpowerlw.Redshift.values = (0.05, -1.)\nmodel1.zpowerlw.norm.values = (1.e-4, 0.01, 1.e-10, 1.e-10, 1., 1.)')"><i class="icofont-copy"></i></button></li>
@@ -585,19 +585,87 @@ results = solver.<a target="_blank" href="https://johannesbuchner.github.io/BXA/
       <div class="container">
         <div class="section-title">
           <a class="collapselink" data-toggle="collapse" href="#collapse-ex16" aria-expanded="true" aria-controls="collapse-ex16" style="color: #173b6c;">
-          <h3><i class="bx bx-chevron-right"></i> Exercise 1.6 - (Sherpa only) automated background fitting with BXA <a class="headerlink" href="#ex16" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
+          <h3><i class="bx bx-chevron-right"></i> Exercise 1.6 - automated background fitting with BXA <a class="headerlink" href="#ex16" title="Permalink to this headline" style="font-size: 20px;"><i class="icofont-link-alt"></i></a></h3>
         </a>
         </div>
         <div class="collapse show" id="collapse-ex16">
 
-        So far, the exercises have used modified C-statistics (aka W-statistics) in which the background is modelled as a stepwise function with the same number of parameters as bins. This process typically requires some form of minimal binning (see discussion <a target="_blank" href="https://giacomov.github.io/Bias-in-profile-poisson-likelihood/">here</a>).</br></br>
+        So far, the exercises have used modified C-statistics (aka W-statistics) in which the background is modelled as a stepwise function with the same number of parameters as bins. This process typically requires some form of minimal binning to avoid having too many background bins with zero counts (see discussion <a target="_blank" href="https://giacomov.github.io/Bias-in-profile-poisson-likelihood/">here</a>).</br></br>
 
-          Using C-statistics can be more flexible, since no binning is required by simultaneously fitting a background model instead. Here we use the <code><a target="_blank" href="https://johannesbuchner.github.io/BXA/pca-background-models.html">auto_background</a></code> function in BXA, which provides a powerful way to implement background models in Sherpa, and simultaneously fit with a source model using BXA.</br></br>
+          Using C-statistics can be more flexible, since no binning is required by simultaneously fitting a background model with the source model instead. Here we use the <a target="_blank" href="https://johannesbuchner.github.io/BXA/pca-background-models.html">PCA background models</a> presented by <a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...618A..66S/abstract">Simmonds et al., 2018</a> together with the automated fitting procedure available as part of BXA. Note since the background models are empirical and are fit in detector space, these should not be convolved by the detector response. The processes to achieve this after quite different in PyXspec and Sherpa, as follows.</br></br>
+
+          <ul>
+          <li>PyXspec:</br>
+          <ul>
+          <li>First generate a PyXspec atable background model for each spectrum being fit using the following command in Terminal:</br>
+          <code><pre>
+$ python3 /path/to/BXA/<a href="https://github.com/JohannesBuchner/BXA/tree/master/autobackgroundmodel">autobackgroundmodel</a>/<a href="https://github.com/JohannesBuchner/BXA/blob/master/autobackgroundmodel/fitbkg.py">fitbkg.py</a> nustar_bkg.pha nustar_src.pha</pre></code>
+&nbsp; <button class="cpbt" onclick="cx('$ python3 /path/to/BXA/autobackgroundmodel/fitbkg.py nustar_bkg.pha nustar_src_bmin5.pha')"><i class="icofont-copy"></i></button></br></br>
+<!-- s = AllData("1:1 nustar_src_bmin5.pha") -->
+          This will create a number of files, including the Quantile-Quantile plot for the fit to the background <code>nustar_bkg.pha.bstat_cum.pdf</code>. Check this file to make sure the fit is reasonable, with a clear approximately diagonal line (more information on Quantile-Quantile plots can be found in <a href="#ex22">Exercise 2.2</a>).</br></br>
+        </li>
+        <li>
+          Next start a new PyXspec session and load the data. Note when including a background model with C-statistics, <strong>no binning is required</strong> so we revert back to the original unbinned source+background spectral file. Also note that since we are separately fitting the background, we load both the source+background and background spectra as separate datasets.</br>
+          <code><pre>
+AllData("1:1 nustar_src.pha 2:2 nustar_bkg.pha")
+AllData(1).<a href="https://heasarc.gsfc.nasa.gov/docs/software/xspec/python/html/spectrum.html#spectrum-label">background</a> = ""
+min_channel = min(AllData(2).<a href="https://heasarc.gsfc.nasa.gov/docs/software/xspec/python/html/spectrum.html#spectrum-label">noticed</a>)
+max_channel = max(AllData(2).<a href="https://heasarc.gsfc.nasa.gov/docs/software/xspec/python/html/spectrum.html#spectrum-label">noticed</a>)
+<a href="https://heasarc.gsfc.nasa.gov/docs/software/xspec/python/html/extended.html#ignore-notice">AllData.ignore</a>("1:**-3. 78.-** 2:**-%d %d-**" %(min_channel, max_channel))
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('AllData(&quot;1:1 nustar_src.pha 2:2 nustar_bkg.pha&quot;)\nAllData(1).background = &quot;&quot;\nmin_channel = min(AllData(2).noticed)\nmax_channel = max(AllData(2).noticed)\nAllData.ignore(&quot;1:**-3. 78.-** 2:**-%d %d-**&quot; %(min_channel, max_channel))')";><i class="icofont-copy"></i></button></br></br>
+
+          <li>
+          Since the background is empirical and derived in detector space, it should not be convolved by the same instrument response as the source+background spectrum. To achieve this in PyXspec requires a workaround in which the background dataset is assigned a diagonal response for the model to be fit, and for the way the model is included in the source+background spectral file.</br>
+          <code><pre>
+AllData(2).response = ""
+AllData.<a href="https://heasarc.gsfc.nasa.gov/docs/software/xspec/python/html/spectrum.html#xspec.Spectrum.dummyrsp">dummyrsp</a>("%d %d %d lin 0 1 2:1" %(min_channel, max_channel+1, max_channel+1))
+AllData.<a href="https://heasarc.gsfc.nasa.gov/docs/software/xspec/python/html/spectrum.html#xspec.Spectrum.dummyrsp">dummyrsp</a>("%d %d %d lin 0 1 2:2" %(min_channel, max_channel+1, max_channel+1))
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('AAllData(2).response = &quot;&quot;\nAllData.dummyrsp(&quot;%d %d %d lin 0 1 2:1&quot; %(min_channel, max_channel+1, max_channel+1))\nAllData.dummyrsp(&quot;%d %d %d lin 0 1 2:2&quot; %(min_channel, max_channel+1, max_channel+1))')";><i class="icofont-copy"></i></button></br></br>
+            </li>
+
+            <li>
+          Next we load the background model and its associated parameters. We also include a prior on the normalisation of the fit. Allowing the normalisation to vary during the fit will include some realistic uncertainty associated with the background spectrum.</br>
+          <code><pre>
+Model("atable{nustar_src.pha_model.fits}", "pcanustar", 2)
+
+## pcabkg.isSource -- True for dataset 1
+AllModels(1, "pcanustar")(1).values = (1., -1.)
+## pcabkg.norm -- the only variable parameter
+AllModels(1, "pcanustar")(2).values = (1., 0.01, 0.1, 0.1, 10., 10.)
+
+## pcabkg.isSource -- False for dataset 2
+AllModels(2, "pcanustar")(1).values = (0., -1.)
+## pcabkg.norm -- should be tied to the variable normalisation above
+AllModels(2, "pcanustar")(2).link = AllModels(1, "pcanustar")(2)
+
+## create a prior for the only variable background parameter
+prior_pcanustar = bxa.<a href="https://johannesbuchner.github.io/BXA/_modules/bxa/xspec/priors.html#create_loguniform_prior_for">create_loguniform_prior_for</a>(AllModels(1, "pcanustar"), AllModels(1, "pcanustar")(2))
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('Model(&quot;atable{nustar_src.pha_model.fits}&quot;, &quot;pcanustar&quot;, 2)\n\n## pcabkg.isSource -- True for dataset 1\nAllModels(1, &quot;pcanustar&quot;)(1).values = (1., -1.)\n## pcabkg.norm -- the only variable parameter\nAllModels(1, &quot;pcanustar&quot;)(2).values = (1., 0.01, 0.1, 0.1, 10., 10.)\n\n## pcabkg.isSource -- False for dataset 2\nAllModels(2, &quot;pcanustar&quot;)(1).values = (0., -1.)\n## pcabkg.norm -- should be tied to the variable normalisation above\nAllModels(2, &quot;pcanustar&quot;)(2).link = AllModels(1, &quot;pcanustar&quot;)(2)\n\n## create a prior for the only variable background parameter\nprior_pcanustar = bxa.create_loguniform_prior_for(AllModels(1, &quot;pcanustar&quot;), AllModels(1, &quot;pcanustar&quot;)(2))')";><i class="icofont-copy"></i></button></br></br>
+            </li>
+
+            <li>
+          Last but not least, we define our source model to fit the source+background spectrum simultaneously with our background model. Here we define the same Model 1 as defined in <a href="#ex11">Exercise 1.1</a>. Note the alternate way of defining the model, since now we have to consider the background and source models separately.</br>
+<code><pre>
+model1 = Model("<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node268.html" target="_blank">TBabs</a>*<a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node216.html" target="_blank">zpowerlw</a>", "srcmod", 1)
+...
+solver = bxa.BXASolver(transformations=[prior1, prior2, prior_pcanustar], outputfiles_basename="model1_nu_cstat")
+results = solver.run(resume=True)
+</pre></code>&nbsp; <button class="cpbt" onclick="cx('model1 = Model(&quot;TBabs*zpowerlw&quot;, &quot;srcmod&quot;, 1)\n\n## set source model parameters and priors as in Exercise 1.1\n\nsolver = bxa.BXASolver(transformations=[prior1, prior2, prior_pcanustar], outputfiles_basename=&quot;model1_nu_cstat&quot;)\nresults = solver.run(resume=True)')";><i class="icofont-copy"></i></button></br></br>
+        </li>
+      </li>
+    </ul>
+  </li>
+          <li>Sherpa:</br>
+
+          </li>
+
+
+           <!-- <code><a target="_blank" href="https://johannesbuchner.github.io/BXA/pca-background-models.html">auto_background</a></code> function in BXA, which provides a powerful way to implement background models in Sherpa, and simultaneously fit with a source model using BXA.</br></br> -->
 
           <ul>
           <li>Load the data, source model and priors as in <a href="#ex11">Exercise 1.1</a> (make sure to also change the statistic from <code>wstat</code> to <code>cstat</code>!)</li></br>
 
-          <li>Load the automatic PCA background model (see <a target="_blank" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...618A..66S/abstract">Simmonds et al., 2018</a> for more information):</br>
+          <li>Load the automatic PCA background model:</br>
           <code><pre>
 from bxa.sherpa.background.pca import <a target="_blank" href="https://johannesbuchner.github.io/BXA/_modules/bxa/sherpa/background/pca.html#auto_background">auto_background</a>
 <a target="_blank" href="https://cxc.harvard.edu/sherpa/ahelp/set_model.html">set_model</a>(1, model)
@@ -606,7 +674,7 @@ bkg_model = <a target="_blank" href="https://johannesbuchner.github.io/BXA/_modu
 <a target="_blank" herf="https://cxc.cfa.harvard.edu/sherpa/ahelp/set_full_model.html">set_full_model</a>(1, convmodel + bkg_model*<a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/get_bkg_scale.html">get_bkg_scale</a>(1))
 </pre></code>
 &nbsp; <button class="cpbt" onclick="cx('from bxa.sherpa.background.pca import auto_background\nset_model(1, model)\nconvmodel = get_model(1)\nbkg_model = auto_background(1)\nset_full_model(1, convmodel + bkg_model*get_bkg_scale(1))')"><i class="icofont-copy"></i></button>
-          </li>
+          </li></br>
 
           <li>Remember to include the zeroth order component from the PCA background model in the priors and parameters list so that BXA knows to vary it as a free parameter:</br>
           <code><pre>
@@ -615,12 +683,9 @@ priors += [bxa.<a target="_blank" href="https://johannesbuchner.github.io/BXA/_m
 </pre></code>
 &nbsp; <button class="cpbt" onclick="cx('parameters += [bkg_model.pars[0]]\npriors += [bxa.create_uniform_prior_for(bkg_model.pars[0])]')"><i class="icofont-copy"></i></button>
           </li></br>
-
-          <li>Fit the source + background model with BXA</li></br>
-
           <li>Check the background fit (e.g., with <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/plot_bkg_fit.html">get_bkg_fit</a></code>, <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/plot_bkg_fit_ratio.html">get_bkg_fit_ratio</a></code>, <code><a target="_blank" href="https://cxc.cfa.harvard.edu/sherpa/ahelp/plot_bkg_fit_resid.html">get_bkg_fit_resid</a></code>).</li></br>
-
-          <li>Have the uncertainty ranges changed at all for the parameters? Why or why not?</li>
+</ul>
+          <li>Now try fitting the source and background models simultaneously on the unbinned data with C-statistics for all three models. Have the uncertainty ranges or posterior shapes changed at all for any parameters? Why or why not?</li>
         </ul>
       </div>
 </section>
